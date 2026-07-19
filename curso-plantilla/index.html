@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--
+    ═══════════════════════════════════════════════════════════
+    ✏️  CAMBIA EL TÍTULO AQUÍ (paso 1 de 2)
+    Escribe el nombre de tu curso entre las etiquetas <title>.
+    Ejemplo: <title>Curso de Matemáticas Divertidas</title>
+    ═══════════════════════════════════════════════════════════
+  -->
+  <title>Curso de HTML para Principiantes</title>
+  <meta name="description" content="Plantilla reutilizable para crear cursos. Cambia el título y listo." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/estilo.css" />
+</head>
+<body>
+  <!--
+    ═══════════════════════════════════════════════════════════
+    ✏️  CAMBIA EL TÍTULO AQUÍ (paso 2 de 2)
+    Busca data-course-title más abajo y cambia el texto.
+    ¡Con eso tu curso ya tiene nombre nuevo en toda la página!
+    ═══════════════════════════════════════════════════════════
+  -->
+  <div
+    id="curso"
+    data-course-title="Curso de HTML para Principiantes"
+    data-course-tagline="Aprende a construir páginas web como quien arma un LEGO: pieza por pieza."
+  >
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <header class="site-header">
+      <div class="site-header__inner">
+        <p class="brand" aria-label="Nombre del curso">
+          <span class="brand__mark" aria-hidden="true"></span>
+          <span class="js-course-title">Curso de HTML para Principiantes</span>
+        </p>
+        <nav class="nav" aria-label="Secciones del curso">
+          <a href="#aprender">Qué aprenderás</a>
+          <a href="#modulos">Módulos</a>
+          <a href="#como">Cómo funciona</a>
+          <a href="#empezar" class="nav__cta">Empezar</a>
+        </nav>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-movil" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <div id="menu-movil" class="nav-mobile" hidden>
+        <a href="#aprender">Qué aprenderás</a>
+        <a href="#modulos">Módulos</a>
+        <a href="#como">Cómo funciona</a>
+        <a href="#empezar">Empezar</a>
+      </div>
+    </header>
+
+    <main id="contenido">
+      <!-- HERO: una sola composición -->
+      <section class="hero" aria-labelledby="hero-titulo">
+        <div class="hero__atmosphere" aria-hidden="true"></div>
+        <div class="hero__content">
+          <h1 id="hero-titulo" class="hero__brand js-course-title">
+            Curso de HTML para Principiantes
+          </h1>
+          <p class="hero__lead js-course-tagline">
+            Aprende a construir páginas web como quien arma un LEGO: pieza por pieza.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#modulos">Ver los módulos</a>
+            <a class="btn btn--ghost" href="#aprender">¿De qué va esto?</a>
+          </div>
+        </div>
+        <div class="hero__visual" aria-hidden="true">
+          <svg class="hero__illustration" viewBox="0 0 640 420" role="img" focusable="false">
+            <defs>
+              <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#7ec8ff" />
+                <stop offset="100%" stop-color="#c8ecff" />
+              </linearGradient>
+              <linearGradient id="block" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#ffb347" />
+                <stop offset="100%" stop-color="#ff8c42" />
+              </linearGradient>
+            </defs>
+            <rect width="640" height="420" fill="url(#sky)" />
+            <ellipse cx="520" cy="90" rx="70" ry="28" fill="#fff" opacity=".85" />
+            <ellipse cx="470" cy="95" rx="40" ry="18" fill="#fff" opacity=".7" />
+            <ellipse cx="160" cy="70" rx="55" ry="22" fill="#fff" opacity=".75" />
+            <!-- Bloques tipo LEGO / etiquetas HTML -->
+            <g class="float-a">
+              <rect x="90" y="180" width="160" height="70" rx="14" fill="url(#block)" />
+              <text x="170" y="225" text-anchor="middle" fill="#3b1f0a" font-family="Fredoka, sans-serif" font-size="28" font-weight="700">&lt;h1&gt;</text>
+            </g>
+            <g class="float-b">
+              <rect x="280" y="140" width="180" height="70" rx="14" fill="#4ecdc4" />
+              <text x="370" y="185" text-anchor="middle" fill="#0a2e2c" font-family="Fredoka, sans-serif" font-size="28" font-weight="700">&lt;p&gt;</text>
+            </g>
+            <g class="float-c">
+              <rect x="220" y="260" width="200" height="70" rx="14" fill="#ffe66d" />
+              <text x="320" y="305" text-anchor="middle" fill="#3b2f0a" font-family="Fredoka, sans-serif" font-size="28" font-weight="700">&lt;img&gt;</text>
+            </g>
+            <g class="float-d">
+              <rect x="450" y="230" width="140" height="70" rx="14" fill="#ff6b6b" />
+              <text x="520" y="275" text-anchor="middle" fill="#2b0a0a" font-family="Fredoka, sans-serif" font-size="26" font-weight="700">&lt;a&gt;</text>
+            </g>
+            <!-- Persona pequeña construyendo -->
+            <circle cx="120" cy="320" r="22" fill="#ffd6a5" />
+            <rect x="100" y="344" width="40" height="48" rx="12" fill="#2ec4b6" />
+          </svg>
+        </div>
+      </section>
+
+      <!-- Una sección = un trabajo -->
+      <section id="aprender" class="section section--learn" aria-labelledby="aprender-titulo">
+        <div class="section__inner">
+          <h2 id="aprender-titulo">Qué vas a aprender</h2>
+          <p class="section__lead">
+            Imagina que una página web es una casa. HTML son los ladrillos.
+            Aquí te enseñamos a poner cada ladrillo en su sitio… sin misterio.
+          </p>
+          <ul class="learn-list">
+            <li>
+              <strong>Etiquetas</strong>
+              <span>Son como pegatinas que le dicen al navegador: “esto es un título”, “esto es un párrafo”.</span>
+            </li>
+            <li>
+              <strong>Estructura</strong>
+              <span>Ordenamos la página: encabezado, cuerpo y pie. Como un cuaderno con portada y hojas.</span>
+            </li>
+            <li>
+              <strong>Enlaces e imágenes</strong>
+              <span>Conectamos páginas y mostramos fotos. ¡Tu web empieza a cobrar vida!</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="modulos" class="section section--modules" aria-labelledby="modulos-titulo">
+        <div class="section__inner">
+          <h2 id="modulos-titulo">Los módulos del curso</h2>
+          <p class="section__lead">
+            Cada módulo es un capítulo. Terminas uno, pasas al siguiente. Fácil.
+          </p>
+          <ol class="module-list">
+            <li class="module">
+              <span class="module__num" aria-hidden="true">01</span>
+              <div>
+                <h3>Hola, mundo</h3>
+                <p>Creas tu primer archivo HTML y lo abres en el navegador. Sí: ¡tú hiciste eso!</p>
+              </div>
+            </li>
+            <li class="module">
+              <span class="module__num" aria-hidden="true">02</span>
+              <div>
+                <h3>Títulos y textos</h3>
+                <p>Usas &lt;h1&gt;, &lt;h2&gt; y &lt;p&gt; para que tu página se lea clarito.</p>
+              </div>
+            </li>
+            <li class="module">
+              <span class="module__num" aria-hidden="true">03</span>
+              <div>
+                <h3>Listas y enlaces</h3>
+                <p>Armas listas (como la de la compra) y botones que llevan a otras páginas.</p>
+              </div>
+            </li>
+            <li class="module">
+              <span class="module__num" aria-hidden="true">04</span>
+              <div>
+                <h3>Tu mini proyecto</h3>
+                <p>Juntas todo y publicas una página sobre algo que te guste: tu mascota, un juego, un hobby.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="como" class="section section--how" aria-labelledby="como-titulo">
+        <div class="section__inner">
+          <h2 id="como-titulo">Cómo usar esta plantilla</h2>
+          <p class="section__lead">
+            Un senior te lo explica como a un niño de 10 años: cambia el título y la plantilla hace el resto.
+          </p>
+          <ol class="steps">
+            <li>
+              <strong>Abre este archivo</strong>
+              <span>Busca arriba del código la frase <code>data-course-title</code>.</span>
+            </li>
+            <li>
+              <strong>Escribe tu título</strong>
+              <span>Cámbialo por el nombre de tu curso. Ejemplo: “Curso de Pintura Digital”.</span>
+            </li>
+            <li>
+              <strong>Guarda y mira</strong>
+              <span>Recarga la página. El título nuevo aparece en la cabecera, el héroe y la pestaña del navegador.</span>
+            </li>
+          </ol>
+          <aside class="tip" role="note">
+            <p>
+              <strong>Truco de pro:</strong> también puedes cambiar
+              <code>data-course-tagline</code> para la frase corta debajo del título.
+              Es como el subtítulo de una película.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <section id="empezar" class="section section--cta" aria-labelledby="cta-titulo">
+        <div class="section__inner">
+          <h2 id="cta-titulo">¿Listo para construir?</h2>
+          <p class="section__lead js-course-tagline">
+            Aprende a construir páginas web como quien arma un LEGO: pieza por pieza.
+          </p>
+          <a class="btn btn--primary btn--lg" href="#modulos">Empezar ahora</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        Plantilla de curso ·
+        <span class="js-course-title">Curso de HTML para Principiantes</span>
+      </p>
+      <p class="site-footer__hint">Cambia solo el título. El diseño ya está listo.</p>
+    </footer>
+  </div>
+
+  <script src="js/curso.js"></script>
+</body>
+</html>
