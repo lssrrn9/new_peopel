@@ -1,0 +1,49 @@
+{
+  "name": "Industrial RAG Troubleshooting",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "appsheet-fault",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "name": "Webhook AppSheet",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://api:8000/troubleshoot",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"equipment_id\": \"{{$json.equipment_id}}\",\n  \"query\": \"{{$json.fault_code}}\",\n  \"source\": \"appsheet\",\n  \"technician_id\": \"{{$json.technician_id}}\"\n}",
+        "options": {}
+      },
+      "name": "RAG API filtrada",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [520, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}"
+      },
+      "name": "Respuesta a AppSheet",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [800, 300]
+    }
+  ],
+  "connections": {
+    "Webhook AppSheet": {
+      "main": [[{ "node": "RAG API filtrada", "type": "main", "index": 0 }]]
+    },
+    "RAG API filtrada": {
+      "main": [[{ "node": "Respuesta a AppSheet", "type": "main", "index": 0 }]]
+    }
+  }
+}
