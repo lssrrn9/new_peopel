@@ -1,0 +1,32 @@
+[
+  {
+    "equipment_id": "VFD-LINE1-02",
+    "name": "Variador transportador empaque",
+    "manufacturer": "Danfoss",
+    "model": "FC-302",
+    "line": "Linea_Empaque",
+    "manual_file": "manuals/danfoss_fc302_v3.1.md",
+    "manual_version": "v3.1",
+    "qr_code": "QR-VFD-LINE1-02"
+  },
+  {
+    "equipment_id": "VFD-LINE1-01",
+    "name": "Variador alimentador",
+    "manufacturer": "Danfoss",
+    "model": "FC-302",
+    "line": "Linea_Empaque",
+    "manual_file": "manuals/danfoss_fc302_v3.1.md",
+    "manual_version": "v3.1",
+    "qr_code": "QR-VFD-LINE1-01"
+  },
+  {
+    "equipment_id": "PLC-LINE1-01",
+    "name": "PLC principal empaque",
+    "manufacturer": "Siemens",
+    "model": "S7-1500",
+    "line": "Linea_Empaque",
+    "manual_file": "manuals/siemens_s7_1500_faults.md",
+    "manual_version": "v1.2",
+    "qr_code": "QR-PLC-LINE1-01"
+  }
+]
