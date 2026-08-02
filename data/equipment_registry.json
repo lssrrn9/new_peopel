@@ -1,0 +1,57 @@
+[
+  {
+    "machine_id": "TUBE-FORMER-01",
+    "equipment_id": "VFD-TUBE-01",
+    "name": "Variador formadora de tubos — transportador principal",
+    "manufacturer": "Danfoss",
+    "model": "FC-302",
+    "line": "Formado_Tubos",
+    "manual_file": "manuals/danfoss_fc302_v3.1.md",
+    "manual_version": "v3.1",
+    "qr_code": "QR-VFD-TUBE-01"
+  },
+  {
+    "machine_id": "TUBE-FORMER-01",
+    "equipment_id": "PLC-TUBE-01",
+    "name": "PLC principal formadora de tubos",
+    "manufacturer": "Siemens",
+    "model": "S7-1500",
+    "line": "Formado_Tubos",
+    "manual_file": "manuals/siemens_s7_1500_faults.md",
+    "manual_version": "v1.2",
+    "qr_code": "QR-PLC-TUBE-01"
+  },
+  {
+    "machine_id": "PACK-LINE-01",
+    "equipment_id": "VFD-LINE1-02",
+    "name": "Variador transportador empaque",
+    "manufacturer": "Danfoss",
+    "model": "FC-302",
+    "line": "Linea_Empaque",
+    "manual_file": "manuals/danfoss_fc302_v3.1.md",
+    "manual_version": "v3.1",
+    "qr_code": "QR-VFD-LINE1-02"
+  },
+  {
+    "machine_id": "PACK-LINE-01",
+    "equipment_id": "VFD-LINE1-01",
+    "name": "Variador alimentador",
+    "manufacturer": "Danfoss",
+    "model": "FC-302",
+    "line": "Linea_Empaque",
+    "manual_file": "manuals/danfoss_fc302_v3.1.md",
+    "manual_version": "v3.1",
+    "qr_code": "QR-VFD-LINE1-01"
+  },
+  {
+    "machine_id": "PACK-LINE-01",
+    "equipment_id": "PLC-LINE1-01",
+    "name": "PLC principal empaque",
+    "manufacturer": "Siemens",
+    "model": "S7-1500",
+    "line": "Linea_Empaque",
+    "manual_file": "manuals/siemens_s7_1500_faults.md",
+    "manual_version": "v1.2",
+    "qr_code": "QR-PLC-LINE1-01"
+  }
+]
