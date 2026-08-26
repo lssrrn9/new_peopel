@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700">
+<style>
+  text { font-family: Arial, Helvetica, sans-serif; fill: #1a1a1a; }
+  .title { font-size: 18px; font-weight: bold; }
+  .subtitle { font-size: 12px; fill: #444; }
+  .label { font-size: 11px; }
+  .small { font-size: 9px; fill: #555; }
+  .wire { stroke: #111; stroke-width: 2; fill: none; }
+  .box { fill: #f7f7f7; stroke: #333; stroke-width: 1.5; }
+  .breaker { fill: #e8f0fe; stroke: #1a56db; stroke-width: 1.5; }
+  .meter { fill: #fef3c7; stroke: #b45309; stroke-width: 1.5; }
+  .main { fill: #fee2e2; stroke: #b91c1c; stroke-width: 2; }
+  .load { fill: #ecfdf5; stroke: #047857; stroke-width: 1.2; }
+  .cabinet { fill: none; stroke: #374151; stroke-width: 3; }
+  .rail { fill: #9ca3af; stroke: #4b5563; stroke-width: 1; }
+  .dim { stroke: #6b7280; stroke-width: 1; fill: none; stroke-dasharray: 4 3; }
+</style>
+<text x="30" y="30" class="title">Plano de Ubicación — Tablero y Acometida (referencia cartel)</text>
+<text x="30" y="50" class="subtitle">Griffith Foods — Área de polvos | Canasta existente + tramo nuevo 400mm pared Sur</text>
+<rect x="80" y="80" width="840" height="520" fill="#fafafa" stroke="#333" stroke-width="2"/><text x="500" y="110" text-anchor="middle" class="label">Área de proceso polvos (referencia layout cartel p.7)</text><rect x="120" y="150" width="140" height="80" class="load"/><text x="190.0" y="180" text-anchor="middle" class="small">Portion Pack</text><rect x="120" y="260" width="140" height="80" class="load"/><text x="190.0" y="290" text-anchor="middle" class="small">Flow Pack</text><rect x="300" y="150" width="120" height="100" class="load"/><text x="360.0" y="180" text-anchor="middle" class="small">Vent. 1</text><rect x="300" y="280" width="120" height="100" class="load"/><text x="360.0" y="310" text-anchor="middle" class="small">Vent. 2</text><rect x="300" y="410" width="120" height="100" class="load"/><text x="360.0" y="440" text-anchor="middle" class="small">Vent. 3</text><rect x="500" y="150" width="130" height="70" class="load"/><text x="565.0" y="180" text-anchor="middle" class="small">Descargador</text><text x="565.0" y="196" text-anchor="middle" class="small">big bags</text><rect x="500" y="240" width="130" height="70" class="load"/><text x="565.0" y="270" text-anchor="middle" class="small">Twin Pillow</text><rect x="500" y="330" width="130" height="70" class="load"/><text x="565.0" y="360" text-anchor="middle" class="small">Shifter</text><rect x="500" y="420" width="130" height="70" class="load"/><text x="565.0" y="450" text-anchor="middle" class="small">Metal detector</text><text x="565.0" y="466" text-anchor="middle" class="small">(240V exist.)</text><rect x="680" y="200" width="180" height="120" class="load"/><text x="770.0" y="230" text-anchor="middle" class="small">Zona bodega</text><text x="770.0" y="246" text-anchor="middle" class="small">nueva</text><rect x="120" y="480" width="100" height="60" class="main"/><text x="170" y="515" text-anchor="middle" class="label">TABLERO</text><text x="170" y="530" text-anchor="middle" class="small">IP67 SS304</text><path d="M 820 540 L 620 540 L 620 510 L 220 510" fill="none" stroke="#2563eb" stroke-width="4"/><text x="720" y="530" class="small" fill="#2563eb">Canasta existente</text><path d="M 220 510 L 170 510" fill="none" stroke="#dc2626" stroke-width="4" stroke-dasharray="6 4"/><text x="195" y="500" class="small" fill="#dc2626">Canasta nueva Al 400mm</text><rect x="780" y="520" width="120" height="60" class="box"/><text x="840" y="555" text-anchor="middle" class="small">Cuarto eléctrico
+125A Siemens</text><text x="80" y="640" class="small">• Soportería SS separada 50 mm de pared Sur  • Entrada tubería por parte inferior tablero  • Dim. área ref: 8.01 m × 11.50 m</text></svg>
