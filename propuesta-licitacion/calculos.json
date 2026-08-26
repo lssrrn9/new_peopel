@@ -1,0 +1,178 @@
+{
+  "connected_kw": 51.1,
+  "demand_kw_diversity_85": 43.4,
+  "connected_current_a": 75.5,
+  "demand_current_a": 64.1,
+  "panel_rating_kw": 75,
+  "panel_rating_current_a": 110.7,
+  "main_breaker_a": 125,
+  "voltage": 460,
+  "circuits": [
+    {
+      "no": 1,
+      "name": "Portion pack powder",
+      "kw": 8.0,
+      "ph": 3,
+      "current_a": 11.81,
+      "breaker_a": 16,
+      "cable": "12 AWG",
+      "motor": true
+    },
+    {
+      "no": 3,
+      "name": "Shifter",
+      "kw": 3.0,
+      "ph": 3,
+      "current_a": 4.43,
+      "breaker_a": 6,
+      "cable": "12 AWG",
+      "motor": true
+    },
+    {
+      "no": 5,
+      "name": "FlowPack",
+      "kw": 3.0,
+      "ph": 3,
+      "current_a": 4.43,
+      "breaker_a": 6,
+      "cable": "12 AWG",
+      "motor": true
+    },
+    {
+      "no": 6,
+      "name": "Tornillo alimentación",
+      "kw": 0.7,
+      "ph": 3,
+      "current_a": 1.03,
+      "breaker_a": 6,
+      "cable": "12 AWG",
+      "motor": false
+    },
+    {
+      "no": 7,
+      "name": "Twin pillow filler",
+      "kw": 9.0,
+      "ph": 3,
+      "current_a": 13.29,
+      "breaker_a": 20,
+      "cable": "12 AWG",
+      "motor": true
+    },
+    {
+      "no": 8,
+      "name": "Tornillo alimentación Pillow",
+      "kw": 0.7,
+      "ph": 3,
+      "current_a": 1.03,
+      "breaker_a": 6,
+      "cable": "12 AWG",
+      "motor": false
+    },
+    {
+      "no": 9,
+      "name": "Puerta rápida 1",
+      "kw": 1.0,
+      "ph": 3,
+      "current_a": 1.48,
+      "breaker_a": 6,
+      "cable": "12 AWG",
+      "motor": true
+    },
+    {
+      "no": 10,
+      "name": "Puerta rápida 2",
+      "kw": 1.0,
+      "ph": 3,
+      "current_a": 1.48,
+      "breaker_a": 6,
+      "cable": "12 AWG",
+      "motor": true
+    },
+    {
+      "no": 11,
+      "name": "Puerta rápida 3",
+      "kw": 1.0,
+      "ph": 3,
+      "current_a": 1.48,
+      "breaker_a": 6,
+      "cable": "12 AWG",
+      "motor": true
+    },
+    {
+      "no": 12,
+      "name": "Puerta rápida 4",
+      "kw": 1.0,
+      "ph": 3,
+      "current_a": 1.48,
+      "breaker_a": 6,
+      "cable": "12 AWG",
+      "motor": true
+    },
+    {
+      "no": 13,
+      "name": "Puerta rápida 5",
+      "kw": 1.0,
+      "ph": 3,
+      "current_a": 1.48,
+      "breaker_a": 6,
+      "cable": "12 AWG",
+      "motor": true
+    },
+    {
+      "no": 14,
+      "name": "Sistema ventilación 1",
+      "kw": 6.0,
+      "ph": 3,
+      "current_a": 8.86,
+      "breaker_a": 16,
+      "cable": "12 AWG",
+      "motor": true
+    },
+    {
+      "no": 15,
+      "name": "Sistema ventilación 2",
+      "kw": 6.0,
+      "ph": 3,
+      "current_a": 8.86,
+      "breaker_a": 16,
+      "cable": "12 AWG",
+      "motor": true
+    },
+    {
+      "no": 16,
+      "name": "Sistema ventilación 3",
+      "kw": 6.0,
+      "ph": 3,
+      "current_a": 8.86,
+      "breaker_a": 16,
+      "cable": "12 AWG",
+      "motor": true
+    },
+    {
+      "no": 17,
+      "name": "Elevador de tarimas",
+      "kw": 3.7,
+      "ph": 3,
+      "current_a": 5.46,
+      "breaker_a": 10,
+      "cable": "12 AWG",
+      "motor": true
+    }
+  ],
+  "excluded": [
+    {
+      "no": 2,
+      "name": "Big bag downloader",
+      "v": 220,
+      "kw": 2.0,
+      "note": "Tablero existente"
+    },
+    {
+      "no": 4,
+      "name": "Metal detector",
+      "v": 240,
+      "kw": 0.7,
+      "note": "Tablero existente"
+    }
+  ]
+}
