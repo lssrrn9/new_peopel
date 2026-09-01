@@ -114,7 +114,7 @@ def build(d: Deck) -> None:
             ["06", "Interfaz de control: CN1, analógico, pulsos y bus",
              "Conectar el drive al PLC/CNC con el modo de control correcto"],
             ["07", "Parámetros, panel y SigmaWin+",
-             "Manejar Pn/Fn/Un y el engranaje electrónico con soltura"],
+             "Manejar Pn/Fn/Un, SigmaWin+ Ver.7 (con pantallas) y el engranaje"],
             ["08", "Puesta en marcha paso a paso",
              "Arrancar el eje con un procedimiento seguro y repetible"],
             ["09", "Sintonización del lazo de control",

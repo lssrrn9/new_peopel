@@ -47,6 +47,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 FIG = os.path.join(BASE_DIR, "figuras") + os.sep
 FUENTE = ("Fuente: YASKAWA · Σ-XS SERVOPACK with Analog Voltage/Pulse Train "
           "References Product Manual · SIEP C710812 03I")
+FUENTE_SW = (FUENTE + " · capturas de SigmaWin+ Ver.7")
 
 SLIDE_W = Inches(13.333)
 SLIDE_H = Inches(7.5)

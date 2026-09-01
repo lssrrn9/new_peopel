@@ -3,7 +3,7 @@
 Documento generado automáticamente a partir de las notas del orador de `CURSO_YASKAWA_SERVOPACK_3kW.pptx`.
 Sirve como guion de clase y como manual de estudio en texto plano.
 
-**Total de diapositivas:** 147
+**Total de diapositivas:** 157
 
 ---
 
@@ -667,7 +667,9 @@ Insista en la función de traza: es lo que separa el ajuste 'por oído' del ajus
 
 El modo offline es un argumento de venta interno muy potente: permite que un ingeniero prepare toda la configuración desde la oficina y que la puesta en marcha en cliente se reduzca a volcar y verificar.
 
-Comente que existen versiones y compatibilidades de SigmaWin+ según la serie del drive; conviene tener la versión actual descargada de la web del fabricante.
+Comente que el SGDXS (Σ-X) se trabaja con **SigmaWin+ Ver.7**. La versión 5 es otra generación de interfaz: no la mezcle en el aula. Descargue siempre la última versión compatible desde la web de YASKAWA.
+
+Las láminas siguientes son capturas oficiales de SigmaWin+ Ver.7 tomadas del manual SIEP C710812 03I. El aspecto puede variar ligeramente según la revisión del software, pero los bloques del menú y el flujo son los mismos.
 
 ### 89. Conexión del operador digital al SERVOPACK
 
@@ -675,11 +677,85 @@ La figura del operador digital es textual en el manual: el mensaje importante es
 
 CN7 es USB; CN3 es el operador. No se intercambian.
 
-### 90. Monitor analógico `CN5`
+### 90. El mapa de SigmaWin+: estado del eje y menú de funciones
+
+Esta es la lámina de orientación. El alumno debe poder señalar, sin pensar, en qué bloque está cada tarea.
+
+Truco de aula: pida nueve voluntarios y asigne un bloque a cada uno. Luego lance situaciones ('el eje no gira', 'quiero ver el error de seguimiento', 'hay una alarma A.720') y que el grupo diga el bloque.
+
+HBB encendido = el CN8 está abriendo el HWBB: el eje no dará par aunque todo lo demás esté bien. Es el primer LED que hay que mirar.
+
+### 91. Flujo de trabajo la primera vez que abres SigmaWin+
+
+Haga este flujo en el banco, en voz alta, la primera vez. Luego pida a cada alumno que lo repita solo.
+
+Sobre el driver USB: si el PC no ve el drive, no es un problema de SigmaWin+, es de Windows. Compruebe el Administrador de dispositivos antes de reinstalar el software.
+
+Modo offline: se puede preparar un proyecto sin drive (útil en oficina). Al llegar a planta se conecta y se vuelca. No sustituye la copia 'como llegó' del equipo real.
+
+### 92. Editar parámetros: nombre, rango, unidades y escritura
+
+Demuestre en vivo el ciclo verde → Write → blanco. Es el gesto que hay que automatizar.
+
+Compare con el panel: en el display no ves el nombre, ni el rango, ni las unidades. Por eso se edita mal y se confirma peor.
+
+Edited Parameters vs All Parameters: lo normal es escribir sólo lo cambiado. All Parameters se usa al clonar un eje o al restaurar un fichero completo.
+
+### 93. JOG desde SigmaWin+: el primer movimiento del motor
+
+El JOG es la prueba de que potencia, encoder y motor están bien. Si el motor no gira aquí, no tiene sentido pasar al PLC.
+
+Insista en el 'dead-man': sólo se mueve mientras se mantiene el botón. Eso evita que un clic accidental deje el eje lanzado.
+
+Pn304 a 500 min⁻¹ como en la captura del manual es demasiado para un primer arranque didáctico. Bájelo.
+
+### 94. Monitor en vivo: lo que el panel muestra, pero entero
+
+Rutina de tres pestañas: Operation (¿qué hace el eje?), Status (¿está listo?) e I/O (¿le llegan las señales?).
+
+A.810 es un ejemplo didáctico excelente: mucha gente busca un fallo de sintonización y es la pila del encoder absoluto.
+
+Compare con Un005/Un006 del panel: misma información, menos cómoda.
+
+### 95. La traza: el osciloscopio que lleva el SERVOPACK dentro
+
+Esta es la herramienta que separa al técnico que 'o ye el eje' del que decide con datos. Dedíquele tiempo de práctica.
+
+Ejercicio: capture un posicionamiento, identifique sobrepaso, tiempo de establecimiento y par de punta. Luego suba Pn102 un 20 % y repita. La comparación enseña más que diez láminas.
+
+Real Time Trace es la versión continua; Trace es la de disparo, más útil para un ciclo concreto.
+
+### 96. Autoajuste guiado: el drive propone las ganancias
+
+Muestre la tabla before/after: es la prueba de que el software no es 'magia', escribe Pn100, Pn101, Pn102, Pn103, filtros…
+
+Después del autoajuste, verifique con el ciclo real y con la traza. Aceptar a ciegas el resultado es tan malo como no usarlo.
+
+El detalle de Pn103 (inercia) es el puente con el Módulo 04: compare el valor medido con el calculado.
+
+### 97. Análisis mecánico: ver la resonancia en un diagrama de Bode
+
+Conecte esta lámina con el Módulo 09: notch, EasyFFT y análisis en frecuencia dejan de ser abstractos cuando se ve la gráfica.
+
+Interpretación mínima: un pico de ganancia = la mecánica 'canta' a esa frecuencia. El notch la atenúa para poder subir ganancias sin que el eje silbe o oscile.
+
+### 98. Alarmas e historial: el primer sitio al que ir cuando el eje para
+
+El historial es oro en mantenimiento: '¿esto es nuevo o ya pasaba hace dos semanas?'. Enséñeles a no pulsar Clear por higiene.
+
+Puente con el Módulo 11: el método de diagnóstico empieza siempre aquí, no en cambiar ganancias.
+
+### 99. Qué pantalla abrir según lo que necesites
+
+Cierre del bloque de software con una chuleta. Imprímala y péguela en el maletín junto al cable USB.
+
+Recuerde: el panel frontal sigue siendo válido para JOG, Un y Fn cuando no hay PC. SigmaWin+ no sustituye el criterio; lo acelera.
+
+### 100. Monitor analógico `CN5`
 
 CN5 es una herramienta poco conocida y muy valiosa. En ejes difíciles, ver la señal real en un osciloscopio sigue siendo insustituible.
 
-### 91. El engranaje electrónico
+### 101. El engranaje electrónico
 
 Este concepto genera muchas dudas, así que conviene explicarlo con una pregunta: ¿en qué unidades quieres programar la máquina? ¿En milímetros? ¿En micras? ¿En grados? El engranaje electrónico es lo que traduce esa unidad de referencia a cuentas del encoder.
 
@@ -691,31 +767,31 @@ Dos advertencias:
 1) Si la fracción no es exacta, hay error de redondeo que se acumula. Elija unidades que den fracciones exactas siempre que pueda.
 2) Cambiar el engranaje cambia el significado de TODOS los parámetros expresados en unidades de referencia (Pn522, Pn520, velocidades de consigna). Hay que revisarlos después.
 
-### 92. Engranaje electrónico: tres ejemplos resueltos
+### 102. Engranaje electrónico: tres ejemplos resueltos
 
 El caso de la mesa rotativa merece atención: si la fracción no es exacta, el error se acumula vuelta tras vuelta y al cabo de miles de posicionados la mesa se ha 'ido'. En ejes rotativos infinitos hay que elegir la unidad de referencia de modo que la fracción sea exacta, o usar la función de límite multivuelta coherente con la relación de transmisión.
 
 Comprobación práctica infalible tras configurar el engranaje: ordena un movimiento de 100 mm (o de 100 unidades conocidas) y **mídelo con un metro o un comparador**. Si no coincide, el engranaje está mal. Esta comprobación de 2 minutos evita fallos que aparecerían meses después.
 
-### 93. Los parámetros que más vas a tocar (1/2)
+### 103. Los parámetros que más vas a tocar (1/2)
 
 Pn000.0 merece un comentario: cambiar el sentido de giro por parámetro es lo correcto. Intercambiar dos fases del motor 'para que gire al revés' es un error grave: el encoder sigue indicando el sentido original, la realimentación queda invertida y el eje se embala o dispara alarma.
 
 Pn520 es el guardián de la mecánica: si el eje no puede seguir la consigna (choque, atasco, dimensionamiento insuficiente), esta alarma detiene el movimiento antes de romper algo. No lo suba sin entender por qué está saltando.
 
-### 94. Los parámetros que más vas a tocar (2/2)
+### 104. Los parámetros que más vas a tocar (2/2)
 
 No entre en detalle aquí: es un mapa, no el territorio. Basta con que el alumno sepa que existe un conjunto reducido de parámetros que resuelve el 95 % de los casos.
 
 Mensaje importante: el manual tiene cientos de parámetros, pero en la práctica un especialista toca habitualmente unos veinte. Eso tranquiliza mucho a quien empieza.
 
-### 95. Monitores `Un` para diagnóstico rápido
+### 105. Monitores `Un` para diagnóstico rápido
 
 Enseñe la rutina de diagnóstico en tres monitores: Un005 (¿llegan las señales?), Un002 (¿cuánto par está pidiendo?) y Un008 (¿está siguiendo la consigna?). Con esos tres se descarta el 70 % de las causas en cinco minutos.
 
 Un002 tiene un valor especial para el ingeniero: permite comparar el par real con el calculado en el Módulo 04. Si el eje pide un 90 % de par donde el cálculo decía 47 %, hay un problema mecánico que hay que resolver antes de que rompa algo.
 
-### 96. Copia de seguridad y gestión de configuraciones
+### 106. Copia de seguridad y gestión de configuraciones
 
 Este es el módulo donde conviene hablar de gestión: el mejor técnico del mundo no puede arreglar en una hora una máquina cuya configuración se perdió.
 
@@ -727,7 +803,7 @@ Este es el módulo más práctico del curso. Si hay banco de pruebas, dedique la
 
 El principio rector es 'aislar variables': se prueba primero el amplificador solo, después el motor sin carga, después con carga a baja velocidad, y sólo al final el ciclo completo. Cada fase debe superarse antes de pasar a la siguiente. Cuando algo falla, se sabe exactamente qué se acaba de cambiar.
 
-### 98. El método: seis fases, sin saltos
+### 108. El método: seis fases, sin saltos
 
 Explique el principio de aislamiento de variables. Si se conecta todo y se arranca, cuando algo falla hay veinte causas posibles. Avanzando por fases, cuando algo falla sólo hay una: lo último que se ha cambiado.
 
@@ -735,7 +811,7 @@ Este método no es más lento; es mucho más rápido, porque el tiempo perdido e
 
 Insista en la fase 0: la verificación previa es la que evita destruir equipo. Cinco minutos con el multímetro antes de energizar.
 
-### 99. Fase 1 — Primer energizado
+### 109. Fase 1 — Primer energizado
 
 Insista en la primera línea: motor desacoplado. Si el sentido de giro está invertido o el engranaje electrónico mal calculado, un eje acoplado puede embalarse contra el tope mecánico en menos de un segundo.
 
@@ -743,7 +819,7 @@ La comprobación de Un005 es un truco muy útil que ahorra tiempo: en lugar de m
 
 Recuerde el caso de CN8: si el puente de seguridad no está y el circuito HWBB no está cableado, /S-RDY no se activará o el eje no dará par sin alarma evidente.
 
-### 100. Fase 2 — Prueba de JOG sin carga (`Fn002`)
+### 110. Fase 2 — Prueba de JOG sin carga (`Fn002`)
 
 La prueba de JOG es el mejor diagnóstico inicial que existe. Un motor que gira suave y silencioso en vacío, con par casi nulo, es un motor sano bien cableado.
 
@@ -751,13 +827,13 @@ Si el motor vibra o hace ruido en vacío, las causas más probables son: gananci
 
 Sobre el sentido de giro: la convención de YASKAWA es que el sentido positivo se ve antihorario mirando desde el lado del eje. Pn000.0 invierte esa convención sin tocar nada más del sistema.
 
-### 101. Fase 3 — Configuración básica del eje
+### 111. Fase 3 — Configuración básica del eje
 
 Ordene los pasos por dependencia: el engranaje electrónico debe estar antes que Pn520 y Pn522, porque estos últimos se expresan en unidades de referencia y su significado cambia con el engranaje.
 
 La comprobación del engranaje midiendo un desplazamiento real es obligatoria y no admite atajos. Dos minutos aquí evitan semanas de desconcierto.
 
-### 102. Fase 4 — Encoder absoluto y origen de máquina
+### 112. Fase 4 — Encoder absoluto y origen de máquina
 
 Explique la diferencia entre 'posición absoluta del encoder' y 'cero de la máquina'. El encoder sabe dónde está el rotor; sólo la máquina sabe dónde está su cero útil. La relación entre ambos es el offset de origen, que vive en el controlador.
 
@@ -765,19 +841,19 @@ En algunas arquitecturas ese offset se guarda en el propio drive; en otras, en e
 
 Ejercicio recomendado: simule una sustitución de drive. Cargue los parámetros en otro equipo, ejecute Fn008 y compruebe cuánto se tarda en recuperar el eje. Es un ensayo que vale su peso en oro cuando ocurra de verdad.
 
-### 103. Fase 5 — Acoplar la carga y probar el ciclo
+### 113. Fase 5 — Acoplar la carga y probar el ciclo
 
 El paso 3 (recorrer todo el rango a baja velocidad observando el par) es un diagnóstico mecánico de altísimo valor y coste cero. Un husillo torcido, un rodamiento dañado o una guía sucia se detectan inmediatamente como un aumento local del par.
 
 El paso 7 es el que más se salta y el que más problemas evita: muchos ejes funcionan perfectamente durante diez ciclos y disparan A.720 (sobrecarga continua) tras media hora de producción, porque el par RMS real es mayor que el calculado.
 
-### 104. Acta de puesta en marcha del eje
+### 114. Acta de puesta en marcha del eje
 
 Insista en el valor económico de documentar: el coste de media hora de documentación frente al coste de un día de parada por no saber cómo estaba configurado un eje.
 
 Sugerencia: convertir esta tabla en una plantilla corporativa (Word o formulario digital) que se rellene en cada puesta en marcha.
 
-### 105. Los diez errores más frecuentes en puesta en marcha
+### 115. Los diez errores más frecuentes en puesta en marcha
 
 Puede usar esta tabla como cierre del módulo y como test rápido: pida a los alumnos que expliquen por qué cada error tiene la consecuencia indicada. Si saben justificarlo, han entendido el módulo.
 
@@ -789,7 +865,7 @@ El módulo más técnico y el que más practica requiere. Conviene alternar teor
 
 Advertencia pedagógica: la sintonización no es un procedimiento cerrado sino un compromiso entre rapidez, precisión y estabilidad. El alumno debe salir sabiendo qué está negociando en cada momento.
 
-### 107. Cómo se ve una sintonización buena y una mala
+### 117. Cómo se ve una sintonización buena y una mala
 
 Este diagrama es el vocabulario visual del módulo. Los alumnos deben aprender a clasificar de un vistazo la traza que ven en SigmaWin+.
 
@@ -799,7 +875,7 @@ Este diagrama es el vocabulario visual del módulo. Los alumnos deben aprender a
 
 Insista en esto último, que es contraintuitivo: pasarse de ganancia no hace la máquina más rápida, la hace más lenta y más ruidosa.
 
-### 108. Los criterios: qué es un eje bien sintonizado
+### 118. Los criterios: qué es un eje bien sintonizado
 
 Ejemplos que aclaran el compromiso:
 · Máquina de corte por láser: prioridad al error de seguimiento durante la trayectoria; un error de contorno estropea la pieza.
@@ -808,7 +884,7 @@ Ejemplos que aclaran el compromiso:
 
 El indicador de rigidez en parado se comprueba de forma muy visual: empujando el eje a mano (cuando es seguro hacerlo) y observando cuánto cede y cómo vuelve.
 
-### 109. Las herramientas de ajuste de la Σ-X
+### 119. Las herramientas de ajuste de la Σ-X
 
 Establezca la estrategia recomendada:
 1) Empiece por el autoajuste avanzado con la carga real.
@@ -819,7 +895,7 @@ El error típico del principiante es ir directo al ajuste manual 'porque es más
 
 El error típico del experimentado es dejar activo el tuning-less mientras intenta ajustar a mano y no entender por qué sus cambios 'no hacen nada'.
 
-### 110. Procedimiento de autoajuste avanzado (`Fn201`)
+### 120. Procedimiento de autoajuste avanzado (`Fn201`)
 
 Comente qué hace realmente el autoajuste: excita el sistema, mide la respuesta, estima la inercia y sube la ganancia hasta detectar el principio de inestabilidad; después retrocede con un margen de seguridad y coloca filtros notch en las resonancias detectadas.
 
@@ -827,7 +903,7 @@ Por eso hace ruido: está buscando el límite a propósito.
 
 El dato más valioso que devuelve es Pn103, la relación de inercias medida. Compárela con la calculada en el Módulo 04: si difieren mucho, alguna hipótesis del cálculo era falsa y conviene averiguar cuál.
 
-### 111. Ajuste manual: el orden es innegociable
+### 121. Ajuste manual: el orden es innegociable
 
 Explique la relación entre los lazos: el lazo de velocidad debe ser sensiblemente más rápido que el de posición (una regla habitual es un factor de 4 a 5 entre sus anchos de banda). Si se violenta esa relación, el sistema oscila.
 
@@ -835,7 +911,7 @@ Método práctico para Pn100: subir en escalones del 20 %, y en cada escalón ha
 
 Un detalle sobre Pn401: es tentador subirlo para 'silenciar' el eje, pero el filtro introduce retardo en el lazo más interno, que es exactamente donde menos se puede permitir. Si hay ruido de alta frecuencia, casi siempre es mejor un filtro notch bien colocado que un filtro de par alto.
 
-### 112. Resonancia mecánica y filtros notch
+### 122. Resonancia mecánica y filtros notch
 
 Explique la física: motor, acoplamiento y carga forman un sistema masa-muelle-masa con una frecuencia de resonancia propia. Si el lazo de control tiene ganancia suficiente a esa frecuencia, el sistema oscila.
 
@@ -847,19 +923,19 @@ Hay dos filtros notch disponibles, lo que permite atacar dos resonancias distint
 
 Advertencia importante: el filtro notch enmascara el síntoma pero no arregla la mecánica. Si la resonancia procede de un acoplamiento flojo o de un rodamiento dañado, hay que repararlo.
 
-### 113. Vibración de baja frecuencia y control por modelo
+### 123. Vibración de baja frecuencia y control por modelo
 
 La distinción clave para el alumno: resonancia de alta frecuencia (cientos o miles de hercios, ruido agudo, se resuelve con notch) frente a vibración de baja frecuencia (unos pocos hercios, se ve a simple vista, se resuelve con supresión de vibración o rigidizando).
 
 Sobre el control por modelo en interpolación: es un punto fino. Si un eje tiene MFC y otro no, sus respuestas dinámicas difieren y la trayectoria resultante se deforma en las esquinas. En máquinas de contorneado hay que configurar todos los ejes de forma homogénea.
 
-### 114. Diagnóstico por síntomas: qué tocar en cada caso
+### 124. Diagnóstico por síntomas: qué tocar en cada caso
 
 La última fila merece énfasis: cuando un eje que iba bien empieza a ir mal, la causa casi nunca está en el drive. Los parámetros no se cambian solos; la mecánica sí se desgasta.
 
 Ese es también el mejor argumento para guardar las trazas de la puesta en marcha: permiten comparar objetivamente el comportamiento de hoy con el de hace dos años y demostrar que algo ha cambiado en la máquina.
 
-### 115. Errores frecuentes al sintonizar
+### 125. Errores frecuentes al sintonizar
 
 Cierre el módulo con esta idea: el objetivo no es demostrar lo rápido que puede ir el eje, sino entregar una máquina que funcione de forma estable durante años.
 
@@ -871,13 +947,13 @@ Módulo corto pero crítico. El objetivo no es convertir al alumno en experto en
 
 Advertencia que hay que hacer explícita: el diseño de la función de seguridad de una máquina requiere un análisis de riesgos y competencias específicas. Este módulo explica la pieza que aporta el SERVOPACK, no sustituye a ese análisis.
 
-### 117. El marco normativo, en lo que afecta al servo
+### 127. El marco normativo, en lo que afecta al servo
 
 El punto del recuadro es el más malinterpretado del módulo. Un componente 'apto para PL e' insertado en una arquitectura de categoría 1 no da PL e.
 
 Sobre las funciones de IEC 61800-5-2: STO (par desactivado) es la base y la que implementa el hardware del drive. Otras funciones como SS1 (parada controlada seguida de STO) se construyen combinando el drive con un módulo de seguridad temporizado o con un drive con funciones de seguridad ampliadas.
 
-### 118. La función HWBB y el conector `CN8`
+### 128. La función HWBB y el conector `CN8`
 
 Explique la arquitectura de dos canales: el módulo de seguridad abre simultáneamente dos circuitos independientes. Cada uno, por separado, es capaz de bloquear los transistores de potencia. Así, un fallo en un canal (un contacto pegado, un cable cortado) no impide que la función actúe.
 
@@ -885,7 +961,7 @@ La señal EDM (External Device Monitoring) cierra el lazo de diagnóstico: el dr
 
 Dato práctico fundamental: CN8 se suministra con un conector puente de fábrica. Si se retira sin cablear la seguridad, el drive queda permanentemente en baseblock: no dará par y no habrá alarma evidente. Es la causa número uno de la llamada 'el motor nuevo no funciona'.
 
-### 119. Pines del conector de seguridad `CN8`
+### 129. Pines del conector de seguridad `CN8`
 
 Detalle que el manual recoge expresamente y que sorprende: los pines 1 y 2 no deben usarse porque están conectados a circuitos internos.
 
@@ -893,7 +969,7 @@ Y una precisión importante del propio manual: el uso o no de la señal EDM1 no 
 
 Recuerde: CN8 se suministra con un conector puente instalado. Para usar la función de seguridad hay que retirarlo y conectar el dispositivo.
 
-### 120. Ejemplo oficial de conexión de la seguridad
+### 130. Ejemplo oficial de conexión de la seguridad
 
 Dos advertencias del manual que hay que trasladar:
 
@@ -903,7 +979,7 @@ Dos advertencias del manual que hay que trasladar:
 
 El fusible protege el cableado frente a un cortocircuito que dejaría la función de seguridad inoperante.
 
-### 121. STO no es parada de emergencia
+### 131. STO no es parada de emergencia
 
 Este es el mensaje que hay que asegurarse de que se lleven a casa. Es un error que se comete con frecuencia en máquinas reales.
 
@@ -911,7 +987,7 @@ Explique la diferencia entre 'quitar el par' y 'parar'. Con una gran inercia, qu
 
 Por eso existe SS1: primero se frena de forma controlada con el drive y después, una vez parado, se aplica STO. Se implementa con un relé de seguridad temporizado, y el análisis de riesgos decide el tiempo.
 
-### 122. Validación y mantenimiento de la función de seguridad
+### 132. Validación y mantenimiento de la función de seguridad
 
 El paso 4 (medir el tiempo de parada real) es el que más se omite y el que tiene consecuencias más directas: las distancias de seguridad de una barrera inmaterial se calculan a partir del tiempo de parada. Si el tiempo real es mayor que el supuesto, la protección es insuficiente.
 
@@ -925,7 +1001,7 @@ Módulo orientado a mantenimiento. El objetivo es reducir el tiempo medio de rep
 
 Si el grupo es de mantenimiento, este es probablemente el módulo que más van a usar. Dedique tiempo a los árboles de decisión y practique con averías simuladas si dispone de banco.
 
-### 124. Un método de diagnóstico que funciona siempre
+### 134. Un método de diagnóstico que funciona siempre
 
 El error clásico en diagnóstico es empezar cambiando piezas. Este método obliga a recoger información antes de actuar.
 
@@ -935,7 +1011,7 @@ El paso 4, dividir el sistema, es la idea central: el sistema tiene cuatro bloqu
 
 El paso 6 (documentar) es el que convierte una reparación en conocimiento de planta.
 
-### 125. Alarmas y avisos: cómo se comportan
+### 135. Alarmas y avisos: cómo se comportan
 
 Insista en el valor de los avisos: el drive dispone de un modelo térmico que sabe cuánto margen de sobrecarga queda. Esa información, llevada al HMI, permite planificar.
 
@@ -943,7 +1019,7 @@ Sobre el historial de alarmas: es la primera herramienta a consultar en cualquie
 
 Advertencia sobre el reset compulsivo: reiniciar una alarma de sobrecarga sin resolver la causa térmica es una manera eficaz de destruir un motor.
 
-### 126. Alarmas frecuentes (1/2): potencia, sobrecarga y movimiento
+### 136. Alarmas frecuentes (1/2): potencia, sobrecarga y movimiento
 
 Enseñe a razonar por familias en lugar de memorizar códigos. Con el prefijo ya se sabe si el problema es de potencia, térmico, de seguimiento o del encoder.
 
@@ -951,7 +1027,7 @@ A.7__ (sobrecarga) es la alarma que más aparece en producción y casi siempre t
 
 A.d__ (error de posición) merece una regla: nunca se resuelve subiendo el umbral Pn520. Eso es apagar la alarma de incendios.
 
-### 127. Alarmas frecuentes (2/2): encoder, parámetros y comunicación
+### 137. Alarmas frecuentes (2/2): encoder, parámetros y comunicación
 
 Cuente la estrategia para alarmas intermitentes de encoder, que son las más frustrantes:
 1) Mover el cable con la máquina en marcha (con seguridad) para ver si se reproduce: delata rotura por fatiga en cadena portacables.
@@ -961,7 +1037,7 @@ Cuente la estrategia para alarmas intermitentes de encoder, que son las más fru
 
 Sobre A.81_: es la alarma que aparece tras las paradas largas de planta. La solución es preventiva: cambiar baterías cada dos años con el equipo energizado.
 
-### 128. Árbol de decisión: «el eje no se mueve»
+### 138. Árbol de decisión: «el eje no se mueve»
 
 Recorra el árbol de izquierda a derecha con el grupo, planteando cada pregunta en voz alta.
 
@@ -971,13 +1047,13 @@ El caso 'sin alarma y sin par' es el más confuso para el principiante y tiene t
 
 El caso 'con par pero sin movimiento' apunta a consigna ausente (Un007 sin pulsos, o telegrama de bus sin actualizar) o a bloqueo mecánico, que se distingue porque el par sube al máximo.
 
-### 129. Mantenimiento preventivo del conjunto
+### 139. Mantenimiento preventivo del conjunto
 
 La Σ-X dispone de monitores de vida útil de componentes (ventilador, condensadores, relés internos) que estiman el porcentaje consumido. Consúltelos en SigmaWin+ y llévelos al plan de mantenimiento: es mantenimiento predictivo gratuito que casi nadie usa.
 
 El reapriete de bornes es una tarea humilde y muy rentable: un borne flojo en un cable de motor de 18 A provoca calentamiento, caída de tensión asimétrica y, con el tiempo, un incendio o una avería del amplificador.
 
-### 130. Sustitución de un SERVOPACK o de un motor
+### 140. Sustitución de un SERVOPACK o de un motor
 
 El paso 6 es el que convierte una sustitución rutinaria en un problema. Insista de nuevo: el origen no viaja en el fichero de parámetros.
 
@@ -991,7 +1067,7 @@ El proyecto integrador es la parte que consolida el aprendizaje. Idealmente se t
 
 Si el grupo tiene una máquina real en su planta, sustituya el enunciado por esa máquina: el valor formativo se multiplica.
 
-### 132. El encargo
+### 142. El encargo
 
 El ejercicio de traducir requisitos a decisiones técnicas es el más valioso del proyecto. Hágalo en común en la pizarra antes de que los grupos empiecen a calcular.
 
@@ -1001,31 +1077,31 @@ Requisitos y sus consecuencias:
 · Parada segura → CN8 cableado y validado, no puenteado.
 · Caídas de red del 10 % → comprobar la curva a tensión mínima y considerar la alarma A.410.
 
-### 133. Entregable 1 — Dimensionamiento
+### 143. Entregable 1 — Dimensionamiento
 
 Insista en el criterio 'ninguna cifra sin origen documentado'. En ingeniería, un número sin trazabilidad es una opinión.
 
 Valore especialmente la alternativa: pedir que comparen SGMXA-30A (3.000 rpm) con SGMXG-30A (1.500 rpm) obliga a razonar sobre par, velocidad e inercia en lugar de aplicar una receta.
 
-### 134. Entregable 2 — Arquitectura eléctrica y de control
+### 144. Entregable 2 — Arquitectura eléctrica y de control
 
 Este entregable es el más 'de oficina técnica'. Si el grupo no tiene experiencia en esquemas, acepte croquis a mano alzada: lo importante es el razonamiento, no la herramienta de dibujo.
 
 Punto de discusión interesante: el requisito de diagnóstico remoto empuja hacia una variante de bus, lo que a su vez simplifica el cableado de CN1. Es un buen ejemplo de cómo un requisito aparentemente menor cambia la arquitectura completa.
 
-### 135. Entregable 3 — Hoja de parámetros del eje
+### 145. Entregable 3 — Hoja de parámetros del eje
 
 El detalle más formativo de este entregable es la comparación entre la relación de inercias calculada y la medida por el autoajuste. Es el momento en que la teoría se enfrenta a la realidad.
 
 Pn522 exige un razonamiento fino: la repetibilidad de ±0,05 mm es una característica del sistema mecánico completo, mientras que Pn522 es la ventana que declara 'posición alcanzada'. No son lo mismo, y conviene que lo discutan.
 
-### 136. Entregable 4 — Plan de puesta en marcha y aceptación
+### 146. Entregable 4 — Plan de puesta en marcha y aceptación
 
 Los criterios de aceptación medibles son la parte más profesional del proyecto: convierten 'la máquina va bien' en algo verificable y contractual.
 
 Si el curso se imparte en varias sesiones, dedique la última a la defensa de los proyectos. Escuchar cómo otro grupo ha resuelto el mismo enunciado de forma distinta es enormemente formativo.
 
-### 137. Rúbrica de evaluación del proyecto
+### 147. Rúbrica de evaluación del proyecto
 
 Reparta la rúbrica al inicio del curso, no al final. Saber cómo se evalúa orienta el esfuerzo y mejora mucho la calidad de los entregables.
 
@@ -1035,55 +1111,55 @@ El peso del dimensionamiento (25 %) es deliberado: es la parte con más contenid
 
 Los anexos están pensados para imprimirse y llevarse a planta. Anime a los alumnos a extraer estas diapositivas a PDF y tenerlas en el móvil.
 
-### 139. Ficha rápida — Fórmulas de dimensionamiento
+### 149. Ficha rápida — Fórmulas de dimensionamiento
 
 Esta es la diapositiva que más se fotografía de todo el curso. Sugiérales que la impriman y la peguen en la contraportada de su cuaderno de trabajo.
 
 Recuerde el criterio de aceptación asociado: T_rms ≤ 0,8 × T_nominal y T_pico ≤ 0,8 × T_máximo.
 
-### 140. Ficha rápida — Parámetros, funciones y monitores
+### 150. Ficha rápida — Parámetros, funciones y monitores
 
 Advierta una vez más de que la numeración puede variar entre series y variantes. El valor de esta ficha es recordar QUÉ existe; el número exacto se confirma en el manual.
 
 Si los alumnos trabajan habitualmente con un modelo concreto, recomiéndeles hacer su propia versión de esta ficha con los valores verificados de su equipo.
 
-### 141. Ficha rápida — Familias de alarma
+### 151. Ficha rápida — Familias de alarma
 
 Este resumen por familias es más útil en campo que una lista completa de códigos: permite orientar el diagnóstico en segundos y después buscar el código exacto en el manual.
 
 Recuerde la regla: A.9__ son avisos, el resto son alarmas que detienen el eje.
 
-### 142. Lista de verificación imprimible
+### 152. Lista de verificación imprimible
 
 Sugiera convertir estas dos columnas en un documento A4 a doble cara. Es el entregable del curso con mayor impacto inmediato en el trabajo diario.
 
 Recuerde: una lista de verificación sólo funciona si se rellena en el momento, no de memoria al final del día.
 
-### 143. Glosario
+### 153. Glosario
 
 Repase los términos que más confusión generan: baseblock, STO frente a parada de emergencia, y relación de inercias.
 
 Puede usarse como test rápido: tape la columna de la derecha y pida definiciones.
 
-### 144. Autoevaluación (respuestas en la diapositiva siguiente)
+### 154. Autoevaluación (respuestas en la diapositiva siguiente)
 
 Deje tiempo real para responder (10-15 minutos) antes de pasar a las soluciones. Si es posible, que las respondan por escrito y en parejas.
 
 Las preguntas están ordenadas por módulos: 1-3 corresponden a fundamentos y dimensionamiento, 4-5 a sintonización e instalación, 6-8 a diagnóstico, 9 a seguridad y 10 a mantenimiento.
 
-### 145. Autoevaluación — Respuestas comentadas
+### 155. Autoevaluación — Respuestas comentadas
 
 Comente cada respuesta brevemente, insistiendo en el razonamiento y no en el dato.
 
 Las preguntas 6, 9 y 10 son las que más fallan y, no por casualidad, las que corresponden a los errores más caros en campo.
 
-### 146. Itinerario de aprendizaje y recursos
+### 156. Itinerario de aprendizaje y recursos
 
 Cierre insistiendo en el hábito profesional más valioso: consultar el manual. El objetivo del curso no era sustituir al manual, sino enseñar a usarlo con criterio y a saber qué preguntar.
 
 Anime a montar un pequeño banco de pruebas en planta si es posible: un drive y un motor sobre una placa, con SigmaWin+. Es la mejor inversión formativa para un equipo de mantenimiento.
 
-### 147. Un servo no se instala: se dimensiona, se instala,
+### 157. Un servo no se instala: se dimensiona, se instala,
 se parame
 
 Diapositiva de cierre. Recupere la primera diapositiva de objetivos y repase los seis puntos con el grupo, preguntando si se sienten capaces de cada uno.

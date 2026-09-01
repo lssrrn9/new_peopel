@@ -12,8 +12,9 @@ Manual de referencia:
     References · Product Manual · Model SGDXS-□□□□00□ · MANUAL NO. SIEP C710812 03I
     (YASKAWA Electric Corporation)
 
-Las figuras resultantes son propiedad de YASKAWA y se emplean en el curso como
-material de referencia técnica, citando siempre la fuente.
+Las figuras resultantes (esquemas y capturas de SigmaWin+ Ver.7) son
+propiedad de YASKAWA y se emplean en el curso como material de referencia
+técnica, citando siempre la fuente.
 """
 
 from __future__ import annotations
@@ -57,6 +58,19 @@ FIGURAS_MANUAL: list[tuple[str, int, Seleccion]] = [
     ("monitor_analogico", 172, -1),
     ("emc_instalacion", 111, -1),
     ("puesta_a_tierra", 122, -1),
+]
+
+# Capturas de SigmaWin+ Ver.7 tomadas del mismo manual (pantallas reales del
+# software, no esquemas). La selección es banda vertical (fracción de altura).
+FIGURAS_SIGMAWIN: list[tuple[str, int, Seleccion]] = [
+    ("sw_mapa", 544, (0.13, 0.70)),          # estado del eje + menú principal
+    ("sw_parametros", 178, (0.22, 0.71)),    # edición de Pn y Write to Servo
+    ("sw_jog", 355, (0.10, 0.72)),           # JOG Operation
+    ("sw_autoajuste", 420, (0.08, 0.78)),    # Autotuning: arranque y resultado
+    ("sw_traza", 552, (0.22, 0.82)),         # Trace + Trace Setting
+    ("sw_monitor", 545, (0.055, 0.30)),      # pestañas Operation / Status
+    ("sw_analisis", 536, (0.075, 0.48)),     # Mechanical Analysis (Bode)
+    ("sw_alarmas", 658, (0.22, 0.72)),       # Display Alarm / historial
 ]
 
 
@@ -130,7 +144,7 @@ def main() -> int:
         os.makedirs(cache, exist_ok=True)
         pdf = _descargar_manual(cache)
 
-        for nombre, pagina, indice in FIGURAS_MANUAL:
+        for nombre, pagina, indice in FIGURAS_MANUAL + FIGURAS_SIGMAWIN:
             prefijo = os.path.join(tmp, f"pg{pagina}")
             subprocess.run(["pdftoppm", "-r", str(DPI), "-png", "-f",
                             str(pagina), "-l", str(pagina), pdf, prefijo],

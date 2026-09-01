@@ -3,9 +3,9 @@
 from pptx.enum.text import PP_ALIGN
 from pptx.util import Inches, Pt
 
-from builder import (AMBER, BLUE, CYAN, FIG, FUENTE, GRAY, GRAY_LINE, GREEN,
-                     INK, LIGHT, LIGHT_BLUE, NAVY, NAVY_SOFT, RED, WHITE, Card,
-                     Deck)
+from builder import (AMBER, BLUE, CYAN, FIG, FUENTE, FUENTE_SW, GRAY,
+                     GRAY_LINE, GREEN, INK, LIGHT, LIGHT_BLUE, NAVY,
+                     NAVY_SOFT, RED, WHITE, Card, Deck)
 
 
 def build(d: Deck) -> None:
@@ -15,12 +15,12 @@ def build(d: Deck) -> None:
         [
             "El panel frontal: leer el estado y navegar sin PC",
             "La lógica `Pn` / `Fn` / `Un` y cómo se editan los parámetros",
-            "SigmaWin+: la herramienta que multiplica tu productividad",
+            "SigmaWin+ Ver.7: conexión, menú y flujo de trabajo con pantallas reales",
+            "JOG, monitor, traza, autoajuste, análisis mecánico y alarmas",
             "El engranaje electrónico explicado con números",
-            "Los parámetros que realmente vas a tocar",
-            "Copia de seguridad y gestión de configuraciones",
+            "Los parámetros que realmente vas a tocar y la copia de seguridad",
         ],
-        duration="4 h",
+        duration="5 h",
         notes=(
             "A partir de aquí el curso se vuelve práctico con el equipo. Si dispone "
             "de un drive, mantenga este módulo con el equipo encendido y el PC "
@@ -180,9 +180,13 @@ def build(d: Deck) -> None:
             "El modo offline es un argumento de venta interno muy potente: permite "
             "que un ingeniero prepare toda la configuración desde la oficina y que la "
             "puesta en marcha en cliente se reduzca a volcar y verificar.\n\n"
-            "Comente que existen versiones y compatibilidades de SigmaWin+ según la "
-            "serie del drive; conviene tener la versión actual descargada de la web "
-            "del fabricante."
+            "Comente que el SGDXS (Σ-X) se trabaja con **SigmaWin+ Ver.7**. La "
+            "versión 5 es otra generación de interfaz: no la mezcle en el aula. "
+            "Descargue siempre la última versión compatible desde la web de YASKAWA.\n\n"
+            "Las láminas siguientes son capturas oficiales de SigmaWin+ Ver.7 "
+            "tomadas del manual SIEP C710812 03I. El aspecto puede variar ligeramente "
+            "según la revisión del software, pero los bloques del menú y el flujo "
+            "son los mismos."
         ),
     )
 
@@ -203,6 +207,311 @@ def build(d: Deck) -> None:
             "La figura del operador digital es textual en el manual: el mensaje "
             "importante es usar el cable original y el conector correcto.\n\n"
             "CN7 es USB; CN3 es el operador. No se intercambian."
+        ),
+    )
+
+    d.figure_slide(
+        "El mapa de SigmaWin+: estado del eje y menú de funciones",
+        FIG + "sw_mapa.png",
+        subtitle="Una vez en línea, todo se abre desde este menú de nueve bloques",
+        puntos=[
+            "Arriba: el **estado del eje** (POWER, HBB, P-OT, N-OT, FSTP).",
+            "El botón del drive abre el **[Menu]**. Ahí están todas las funciones.",
+            "#Los bloques que más vas a usar",
+            "- **Basic Functions**: Edit Parameters, Set Up Wizard.",
+            "- **Operation**: Jog y Program JOG.",
+            "- **Monitor**: Trace, Monitor y Life Monitor.",
+            "- **Tuning**: autoajuste y nivel de respuesta.",
+            "- **Diagnostic**: Mechanical Analysis y EasyFFT.",
+            "- **Troubleshooting**: Display Alarm y Alarm Trace.",
+        ],
+        fuente=FUENTE_SW + " · apartado 9.2",
+        notes=(
+            "Esta es la lámina de orientación. El alumno debe poder señalar, sin "
+            "pensar, en qué bloque está cada tarea.\n\n"
+            "Truco de aula: pida nueve voluntarios y asigne un bloque a cada uno. "
+            "Luego lance situaciones ('el eje no gira', 'quiero ver el error de "
+            "seguimiento', 'hay una alarma A.720') y que el grupo diga el bloque.\n\n"
+            "HBB encendido = el CN8 está abriendo el HWBB: el eje no dará par aunque "
+            "todo lo demás esté bien. Es el primer LED que hay que mirar."
+        ),
+    )
+
+    d.steps_slide(
+        "Flujo de trabajo la primera vez que abres SigmaWin+",
+        [
+            ("Instalar SigmaWin+ Ver.7 y el driver USB",
+             "Descárgalo de YASKAWA. Extrae el ZIP completo antes de instalar. "
+             "SigmaWin+ 5 y 7 pueden convivir; para la Σ-X usa siempre la 7."),
+            ("Conectar el PC al `CN7` con el cable USB original",
+             "Enciende primero el SERVOPACK (al menos la alimentación de control) "
+             "y después conecta el USB. El PC debe reconocer el dispositivo."),
+            ("Arrancar SigmaWin+ y poner el eje en línea",
+             "En la ventana Home, añade el servo, elige la comunicación USB y "
+             "conéctate. El drive aparece en el workspace con sus LEDs de estado."),
+            ("Abrir el menú del eje y **guardar una copia**",
+             "`Edit Parameters` → `Export` o `Save to Project`. Esta es la copia "
+             "'como llegó'. Sin ella no se toca nada."),
+            ("Trabajar en el bloque que corresponda",
+             "Setup Wizard o Edit Parameters para configurar. Jog para probar. "
+             "Tuning para autoajustar. Trace para medir. Display Alarm si hay fallo."),
+            ("Escribir, verificar y volver a guardar",
+             "Tras cambiar parámetros: `Write to Servo` → `Edited Parameters`. "
+             "Si el drive pide reinicio, ciclo de alimentación. Luego exporta "
+             "'como quedó' con fecha y motivo."),
+        ],
+        subtitle="Seis pasos. El que se salta el 4 es el que un día no puede volver atrás",
+        callout=(
+            "amber",
+            "Verde en la celda = escrito en el PC, no todavía en el drive",
+            "Al editar un parámetro, la celda se pone verde. Hasta que no pulses "
+            "`Write to Servo` → `Edited Parameters` el SERVOPACK sigue con el valor "
+            "anterior. Confundir 'lo he cambiado en pantalla' con 'ya está en el "
+            "eje' es el error de principiante más caro.",
+        ),
+        notes=(
+            "Haga este flujo en el banco, en voz alta, la primera vez. Luego pida "
+            "a cada alumno que lo repita solo.\n\n"
+            "Sobre el driver USB: si el PC no ve el drive, no es un problema de "
+            "SigmaWin+, es de Windows. Compruebe el Administrador de dispositivos "
+            "antes de reinstalar el software.\n\n"
+            "Modo offline: se puede preparar un proyecto sin drive (útil en "
+            "oficina). Al llegar a planta se conecta y se vuelca. No sustituye la "
+            "copia 'como llegó' del equipo real."
+        ),
+    )
+
+    d.figure_slide(
+        "Editar parámetros: nombre, rango, unidades y escritura",
+        FIG + "sw_parametros.png",
+        subtitle="`Edit Parameters`: dejas de memorizar códigos de cinco dígitos",
+        puntos=[
+            "Doble clic en la celda → cambia el valor → **Enter**.",
+            "La celda **verde** es un cambio pendiente de escribir al drive.",
+            "`Write to Servo` → **Edited Parameters** lo vuelve blanco: ya está "
+            "en el SERVOPACK.",
+            "Los `Pn` de bits (como `Pn000.0`) se eligen en un desplegable: "
+            "sentido de giro, modo de parada…",
+            "Los `Pn` numéricos (`Pn100`, `Pn101`, `Pn102`) muestran **rango y "
+            "valor por defecto** en un recuadro.",
+            "- `Read from Servo` recarga lo que hay realmente en el equipo.",
+        ],
+        fuente=FUENTE_SW + " · apartado 5.1.3",
+        notes=(
+            "Demuestre en vivo el ciclo verde → Write → blanco. Es el gesto que "
+            "hay que automatizar.\n\n"
+            "Compare con el panel: en el display no ves el nombre, ni el rango, "
+            "ni las unidades. Por eso se edita mal y se confirma peor.\n\n"
+            "Edited Parameters vs All Parameters: lo normal es escribir sólo lo "
+            "cambiado. All Parameters se usa al clonar un eje o al restaurar un "
+            "fichero completo."
+        ),
+    )
+
+    d.figure_slide(
+        "JOG desde SigmaWin+: el primer movimiento del motor",
+        FIG + "sw_jog.png",
+        subtitle="`Operation` → `Jog` · el eje se mueve sólo mientras mantienes el ratón",
+        puntos=[
+            "Ruta: **[Operation] → [Jog]**.",
+            "La velocidad es `Pn304`. Empieza baja: 50–100 min⁻¹, no 500.",
+            "1) **Servo ON**. El indicador pasa a verde.",
+            "2) Mantén **Forward (+)** o **Reverse (−)**. Al soltar, para.",
+            "Antes de pulsar OK, el software avisa: **P-OT y N-OT quedan "
+            "deshabilitados** durante el JOG. El eje no respetará finales de "
+            "carrera.",
+            "- Tras el JOG, ciclo de alimentación si el manual lo pide.",
+        ],
+        fuente=FUENTE_SW + " · apartado 7.3.3",
+        callout=(
+            "red",
+            "El JOG no es un movimiento 'suave de prueba'",
+            "Con los OT desactivados y sin el ciclo del PLC, eres tú el único "
+            "límite. Zona despejada, E-stop a mano y nadie cerca del mecanismo.",
+        ),
+        notes=(
+            "El JOG es la prueba de que potencia, encoder y motor están bien. Si "
+            "el motor no gira aquí, no tiene sentido pasar al PLC.\n\n"
+            "Insista en el 'dead-man': sólo se mueve mientras se mantiene el "
+            "botón. Eso evita que un clic accidental deje el eje lanzado.\n\n"
+            "Pn304 a 500 min⁻¹ como en la captura del manual es demasiado para "
+            "un primer arranque didáctico. Bájelo."
+        ),
+    )
+
+    d.figure_slide(
+        "Monitor en vivo: lo que el panel muestra, pero entero",
+        FIG + "sw_monitor.png",
+        subtitle="`Monitor` → `Monitor` · pestañas Operation, Status e I/O",
+        puntos=[
+            "Equivalente software de los monitores `Un`, con nombres y unidades.",
+            "**Operation**: velocidad, consigna, error de posición, carga, "
+            "regeneración y alarma actual.",
+            "**Status**: `/S-RDY`, `/COIN`, `/BK`, freno dinámico, avisos.",
+            "**I/O**: el estado real de cada entrada y salida de `CN1`.",
+            "En la captura aparece `A.810` (batería del encoder): el monitor "
+            "no miente aunque el eje 'parezca parado'.",
+            "- Si `/S-ON` no llega, se ve aquí antes de tocar ganancias.",
+        ],
+        fuente=FUENTE_SW + " · apartado 9.2.2",
+        notes=(
+            "Rutina de tres pestañas: Operation (¿qué hace el eje?), Status "
+            "(¿está listo?) e I/O (¿le llegan las señales?).\n\n"
+            "A.810 es un ejemplo didáctico excelente: mucha gente busca un fallo "
+            "de sintonización y es la pila del encoder absoluto.\n\n"
+            "Compare con Un005/Un006 del panel: misma información, menos cómoda."
+        ),
+    )
+
+    d.figure_slide(
+        "La traza: el osciloscopio que lleva el SERVOPACK dentro",
+        FIG + "sw_traza.png",
+        subtitle="`Monitor` → `Trace` · consigna, real, error, par y E/S en la misma base de tiempos",
+        puntos=[
+            "`Setting` abre **Trace Setting**: qué señales, con qué muestreo "
+            "y con qué disparo.",
+            "Señales típicas: **Feedback Speed**, **Torque Reference**, "
+            "error de posición, `/S-ON`.",
+            "El **trigger** (flanco, umbral, pre-trigger) evita capturar a ciegas.",
+            "Muestreo de ejemplo: 125 µs × 1024 = 128 ms de ventana.",
+            "Guarda la captura (y el CSV) **antes y después** de cada ajuste.",
+            "- Sin traza, la sintonización es opinión. Con traza, es medida.",
+        ],
+        fuente=FUENTE_SW + " · apartado 9.3.2",
+        notes=(
+            "Esta es la herramienta que separa al técnico que 'o ye el eje' del "
+            "que decide con datos. Dedíquele tiempo de práctica.\n\n"
+            "Ejercicio: capture un posicionamiento, identifique sobrepaso, tiempo "
+            "de establecimiento y par de punta. Luego suba Pn102 un 20 % y "
+            "repita. La comparación enseña más que diez láminas.\n\n"
+            "Real Time Trace es la versión continua; Trace es la de disparo, más "
+            "útil para un ciclo concreto."
+        ),
+    )
+
+    d.figure_slide(
+        "Autoajuste guiado: el drive propone las ganancias",
+        FIG + "sw_autoajuste.png",
+        subtitle="`Tuning` → `Tuning` · Autotuning without a Host Reference (`Fn201`)",
+        puntos=[
+            "El asistente pide **Servo ON**, modo (posicionado), mecánica "
+            "(husillo, correa…) y recorrido.",
+            "`Start tuning` → confirmación de seguridad → el eje se mueve solo.",
+            "Al terminar ves **settling time**, overshoot y la tabla "
+            "`Value (before)` / `Value (after)` en rojo.",
+            "En el ejemplo, `Pn100` pasa de 400 a 2400 (0,1 Hz): el autoajuste "
+            "ha subido la ganancia de velocidad.",
+            "También enciende notch, control de vibración y filtros si los "
+            "detecta.",
+            "- Carga **real** acoplada y recorrido libre. Nunca en vacío.",
+        ],
+        fuente=FUENTE_SW + " · apartado 8.7",
+        callout=(
+            "red",
+            "El autoajuste mueve el eje con vibración deliberada",
+            "Nunca en un vertical sin freno verificado, ni con gente cerca, ni "
+            "con recorrido insuficiente. El E-stop tiene que estar a mano.",
+        ),
+        notes=(
+            "Muestre la tabla before/after: es la prueba de que el software no "
+            "es 'magia', escribe Pn100, Pn101, Pn102, Pn103, filtros…\n\n"
+            "Después del autoajuste, verifique con el ciclo real y con la traza. "
+            "Aceptar a ciegas el resultado es tan malo como no usarlo.\n\n"
+            "El detalle de Pn103 (inercia) es el puente con el Módulo 04: "
+            "compare el valor medido con el calculado."
+        ),
+    )
+
+    d.figure_slide(
+        "Análisis mecánico: ver la resonancia en un diagrama de Bode",
+        FIG + "sw_analisis.png",
+        subtitle="`Diagnostic` → `Mechanical Analysis` · de la frecuencia al filtro notch",
+        puntos=[
+            "`START` excita el eje y traza **ganancia (dB)** y **fase** frente "
+            "a la frecuencia.",
+            "El software marca **resonancia** y **antirresonancia** (en el "
+            "ejemplo: 1320 Hz y 984 Hz).",
+            "Esa frecuencia se copia al filtro notch (`Pn409` / pestaña "
+            "`Notch Filter Setting`).",
+            "`EasyFFT` (`Fn206`) es la versión rápida: detecta el pico y "
+            "propone el notch.",
+            "- Úsalo con ganancia baja, al principio del ajuste. A ganancia "
+            "alta puede vibrar de más.",
+        ],
+        fuente=FUENTE_SW + " · apartado 8.17",
+        notes=(
+            "Conecte esta lámina con el Módulo 09: notch, EasyFFT y análisis "
+            "en frecuencia dejan de ser abstractos cuando se ve la gráfica.\n\n"
+            "Interpretación mínima: un pico de ganancia = la mecánica 'canta' "
+            "a esa frecuencia. El notch la atenúa para poder subir ganancias "
+            "sin que el eje silbe o oscile."
+        ),
+    )
+
+    d.figure_slide(
+        "Alarmas e historial: el primer sitio al que ir cuando el eje para",
+        FIG + "sw_alarmas.png",
+        subtitle="`Troubleshooting` → `Display Alarm` · código, nombre y cuándo ocurrió",
+        puntos=[
+            "Pestaña **Alarm diagnosis**: alarma activa y guía de causas.",
+            "Pestaña **Alarm History**: lista persistente (no se borra al "
+            "resetear ni al apagar).",
+            "Columnas: número, nombre (`A.C90`, `A.041`…) y tiempo acumulado "
+            "de funcionamiento.",
+            "`Clear` borra el historial. Úsalo sólo cuando hayas documentado.",
+            "Desde aquí se puede abrir la **traza de alarma** si el drive la "
+            "ha guardado.",
+            "- Elimina la causa **antes** de resetear. Si no, volverá.",
+        ],
+        fuente=FUENTE_SW + " · apartado 13.2",
+        notes=(
+            "El historial es oro en mantenimiento: '¿esto es nuevo o ya pasaba "
+            "hace dos semanas?'. Enséñeles a no pulsar Clear por higiene.\n\n"
+            "Puente con el Módulo 11: el método de diagnóstico empieza siempre "
+            "aquí, no en cambiar ganancias."
+        ),
+    )
+
+    d.cards_slide(
+        "Qué pantalla abrir según lo que necesites",
+        [
+            Card(
+                "Configurar el eje",
+                "**Set Up Wizard** para la primera puesta en servicio.\n"
+                "**Edit Parameters** para un cambio puntual o para clonar un eje "
+                "(`Export` / `Import`).",
+                "blue",
+            ),
+            Card(
+                "Mover y comprobar",
+                "**Jog**: ¿gira el motor?\n"
+                "**Program JOG**: un ciclo repetido sin PLC.\n"
+                "**Wiring Check** / **I/O Monitor**: ¿llegan `/S-ON`, P-OT, N-OT?",
+                "cyan",
+            ),
+            Card(
+                "Medir y sintonizar",
+                "**Monitor**: números en vivo.\n"
+                "**Trace**: la forma de onda.\n"
+                "**Tuning**: autoajuste.\n"
+                "**Mechanical Analysis / EasyFFT**: resonancias.",
+                "green",
+            ),
+            Card(
+                "Cuando algo va mal",
+                "**Display Alarm** e historial.\n"
+                "**Alarm Trace**: qué hacía el eje en el instante del fallo.\n"
+                "LEDs del workspace: HBB, P-OT, N-OT, POWER.",
+                "amber",
+            ),
+        ],
+        subtitle="No memorices 400 funciones: memoriza estas cuatro preguntas",
+        columns=2,
+        notes=(
+            "Cierre del bloque de software con una chuleta. Imprímala y péguela "
+            "en el maletín junto al cable USB.\n\n"
+            "Recuerde: el panel frontal sigue siendo válido para JOG, Un y Fn "
+            "cuando no hay PC. SigmaWin+ no sustituye el criterio; lo acelera."
         ),
     )
 

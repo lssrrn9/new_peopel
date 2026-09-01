@@ -13,7 +13,7 @@ que el contenido es editable, revisable en control de versiones y reproducible.
 
 | Artefacto | Ruta |
 |---|---|
-| Presentación PowerPoint (147 diapositivas, 16:9) | `salida/CURSO_YASKAWA_SERVOPACK_3kW.pptx` |
+| Presentación PowerPoint (157 diapositivas, 16:9) | `salida/CURSO_YASKAWA_SERVOPACK_3kW.pptx` |
 | Documento PDF | `salida/CURSO_YASKAWA_SERVOPACK_3kW.pdf` |
 | Guion del instructor en texto (notas de todas las láminas) | `salida/GUIA_DEL_INSTRUCTOR.md` |
 
@@ -33,7 +33,7 @@ guía.
 | 04 | Dimensionamiento y selección, con ejemplo numérico completo | 4 h |
 | 05 | Instalación mecánica y eléctrica: potencia, EMC, regeneración, freno | 4 h |
 | 06 | Interfaz de control: `CN1`, analógico, tren de pulsos, MECHATROLINK y EtherCAT | 4 h |
-| 07 | Parámetros `Pn`/`Fn`/`Un`, panel, SigmaWin+ y engranaje electrónico | 4 h |
+| 07 | Parámetros `Pn`/`Fn`/`Un`, panel, SigmaWin+ Ver.7 (con capturas) y engranaje electrónico | 5 h |
 | 08 | Puesta en marcha en seis fases | 5 h |
 | 09 | Sintonización: autoajuste, ajuste manual, filtros notch, vibración | 6 h |
 | 10 | Seguridad funcional: STO / HWBB, `CN8` y EDM | 2,5 h |
@@ -121,7 +121,7 @@ técnica; no sustituyen al manual oficial.
 
 ## Ver el curso sin descargar nada
 
-**[VER_EL_CURSO.md](VER_EL_CURSO.md)** muestra las 147 diapositivas como
+**[VER_EL_CURSO.md](VER_EL_CURSO.md)** muestra las 157 diapositivas como
 imágenes, con índice por módulos. Se lee directamente en el navegador, sin
 PowerPoint. Las imágenes están en `diapositivas/` y el curso completo en PDF,
 en `salida/CURSO_YASKAWA_SERVOPACK_3kW.pdf`.
