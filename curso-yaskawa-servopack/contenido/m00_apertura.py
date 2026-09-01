@@ -11,7 +11,7 @@ def build(d: Deck) -> None:
         "De cero a experto: selección, instalación, parametrización, puesta en "
         "marcha y sintonización de un servoaccionamiento de 3 kW",
         [
-            "Curso técnico completo · Serie Σ-7 (Sigma-7) · SGD7S + SGM7A/SGM7G",
+            "Curso técnico completo · Serie Σ-X (Sigma-X) · SGDXS + SGMXA/SGMXG",
             "Nivel: desde principiante absoluto hasta puesta a punto avanzada",
             "Formato: 14 módulos · teoría, práctica guiada y proyecto integrador",
         ],
@@ -80,7 +80,7 @@ def build(d: Deck) -> None:
             ),
             Card(
                 "Equipo recomendado para la práctica",
-                "· SERVOPACK SGD7S-200A + motor SGM7A-30A o SGM7G-30A.\n"
+                "· SERVOPACK SGDXS-200A00A + motor SGMXA-30A o SGMXG-30A.\n"
                 "· Cables de potencia y encoder originales.\n"
                 "· PC con SigmaWin+ y cable USB (CN7).\n"
                 "· Multímetro, pinza amperimétrica y EPP.",
@@ -103,7 +103,7 @@ def build(d: Deck) -> None:
         [
             ["01", "Fundamentos del servoaccionamiento",
              "Entender qué es un servo y en qué se diferencia de un variador"],
-            ["02", "La familia SERVOPACK Σ-7",
+            ["02", "La familia SERVOPACK Σ-X",
              "Leer un código de modelo y elegir la variante correcta"],
             ["03", "El servomotor de 3 kW",
              "Interpretar curvas, encoder, freno y combinaciones válidas"],
@@ -167,7 +167,9 @@ def build(d: Deck) -> None:
                 "`A.___` → código de alarma (p. ej. `A.710`, sobrecarga).",
                 "`/XXX` → señal activa a nivel bajo (p. ej. `/S-ON`).",
                 "Los valores numéricos concretos corresponden al conjunto de ejemplo "
-                "SGD7S-200A + SGM7A-30A.",
+                "SGDXS-200A00A-Y3600A + SGMXA-30A.",
+                "Las figuras de equipo y los esquemas de conexión proceden del "
+                "**manual oficial** del fabricante, citado al pie de cada lámina.",
             ],
         ),
         subtitle="Cómo sacar el máximo partido a este material",
@@ -177,18 +179,27 @@ def build(d: Deck) -> None:
             "Todos los valores de catálogo, códigos de parámetro y pinouts que aparecen "
             "en el curso son de referencia didáctica. Antes de aplicar cualquiera de "
             "ellos a un equipo real, contrasta con el manual oficial de tu SERVOPACK "
-            "(SIEP S800001 xx) y con la placa de características: las asignaciones "
-            "cambian entre series (Σ-V / Σ-7), variantes de interfaz y revisiones de "
-            "firmware.",
+            "(SIEP C710812 03 para el SGDXS-□□□□00□) y con la placa de "
+            "características: las asignaciones cambian entre series (Σ-V / Σ-X), "
+            "variantes de interfaz y revisiones de firmware. Además, el sufijo "
+            "**-Y3600A** de tu equipo indica una **especificación personalizada**: "
+            "pide a YASKAWA la hoja de especificación Y correspondiente.",
         ),
         notes=(
             "Insista en la advertencia: el objetivo del curso es que el alumno sepa "
             "QUÉ buscar y DÓNDE buscarlo en el manual, no que memorice tablas. Un "
             "buen técnico de servos es el que maneja el manual con agilidad.\n\n"
-            "Manuales de referencia: 'Σ-7S SERVOPACK with Analog Voltage/Pulse Train "
-            "References Product Manual' (SIEP S800001 26), 'Σ-7 Series Product Manual' "
-            "y 'Σ-7 Series Peripheral Device Selection Manual'. Todos son descargables "
-            "gratuitamente desde la web de YASKAWA."
+            "Manual de referencia principal del curso: 'Σ-X-Series AC Servo Drive · "
+            "Σ-XS SERVOPACK with Analog Voltage/Pulse Train References · Product "
+            "Manual' (modelo SGDXS-□□□□00□, MANUAL NO. SIEP C710812 03I), "
+            "descargable gratuitamente desde la web de YASKAWA. Complementarios: "
+            "el catálogo Σ-X de 200 V y el manual de selección de periféricos.\n\n"
+            "IMPORTANTE sobre el sufijo -Y3600A: identifica un producto de "
+            "especificación personalizada (Y-spec). El comportamiento base es el "
+            "del SGDXS-200A00A, pero puede haber parámetros de fábrica, "
+            "asignaciones de E/S o funciones modificadas. Solicite al fabricante "
+            "la hoja de especificación Y antes de dar por buena cualquier "
+            "configuración por defecto."
         ),
     )
 

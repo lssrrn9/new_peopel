@@ -221,7 +221,7 @@ def build(d: Deck) -> None:
             ["Freno dinámico", "Frenado por cortocircuito controlado de las fases del "
              "motor; no mantiene la carga parada"],
             ["HWBB", "Hard Wire Baseblock: implementación por hardware de la función "
-             "de seguridad STO en la Σ-7"],
+             "de seguridad STO en la Σ-X"],
             ["Notch", "Filtro que elimina una banda estrecha de frecuencias para "
              "cancelar una resonancia mecánica"],
             ["PMSM", "Motor síncrono de imanes permanentes: el tipo de servomotor "
@@ -349,7 +349,7 @@ def build(d: Deck) -> None:
                 "**Manual de producto del SERVOPACK** correspondiente a tu variante: "
                 "es la fuente principal y contiene todos los parámetros, alarmas y "
                 "pinouts.",
-                "**Catálogo de la serie Σ-7**: datos de motores, curvas, inercias y "
+                "**Catálogo de la serie Σ-X**: datos de motores, curvas, inercias y "
                 "combinaciones homologadas.",
                 "**Manual de selección de periféricos**: protecciones, filtros, "
                 "resistencias de regeneración y cables.",

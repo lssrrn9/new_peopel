@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Genera `VER_EL_CURSO.md`: el curso completo como galería de imágenes.
 
-Permite leer las 126 diapositivas directamente en GitHub, sin descargar el
+Permite leer las diapositivas directamente en GitHub, sin descargar el
 .pptx ni abrir PowerPoint. Requiere haber exportado antes las imágenes:
 
     python3 generar_presentacion.py
@@ -39,9 +39,10 @@ def main() -> int:
     out: list[str] = [
         "# Ver el curso completo",
         "",
-        "Las 126 diapositivas del curso **Servo drives YASKAWA SERVOPACK "
-        "(3 kW)**, en imágenes. No hace falta descargar nada ni tener "
-        "PowerPoint: basta con desplazarse por esta página.",
+        f"Las {len(deck.outline)} diapositivas del curso **Servo drives YASKAWA "
+        "SERVOPACK Σ-X (SGDXS-200A00A-Y3600A + SGMXA-30A, 3 kW)**, en "
+        "imágenes. No hace falta descargar nada ni tener PowerPoint: basta "
+        "con desplazarse por esta página.",
         "",
         "| También disponible como | |",
         "|---|---|",

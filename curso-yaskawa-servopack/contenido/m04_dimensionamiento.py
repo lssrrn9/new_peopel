@@ -61,7 +61,7 @@ def build(d: Deck) -> None:
             "blue",
             "Objetivo del módulo",
             "Aprender a justificar con números, en menos de una hora, que un conjunto "
-            "SGD7S-200A + motor de 3 kW es (o no es) el adecuado para una máquina "
+            "SGDXS-200A00A + motor de 3 kW es (o no es) el adecuado para una máquina "
             "concreta.",
         ),
         notes=(
@@ -183,7 +183,7 @@ def build(d: Deck) -> None:
                 "autotuning.",
                 "**De 10:1 a 20:1** — Exigente. Requiere acoplamiento muy rígido, "
                 "filtros notch y ajuste manual.",
-                "**Más de 20:1** — Sólo con motores de alta inercia (SGM7G), "
+                "**Más de 20:1** — Sólo con motores de alta inercia (SGMXG), "
                 "mecánica muy rígida y expectativas de dinámica moderadas.",
                 "#Cómo mejorar una relación mala",
                 "- Añadir o aumentar la **reducción** (efecto i²).",
@@ -276,7 +276,7 @@ def build(d: Deck) -> None:
             ["Inercia total de carga", "J_L = J₁ + J₂ + J₃",
              "**72,1 × 10⁻⁴ kg·m²**"],
             ["Relación de inercias",
-             "R = J_L / J_rotor (≈ 19 × 10⁻⁴ kg·m² para el SGM7A-30A)",
+             "R = J_L / J_rotor (≈ 19 × 10⁻⁴ kg·m² para el SGMXA-30A)",
              "**≈ 3,8 : 1 ✔ zona cómoda**"],
         ],
         [2.7, 5.9, 3.5],
@@ -329,7 +329,7 @@ def build(d: Deck) -> None:
              "**≈ 70 W → resistencia interna suficiente**"],
         ],
         [2.9, 6.0, 3.2],
-        subtitle="Conclusión: el conjunto SGD7S-200A + SGM7A-30A es adecuado",
+        subtitle="Conclusión: el conjunto SGDXS-200A00A + SGMXA-30A es adecuado",
         size=9.5,
         foot="Los porcentajes de utilización (47 % continuo y 38 % de pico) indican "
              "que incluso podría estudiarse un motor menor; conviene comprobar antes "

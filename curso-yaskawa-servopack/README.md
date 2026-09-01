@@ -1,9 +1,10 @@
 # Curso «Servo drives YASKAWA SERVOPACK» — de cero a experto (3 kW)
 
 Curso técnico completo en PowerPoint sobre el trabajo con un servoaccionamiento
-YASKAWA **SERVOPACK** de la serie Σ-7 (Sigma-7) aplicado a un **servomotor de
-3 kW**. El conjunto de referencia empleado a lo largo del material es
-**SGD7S-200A + SGM7A-30A / SGM7G-30A**, alimentado a 200 V CA trifásicos.
+YASKAWA **SERVOPACK** de la serie **Σ-X (Sigma-X)** aplicado a un **servomotor
+de 3 kW**. El conjunto de referencia empleado a lo largo del material es
+**SGDXS-200A00A-Y3600A + SGMXA-30A**, alimentado a 200 V CA trifásicos
+(interfaz analógica / tren de pulsos).
 
 La presentación no está escrita a mano: se **genera con un script**, de forma
 que el contenido es editable, revisable en control de versiones y reproducible.
@@ -12,7 +13,8 @@ que el contenido es editable, revisable en control de versiones y reproducible.
 
 | Artefacto | Ruta |
 |---|---|
-| Presentación (126 diapositivas, 16:9) | `salida/CURSO_YASKAWA_SERVOPACK_3kW.pptx` |
+| Presentación PowerPoint (147 diapositivas, 16:9) | `salida/CURSO_YASKAWA_SERVOPACK_3kW.pptx` |
+| Documento PDF | `salida/CURSO_YASKAWA_SERVOPACK_3kW.pdf` |
 | Guion del instructor en texto (notas de todas las láminas) | `salida/GUIA_DEL_INSTRUCTOR.md` |
 
 Cada diapositiva lleva **notas del orador** con el guion de clase, ejemplos,
@@ -26,7 +28,7 @@ guía.
 |---|---|---|
 | Introducción | Objetivos, mapa del curso, convenciones y seguridad | — |
 | 01 | Fundamentos del servoaccionamiento: lazo en cascada, encoder, par e inercia | 3 h |
-| 02 | La familia SERVOPACK Σ-7: líneas, arquitectura interna, código de modelo | 3 h |
+| 02 | La familia SERVOPACK Σ-X: líneas, arquitectura interna, código de modelo | 3 h |
 | 03 | El servomotor de 3 kW: familias, curvas, encoder absoluto, freno | 3 h |
 | 04 | Dimensionamiento y selección, con ejemplo numérico completo | 4 h |
 | 05 | Instalación mecánica y eléctrica: potencia, EMC, regeneración, freno | 4 h |
@@ -112,12 +114,14 @@ de firmware) y con la placa de características del equipo instalado. El
 material está pensado para enseñar **qué** hay que comprobar y **dónde**
 buscarlo, no para sustituir a la documentación del fabricante.
 
-YASKAWA, SERVOPACK, Σ-7/Sigma-7 y SigmaWin+ son marcas de sus respectivos
-titulares. Este material es formativo e independiente.
+YASKAWA, SERVOPACK, Σ-X/Sigma-X, Σ-7/Sigma-7 y SigmaWin+ son marcas de sus
+respectivos titulares. Este material es formativo e independiente. Los
+esquemas extraídos del manual **SIEP C710812 03I** se citan como referencia
+técnica; no sustituyen al manual oficial.
 
 ## Ver el curso sin descargar nada
 
-**[VER_EL_CURSO.md](VER_EL_CURSO.md)** muestra las 126 diapositivas como
+**[VER_EL_CURSO.md](VER_EL_CURSO.md)** muestra las 147 diapositivas como
 imágenes, con índice por módulos. Se lee directamente en el navegador, sin
 PowerPoint. Las imágenes están en `diapositivas/` y el curso completo en PDF,
 en `salida/CURSO_YASKAWA_SERVOPACK_3kW.pdf`.

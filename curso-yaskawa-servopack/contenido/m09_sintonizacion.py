@@ -13,7 +13,7 @@ def build(d: Deck) -> None:
         "Sintonización del lazo de control",
         [
             "Qué significa 'estar bien sintonizado' y cómo se mide",
-            "Las herramientas de ajuste de la Σ-7 y cuándo usar cada una",
+            "Las herramientas de ajuste de la Σ-X y cuándo usar cada una",
             "Autoajuste: sin parámetros, avanzado y con referencia",
             "Ajuste manual: el orden correcto de las ganancias",
             "Resonancia mecánica: filtros notch y análisis en frecuencia",
@@ -83,7 +83,7 @@ def build(d: Deck) -> None:
     )
 
     d.cards_slide(
-        "Las herramientas de ajuste de la Σ-7",
+        "Las herramientas de ajuste de la Σ-X",
         [
             Card(
                 "Ajuste sin sintonizar (tuning-less)",
@@ -146,7 +146,7 @@ def build(d: Deck) -> None:
             "2) Afine con el ajuste de un parámetro hasta el límite de ruido.\n"
             "3) Sólo si no basta, pase a manual y a filtros.\n\n"
             "El error típico del principiante es ir directo al ajuste manual "
-            "'porque es más profesional'. El autoajuste de la Σ-7 es muy bueno y deja "
+            "'porque es más profesional'. El autoajuste de la Σ-X es muy bueno y deja "
             "un punto de partida difícil de mejorar a mano en poco tiempo.\n\n"
             "El error típico del experimentado es dejar activo el tuning-less mientras "
             "intenta ajustar a mano y no entender por qué sus cambios 'no hacen "
@@ -277,7 +277,7 @@ def build(d: Deck) -> None:
                 "Permite **reducir mucho el error de seguimiento sin subir las "
                 "ganancias** del lazo de realimentación, que son las que provocan "
                 "inestabilidad.",
-                "Es la razón principal de que un eje Σ-7 bien configurado posicione "
+                "Es la razón principal de que un eje Σ-X bien configurado posicione "
                 "más rápido que uno de generación anterior con las mismas ganancias.",
                 "#Cuándo usarlo",
                 "- En posicionado punto a punto: muy recomendable.",

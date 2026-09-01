@@ -7,6 +7,7 @@ sólo tengan que aportar el texto.
 
 from __future__ import annotations
 
+import os
 from dataclasses import dataclass
 from typing import Iterable, Sequence
 
@@ -40,6 +41,12 @@ INK = RGBColor(0x1C, 0x24, 0x30)
 FONT_H = "Segoe UI Semibold"
 FONT_B = "Segoe UI"
 FONT_M = "Consolas"
+
+# Figuras extraídas del manual oficial (ver extraer_figuras.py)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+FIG = os.path.join(BASE_DIR, "figuras") + os.sep
+FUENTE = ("Fuente: YASKAWA · Σ-XS SERVOPACK with Analog Voltage/Pulse Train "
+          "References Product Manual · SIEP C710812 03I")
 
 SLIDE_W = Inches(13.333)
 SLIDE_H = Inches(7.5)
@@ -275,7 +282,7 @@ class Deck:
         self._rect(slide, cx - Inches(0.09), cy - Inches(2.55), Inches(0.18),
                    Inches(1.1), fill=AMBER)
         self._text(slide, Inches(9.15), Inches(5.55), Inches(3.5),
-                   Inches(0.4), "SGD7S-200A  +  SGM7A-30A", size=Pt(13),
+                   Inches(0.4), "SGDXS-200A00A-Y3600A  +  SGMXA-30A", size=Pt(12),
                    color=WHITE, bold=True, align=PP_ALIGN.CENTER,
                    font=FONT_M)
         self._text(slide, Inches(9.15), Inches(5.95), Inches(3.5),
@@ -673,6 +680,68 @@ class Deck:
     def canvas_slide(self, title: str, subtitle: str = "", notes: str = ""):
         slide = self._blank()
         self._chrome(slide, title, subtitle)
+        self._notes(slide, notes)
+        self.outline.append(("Diapositiva", title, notes))
+        return slide
+
+    def figure_slide(self, title: str, imagen: str, subtitle: str = "",
+                     notes: str = "", puntos: Sequence[str] = (),
+                     fuente: str = "", callout: tuple[str, str, str] | None = None):
+        """Lámina dominada por una figura, con notas de lectura opcionales."""
+        from PIL import Image as _Image
+
+        slide = self._blank()
+        self._chrome(slide, title, subtitle)
+
+        pie_h = Inches(0.38) if fuente else Emu(0)
+        zona_top = BODY_TOP
+        zona_h = BODY_BOTTOM - zona_top - pie_h
+        zona_w = BODY_W
+        if puntos:
+            zona_w = BODY_W * 0.63
+        if callout:
+            zona_h -= Inches(1.0)
+
+        with _Image.open(imagen) as im:
+            ratio = im.size[0] / im.size[1]
+        alto = zona_h
+        ancho = alto * ratio
+        if ancho > zona_w:
+            ancho = zona_w
+            alto = ancho / ratio
+        x = MARGIN + (zona_w - ancho) / 2
+        y = zona_top + (zona_h - alto) / 2
+
+        self._rect(slide, x - Inches(0.06), y - Inches(0.06),
+                   ancho + Inches(0.12), alto + Inches(0.12), fill=WHITE,
+                   line=GRAY_LINE)
+        slide.shapes.add_picture(imagen, int(x), int(y), int(ancho), int(alto))
+
+        if fuente:
+            self._text(slide, MARGIN, BODY_BOTTOM - Inches(0.22), BODY_W,
+                       Inches(0.24), fuente, size=Pt(8.5), color=GRAY)
+
+        if puntos:
+            px = MARGIN + zona_w + Inches(0.30)
+            pw = BODY_W - zona_w - Inches(0.30)
+            self._rect(slide, px, zona_top, pw, zona_h, fill=LIGHT,
+                       line=GRAY_LINE)
+            box = slide.shapes.add_textbox(px + Inches(0.24),
+                                           zona_top + Inches(0.20),
+                                           pw - Inches(0.48),
+                                           zona_h - Inches(0.4))
+            tf = box.text_frame
+            tf.word_wrap = True
+            tf.margin_left = tf.margin_right = 0
+            tf.margin_top = tf.margin_bottom = 0
+            self._fill_bullets(
+                tf, puntos,
+                self.fit_bullets(puntos, 12.0, (pw - Inches(0.48)) / Inches(1),
+                                 (zona_h - Inches(0.4)) / Inches(1)))
+        if callout:
+            self.callout(slide, MARGIN, BODY_BOTTOM - pie_h - Inches(0.92),
+                         BODY_W, Inches(0.92), *callout)
+
         self._notes(slide, notes)
         self.outline.append(("Diapositiva", title, notes))
         return slide

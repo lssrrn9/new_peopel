@@ -3,8 +3,9 @@
 from pptx.enum.text import PP_ALIGN
 from pptx.util import Inches, Pt
 
-from builder import (AMBER, BLUE, CYAN, GRAY, GRAY_LINE, GREEN, INK, LIGHT,
-                     LIGHT_BLUE, NAVY, NAVY_SOFT, RED, WHITE, Card, Deck)
+from builder import (AMBER, BLUE, CYAN, FIG, FUENTE, GRAY, GRAY_LINE, GREEN,
+                     INK, LIGHT, LIGHT_BLUE, NAVY, NAVY_SOFT, RED, WHITE, Card,
+                     Deck)
 
 
 def build(d: Deck) -> None:
@@ -104,7 +105,7 @@ def build(d: Deck) -> None:
              "dígito indica a qué terminal físico se asocia, o si la señal se fuerza a "
              "activa o inactiva permanentemente.",
         notes=(
-            "Explique el concepto de asignación: en la Σ-7 las señales lógicas no "
+            "Explique el concepto de asignación: en la Σ-X las señales lógicas no "
             "están atadas a un pin. Con Pn50A/Pn50B se decide qué terminal físico "
             "(SI0…SI6) activa cada señal lógica, e incluso se puede fijar una señal "
             "como 'siempre activa' sin cablearla.\n\n"
@@ -223,13 +224,217 @@ def build(d: Deck) -> None:
             "posición y envía una consigna de velocidad analógica al drive. El drive "
             "es un 'regulador de velocidad de alta calidad'.\n\n"
             "El ajuste del offset es un procedimiento clásico de puesta en marcha: "
-            "con consigna a cero, el eje debe quedar completamente parado. La Σ-7 "
+            "con consigna a cero, el eje debe quedar completamente parado. La Σ-X "
             "tiene funciones de utilidad específicas para el ajuste automático y "
             "manual del offset de las entradas analógicas."
         ),
     )
 
     _diagrama_pulsos(d)
+
+
+    d.figure_slide(
+        "Disposición de pines del conector `CN1`",
+        FIG + "cn1_conector.png",
+        subtitle="50 pines vistos desde el lado de conexión",
+        puntos=[
+            "#Cómo se numera",
+            "Dos filas: pines **1 a 25** y pines **26 a 50**.",
+            "La ilustración corresponde a la vista **sin la carcasa del "
+            "conector**.",
+            "#Antes de cablear",
+            "Comprueba la asignación real de tu equipo: el sufijo **-Y3600A** puede "
+            "traer asignaciones de fábrica distintas de las estándar.",
+            "- Verifica siempre con `Un005` y `Un006` qué señales ve realmente el "
+            "drive antes de dar por bueno el cableado.",
+        ],
+        fuente=FUENTE + " · apartado 4.5.2",
+        notes=(
+            "Aviso del propio manual que conviene leer en voz alta: el conector de "
+            "este SERVOPACK es el mismo que el del Σ-XT, así que antes de la prueba "
+            "de funcionamiento hay que confirmar que se ha conectado el conector "
+            "correcto.\n\n"
+            "Insista en la comprobación con los monitores Un005 y Un006: es la forma "
+            "más rápida de validar un cableado de CN1 sin multímetro."
+        ),
+    )
+
+    d.table_slide(
+        "Asignación de fábrica de `CN1` (SGDXS analógica / pulsos)",
+        ["Pin", "Señal", "Función", "Pin", "Señal", "Función"],
+        [
+            ["1", "SG", "Masa de señal", "27-28", "/SO2 (`/TGON`)",
+             "Salida 2: motor girando"],
+            ["2", "SG", "Masa de señal", "29-30", "/SO3 (`/S-RDY`)",
+             "Salida 3: servo listo"],
+            ["4", "SEN", "Petición de dato absoluto", "31-32", "`ALM+` / `ALM-`",
+             "**Salida de alarma**"],
+            ["5-6", "`V-REF` / SG", "Consigna de velocidad ±12 V", "33-34",
+             "`PAO` / `/PAO`", "Salida de encoder, fase A"],
+            ["7-8", "`PULS` / `/PULS`", "Tren de pulsos de referencia", "35-36",
+             "`PBO` / `/PBO`", "Salida de encoder, fase B"],
+            ["9-10", "`T-REF` / SG", "Consigna de par ±12 V", "37-39",
+             "`ALO1`…`ALO3`", "Código de alarma"],
+            ["11-12", "`SIGN` / `/SIGN`", "Signo del tren de pulsos", "40",
+             "/SI0 (`/S-ON`)", "**Servo ON**"],
+            ["14-15", "`/CLR` / `CLR`", "Borrado del error de posición", "41",
+             "/SI3 (`/P-CON`)", "Control proporcional"],
+            ["19-20", "`PCO` / `/PCO`", "Salida de encoder, fase C (marca)", "42",
+             "/SI1 (`P-OT`)", "Límite de recorrido positivo"],
+            ["21-22", "`BAT+` / `BAT-`", "Batería del encoder absoluto", "43",
+             "/SI2 (`N-OT`)", "Límite de recorrido negativo"],
+            ["25-26", "/SO1 (`/COIN` o `/V-CMP`)", "Salida 1: en posición", "44",
+             "/SI4 (`/ALM-RST`)", "Reinicio de alarma"],
+            ["48-49", "`PSO` / `/PSO`", "Salida de posición absoluta", "45-46",
+             "/SI5, /SI6 (`/P-CL`, `/N-CL`)", "Límite externo de par"],
+            ["50", "`TH`", "Entrada de protección térmica", "47", "`+24VIN`",
+             "**Común de las entradas**"],
+        ],
+        [0.8, 2.0, 3.0, 0.8, 2.0, 3.0],
+        subtitle="Asignación por defecto tomada del manual",
+        size=8.5,
+        foot="Fuente: SIEP C710812 03I, apartado 4.5.2. Muchas de estas señales se "
+             "pueden reasignar por parámetro; el sufijo -Y3600A puede alterar los "
+             "valores de fábrica.",
+        notes=(
+            "Ésta es la tabla de consulta que hay que tener delante al cablear. Dos "
+            "señales son nuevas respecto de la serie Σ-7 y conviene señalarlas:\n"
+            "· PSO / /PSO (pines 48-49): salida de posición absoluta, que permite al "
+            "controlador leer la posición sin secuencia SEN.\n"
+            "· TH (pin 50): entrada de protección contra sobrecalentamiento, pensada "
+            "para el sensor térmico de motores lineales y de accionamiento "
+            "directo.\n\n"
+            "Recuerde el pin 47 (+24VIN): sin él alimentado, ninguna entrada digital "
+            "funciona y el drive no da ninguna alarma por ello."
+        ),
+    )
+
+    d.figure_slide(
+        "Ejemplo oficial de cableado: control de velocidad",
+        FIG + "cn1_ejemplo_velocidad.png",
+        subtitle="Servomotor rotativo con consigna analógica",
+        fuente=FUENTE + " · apartado 4.5.3 (1)",
+        notes=(
+            "Recorra la figura por zonas:\n"
+            "· Izquierda arriba: la consigna de velocidad V-REF y el límite externo "
+            "de par T-REF, ambos ±12 V máximo, con par trenzado.\n"
+            "· Izquierda centro: la batería del encoder absoluto y la señal SEN.\n"
+            "· Izquierda abajo: las siete entradas de secuencia alimentadas desde "
+            "+24VIN, con contactos secos.\n"
+            "· Derecha arriba: códigos de alarma y salidas de encoder, que exigen "
+            "receptor de línea en el controlador.\n"
+            "· Derecha abajo: las salidas por fotoacoplador, con sus límites de "
+            "30 V CC y 50 mA.\n\n"
+            "Dos notas del manual que conviene leer: la fuente de 24 V no la "
+            "suministra YASKAWA y debe ser de aislamiento doble o reforzado; y si se "
+            "usa freno de 24 V hay que alimentarlo con una fuente distinta de la de "
+            "las señales de CN1."
+        ),
+    )
+
+    d.figure_slide(
+        "Ejemplo oficial de cableado: control de posición",
+        FIG + "cn1_ejemplo_posicion.png",
+        subtitle="Servomotor rotativo con tren de pulsos",
+        fuente=FUENTE + " · apartado 4.5.3 (3)",
+        notes=(
+            "La diferencia respecto del ejemplo de velocidad está en la entrada: "
+            "aquí aparecen PULS//PULS, SIGN//SIGN y CLR//CLR en lugar de la consigna "
+            "analógica.\n\n"
+            "Observe que la señal de borrado del error de posición (CLR) es parte "
+            "del interfaz: el controlador la usa al hacer el origen y al habilitar "
+            "el eje. Si queda activa por error, el eje no se mueve aunque lleguen "
+            "pulsos; es una causa de avería recogida en el capítulo de resolución de "
+            "problemas del manual.\n\n"
+            "El parámetro Pn200 define el formato del tren de pulsos y también la "
+            "forma de la señal CLR."
+        ),
+    )
+
+    d.figure_slide(
+        "Circuitos de entrada de referencia: line driver o colector abierto",
+        FIG + "cn1_circuitos_pulsos.png",
+        subtitle="La elección eléctrica que condiciona la fiabilidad del eje",
+        puntos=[
+            "#Line driver (recomendado)",
+            "Salida diferencial tipo SN75ALS174 o equivalente.",
+            "Nivel alto ≥ 2,9 V y nivel bajo ≤ 3,6 V según la fórmula del manual.",
+            "- Si no se cumple, la entrada es **inestable**: se pierden pulsos, se "
+            "invierte el signo o se activa el borrado por error.",
+            "#Colector abierto",
+            "El drive ofrece salida de alimentación por `PL1`, `PL2` y `PL3` con "
+            "resistencia interna de 1 kΩ.",
+            "Si el controlador usa su propia fuente, hay que respetar la tabla de "
+            "resistencia de pull-up: 24 V → 1,8-2,7 kΩ · 12 V → 820 Ω-1,5 kΩ · "
+            "5 V → 180-470 Ω.",
+            "- Corriente de salida máxima: 20 mA.",
+        ],
+        fuente=FUENTE + " · apartado 4.5.4",
+        notes=(
+            "Esta figura es la respuesta técnica a la pregunta '¿por qué mi eje "
+            "pierde pulsos?'. La mayoría de los casos son un colector abierto mal "
+            "adaptado o un cable demasiado largo.\n\n"
+            "La tabla de resistencias de pull-up del manual es muy concreta y casi "
+            "nadie la consulta. Si el controlador tiene salida a colector abierto "
+            "con fuente propia, hay que verificarla antes de cablear.\n\n"
+            "Recomendación general: en un eje de 3 kW con dinámica exigente, siempre "
+            "line driver."
+        ),
+    )
+
+    d.figure_slide(
+        "Circuitos de salida por fotoacoplador",
+        FIG + "cn1_circuitos_salida.png",
+        subtitle="Lo que realmente hay detrás de `ALM`, `/COIN` o `/BK`",
+        puntos=[
+            "#Características",
+            "Salidas por **fotoacoplador**, aisladas del circuito interno.",
+            "Máximo **30 V CC** y **50 mA** por salida.",
+            "#Consecuencias prácticas",
+            "No atacan directamente contactores, electroválvulas ni lámparas de "
+            "potencia: hay que usar **relé intermedio**.",
+            "Toda carga inductiva necesita **diodo volante** o varistor.",
+            "Respeta la **polaridad**: no son contactos libres de potencial.",
+            "- Si superas los límites, la salida se destruye y la reparación exige "
+            "cambiar el amplificador.",
+        ],
+        fuente=FUENTE + " · apartado 4.5.4",
+        notes=(
+            "Los 50 mA son el dato que hay que retener. Un relé industrial pequeño "
+            "consume del orden de 20-40 mA, así que está en el límite; conviene "
+            "elegir relés de bajo consumo o interponer una tarjeta de "
+            "acondicionamiento.\n\n"
+            "Un error clásico es conectar una lámpara de señalización directamente a "
+            "la salida de alarma: consume más de lo admisible y acaba destruyendo la "
+            "salida."
+        ),
+    )
+
+    d.figure_slide(
+        "Circuitos de entrada analógica",
+        FIG + "cn1_circuitos_analogicos.png",
+        subtitle="`V-REF` (pines 5-6) y `T-REF` (pines 9-10)",
+        puntos=[
+            "#Datos eléctricos",
+            "Impedancia de entrada: **30 kΩ** en ambas.",
+            "Tensión máxima admisible: **±12 V**.",
+            "Se usan como consigna de velocidad, de par, o como límite externo de "
+            "par.",
+            "#Buenas prácticas",
+            "Par trenzado y apantallado; masa de señal (SG) bien referenciada.",
+            "Ajusta el **offset** en frío y en caliente: la deriva del convertidor "
+            "del controlador hace que el eje se mueva con consigna cero.",
+            "- Usa `/ZCLAMP` para fijar velocidad cero y evitar la deriva.",
+        ],
+        fuente=FUENTE + " · apartado 4.5.4",
+        notes=(
+            "La figura del manual muestra dos casos: la conexión desde un "
+            "convertidor D/A del controlador y el ejemplo de cableado para marcha "
+            "en un solo sentido con una fuente de 12 V y resistencias.\n\n"
+            "El dato de 30 kΩ de impedancia importa cuando el controlador tiene una "
+            "salida de baja capacidad o cuando se usan divisores resistivos."
+        ),
+    )
 
     d.bullets_slide(
         "Sobrerrecorrido, límites y métodos de parada",

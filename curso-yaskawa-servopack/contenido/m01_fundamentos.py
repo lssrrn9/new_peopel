@@ -163,7 +163,7 @@ def build(d: Deck) -> None:
                 "#Incremental",
                 "Cuenta pulsos desde el arranque. Al quitar tensión **pierde la "
                 "referencia** y obliga a hacer búsqueda de origen (homing).",
-                "#Absoluto (el de la serie Σ-7)",
+                "#Absoluto (el de la serie Σ-X)",
                 "Conoce la posición dentro de la vuelta **y** el número de vueltas "
                 "(multivuelta) aunque se corte la alimentación.",
                 "- Requiere **batería** (3,6 V) para mantener el contaje multivuelta.",
@@ -175,7 +175,7 @@ def build(d: Deck) -> None:
         (
             "Resolución: qué significan 24 bits",
             [
-                "El encoder serie de la Σ-7 entrega **2²⁴ = 16.777.216 cuentas por "
+                "El encoder serie de la Σ-X entrega **2²⁴ = 16.777.216 cuentas por "
                 "vuelta**.",
                 "- Una cuenta equivale a **0,0000215°**, unas 77 millonésimas de grado.",
                 "- Con un husillo de 10 mm de paso, una cuenta son **0,6 nanómetros** "
@@ -244,7 +244,7 @@ def build(d: Deck) -> None:
             "sentido.\n\n"
             "Ejercicio en pizarra: 'necesito 15 N·m continuos a 2.000 rpm, ¿me vale un "
             "motor de 3 kW?'. P = 15 × 2π × 2000/60 = 3.140 W. Está justo en el "
-            "límite: habría que ir a la versión de 1.500 rpm (SGM7G-30A, 18,6 N·m) o "
+            "límite: habría que ir a la versión de 1.500 rpm (SGMXG-30A, 18,6 N·m) o "
             "subir de tamaño. Este razonamiento se desarrolla en el Módulo 04."
         ),
     )
@@ -257,8 +257,8 @@ def build(d: Deck) -> None:
         [
             ["SERVOPACK", "Nombre comercial YASKAWA del servoamplificador (el drive)",
              "Todo el curso"],
-            ["Σ-7 / Sigma-7", "Generación de la familia de servos YASKAWA",
-             "Códigos SGD7·/SGM7·"],
+            ["Σ-X / Sigma-X", "Generación de la familia de servos YASKAWA",
+             "Códigos SGDX·/SGMX·"],
             ["PMSM", "Motor síncrono de imanes permanentes: el servomotor",
              "Módulo 03"],
             ["Ganancia", "Cuánto corrige el drive por cada unidad de error",
@@ -324,9 +324,9 @@ def _diagrama_cadena(d: Deck) -> None:
     bloques = [
         ("CONTROLADOR\nPLC · CNC · Motion", BLUE,
          "Genera la consigna:\nposición, velocidad o par"),
-        ("SERVOPACK\nSGD7S-200A", NAVY,
+        ("SERVOPACK\nSGDXS-200A00A", NAVY,
          "Cierra los lazos y\nconvierte la red en corriente"),
-        ("SERVOMOTOR\nSGM7A-30A · 3 kW", CYAN,
+        ("SERVOMOTOR\nSGMXA-30A · 3 kW", CYAN,
          "Convierte corriente\nen par y movimiento"),
         ("MECÁNICA\nReductor · husillo · carga", GRAY,
          "Transforma el giro\nen el movimiento útil"),
@@ -382,7 +382,7 @@ def _diagrama_lazos(d: Deck) -> None:
             "Este es el diagrama más importante del curso. Todo el Módulo 09 "
             "(sintonización) consiste en ajustar las ganancias de estos tres lazos en "
             "el orden correcto: de dentro hacia fuera.\n\n"
-            "Frecuencias de actualización típicas en la Σ-7: el lazo de corriente "
+            "Frecuencias de actualización típicas en la Σ-X: el lazo de corriente "
             "trabaja en el orden de decenas de kHz, el de velocidad en unos pocos kHz "
             "y el de posición algo más lento. Regla universal del control en cascada: "
             "el lazo interno debe ser al menos 4-5 veces más rápido que el externo.\n\n"

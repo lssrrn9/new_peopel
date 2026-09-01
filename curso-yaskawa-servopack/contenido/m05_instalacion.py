@@ -3,8 +3,9 @@
 from pptx.enum.text import PP_ALIGN
 from pptx.util import Inches, Pt
 
-from builder import (AMBER, BLUE, CYAN, GRAY, GRAY_LINE, GREEN, INK, LIGHT,
-                     LIGHT_BLUE, NAVY, NAVY_SOFT, RED, WHITE, Card, Deck)
+from builder import (AMBER, BLUE, CYAN, FIG, FUENTE, GRAY, GRAY_LINE, GREEN,
+                     INK, LIGHT, LIGHT_BLUE, NAVY, NAVY_SOFT, RED, WHITE, Card,
+                     Deck)
 
 
 def build(d: Deck) -> None:
@@ -91,7 +92,7 @@ def build(d: Deck) -> None:
     _diagrama_potencia(d)
 
     d.table_slide(
-        "Protecciones y cables para el SGD7S-200A",
+        "Protecciones y cables para el SGDXS-200A00A",
         ["Elemento", "Criterio de selección", "Valor orientativo para 3 kW"],
         [
             ["Interruptor automático / fusibles",
@@ -198,6 +199,253 @@ def build(d: Deck) -> None:
     )
 
     _diagrama_regeneracion_freno(d)
+
+
+    d.figure_slide(
+        "Esquema de conexiones completo del SGDXS-□□□A",
+        FIG + "conexiones_generales.png",
+        subtitle="La lámina de referencia: todo el eje en un solo dibujo",
+        fuente=FUENTE + " · apartado 4.2.1",
+        notes=(
+            "Ésta es probablemente la figura más útil de todo el manual y conviene "
+            "imprimirla en A3 y tenerla en el armario durante la instalación.\n\n"
+            "Recórrala por zonas, no de golpe:\n"
+            "1) Arriba a la izquierda, el circuito de potencia: 1QF (interruptor "
+            "automático), 1FLT (filtro), 2KM (contactor de potencia), 1KM "
+            "(contactor de control) y la maniobra de marcha/paro con 1Ry y la "
+            "lámpara 1PL de alarma.\n"
+            "2) Arriba a la derecha, motor (U, V, W) y encoder por CN2, más los "
+            "monitores analógicos de CN5.\n"
+            "3) En el centro-izquierda, las consignas: V-REF (velocidad), T-REF "
+            "(par) y el tren de pulsos PULS/SIGN con su señal de borrado CLR.\n"
+            "4) En el centro-derecha, las salidas: códigos de alarma ALO1-3, "
+            "salidas de encoder PAO/PBO/PCO, salida de posición absoluta PSO y las "
+            "tres salidas de propósito general /SO1, /SO2 y /SO3, más la de alarma "
+            "ALM.\n"
+            "5) Abajo, las entradas de secuencia /SI0 a /SI6 alimentadas desde "
+            "+24VIN, y el conector de seguridad CN8 con sus dos canales HWBB y la "
+            "salida EDM1.\n\n"
+            "Detalle importante que aparece en el pie de la figura: la fuente de "
+            "24 V CC no la suministra YASKAWA y debe ser de aislamiento doble o "
+            "reforzado."
+        ),
+    )
+
+    d.figure_slide(
+        "Circuito de potencia con sus protecciones",
+        FIG + "potencia_protecciones.png",
+        subtitle="Ejemplo oficial para entrada trifásica de 200 V CA",
+        puntos=[
+            "#Elementos del esquema",
+            "**1QF** — interruptor automático de caja moldeada.",
+            "**1FLT** — filtro de red para compatibilidad electromagnética.",
+            "**1KM** — contactor de la alimentación de **control**.",
+            "**2KM** — contactor de la alimentación de **potencia**.",
+            "**1SA / 2SA / 3SA** — absorbedores de sobretensión.",
+            "**1D** — diodo volante sobre la bobina del relé.",
+            "**1Ry** — relé de la maniobra · **1PL** — lámpara de alarma.",
+            "#La lógica de la maniobra",
+            "La salida `ALM` del drive (`CN1-31` / `CN1-32`) está en serie con la "
+            "maniobra: **una alarma corta la potencia** y enciende la lámpara.",
+            "- El pulsador de marcha excita 1KM, que se automantiene, y a "
+            "continuación 2KM da potencia.",
+        ],
+        fuente=FUENTE + " · apartado 4.3.4",
+        notes=(
+            "Este esquema responde exactamente a la petición de 'potencia y "
+            "protecciones eléctricas'. Es el circuito recomendado por el fabricante "
+            "y conviene tomarlo como referencia de diseño.\n\n"
+            "Puntos que hay que explicar:\n"
+            "· Los absorbedores de sobretensión (1SA, 2SA, 3SA) van sobre las "
+            "bobinas de los contactores y en la entrada: protegen frente a los picos "
+            "de maniobra, que son una fuente clásica de averías electrónicas.\n"
+            "· El diodo 1D en la bobina del relé cumple la misma función en "
+            "continua.\n"
+            "· La cadena de alarma es lo que convierte un fallo del drive en un "
+            "corte real de potencia, en lugar de dejar la máquina energizada con un "
+            "eje muerto.\n\n"
+            "Para el SGDXS-200A00A: 15 A de entrada, luego el 1QF y el 2KM se "
+            "dimensionan por encima de ese valor, consultando la tabla de "
+            "periféricos del manual."
+        ),
+    )
+
+    d.figure_slide(
+        "Secuencia de encendido, según el manual",
+        FIG + "secuencia_encendido.png",
+        subtitle="Cronograma oficial y la advertencia de descarga del bus",
+        puntos=[
+            "#Lo que fija el cronograma",
+            "La alimentación de **control** se establece antes o a la vez que la de "
+            "**potencia**.",
+            "Existe un **retardo** entre dar potencia y que el drive acepte el "
+            "servo ON: es la precarga de los condensadores.",
+            "La señal `ALM` sólo es válida una vez transcurrido ese tiempo.",
+            "#La advertencia en rojo",
+            "Tras cortar la alimentación, el bus de continua **conserva tensión "
+            "peligrosa**. Espera al menos **15 minutos** desde que se apaga el "
+            "indicador CHARGE antes de tocar nada.",
+            "- No toques los bornes de potencia ni los del motor mientras el "
+            "indicador CHARGE esté encendido.",
+        ],
+        fuente=FUENTE + " · apartado 4.3.3",
+        notes=(
+            "Este cronograma es la versión oficial de la secuencia que vimos en la "
+            "lámina anterior. Merece la pena compararlas.\n\n"
+            "El dato de seguridad más importante de todo el módulo está aquí: el "
+            "manual exige esperar al menos 15 minutos tras cortar la alimentación "
+            "antes de manipular los bornes. Es más de lo que la mayoría de los "
+            "técnicos supone, y es tiempo de seguridad, no una recomendación "
+            "conservadora.\n\n"
+            "Insista: el indicador CHARGE apagado es condición necesaria pero no "
+            "suficiente. Siempre verificación de ausencia de tensión con "
+            "multímetro."
+        ),
+    )
+
+    d.figure_slide(
+        "Resistencia de regeneración externa: el puente `B2`-`B3`",
+        FIG + "regeneracion_externa.png",
+        subtitle="Figura oficial del procedimiento en los modelos 180A a 330A",
+        puntos=[
+            "#Procedimiento",
+            "**1.** Retirar el puente (cable corto) entre `B2` y `B3`.",
+            "**2.** Conectar la resistencia externa entre `B1/⊕` y `B2`.",
+            "**3.** Declarar la resistencia en los parámetros.",
+            "#Datos de tu amplificador",
+            "Resistencia interna: **10 Ω · 60 W**, con **30 W** de consumo continuo "
+            "admisible.",
+            "Resistencia externa **mínima admisible: 10 Ω**.",
+            "#Parámetros que hay que ajustar",
+            "`Pn600` — capacidad de la resistencia de regeneración [W].",
+            "`Pn603` — valor óhmico de la resistencia de regeneración.",
+            "- Si no los declaras, la protección térmica del drive calculará con la "
+            "resistencia interna y protegerá mal.",
+        ],
+        fuente=FUENTE + " · apartado 4.3.5",
+        notes=(
+            "Novedad de la Σ-X frente a la Σ-7: además de Pn600 (capacidad en "
+            "vatios) hay que ajustar Pn603 (resistencia en ohmios). En la Σ-7 sólo "
+            "existía el primero. Es un error habitual en quien viene de la serie "
+            "anterior.\n\n"
+            "Si se dejan las dos resistencias en paralelo por no retirar el puente, "
+            "la resistencia total baja de los 10 Ω mínimos y el transistor de "
+            "frenado puede destruirse.\n\n"
+            "Recuerde que la resistencia externa se monta ventilada, con termostato "
+            "de seguridad, y que alcanza temperaturas muy altas."
+        ),
+    )
+
+    d.figure_slide(
+        "Cableado del encoder absoluto y de la batería",
+        FIG + "cableado_encoder.png",
+        subtitle="Conexión por `CN2` y ubicación de la batería",
+        puntos=[
+            "#Las dos ubicaciones posibles de la batería",
+            "En el **cable de encoder** (unidad de batería intercalada).",
+            "En el **controlador anfitrión**, a través de los pines `BAT+` / `BAT-` "
+            "de `CN1` (21 y 22).",
+            "- **Nunca las dos a la vez**: se producirían corrientes de circulación "
+            "entre ambas.",
+            "#Reglas de cableado",
+            "Cable **original y apantallado**, con la malla a tierra.",
+            "Separado de los cables de potencia; cruces a 90°.",
+            "- La mayoría de las alarmas intermitentes de encoder son problemas de "
+            "cable, conector o apantallamiento.",
+        ],
+        fuente=FUENTE + " · apartado 4.4.3",
+        notes=(
+            "La figura muestra las dos formas de alimentar el respaldo del encoder "
+            "absoluto. Insista en que hay que elegir una.\n\n"
+            "Recuerde el procedimiento de mantenimiento: sustituir la batería con la "
+            "alimentación de control conectada evita perder el contaje multivuelta y "
+            "tener que rehacer el origen de la máquina."
+        ),
+    )
+
+    d.figure_slide(
+        "Cableado del freno de retención",
+        FIG + "freno_retencion.png",
+        subtitle="Circuito oficial con relé intermedio y fuente independiente",
+        puntos=[
+            "#Lo que muestra la figura",
+            "La salida `/BK` del drive ataca un **relé intermedio**, no la bobina "
+            "del freno directamente.",
+            "El freno se alimenta con una **fuente de 24 V independiente** de la de "
+            "las E/S.",
+            "Se intercala un **supresor de sobretensión** en el circuito de la "
+            "bobina.",
+            "#Por qué esas tres precauciones",
+            "La corriente de conexión del freno es alta y perturba las señales si "
+            "comparte fuente.",
+            "Al cortar una bobina se generan picos de cientos de voltios.",
+            "- La salida del drive es un transistor de baja capacidad.",
+            "#Parámetros asociados",
+            "`Pn506`, `Pn507` y `Pn508` gobiernan la temporización; la señal `/BK` "
+            "se asigna con `Pn50F`.",
+        ],
+        fuente=FUENTE + " · apartado 4.4.4",
+        notes=(
+            "Compare esta figura con el esquema simplificado que vimos antes: es la "
+            "misma idea, con el detalle real del fabricante.\n\n"
+            "El manual advierte expresamente de que, si se usa un freno de 24 V, hay "
+            "que instalar una fuente separada de la de las señales de E/S del "
+            "conector CN1; si se comparte, las señales pueden funcionar mal."
+        ),
+    )
+
+    d.figure_slide(
+        "Condiciones de instalación para compatibilidad electromagnética",
+        FIG + "emc_instalacion.png",
+        subtitle="Disposición recomendada por el fabricante",
+        puntos=[
+            "#Lo que exige la figura",
+            "**Placa de montaje metálica** con superficie conductora como "
+            "referencia de masas.",
+            "**Filtro de red** montado sobre la propia placa, junto al "
+            "amplificador.",
+            "**Abrazaderas de pantalla** que rodean la malla de los cables por "
+            "360°, no latiguillos.",
+            "Cables de motor, encoder y E/S **apantallados**.",
+            "#Errores que anulan la protección",
+            "- Conectar la malla con un cable trenzado largo hasta un borne.",
+            "- Pintar la zona de contacto de la placa de montaje.",
+            "- Llevar potencia y señal por la misma canaleta.",
+        ],
+        fuente=FUENTE + " · apartado 3.7",
+        notes=(
+            "Ésta es la figura que hay que enseñar al montador del armario. La "
+            "diferencia entre un eje que funciona y uno con alarmas intermitentes "
+            "está muchas veces en estos detalles.\n\n"
+            "La tabla que acompaña a la figura en el manual indica qué cables deben "
+            "ser apantallados: el de señales de E/S, el del dispositivo de "
+            "seguridad, el del encoder y el del motor.\n\n"
+            "Recuerde el porqué físico de la abrazadera de 360°: a frecuencias de "
+            "MHz un conductor de 10 cm tiene impedancia apreciable y la pantalla "
+            "deja de serlo."
+        ),
+    )
+
+    d.figure_slide(
+        "Puesta a tierra de varios SERVOPACK en el armario",
+        FIG + "puesta_a_tierra.png",
+        subtitle="Tierra en estrella sobre la placa de montaje, no en cadena",
+        puntos=[
+            "Todas las tierras van a un **único punto** de la placa de montaje.",
+            "El filtro de red se monta **sobre la misma placa** y su carcasa hace "
+            "contacto metal-metal.",
+            "No encadenes las tierras de un amplificador a otro: se forma un bucle "
+            "y el ruido recorre todo el armario.",
+            "- Máxima resistencia de tierra: **100 Ω** según el manual.",
+        ],
+        fuente=FUENTE + " · apartado 4.1.3",
+        notes=(
+            "La figura es pequeña porque el recorte del manual lo es: el mensaje es "
+            "el de la tierra en estrella. Explíquela junto a la de EMC.\n\n"
+            "El valor de 100 Ω es el criterio de aceptación de la lista de "
+            "verificación del módulo."
+        ),
+    )
 
     d.steps_slide(
         "Instalación mecánica del motor",
@@ -341,7 +589,7 @@ def _diagrama_potencia(d: Deck) -> None:
     sp_x, sp_w = x, Inches(2.55)
     d._rect(slide, sp_x, Inches(1.95), sp_w, Inches(3.55), fill=LIGHT,
             line=NAVY, line_w=Pt(2))
-    d._text(slide, sp_x, Inches(2.06), sp_w, Inches(0.3), "SGD7S-200A",
+    d._text(slide, sp_x, Inches(2.06), sp_w, Inches(0.3), "SGDXS-200A00A",
             size=Pt(13), color=NAVY, bold=True, align=PP_ALIGN.CENTER)
 
     bornes = [
@@ -360,7 +608,7 @@ def _diagrama_potencia(d: Deck) -> None:
     mx = sp_x + sp_w + Inches(0.55)
     m_w = Inches(2.55)
     d.box(slide, mx, Inches(3.85), m_w, Inches(1.0),
-          "SERVOMOTOR\nSGM7A-30A", CYAN, size=11.5, radius=0.10)
+          "SERVOMOTOR\nSGMXA-30A", CYAN, size=11.5, radius=0.10)
     d.arrow(slide, sp_x + sp_w + Inches(0.05), Inches(4.19), Inches(0.42),
             Inches(0.20), color=CYAN)
     d.box(slide, mx, Inches(5.05), m_w, Inches(0.45),

@@ -1,23 +1,24 @@
-"""Módulo 2 — La familia SERVOPACK Σ-7 y el modelo de 3 kW."""
+"""Módulo 2 — La familia SERVOPACK Σ-X y el modelo de 3 kW."""
 
 from pptx.enum.text import PP_ALIGN
 from pptx.util import Inches, Pt
 
-from builder import (AMBER, BLUE, CYAN, GRAY, GRAY_LINE, GREEN, INK, LIGHT,
-                     LIGHT_BLUE, NAVY, NAVY_SOFT, RED, WHITE, Card, Deck)
+from builder import (AMBER, BLUE, CYAN, FIG, FUENTE, GRAY, GRAY_LINE, GREEN,
+                     INK, LIGHT, LIGHT_BLUE, NAVY, NAVY_SOFT, RED, WHITE, Card,
+                     Deck)
 
 
 def build(d: Deck) -> None:
     d.section_slide(
         "MÓDULO 02",
-        "La familia SERVOPACK Σ-7",
+        "La familia SERVOPACK Σ-X",
         [
-            "De la Σ-II a la Σ-7: qué cambió y por qué importa",
-            "Las tres líneas de amplificador: SGD7S, SGD7W y SGD7C",
+            "De la Σ-II a la Σ-X: qué cambió y por qué importa",
+            "Las tres líneas de amplificador: SGDXS, SGDXW y SGDXT",
             "Qué hay dentro: etapa de potencia y control",
             "Anatomía externa: bornes, conectores y elementos de diagnóstico",
             "Leer y escribir un código de modelo sin equivocarse",
-            "Por qué el SGD7S-200A es el amplificador de 3 kW",
+            "Por qué el SGDXS-200A00A es el amplificador de 3 kW",
         ],
         duration="3 h",
         notes=(
@@ -29,7 +30,7 @@ def build(d: Deck) -> None:
     )
 
     d.two_col_slide(
-        "Evolución de la familia y qué aporta la Σ-7",
+        "Evolución de la familia y qué aporta la Σ-X",
         (
             "Generaciones",
             [
@@ -37,14 +38,18 @@ def build(d: Deck) -> None:
                 "encuentra en máquinas antiguas.",
                 "**Σ-V (SGDV)** — 2008. Encoder de 20 bits, autotuning avanzado, "
                 "MECHATROLINK-II/III.",
-                "**Σ-7 (SGD7S/W/C)** — 2014. Encoder de **24 bits**, control por "
-                "modelo de referencia, ajuste 'tuning-less' y herramienta SigmaWin+ 7.",
-                "- La lógica de parámetros `Pn___` se mantiene muy parecida entre "
-                "Σ-V y Σ-7: quien conoce una, se mueve con soltura en la otra.",
+"**Σ-7 (SGD7S/W/C)** — 2014. Encoder de 24 bits, control por modelo "
+                "de referencia y ajuste sin sintonizar.",
+                "**Σ-X (SGDXS/XW/XT)** — la generación actual y **la de tu equipo**. "
+                "Ancho de banda del lazo de velocidad de **3,5 kHz**, encoders de "
+                "hasta **26 bits**, compensación de rizado y de fricción, y "
+                "`Σ-LINK II` para conectar sensores y E/S al propio drive.",
+                "- La lógica `Pn___` se mantiene muy parecida entre Σ-V, Σ-7 y Σ-X: "
+                "quien conoce una se mueve con soltura en las otras.",
             ],
         ),
         (
-            "Qué gana el usuario con la Σ-7",
+            "Qué gana el usuario con la Σ-X",
             [
                 "**Tiempo de puesta en marcha**: el autoajuste sin parámetros previos "
                 "arranca un eje razonable en minutos.",
@@ -54,44 +59,49 @@ def build(d: Deck) -> None:
                 "componentes y función de traza integrada.",
                 "**Seguridad funcional** de serie: entradas HWBB (STO) hasta "
                 "SIL 3 / PL e.",
-                "- Compatibilidad hacia atrás en montaje y cableado: la sustitución "
-                "de un Σ-V por un Σ-7 suele ser directa mecánicamente, pero **no** "
-                "copies los parámetros a ciegas.",
+                "**Modo de compatibilidad con Σ-7**: `Pn50A = n.□□□1` reproduce la "
+                "asignación de E/S de la serie anterior, lo que facilita mucho el "
+                "retrofit de una máquina existente.",
+                "- La sustitución de un Σ-V o un Σ-7 por un Σ-X suele ser directa "
+                "mecánicamente, pero **no** copies los parámetros a ciegas.",
             ],
         ),
-        subtitle="Sigma-7: la generación que probablemente tengas delante",
+        subtitle="Sigma-X: la generación que probablemente tengas delante",
         callout=(
             "amber",
             "Aviso de repuestos",
-            "No se pueden volcar sin más los parámetros de un SGDV en un SGD7S: "
+            "No se pueden volcar sin más los parámetros de un SGDV en un SGDXS: "
             "cambian rangos, resoluciones y algunos significados de bit. Utiliza la "
             "función de conversión de SigmaWin+ y revisa después el eje completo.",
         ),
         notes=(
             "Pregunte al grupo qué generación tienen instalada. En planta suele "
-            "haber mezcla, y saber distinguirlas por el código (SGDH / SGDV / SGD7) "
+            "haber mezcla, y saber distinguirlas por el código (SGDH / SGDV / SGDX) "
             "evita pedir repuestos equivocados.\n\n"
-            "Dato útil: el paso de 20 a 24 bits multiplica por 16 la resolución. En "
-            "la práctica el beneficio no es 'más precisión de posicionado' sino una "
-            "medida de velocidad mucho más limpia a baja velocidad, lo que permite "
-            "ganancias más altas sin ruido."
+            "Dato útil: subir la resolución del encoder no da tanto 'más precisión "
+            "de posicionado' como una medida de velocidad mucho más limpia a baja "
+            "velocidad, lo que permite ganancias más altas sin ruido. Ese es el "
+            "motivo real de que la Σ-X alcance 3,5 kHz de ancho de banda.\n\n"
+            "El modo de compatibilidad de E/S con Σ-7 (Pn50A = n.□□□1) es un detalle "
+            "muy práctico en retrofit: permite reutilizar el cableado de CN1 de una "
+            "máquina antigua sin rehacer el armario."
         ),
     )
 
     d.cards_slide(
-        "Las tres líneas de amplificador Σ-7",
+        "Las tres líneas de amplificador Σ-X",
         [
             Card(
-                "SGD7S — un eje",
+                "SGDXS — un eje",
                 "Amplificador **monoeje**, el más habitual y el que usaremos en el "
                 "curso.\n"
                 "· Cubre de 50 W a 15 kW en 200 V.\n"
                 "· Todas las interfaces de comando disponibles.\n"
-                "· Nuestro modelo: **SGD7S-200A** (3,0 kW).",
+                "· Nuestro modelo: **SGDXS-200A00A-Y3600A** (3,0 kW).",
                 "blue",
             ),
             Card(
-                "SGD7W — dos ejes",
+                "SGDXW — dos ejes",
                 "Amplificador **de dos ejes** en un solo cuerpo.\n"
                 "· Ahorra espacio en el armario y comparte el bus de continua entre "
                 "los dos ejes.\n"
@@ -100,115 +110,190 @@ def build(d: Deck) -> None:
                 "cyan",
             ),
             Card(
-                "SGD7C — con control integrado",
-                "Amplificador con **controlador de movimiento integrado** "
-                "(MP-series embebido).\n"
-                "· Permite resolver la trayectoria dentro del propio drive.\n"
-                "· Reduce el hardware en máquinas de pocos ejes.\n"
-                "· Requiere programación específica del entorno YASKAWA.",
+                "SGDXT — tres ejes",
+                "Amplificador **de tres ejes** en un solo cuerpo.\n"
+                "· Máxima densidad por metro de armario.\n"
+                "· Pensado para máquinas con muchos ejes de potencia baja.\n"
+                "· Comparte el conector de E/S con el SGDXS: el cableado de "
+                "control es familiar.",
                 "green",
             ),
         ],
         subtitle="Elegir la línea correcta antes de mirar la potencia",
         intro="Para un eje de 3 kW en una máquina con PLC o CNC externo, la elección "
-              "natural es SGD7S.",
+              "natural es SGDXS.",
         notes=(
             "Criterio de decisión rápido:\n"
-            "· ¿El movimiento lo calcula un PLC/CNC que ya existe? → SGD7S.\n"
-            "· ¿Muchos ejes pequeños y armario ajustado? → evaluar SGD7W.\n"
-            "· ¿Máquina sencilla sin controlador de movimiento? → SGD7C.\n\n"
-            "Para 3 kW la línea SGD7W habitualmente no llega en potencia por eje, "
+            "· ¿El movimiento lo calcula un PLC/CNC que ya existe? → SGDXS.\n"
+            "· ¿Muchos ejes pequeños y armario ajustado? → evaluar SGDXW.\n"
+            "· ¿Máquina sencilla sin controlador de movimiento? → SGDXT.\n\n"
+            "Para 3 kW la línea SGDXW habitualmente no llega en potencia por eje, "
             "así que la decisión está prácticamente tomada."
         ),
     )
 
     _diagrama_bloques_internos(d)
+
+    d.figure_slide(
+        "Diagrama de bloques oficial del SGDXS-180A / -200A",
+        FIG + "diagrama_bloques_200a.png",
+        subtitle="El interior del amplificador, según el manual del fabricante",
+        puntos=[
+            "#Camino de la energía",
+            "Entrada `L1` `L2` `L3` con **varistor** → rectificador → bus de "
+            "continua con condensadores → inversor IGBT → `U` `V` `W`.",
+            "El **relé de precarga** limita la corriente de arranque al cargar los "
+            "condensadores.",
+            "#Protecciones que verás en el esquema",
+            "- Sensores de tensión en la entrada y en el bus.",
+            "- Sensor de temperatura y protección de **sobrecalentamiento y "
+            "sobrecorriente**.",
+            "- Detector de corriente en la salida al motor.",
+            "- **Circuito de freno dinámico** en las fases del motor.",
+            "#Control",
+            "Alimentación propia por `L1C` `L2C`, procesador de lazos y conectores "
+            "`CN1`, `CN2`, `CN5`, `CN8`, `CN11` y `CN12`.",
+        ],
+        fuente=FUENTE + " · apartado 2.2.6",
+        notes=(
+            "Ésta es la misma idea del diagrama simplificado anterior, pero en la "
+            "versión oficial y para el modelo exacto del alumno. Merece la pena "
+            "recorrerla despacio.\n\n"
+            "Señale los elementos que el diagrama simplificado no mostraba: el "
+            "varistor de entrada (absorbe sobretensiones de red), los sensores de "
+            "tensión y temperatura, el detector de corriente y el ventilador.\n\n"
+            "Fíjese en que CN11 y CN12 son conectores de módulo opcional (seguridad "
+            "y realimentación). En la Σ-7 no existían con esa denominación: es una "
+            "de las novedades de la Σ-X."
+        ),
+    )
+
     _diagrama_anatomia(d)
+
+    d.figure_slide(
+        "Partes del SERVOPACK, según el fabricante",
+        FIG + "partes_servopack.png",
+        subtitle="Vista externa con la numeración del manual",
+        puntos=[
+            "#Lo que hay que localizar físicamente",
+            "**Bornes de circuito principal** y **bornes de motor** (`U` `V` `W`), "
+            "en el lateral izquierdo.",
+            "**Indicador CHARGE**: bus cargado, peligro de descarga eléctrica.",
+            "`CN1` señales de E/S · `CN2` encoder · `CN3` operador digital / RS-422 "
+            "· `CN5` monitor analógico · `CN7` USB para SigmaWin+ · `CN8` seguridad.",
+            "`CN11` módulo opcional de seguridad · `CN12` módulo opcional de "
+            "realimentación.",
+            "**Código QR** para el servicio MechatroCloud.",
+            "Bajo la tapa frontal: **panel de operación** y visualizador.",
+        ],
+        fuente=FUENTE + " · apartado 1.3 Part Names",
+        notes=(
+            "Ejercicio de cinco minutos: que cada alumno localice en el equipo real "
+            "los elementos numerados de la figura. Ahorra muchos errores después.\n\n"
+            "Puntos de atención:\n"
+            "· CN7 (USB) es la vía normal de trabajo con SigmaWin+.\n"
+            "· CN8 viene con un conector puente de fábrica; retirarlo sin cablear la "
+            "seguridad deja el eje sin par y sin alarma evidente.\n"
+            "· El LED CHARGE encendido significa bus cargado: nunca es sustituto de "
+            "la medida con multímetro.\n"
+            "· La placa de características lleva el modelo completo, incluido el "
+            "sufijo -Y3600A: fotografíela en la puesta en marcha."
+        ),
+    )
+
     _diagrama_codigo_modelo(d)
 
     d.table_slide(
-        "Gama de potencias Σ-7 monoeje en 200 V",
-        ["Modelo SGD7S", "Potencia máx. de motor", "Corriente de salida continua",
-         "Uso típico"],
+        "Gama Σ-X monoeje en 200 V trifásica",
+        ["Modelo SGDXS-", "Motor máx.", "Corriente continua", "Corriente de pico",
+         "Corriente de entrada"],
         [
-            ["-R70A", "50 W", "0,66 A", "Ejes auxiliares muy pequeños"],
-            ["-R90A", "100 W", "0,91 A", "Dosificadores, etiquetadoras"],
-            ["-1R6A", "200 W", "1,6 A", "Ejes de manipulación ligera"],
-            ["-2R8A", "400 W", "2,8 A", "Cintas indexadoras"],
-            ["-5R5A", "750 W", "5,5 A", "El tamaño más vendido en máquina general"],
-            ["-7R6A", "1,0 kW", "7,6 A", "Ejes de empuje medios"],
-            ["-120A", "1,5 kW", "11,6 A", "Husillos de tamaño medio"],
-            ["-180A", "2,0 kW", "18,5 A", "Ejes de prensa pequeños"],
-            ["**-200A**", "**3,0 kW**", "**18,5 A**",
-             "**Nuestro caso: eje principal de 3 kW**"],
-            ["-330A", "5,0 kW", "32,9 A", "Ejes de gran inercia"],
-            ["-550A", "7,5 kW", "54,7 A", "Prensas, cizallas"],
-            ["-780A", "15 kW", "105 A", "Aplicaciones de alta potencia"],
+            ["-R70A", "50 W", "0,66 A", "2,1 A", "0,4 A"],
+            ["-R90A", "100 W", "0,91 A", "3,2 A", "0,8 A"],
+            ["-1R6A", "200 W", "1,6 A", "5,9 A", "1,3 A"],
+            ["-2R8A", "400 W", "2,8 A", "9,3 A", "2,5 A"],
+            ["-3R8A", "500 W", "3,8 A", "11 A", "3,0 A"],
+            ["-5R5A", "750 W", "5,5 A", "16,9 A", "4,1 A"],
+            ["-7R6A", "1,0 kW", "7,6 A", "17 A", "5,7 A"],
+            ["-120A", "1,5 kW", "11,6 A", "28 A", "7,3 A"],
+            ["-180A", "2,0 kW", "18,5 A", "42 A", "10 A"],
+            ["**-200A**", "**3,0 kW**", "**19,6 A**", "**56 A**", "**15 A**"],
+            ["-330A", "5,0 kW", "32,9 A", "84 A", "25 A"],
+            ["-470A", "6,0 kW", "46,9 A", "110 A", "29 A"],
+            ["-550A", "7,5 kW", "54,7 A", "130 A", "37 A"],
+            ["-780A", "15 kW", "78,0 A", "170 A", "73 A"],
         ],
-        [1.8, 2.2, 2.8, 4.2],
+        [2.0, 1.8, 2.4, 2.2, 2.4],
         subtitle="La cifra central del código es el indicador de tamaño",
-        size=10.0,
-        align_center=(0, 1, 2),
-        foot="Valores orientativos de catálogo: confirma siempre corriente continua y "
-             "de pico en el manual de la variante concreta y con la tensión de red real.",
+        size=9.5,
+        align_center=(0, 1, 2, 3, 4),
+        foot="Valores del manual SIEP C710812 03I, tabla 2.1.1 (trifásica 200 VAC). "
+             "Corrientes eficaces; la de pico es admisible sólo de forma "
+             "instantánea.",
         notes=(
-            "Observe con el grupo un detalle revelador: el -180A (2 kW) y el -200A "
-            "(3 kW) comparten corriente continua nominal. La diferencia entre ambos "
-            "está en la combinación con el motor y en la capacidad térmica, no sólo "
-            "en amperios. Por eso la selección se hace por COMBINACIÓN homologada "
-            "motor+drive, no eligiendo cada pieza por separado.\n\n"
+            "Fíjese en un detalle muy revelador: el -180A (2 kW) da 18,5 A continuos "
+            "y el -200A (3 kW) da 19,6 A. Apenas un 6 % más de corriente para un "
+            "50 % más de potencia declarada. La diferencia real está en la corriente "
+            "de pico (42 A frente a 56 A) y en la capacidad térmica.\n\n"
+            "De ahí la regla: la selección se hace por COMBINACIÓN homologada "
+            "motor+drive, no eligiendo cada pieza por amperios.\n\n"
             "Regla de repuesto: nunca sustituya un SERVOPACK por otro de tamaño "
-            "distinto 'porque encaja'. Cambia la corriente de protección, la "
-            "resistencia de regeneración interna y la parametrización de "
-            "combinación."
+            "distinto 'porque encaja'. Cambian la protección, la resistencia de "
+            "regeneración interna y la combinación admitida."
         ),
     )
 
     d.table_slide(
-        "Especificaciones del SGD7S-200A (3,0 kW)",
-        ["Concepto", "Valor de referencia", "Comentario práctico"],
+        "Ficha técnica del SGDXS-200A00A",
+        ["Concepto", "Valor oficial", "Para qué lo necesitas"],
         [
-            ["Potencia máxima de motor", "3,0 kW",
+            ["Capacidad máxima de motor", "3,0 kW",
              "Debe coincidir con la del motor combinado"],
+            ["Corriente de salida continua", "19,6 A eficaces",
+             "Corresponde al par nominal sostenido"],
+            ["Corriente de salida instantánea máxima", "56 A eficaces",
+             "Corresponde al par de aceleración"],
             ["Alimentación del circuito principal",
              "Trifásica 200–240 V CA, 50/60 Hz, −15 % / +10 %",
              "Bornes `L1` `L2` `L3`"],
-            ["Alimentación del circuito de control", "Monofásica 200–240 V CA",
-             "Bornes `L1C` `L2C`; permite mantener comunicación con la potencia "
-             "cortada"],
-            ["Corriente de entrada", "≈ 21 A eficaces",
+            ["Corriente de entrada del circuito principal", "15 A eficaces",
              "Dimensiona cable, protección y contactor"],
-            ["Potencia aparente requerida", "≈ 4,5 kVA",
-             "Dato para el cálculo del transformador o de la acometida"],
-            ["Corriente de salida continua", "≈ 18,5 A eficaces",
-             "Corresponde al par nominal del motor"],
-            ["Corriente de salida instantánea máxima", "≈ 55 A eficaces",
-             "Corresponde al par pico (≈ 300 %)"],
-            ["Método de control", "IGBT con PWM senoidal, control vectorial",
-             "Frecuencia de conmutación fija"],
-            ["Resistencia de regeneración", "Incorporada de serie en este tamaño",
-             "Ampliable con resistencia externa entre `B1` y `B2`"],
-            ["Realimentación", "Encoder serie absoluto o incremental de 24 bits",
+            ["Alimentación del circuito de control",
+             "200–240 V CA, 0,25 A eficaces",
+             "Bornes `L1C` `L2C`, independientes de la potencia"],
+            ["Capacidad de alimentación requerida", "5,9 kVA",
+             "Dato para la acometida o el transformador"],
+            ["Pérdidas totales", "130,2 W (114,2 W potencia + 16 W control)",
+             "**Balance térmico del armario**"],
+            ["Resistencia de regeneración incorporada",
+             "10 Ω · 60 W · 30 W de consumo admisible",
+             "Suficiente para frenados moderados"],
+            ["Resistencia externa mínima admisible", "10 Ω",
+             "**Nunca** conectes una resistencia de menor valor"],
+            ["Categoría de sobretensión", "III",
+             "Coordinación de aislamiento de la instalación"],
+            ["Realimentación", "Encoder serie (hasta 26 bits en motores Σ-X)",
              "Conector `CN2`"],
-            ["Refrigeración", "Ventilador forzado",
-             "Componente de desgaste: previsión de recambio"],
-            ["Grado de protección / entorno", "IP20, 0–55 °C, hasta 1.000 m",
-             "Por encima de 45 °C hay que reducir la carga (derating)"],
         ],
-        [3.0, 3.6, 4.4],
-        subtitle="La ficha que debes tener a mano al diseñar el armario",
-        size=10.0,
-        foot="Contrasta cada línea con el manual SIEP S800001 y con la placa de "
-             "características antes de dimensionar protecciones.",
+        [3.4, 3.9, 3.7],
+        subtitle="Datos tomados del manual oficial del fabricante",
+        size=9.5,
+        foot="Fuente: Σ-XS SERVOPACK with Analog Voltage/Pulse Train References "
+             "Product Manual, SIEP C710812 03I, apartado 2.1 (YASKAWA).",
         notes=(
-            "Las tres cifras que hay que memorizar de esta tabla son: 21 A de "
-            "entrada, 18,5 A de salida continua y 55 A de pico. Con ellas se "
-            "dimensionan cable, magnetotérmico, contactor y filtro.\n\n"
-            "Punto que suele sorprender: la alimentación de control es independiente "
-            "de la de potencia. Esto permite cortar la potencia (por ejemplo con la "
-            "seta de emergencia) manteniendo vivo el drive, con la comunicación y el "
-            "encoder absoluto activos. Es la arquitectura recomendada y se detalla "
-            "en el Módulo 05."
+            "Las cuatro cifras que hay que memorizar: 15 A de entrada, 19,6 A de "
+            "salida continua, 56 A de pico y 130 W de pérdidas. Con ellas se "
+            "dimensionan cable, magnetotérmico, contactor, filtro y climatización "
+            "del armario.\n\n"
+            "Ojo con la resistencia de regeneración: la interna es de 10 Ω y 60 W, "
+            "pero su consumo admisible continuo es de sólo 30 W. Ese es el número "
+            "que hay que comparar con la potencia media de regeneración calculada "
+            "en el Módulo 04.\n\n"
+            "La resistencia externa mínima admisible también es de 10 Ω: poner una "
+            "de menor valor hace circular más corriente de la que soporta el "
+            "transistor de frenado y lo destruye.\n\n"
+            "Recuerde que el sufijo -Y3600A puede alterar algún dato: contraste con "
+            "la placa de características y con la hoja de especificación Y."
         ),
     )
 
@@ -330,7 +415,7 @@ def _diagrama_bloques_internos(d: Deck) -> None:
         ("RECTIFICADOR\n+ precarga", NAVY),
         ("BUS DE CONTINUA\n≈ 310 V CC", BLUE),
         ("INVERSOR IGBT\nPWM senoidal", CYAN),
-        ("MOTOR\nSGM7A-30A", GREEN),
+        ("MOTOR\nSGMXA-30A", GREEN),
     ]
     xs = []
     for i, (texto, color) in enumerate(etapas):
@@ -377,7 +462,7 @@ def _diagrama_bloques_internos(d: Deck) -> None:
 
 def _diagrama_anatomia(d: Deck) -> None:
     slide = d.canvas_slide(
-        "Anatomía del SGD7S-200A",
+        "Anatomía del SGDXS-200A00A",
         "Dónde está cada cosa en el frontal del amplificador",
         notes=(
             "Haga que los alumnos localicen físicamente cada elemento en el equipo "
@@ -404,13 +489,14 @@ def _diagrama_anatomia(d: Deck) -> None:
             "Vista frontal (esquemática)", size=10.5, color=GRAY, bold=True)
 
     elementos = [
-        ("Display 7 segmentos + teclas", CYAN, Inches(0.55)),
-        ("`CN7` USB → SigmaWin+", BLUE, Inches(0.45)),
-        ("`CN3` operador digital", BLUE, Inches(0.45)),
-        ("`CN1` E/S de control", NAVY, Inches(0.50)),
-        ("`CN2` encoder del motor", GREEN, Inches(0.45)),
-        ("`CN8` seguridad HWBB", RED, Inches(0.45)),
-        ("`CN5` monitor analógico", GRAY, Inches(0.45)),
+        ("Display + teclas de operación", CYAN, Inches(0.50)),
+        ("`CN7` USB → SigmaWin+", BLUE, Inches(0.42)),
+        ("`CN3` operador digital / RS-422", BLUE, Inches(0.42)),
+        ("`CN1` E/S de control (50 pines)", NAVY, Inches(0.46)),
+        ("`CN2` encoder del motor", GREEN, Inches(0.42)),
+        ("`CN8` seguridad HWBB", RED, Inches(0.42)),
+        ("`CN5` monitor analógico", GRAY, Inches(0.42)),
+        ("`CN11` / `CN12` módulos opcionales", GRAY, Inches(0.42)),
     ]
     y = body_y + Inches(0.22)
     for texto, color, alto in elementos:
@@ -469,7 +555,7 @@ def _diagrama_anatomia(d: Deck) -> None:
 def _diagrama_codigo_modelo(d: Deck) -> None:
     slide = d.canvas_slide(
         "Cómo se lee un código de modelo",
-        "Ejemplo: SGD7S-200A00A",
+        "Ejemplo: SGDXS-200A00A00A",
         notes=(
             "Ejercicio recomendado: reparta fotos de etiquetas reales (o pida a los "
             "alumnos que fotografíen las de su planta) y que decodifiquen el modelo "
@@ -486,7 +572,7 @@ def _diagrama_codigo_modelo(d: Deck) -> None:
     )
 
     campos = [
-        ("SGD7", "Serie\nΣ-7", NAVY),
+        ("SGDX", "Serie\nΣ-X", NAVY),
         ("S", "Línea\nS = 1 eje", BLUE),
         ("200", "Tamaño\n3,0 kW", RED),
         ("A", "Tensión\nA = 200 V", CYAN),
@@ -512,7 +598,7 @@ def _diagrama_codigo_modelo(d: Deck) -> None:
     # Tabla de apoyo
     headers = ["Campo", "Qué codifica", "Por qué es crítico"]
     rows = [
-        ["Serie", "Generación del amplificador (SGD7, SGDV, SGDH)",
+        ["Serie", "Generación del amplificador (SGDX, SGDV, SGDH)",
          "Determina parámetros, encoder compatible y herramienta software"],
         ["Línea", "S = monoeje · W = dos ejes · C = con control integrado",
          "Cambia por completo la arquitectura del sistema"],

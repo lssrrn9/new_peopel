@@ -13,7 +13,7 @@ def build(d: Deck) -> None:
         "El servomotor de 3 kW",
         [
             "Cómo funciona un motor síncrono de imanes permanentes",
-            "Las familias SGM7J, SGM7A, SGM7G y SGM7P",
+            "Las familias SGMXJ, SGMXA, SGMXG y SGMXP",
             "Elegir entre 3.000 rpm y 1.500 rpm para la misma potencia",
             "Leer el código de modelo del motor",
             "Encoder absoluto, batería y freno de retención",
@@ -71,26 +71,26 @@ def build(d: Deck) -> None:
     )
 
     d.table_slide(
-        "Las familias de servomotor rotativo Σ-7",
+        "Las familias de servomotor rotativo Σ-X",
         ["Familia", "Perfil", "Velocidad nominal / máxima", "Aplicación típica"],
         [
-            ["SGM7J", "Inercia media, cuerpo corto", "3.000 / 6.000 rpm",
+            ["SGMXJ", "Inercia media, cuerpo corto", "3.000 / 6.000 rpm",
              "Uso general en máquina compacta; el más vendido en potencias bajas"],
-            ["SGM7A", "Inercia baja, cuerpo largo", "3.000 / 6.000 rpm",
+            ["SGMXA", "Inercia baja, cuerpo largo", "3.000 / 6.000 rpm",
              "Alta dinámica: ciclos rápidos con cargas de inercia moderada"],
-            ["SGM7G", "Inercia media-alta, alto par", "1.500 / 3.000 rpm",
+            ["SGMXG", "Inercia media-alta, alto par", "1.500 / 3.000 rpm",
              "Cargas de gran inercia y alto par: husillos grandes, prensas, ejes de "
              "arrastre"],
-            ["SGM7P", "Inercia media, cuerpo plano", "3.000 / 6.000 rpm",
+            ["SGMXP", "Inercia media, cuerpo plano", "3.000 / 6.000 rpm",
              "Cuando la longitud del motor es el problema (máquinas estrechas)"],
-            ["SGM7D / lineales / directos", "Par directo y motores lineales", "Variable",
+            ["SGMXD / lineales / directos", "Par directo y motores lineales", "Variable",
              "Accionamiento directo sin reductor: mesas rotativas, ejes lineales"],
         ],
         [1.7, 2.5, 2.6, 5.0],
         subtitle="Misma potencia, comportamientos distintos",
         size=10.5,
-        foot="En 3 kW las dos opciones reales son SGM7A-30A (3.000 rpm) y SGM7G-30A "
-             "(1.500 rpm). La elección no es de potencia, es de par y de inercia.",
+        foot="Combinaciones del manual (apartado 1.5): el SGDXS-200A00A se combina "
+             "con SGMXA-25A, SGMXA-30A y, derateado a 2,4 kW, con SGMXG-30A.",
         notes=(
             "Insista: la potencia es el resultado, no el criterio. El criterio es el "
             "par necesario a la velocidad necesaria y la inercia que hay que "
@@ -103,7 +103,7 @@ def build(d: Deck) -> None:
     d.two_col_slide(
         "3 kW a 3.000 rpm o a 1.500 rpm: la decisión clave",
         (
-            "SGM7A-30A — 3,0 kW a 3.000 rpm",
+            "SGMXA-30A — 3,0 kW a 3.000 rpm ✔ combinación homologada",
             [
                 "Par nominal ≈ **9,55 N·m**; par pico ≈ **28,6 N·m**.",
                 "Inercia del rotor **baja** → acelera muy rápido y admite relaciones "
@@ -119,9 +119,11 @@ def build(d: Deck) -> None:
             ],
         ),
         (
-            "SGM7G-30A — ≈ 2,9 kW a 1.500 rpm",
+            "SGMXG-30A — 2,9 kW a 1.500 rpm ⚠ queda derateado",
             [
-                "Par nominal ≈ **18,6 N·m**; par pico ≈ **45-55 N·m**.",
+                "**Con un SGDXS-200A el fabricante lo limita a 2,4 kW**: la "
+                "combinación plena de este motor es con un SGDXS-330A.",
+                "Par nominal ≈ **18,6 N·m** a plena potencia.",
                 "Inercia del rotor **alta** → mucho más tolerante a cargas de gran "
                 "inercia.",
                 "#Elígelo si…",
@@ -132,17 +134,21 @@ def build(d: Deck) -> None:
                 "#Cuidado",
                 "- La velocidad máxima es la mitad: comprueba que el ciclo cabe en "
                 "el tiempo disponible.",
+                "- Con tu amplificador **no dispondrás de los 2,9 kW**, sino de "
+                "2,4 kW. Si necesitas ese par continuo, hay que subir de "
+                "amplificador.",
             ],
         ),
         subtitle="Misma potencia, el doble de par o el doble de velocidad",
         tones=("cyan", "blue"),
         callout=(
             "green",
-            "Cómo decidir en la práctica",
-            "Calcula primero el par y la velocidad que exige la máquina en el eje del "
-            "motor (Módulo 04). Después comprueba la relación de inercias: si supera "
-            "aproximadamente 10:1 con el motor de baja inercia, plantéate el de alta "
-            "inercia o una reducción mayor.",
+            "Conclusión para tu equipo",
+            "La pareja homologada a plena potencia del **SGDXS-200A00A** es el "
+            "**SGMXA-30A** (3,0 kW, 3.000 rpm, baja inercia). El SGMXG-30A también "
+            "es compatible, pero el fabricante lo declara a 2,4 kW con este "
+            "amplificador. Comprueba siempre la relación de inercias antes de "
+            "cerrar la elección.",
         ),
         notes=(
             "Este es probablemente el criterio de ingeniería más valioso del curso. "
@@ -153,15 +159,20 @@ def build(d: Deck) -> None:
             "y divide la inercia reflejada por i². La reducción es la herramienta más "
             "potente para arreglar una relación de inercias mala, pero introduce "
             "holgura y un punto de mantenimiento.\n\n"
-            "Los valores de par indicados son de catálogo y varían con la versión "
-            "exacta del motor; verifíquelos antes de calcular."
+            "Dato que conviene remarcar, tomado de la tabla de combinaciones del "
+            "manual (apartado 1.5): el SGMXG-30A figura como 2,9 kW, pero con una "
+            "nota al pie que indica 2,4 kW cuando se usa con un SERVOPACK "
+            "SGDXS-200A. Es exactamente el tipo de detalle que se pasa por alto en "
+            "un proyecto y aparece después como falta de par.\n\n"
+            "Los valores de par son de catálogo y varían con la versión exacta del "
+            "motor; verifíquelos antes de calcular."
         ),
     )
 
     _diagrama_codigo_motor(d)
 
     d.table_slide(
-        "Ficha del motor de ejemplo: SGM7A-30A",
+        "Ficha del motor de ejemplo: SGMXA-30A",
         ["Característica", "Valor de referencia", "Para qué se usa el dato"],
         [
             ["Potencia nominal", "3,0 kW", "Debe coincidir con el SERVOPACK"],
@@ -192,7 +203,7 @@ def build(d: Deck) -> None:
         subtitle="Los datos que realmente se usan en el cálculo",
         size=10.0,
         foot="Los valores exactos (sobre todo la inercia del rotor) dependen de la "
-             "variante concreta: consúltalos en el catálogo Σ-7 antes de dimensionar.",
+             "variante concreta: consúltalos en el catálogo Σ-X antes de dimensionar.",
         notes=(
             "Marque en la tabla los cuatro datos que se usarán en el Módulo 04: par "
             "nominal, par máximo, velocidad nominal e inercia del rotor. El resto son "
@@ -300,14 +311,14 @@ def build(d: Deck) -> None:
                 "- Si no lo es, aparece una alarma de combinación no admitida "
                 "(familia `A.05_`) y el eje no arranca.",
                 "- Por eso no se 'parametriza' un motor de otra marca en un "
-                "SERVOPACK: la Σ-7 sólo trabaja con motores YASKAWA compatibles.",
+                "SERVOPACK: la Σ-X sólo trabaja con motores YASKAWA compatibles.",
             ],
         ),
         (
             "Consecuencias prácticas",
             [
                 "**Compra siempre la pareja** indicada en el catálogo. Para 3 kW: "
-                "SGD7S-200A con SGM7A-30A o con SGM7G-30A.",
+                "SGDXS-200A00A con SGMXA-30A o con SGMXG-30A.",
                 "Al sustituir un motor averiado, comprueba que el nuevo tiene el "
                 "**mismo código completo**, incluidos freno y tipo de eje.",
                 "Un motor con freno y otro sin freno **no son intercambiables** a "
@@ -339,7 +350,7 @@ def build(d: Deck) -> None:
 def _diagrama_codigo_motor(d: Deck) -> None:
     slide = d.canvas_slide(
         "Código de modelo del servomotor",
-        "Ejemplo: SGM7A-30A7A61 (estructura orientativa)",
+        "Ejemplo: SGMXA-30A7A61 (estructura orientativa)",
         notes=(
             "Lo importante no es memorizar los códigos, sino saber que en la "
             "referencia del motor están codificados el freno, el tipo de eje y el "
@@ -352,7 +363,7 @@ def _diagrama_codigo_motor(d: Deck) -> None:
     )
 
     campos = [
-        ("SGM7", "Serie Σ-7", NAVY),
+        ("SGMX", "Serie Σ-X", NAVY),
         ("A", "Familia\nA = baja inercia\nG = alto par", BLUE),
         ("30", "Capacidad\n30 → 3,0 kW", RED),
         ("A", "Tensión\nA = 200 V", CYAN),

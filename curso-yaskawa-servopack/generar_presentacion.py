@@ -20,7 +20,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from builder import Deck  # noqa: E402
 
-FOOTER = ("Curso YASKAWA SERVOPACK · SGD7S-200A + servomotor 3 kW · "
+FOOTER = ("Curso YASKAWA SERVOPACK · SGDXS-200A00A-Y3600A + servomotor 3 kW · "
           "material de formación")
 
 MODULOS = [

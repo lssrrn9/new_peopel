@@ -235,7 +235,7 @@ def build(d: Deck) -> None:
         foot="Las periodicidades son orientativas: ajústalas al entorno real "
              "(temperatura, polvo, horas de servicio) y a las indicaciones del manual.",
         notes=(
-            "La Σ-7 dispone de monitores de vida útil de componentes (ventilador, "
+            "La Σ-X dispone de monitores de vida útil de componentes (ventilador, "
             "condensadores, relés internos) que estiman el porcentaje consumido. "
             "Consúltelos en SigmaWin+ y llévelos al plan de mantenimiento: es "
             "mantenimiento predictivo gratuito que casi nadie usa.\n\n"
@@ -282,7 +282,7 @@ def build(d: Deck) -> None:
             "El paso 6 es el que convierte una sustitución rutinaria en un problema. "
             "Insista de nuevo: el origen no viaja en el fichero de parámetros.\n\n"
             "Sobre el paso 3: en almacén acaban conviviendo equipos parecidos con "
-            "sufijos distintos. Un SGD7S-200A con interfaz de bus no sirve para "
+            "sufijos distintos. Un SGDXS-200A00A con interfaz de bus no sirve para "
             "sustituir a uno con interfaz analógica, aunque físicamente encaje.\n\n"
             "Recomiende ensayar el procedimiento una vez en condiciones controladas, "
             "por ejemplo durante una parada programada. La primera vez siempre "

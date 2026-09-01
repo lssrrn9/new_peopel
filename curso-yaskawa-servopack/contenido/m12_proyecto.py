@@ -122,8 +122,8 @@ def build(d: Deck) -> None:
         notes=(
             "Insista en el criterio 'ninguna cifra sin origen documentado'. En "
             "ingeniería, un número sin trazabilidad es una opinión.\n\n"
-            "Valore especialmente la alternativa: pedir que comparen SGM7A-30A "
-            "(3.000 rpm) con SGM7G-30A (1.500 rpm) obliga a razonar sobre par, "
+            "Valore especialmente la alternativa: pedir que comparen SGMXA-30A "
+            "(3.000 rpm) con SGMXG-30A (1.500 rpm) obliga a razonar sobre par, "
             "velocidad e inercia en lugar de aplicar una receta."
         ),
     )

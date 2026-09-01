@@ -3,8 +3,8 @@
 from pptx.enum.text import PP_ALIGN
 from pptx.util import Inches, Pt
 
-from builder import (AMBER, BLUE, CYAN, GRAY, GRAY_LINE, GREEN, INK, LIGHT,
-                     LIGHT_BLUE, NAVY, RED, WHITE, Card, Deck)
+from builder import (AMBER, BLUE, CYAN, FIG, FUENTE, GRAY, GRAY_LINE, GREEN,
+                     INK, LIGHT, LIGHT_BLUE, NAVY, RED, WHITE, Card, Deck)
 
 
 def build(d: Deck) -> None:
@@ -49,7 +49,7 @@ def build(d: Deck) -> None:
         (
             "Lo que aporta el SERVOPACK",
             [
-                "La función **STO (Safe Torque Off)**, implementada en la Σ-7 como "
+                "La función **STO (Safe Torque Off)**, implementada en la Σ-X como "
                 "**HWBB (Hard Wire Baseblock)**.",
                 "Capacidad típica declarada de **SIL 3** (IEC 61508) y **PL e / "
                 "categoría 3** (ISO 13849-1) cuando se cablea correctamente.",
@@ -85,6 +85,72 @@ def build(d: Deck) -> None:
     )
 
     _diagrama_hwbb(d)
+
+
+    d.figure_slide(
+        "Pines del conector de seguridad `CN8`",
+        FIG + "cn8_seguridad.png",
+        subtitle="Asignación oficial de las señales HWBB y EDM1",
+        puntos=[
+            "#Lo que hay que leer en la tabla",
+            "Pines **1 y 2**: no se usan, están conectados a circuitos internos. "
+            "**No conectes nada.**",
+            "Pines **3 y 4**: `/HWBB1−` y `/HWBB1+`, primera entrada de bloqueo.",
+            "Pines **5 y 6**: `/HWBB2−` y `/HWBB2+`, segunda entrada de bloqueo.",
+            "Pines **7 y 8**: `EDM1−` y `EDM1+`, salida de vigilancia.",
+            "#Lógica de las señales",
+            "El bloqueo actúa cuando la señal está **OFF** (contacto abierto): un "
+            "cable roto lleva al estado seguro.",
+            "`EDM1` se activa cuando **ambas** entradas están en estado de bloqueo.",
+            "- Usar o no `EDM1` no cambia el nivel de prestaciones alcanzable, pero "
+            "sí el diagnóstico del sistema.",
+        ],
+        fuente=FUENTE + " · apartado 4.6.1",
+        notes=(
+            "Detalle que el manual recoge expresamente y que sorprende: los pines 1 "
+            "y 2 no deben usarse porque están conectados a circuitos internos.\n\n"
+            "Y una precisión importante del propio manual: el uso o no de la señal "
+            "EDM1 no afecta al nivel de prestaciones de los parámetros de seguridad "
+            "del drive. Aun así, sin EDM1 el módulo de seguridad no puede detectar "
+            "un fallo interno del amplificador, con lo que el diagnóstico del "
+            "conjunto empeora.\n\n"
+            "Recuerde: CN8 se suministra con un conector puente instalado. Para usar "
+            "la función de seguridad hay que retirarlo y conectar el dispositivo."
+        ),
+    )
+
+    d.figure_slide(
+        "Ejemplo oficial de conexión de la seguridad",
+        FIG + "cn8_ejemplo.png",
+        subtitle="Circuito de entrada con doble canal y común a 0 V",
+        puntos=[
+            "#Lo que muestra el esquema",
+            "Fuente de **24 V** con **fusible** de protección.",
+            "Un **interruptor de contactos de muy baja corriente** que abre "
+            "simultáneamente los dos canales.",
+            "Resistencias internas de **5,1 kΩ** en cada entrada.",
+            "#Reglas que impone el manual",
+            "Las señales de seguridad usan **común a 0 V**: es al revés que el resto "
+            "de entradas de `CN1`.",
+            "Hay que conectar **entradas redundantes**: los dos canales, siempre.",
+            "El contacto debe ser de **baja corriente**, porque la corriente de las "
+            "entradas es muy pequeña y un contacto de potencia puede no conducir de "
+            "forma fiable.",
+        ],
+        fuente=FUENTE + " · apartado 4.6.2",
+        notes=(
+            "Dos advertencias del manual que hay que trasladar:\n\n"
+            "1) La lógica de las señales de seguridad es la contraria a la del resto "
+            "del conector: aquí el común es 0 V y la salida es de tipo source. Esto "
+            "confunde a quien cablea CN1 y CN8 el mismo día.\n\n"
+            "2) Hay que usar un interruptor con contactos de muy baja corriente. Los "
+            "contactos de potencia forman una capa de óxido cuando conmutan "
+            "corrientes muy pequeñas y pueden dejar de conducir: es un modo de fallo "
+            "peligroso en un circuito de seguridad.\n\n"
+            "El fusible protege el cableado frente a un cortocircuito que dejaría la "
+            "función de seguridad inoperante."
+        ),
+    )
 
     d.two_col_slide(
         "STO no es parada de emergencia",

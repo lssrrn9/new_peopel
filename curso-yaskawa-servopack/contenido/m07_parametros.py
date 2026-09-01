@@ -3,8 +3,9 @@
 from pptx.enum.text import PP_ALIGN
 from pptx.util import Inches, Pt
 
-from builder import (AMBER, BLUE, CYAN, GRAY, GRAY_LINE, GREEN, INK, LIGHT,
-                     LIGHT_BLUE, NAVY, NAVY_SOFT, RED, WHITE, Card, Deck)
+from builder import (AMBER, BLUE, CYAN, FIG, FUENTE, GRAY, GRAY_LINE, GREEN,
+                     INK, LIGHT, LIGHT_BLUE, NAVY, NAVY_SOFT, RED, WHITE, Card,
+                     Deck)
 
 
 def build(d: Deck) -> None:
@@ -32,7 +33,7 @@ def build(d: Deck) -> None:
     _diagrama_panel(d)
 
     d.cards_slide(
-        "La lógica de la Σ-7: `Pn`, `Fn` y `Un`",
+        "La lógica de la Σ-X: `Pn`, `Fn` y `Un`",
         [
             Card(
                 "`Pn___` — Parámetros",
@@ -182,6 +183,43 @@ def build(d: Deck) -> None:
             "Comente que existen versiones y compatibilidades de SigmaWin+ según la "
             "serie del drive; conviene tener la versión actual descargada de la web "
             "del fabricante."
+        ),
+    )
+
+    d.figure_slide(
+        "Conexión del operador digital al SERVOPACK",
+        FIG + "conexion_operador.png",
+        subtitle="Comunicación local: `CN3` (RS-422) y `CN7` (USB / SigmaWin+)",
+        puntos=[
+            "El **operador digital** se conecta al conector `CN3`.",
+            "El PC con **SigmaWin+** se conecta al conector USB `CN7`.",
+            "Usa **siempre el cable especificado por YASKAWA**: con otro cable la "
+            "inmunidad al ruido no está garantizada.",
+            "- Modelos de operador habituales: `JUSP-OP05A-1-E` y equivalentes "
+            "indicados en el catálogo.",
+        ],
+        fuente=FUENTE + " · apartados 4.7 y 4.8",
+        notes=(
+            "La figura del operador digital es textual en el manual: el mensaje "
+            "importante es usar el cable original y el conector correcto.\n\n"
+            "CN7 es USB; CN3 es el operador. No se intercambian."
+        ),
+    )
+
+    d.figure_slide(
+        "Monitor analógico `CN5`",
+        FIG + "monitor_analogico.png",
+        subtitle="Salida para osciloscopio: velocidad, par y error en tiempo real",
+        puntos=[
+            "Conecta un instrumento de medida al conector `CN5`.",
+            "Permite ver en un osciloscopio las señales internas del lazo.",
+            "Es especialmente útil en **sintonización avanzada** (Módulo 09).",
+            "- El instrumento no lo suministra YASKAWA.",
+        ],
+        fuente=FUENTE + " · apartado 4.10",
+        notes=(
+            "CN5 es una herramienta poco conocida y muy valiosa. En ejes difíciles, "
+            "ver la señal real en un osciloscopio sigue siendo insustituible."
         ),
     )
 
