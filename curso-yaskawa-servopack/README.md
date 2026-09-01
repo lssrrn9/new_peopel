@@ -115,13 +115,18 @@ buscarlo, no para sustituir a la documentación del fabricante.
 YASKAWA, SERVOPACK, Σ-7/Sigma-7 y SigmaWin+ son marcas de sus respectivos
 titulares. Este material es formativo e independiente.
 
-## Vista previa
+## Ver el curso sin descargar nada
 
-`vista-previa/` contiene capturas de una selección de láminas y
-`salida/CURSO_YASKAWA_SERVOPACK_3kW.pdf` es la exportación completa del curso,
-útil para revisarlo sin PowerPoint. Ambos se regeneran con:
+**[VER_EL_CURSO.md](VER_EL_CURSO.md)** muestra las 126 diapositivas como
+imágenes, con índice por módulos. Se lee directamente en el navegador, sin
+PowerPoint. Las imágenes están en `diapositivas/` y el curso completo en PDF,
+en `salida/CURSO_YASKAWA_SERVOPACK_3kW.pdf`.
+
+Para regenerar la galería tras editar el contenido:
 
 ```bash
 python3 generar_presentacion.py
 soffice --headless --convert-to pdf --outdir salida salida/CURSO_YASKAWA_SERVOPACK_3kW.pptx
+pdftoppm -r 96 -png salida/CURSO_YASKAWA_SERVOPACK_3kW.pdf diapositivas/d
+python3 generar_galeria.py
 ```
