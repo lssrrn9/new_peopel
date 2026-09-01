@@ -232,8 +232,12 @@ class Deck:
         self._rect(slide, 0, 0, SLIDE_W, Inches(1.18), fill=NAVY)
         self._rect(slide, 0, Inches(1.18), SLIDE_W, Inches(0.045), fill=CYAN)
         t_w = BODY_W - Inches(2.3)
+        # El título debe caber en una sola línea: se reduce el cuerpo si hace
+        # falta para no invadir el subtítulo.
+        t_size = min(25.0, (t_w / Inches(1)) * 72.0 / (0.545 * max(len(title), 1)))
         self._text(slide, MARGIN, Inches(0.20), t_w, Inches(0.55), title,
-                   size=Pt(25), color=WHITE, bold=True, font=FONT_H)
+                   size=Pt(max(t_size, 17.0)), color=WHITE, bold=True,
+                   font=FONT_H)
         if subtitle:
             self._text(slide, MARGIN, Inches(0.76), t_w, Inches(0.32),
                        subtitle, size=Pt(12.5),
@@ -535,26 +539,48 @@ class Deck:
         gap = Inches(0.12)
         n = len(steps)
         row_h = (bottom - top - gap * (n - 1)) / n
+        row_h_in = row_h / Inches(1)
+        text_w_in = (BODY_W - Inches(1.3)) / Inches(1)
+
+        # Cuerpo de letra adaptado a la altura de fila disponible.
+        head_pt, body_pt = 13.5, 11.5
+        while head_pt > 9.5:
+            needed = 0.20
+            for head, body in steps:
+                needed_row = 0.18 + head_pt * 1.30 / 72
+                if body:
+                    per_line = max(int(text_w_in * 72 / (0.50 * body_pt)), 10)
+                    lines = max(1, -(-len(body) // per_line))
+                    needed_row += 0.06 + lines * body_pt * 1.22 / 72
+                needed = max(needed, needed_row)
+            if needed <= row_h_in:
+                break
+            head_pt -= 0.5
+            body_pt -= 0.5
+
+        head_off = Inches(0.10)
+        body_off = head_off + Inches(head_pt * 1.30 / 72 + 0.03)
         for i, (head, body) in enumerate(steps):
             y = top + i * (row_h + gap)
             self._rect(slide, MARGIN, y, BODY_W, row_h, fill=LIGHT,
                        line=GRAY_LINE, line_w=Pt(0.75))
             self._rect(slide, MARGIN, y, Inches(0.72), row_h, fill=NAVY)
             self._text(slide, MARGIN, y, Inches(0.72), row_h, str(i + 1),
-                       size=Pt(20), color=CYAN, bold=True, font=FONT_H,
-                       align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE)
+                       size=Pt(min(20.0, head_pt + 6)), color=CYAN, bold=True,
+                       font=FONT_H, align=PP_ALIGN.CENTER,
+                       anchor=MSO_ANCHOR.MIDDLE)
             has_body = bool(body)
             self._text(slide, MARGIN + Inches(0.95),
-                       y + (Inches(0.12) if has_body else Emu(0)),
+                       y + (head_off if has_body else Emu(0)),
                        BODY_W - Inches(1.3),
                        row_h if not has_body else Inches(0.3), head,
-                       size=Pt(13.5), color=NAVY, bold=True, font=FONT_H,
+                       size=Pt(head_pt), color=NAVY, bold=True, font=FONT_H,
                        anchor=MSO_ANCHOR.TOP if has_body else MSO_ANCHOR.MIDDLE)
             if has_body:
-                self._text(slide, MARGIN + Inches(0.95), y + Inches(0.44),
-                           BODY_W - Inches(1.3), row_h - Inches(0.5), body,
-                           size=Pt(11.5), color=RGBColor(0x3A, 0x46, 0x54),
-                           spacing=1.05)
+                self._text(slide, MARGIN + Inches(0.95), y + body_off,
+                           BODY_W - Inches(1.3), row_h - body_off,
+                           body, size=Pt(body_pt),
+                           color=RGBColor(0x3A, 0x46, 0x54), spacing=1.05)
         if callout:
             self.callout(slide, MARGIN, BODY_BOTTOM - Inches(0.9), BODY_W,
                          Inches(0.9), *callout)
@@ -647,9 +673,8 @@ class Deck:
     def canvas_slide(self, title: str, subtitle: str = "", notes: str = ""):
         slide = self._blank()
         self._chrome(slide, title, subtitle)
-        self.outline.append(("Diapositiva", title, notes))
-        self._pending_notes = (slide, notes)
         self._notes(slide, notes)
+        self.outline.append(("Diapositiva", title, notes))
         return slide
 
     def quote_slide(self, text: str, author: str = "", notes: str = ""):

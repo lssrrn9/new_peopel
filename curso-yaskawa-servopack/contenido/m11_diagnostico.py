@@ -331,18 +331,18 @@ def _diagrama_metodo(d: Deck) -> None:
     ]
 
     y = Inches(1.78)
-    h = Inches(0.79)
+    h = Inches(0.72)
     for num, titulo, desc, color in pasos:
         d._rect(slide, Inches(0.62), y, Inches(12.1), h, fill=LIGHT,
                 line=GRAY_LINE)
         d._rect(slide, Inches(0.62), y, Inches(0.62), h, fill=color)
-        d._text(slide, Inches(0.62), y + Inches(0.20), Inches(0.62), Inches(0.4),
-                num, size=Pt(19), color=WHITE, bold=True, align=PP_ALIGN.CENTER)
-        d._text(slide, Inches(1.42), y + Inches(0.09), Inches(3.1), Inches(0.35),
-                titulo, size=Pt(12.5), color=color, bold=True)
-        d._text(slide, Inches(4.60), y + Inches(0.09), Inches(7.9), Inches(0.62),
-                desc, size=Pt(10.5), color=INK, spacing=1.1)
-        y += Inches(0.855)
+        d._text(slide, Inches(0.62), y + Inches(0.17), Inches(0.62), Inches(0.4),
+                num, size=Pt(18), color=WHITE, bold=True, align=PP_ALIGN.CENTER)
+        d._text(slide, Inches(1.42), y + Inches(0.06), Inches(3.1), Inches(0.35),
+                titulo, size=Pt(12), color=color, bold=True)
+        d._text(slide, Inches(4.60), y + Inches(0.07), Inches(7.9), Inches(0.60),
+                desc, size=Pt(10), color=INK, spacing=1.08)
+        y += Inches(0.775)
 
     d.callout(slide, Inches(0.62), Inches(6.42), Inches(12.1), Inches(0.48),
               "blue", "Regla de oro: nunca sustituyas una pieza sin una hipótesis que "
