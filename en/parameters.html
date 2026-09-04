@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chapter 1 · Parameter description — KK-5S Cold-Cut Flying Saw</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/manual.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <button class="menu-btn" type="button" aria-label="Open menu">☰</button>
+  <aside class="sidebar">
+    <div class="brand">
+      <img src="../assets/img/logo-aogang-header.jpeg" alt="AOGANG">
+      <div class="model">KK-5S</div>
+      <div class="sub">Cold-cut flying saw</div>
+      <div class="lang-switch">
+        <a class="" href="../parameters.html" hreflang="es">ES</a>
+        <a class="active" href="parameters.html" hreflang="en">EN</a>
+      </div>
+    </div>
+    <div class="search-wrap">
+      <input id="manual-search" type="search" placeholder="Search the manual…" autocomplete="off">
+      <div id="search-results" class="search-results"></div>
+    </div>
+    <nav class="nav">
+      <div class="group">Manual</div>
+      <a href="index.html">Cover &amp; quick start</a>
+      <a href="safety.html">Safety precautions</a>
+      <div class="group">Chapter 1</div>
+      <a href="parameters.html">Parameter description</a>
+      <a class="sub" href="parameters.html#screen-overview">1.1 Screen overview</a>
+      <a class="sub" href="parameters.html#main-page">1.2.1 Main page</a>
+      <a class="sub" href="parameters.html#length">1.2.2 Length scheduling</a>
+      <a class="sub" href="parameters.html#tube">1.2.3 Tube type</a>
+      <a class="sub" href="parameters.html#system">1.2.4 System parameters</a>
+      <a class="sub" href="parameters.html#manual-params">1.2.5 Manual parameters</a>
+      <a class="sub" href="parameters.html#motor">1.2.6 Motor parameters</a>
+      <div class="group">Chapter 2</div>
+      <a href="functions.html">System functions</a>
+      <a class="sub" href="functions.html#modes">2.1 Operating modes</a>
+      <a class="sub" href="functions.html#power">2.2 Power management</a>
+      <a class="sub" href="functions.html#home">2.4 Homing</a>
+      <div class="group">Chapter 3</div>
+      <a href="operation.html">Operating instructions</a>
+      <a class="sub" href="operation.html#power-on">3.1 Power-on</a>
+      <a class="sub" href="operation.html#cut">3.6 Manual cutting</a>
+      <a class="sub" href="operation.html#auto">3.8 Automatic mode</a>
+      <a class="sub" href="operation.html#sync">3.12 Synchronization</a>
+
+    </nav>
+    <div class="sidebar-foot">Shijiazhuang Aogang Machinery<br>Mayo 2019 · V1.36</div>
+  </aside>
+  <div class="main">
+    <div class="topbar">
+      <div class="crumb">Manual / Chapter 1 · Parameters</div>
+      <div class="lang-inline">
+        <a class="" href="../parameters.html">ES</a>
+        <a class="active" href="parameters.html">EN</a>
+        <span class="meta">KK-5S · User manual V1.36</span>
+      </div>
+    </div>
+    <article id="content" class="content">
+
+      <div class="kicker">Chapter 1</div>
+      <h1>Parameter description</h1>
+      <p class="lede">The KK-5S touchscreen is the primary station for production settings and status. This chapter maps every page and documents each parameter.</p>
+
+      <h2 id="screen-overview">1.1 Screen overview</h2>
+      <p>On each screen there are two rows of switching buttons at the bottom. The bottom row is primary navigation and is shown on every page. The top row is secondary navigation and appears only for the active primary page.</p>
+      <figure>
+        <img src="../assets/img/fig-1-1-topology.png" alt="Figure 1-1. Touchscreen topology for the KK-5S cold-cut flying saw control system">
+        <figcaption>Figure 1-1. Touchscreen topology for the KK-5S cold-cut flying saw control system</figcaption>
+      </figure>
+      <figure>
+        <img src="../assets/img/fig-1-2-main.png" alt="Figure 1-2. Main screen of the KK-5S cold-cut flying saw control system">
+        <figcaption>Figure 1-2. Main screen of the KK-5S cold-cut flying saw control system</figcaption>
+      </figure>
+      <ul>
+        <li><strong>Production Status</strong> — Production Status, Length Settings, Pipe Type Parameters, and Simulation Status. Daily length, quantity, and material parameters live here.</li>
+        <li><strong>System Settings</strong> — System Parameters, Manual Parameters, and Motor Parameters (plus Sync Parameters on the HMI).</li>
+        <li><strong>Manual Operation</strong> — jog, home, clamp, cut, and axis power buttons.</li>
+        <li><strong>System Diagnostics</strong> — inputs, outputs, and current.</li>
+        <li><strong>Alarm Information</strong> — current alarms and historical alarms.</li>
+        <li><strong>Company Information</strong> — manufacturer contact details.</li>
+        <li><strong>Language</strong> — Chinese / English.</li>
+      </ul>
+
+      <h2 id="main-page">1.2.1 Main page</h2>
+      <p>The main page is the production-status view shown in Figure 1-2. Values above the divider are also visible from other windows.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Parameter</th><th>Description</th><th>Unit</th><th>Set</th><th>Default</th></tr></thead>
+          <tbody>
+            <tr><td>Production line speed</td><td>Current mill speed in automatic mode; live display</td><td>m/min</td><td class="dot-ro">○</td><td>—</td></tr><tr><td>Maximum line speed</td><td>Maximum allowed speed for the current parameters</td><td>m/min</td><td class="dot-ro">○</td><td>—</td></tr><tr><td>Current material length</td><td>Distance this piece has already advanced</td><td>mm</td><td class="dot-ro">○</td><td>—</td></tr><tr><td>Current cut length</td><td>Cut-off length of the active job (see §3.9)</td><td>mm</td><td class="dot-ro">○</td><td>—</td></tr><tr><td>Current saw-carriage position</td><td>Carriage position relative to origin</td><td>mm</td><td class="dot-ro">○</td><td>—</td></tr><tr><td>Current feed position</td><td>Feed position relative to origin</td><td>mm</td><td class="dot-ro">○</td><td>—</td></tr><tr><td>Quantity produced</td><td>Pieces already produced on the current order; ±1 for tracking</td><td>pieces</td><td class="dot-ro">○</td><td>—</td></tr><tr><td>Set production quantity</td><td>Target quantity of the current schedule</td><td>pieces</td><td class="dot-ro">○</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>When operating in automatic mode, keep mill speed at or below the displayed maximum line speed.</p>
+
+      <h2 id="length">1.2.2 Length scheduling page</h2>
+      <figure>
+        <img src="../assets/img/fig-1-3-length.png" alt="Figure 1-3. KK-5S length scheduling page">
+        <figcaption>Figure 1-3. KK-5S length scheduling page</figcaption>
+      </figure>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Parameter</th><th>Description</th><th>Unit</th><th>Set</th><th>Default</th></tr></thead>
+          <tbody>
+            <tr><td>Orders 1–10 set length</td><td>Cut length for each order. Range 0–104,857.5. Selected order length must not be 0</td><td>mm</td><td class="dot-set">●</td><td>6000</td></tr><tr><td>Orders 1–10 set quantity</td><td>Pieces for each order. Quantity 0 means unlimited</td><td>pieces</td><td class="dot-set">●</td><td>6666</td></tr><tr><td>Current production order number</td><td>Currently selected order</td><td>—</td><td class="dot-ro">○</td><td>—</td></tr><tr><td>Current production length</td><td>Length of the selected order</td><td>mm</td><td class="dot-ro">○</td><td>—</td></tr><tr><td>Current quantity</td><td>Pieces produced so far on the selected order</td><td>pieces</td><td class="dot-ro">○</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout note">
+        <strong>Scheduling</strong>
+        If you do not need multi-order scheduling, use a single enabled order for the production length. The order’s <em>Select / ENB</em> state must be on, or that length is not executed.
+      </div>
+
+      <h2 id="tube">1.2.3 Tube type parameters</h2>
+      <figure>
+        <img src="../assets/img/fig-1-4-tube.png" alt="Figure 1-4. KK-5S pipe / tube profile parameters page">
+        <figcaption>Figure 1-4. KK-5S pipe / tube profile parameters page</figcaption>
+      </figure>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Parameter</th><th>Description</th><th>Unit</th><th>Set</th><th>Default</th></tr></thead>
+          <tbody>
+            <tr><td>Feed distance</td><td>Feed-axis travel during the cut. Round tube: enter diameter. Square / special: equivalent feed for a full cut</td><td>mm</td><td class="dot-set">●</td><td>32</td></tr><tr><td>Material wall thickness</td><td>Shown when Round Tube is selected; sets slow-feed zones at both walls</td><td>mm</td><td class="dot-set">●</td><td>2</td></tr><tr><td>Slow-speed % first segment</td><td>Square / special only: slow-feed zone at the start of the cut (typical 5–10%)</td><td>%</td><td class="dot-set">●</td><td>10</td></tr><tr><td>Slow-speed % final segment</td><td>Square / special only: slow-feed zone at the end of the cut (typical 20–45%)</td><td>%</td><td class="dot-set">●</td><td>20</td></tr><tr><td>Tube type</td><td>Round, square, or special-shaped</td><td>—</td><td class="dot-set">●</td><td>—</td></tr><tr><td>Feed per tooth, initial</td><td>Low-speed tooth feed at the start of the cut</td><td>mm</td><td class="dot-set">●</td><td>0.04</td></tr><tr><td>Feed per tooth, high-speed</td><td>Tooth feed in the high-speed portion of the cut</td><td>mm</td><td class="dot-set">●</td><td>0.08</td></tr><tr><td>Feed per tooth, final</td><td>Low-speed tooth feed at the end of the cut</td><td>mm</td><td class="dot-set">●</td><td>0.04</td></tr><tr><td>Saw blade linear speed</td><td>Peripheral speed at the tooth tip. Must satisfy: linear speed × 1000 × reduction / (diameter × π) &lt; saw-motor max speed</td><td>m/min</td><td class="dot-set">●</td><td>200</td></tr><tr><td>Number of saw-blade teeth</td><td>Actual tooth count. Wrong value shortens blade life or blocks the cycle</td><td>teeth</td><td class="dot-set">●</td><td>200</td></tr><tr><td>Saw blade diameter</td><td>Actual diameter. Re-measure after regrinding</td><td>mm</td><td class="dot-set">●</td><td>350</td></tr><tr><td>Recommended cutting time</td><td>Calculated from current tube and blade data; a conservative blade-protection reference</td><td>s</td><td class="dot-ro">○</td><td>—</td></tr><tr><td>Maximum production speed</td><td>Maximum line speed at current parameters</td><td>m/min</td><td class="dot-ro">○</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="param">
+        <h4>Wall thickness vs. slow-speed percentages</h4>
+        <div class="meta-row"><span>Round: wall thickness</span><span>Square / special: first &amp; last %</span></div>
+        <p>During feed, zones that need more cutting force (tube walls) run at the low-speed tooth feed to protect the blade; after those zones the axis returns to high-speed tooth feed. Too large a slow zone costs cycle time; too small a zone can shatter the blade. For square tube, wall thickness and exit angle both change the percentages — inspect the cutting curve after material identification and trim the values.</p>
+      </div>
+      <div class="param">
+        <h4>Feed per tooth (STFL)</h4>
+        <div class="meta-row"><span>Round typical: 0.03–0.05 mm slow / 0.08–0.12 mm high</span><span>Square typical: 0.01–0.07 mm slow / 0.1–0.14 mm high</span></div>
+        <p>STFL is the feed-axis move per one tooth of blade rotation. Start from the blade manufacturer’s chart, then trim to the cut. Too high damages the blade; too low only slows the mill.</p>
+      </div>
+
+      <h2 id="system">1.2.4 System parameters</h2>
+      <figure>
+        <img src="../assets/img/fig-1-12-system.png" alt="Figure 1-12. KK-5S system parameters page">
+        <figcaption>Figure 1-12. KK-5S system parameters page</figcaption>
+      </figure>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Parameter</th><th>Description</th><th>Unit</th><th>Set</th><th>Default</th></tr></thead>
+          <tbody>
+            <tr><td>Saw-car forward acceleration</td><td>Acceleration on the forward (tracking) segment</td><td>m/s²</td><td class="dot-set">●</td><td>3</td></tr><tr><td>Saw-car forward deceleration</td><td>Deceleration on the forward segment</td><td>m/s²</td><td class="dot-set">●</td><td>4</td></tr><tr><td>Saw-car return acceleration</td><td>Acceleration on the return segment</td><td>m/s²</td><td class="dot-set">●</td><td>4</td></tr><tr><td>Saw-car return deceleration</td><td>Deceleration on the return segment</td><td>m/s²</td><td class="dot-set">●</td><td>3</td></tr><tr><td>Saw-car jerk</td><td>Jerk of the drive feed motor on forward and return strokes</td><td>m/s³</td><td class="dot-set">●</td><td>50</td></tr><tr><td>Clamping delay</td><td>After the carriage reaches the sync zone, wait this long before outputting clamp</td><td>s</td><td class="dot-set">●</td><td>0.05</td></tr><tr><td>Cut-off delay</td><td>Time allotted for the clamp to actuate after the clamp command</td><td>s</td><td class="dot-set">●</td><td>0.01</td></tr><tr><td>Return delay</td><td>After the blade is back at origin and unclamp is output, wait this long before decelerating the carriage</td><td>s</td><td class="dot-set">●</td><td>0.01</td></tr><tr><td>Slow-speed allowance (outer)</td><td>Allowance outside the wall-thickness slow zone (covers mechanical error)</td><td>mm</td><td class="dot-set">●</td><td>1 (HMI example 0.05)</td></tr><tr><td>Slow-speed allowance (inner)</td><td>Allowance inside the wall-thickness slow zone</td><td>mm</td><td class="dot-set">●</td><td>1 (HMI example 0.10)</td></tr><tr><td>Distance to feed origin</td><td>After feed-home contact, the blade retracts this distance</td><td>mm</td><td class="dot-set">●</td><td>5</td></tr><tr><td>Feed acceleration</td><td>Acceleration of the feed servo</td><td>m/s²</td><td class="dot-set">●</td><td>2</td></tr><tr><td>Real-time clock</td><td>Controller clock set / read</td><td>—</td><td class="dot-set">●</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout warn">
+        <strong>Closed-loop carriage motion</strong>
+        The carriage is closed-loop: acceleration/deceleration curves are built from these values while the drive shaft tracks strip speed. Too high → motor load and overshoot into the sync or zero-speed zones, which hurts position and settling time. Too low → slower mill speed. Set from the actual mechanical mass.
+      </div>
+      <p>Clamping delay exists because the carriage overshoots slightly when it enters the sync zone. Clamping during that overshoot can desynchronize the cut. Do not set the delay larger than needed — it reduces maximum line speed.</p>
+
+      <h2 id="manual-params">1.2.5 Manual parameters</h2>
+      <figure>
+        <img src="../assets/img/fig-1-12-manual-params.png" alt="Figure 1-12 (continued). KK-5S manual parameters page">
+        <figcaption>Figure 1-12 (continued). KK-5S manual parameters page</figcaption>
+      </figure>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Parameter</th><th>Description</th><th>Unit</th><th>Set</th><th>Default</th></tr></thead>
+          <tbody>
+            <tr><td>Driven servo jog speed</td><td>Carriage speed during manual forward/reverse</td><td>mm/s</td><td class="dot-set">●</td><td>100</td></tr><tr><td>Drive servo home speed 1</td><td>Speed while seeking the rear limit during drag-home</td><td>mm/s</td><td class="dot-set">●</td><td>100 (table 50)</td></tr><tr><td>Drive servo home speed 2</td><td>Speed of the forward move after the rear limit is found</td><td>mm/s</td><td class="dot-set">●</td><td>100</td></tr><tr><td>Drag servo home distance</td><td>Distance the carriage travels forward after the rear limit</td><td>mm</td><td class="dot-set">●</td><td>50</td></tr><tr><td>Lubrication pump run time</td><td>On-time of each lube cycle</td><td>s</td><td class="dot-set">●</td><td>15</td></tr><tr><td>Lubrication pump stop time</td><td>Off interval between lube cycles</td><td>s</td><td class="dot-set">●</td><td>1200</td></tr><tr><td>Hydraulic station pressure limit (max)</td><td>Hydraulic high-pressure limit when a hydraulic clamp is fitted</td><td>MPa</td><td class="dot-set">●</td><td>12</td></tr><tr><td>Hydraulic station pressure limit (min)</td><td>Hydraulic low-pressure limit</td><td>MPa</td><td class="dot-set">●</td><td>15</td></tr><tr><td>Feed servo jog speed</td><td>Feed-axis speed in manual jog</td><td>mm/s</td><td class="dot-set">●</td><td>10</td></tr><tr><td>Feed servo home speed 1</td><td>Speed retracting to the feed rear limit during feed-home</td><td>mm/s</td><td class="dot-set">●</td><td>10</td></tr><tr><td>Feed servo home speed 2</td><td>Speed advancing to find the material after the rear limit</td><td>mm/s</td><td class="dot-set">●</td><td>5</td></tr><tr><td>Feed home distance</td><td>Retract distance after the blade contacts the material</td><td>mm</td><td class="dot-set">●</td><td>5</td></tr><tr><td>Feed servo home torque limit</td><td>Torque used to drive into the material during feed-home. Typical 5–15%</td><td>%</td><td class="dot-set">●</td><td>5</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>If home torque is high but the motor still cannot drive the load, the feed screw may be dry. Check that lubrication lines are open before raising torque further — excess torque can damage the strip and the blade.</p>
+      <figure>
+        <img src="../assets/img/fig-3-2-torque.png" alt="Feed torque test controls on the manual-parameters / machine-learning page (see §3.4)">
+        <figcaption>Feed torque test controls on the manual-parameters / machine-learning page (see §3.4)</figcaption>
+      </figure>
+
+      <h2 id="motor">1.2.6 Motor parameters</h2>
+      <figure>
+        <img src="../assets/img/fig-1-13-motor.png" alt="Figure 1-13. KK-5S motor parameters page">
+        <figcaption>Figure 1-13. KK-5S motor parameters page</figcaption>
+      </figure>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Parameter</th><th>Description</th><th>Unit</th><th>Set</th><th>Default</th></tr></thead>
+          <tbody>
+            <tr><td>Drive motor rated speed</td><td>From the drive servo nameplate</td><td>rpm</td><td class="dot-set">●</td><td>2000</td></tr><tr><td>Drive gear diameter</td><td>Pitch-circle diameter of the load-end drive gear</td><td>mm</td><td class="dot-set">●</td><td>127.32</td></tr><tr><td>Drive reduction ratio</td><td>Drive-shaft reducer ratio from its nameplate</td><td>—</td><td class="dot-set">●</td><td>6</td></tr><tr><td>Maximum travel of the saw car</td><td>Maximum effective carriage stroke on the rack</td><td>mm</td><td class="dot-set">●</td><td>2700</td></tr><tr><td>Feed servo rated speed</td><td>From the feed servo nameplate</td><td>rpm</td><td class="dot-set">●</td><td>2000</td></tr><tr><td>Feed screw pitch</td><td>Nut travel per revolution of the lead screw</td><td>mm</td><td class="dot-set">●</td><td>10</td></tr><tr><td>Feed reduction ratio</td><td>Feed gearbox ratio; enter 1 if there is no gearbox</td><td>—</td><td class="dot-set">●</td><td>1</td></tr><tr><td>Feed origin distance</td><td>Retract after feed-home contact (same idea as §1.2.4 / §1.2.5)</td><td>mm</td><td class="dot-set">●</td><td>5</td></tr><tr><td>Saw motor speed</td><td>Rated speed from the sawing-motor nameplate</td><td>rpm</td><td class="dot-set">●</td><td>1465</td></tr><tr><td>Sawing reduction ratio</td><td>Saw-shaft gearbox ratio from its nameplate</td><td>—</td><td class="dot-set">●</td><td>9.3</td></tr><tr><td>Maximum frequency of sawing inverter</td><td>Upper limit of the saw inverter</td><td>Hz</td><td class="dot-set">●</td><td>60</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <figure>
+        <img src="../assets/img/fig-gear-pitch.png" alt="Figure 1-3. Gear pitch-circle schematic (diameter d, circular pitch P)">
+        <figcaption>Figure 1-3. Gear pitch-circle schematic (diameter d, circular pitch P)</figcaption>
+      </figure>
+      <h3>Measuring maximum saw-carriage travel</h3>
+      <ol class="steps">
+        <li>Enter the correct drive gear diameter and reduction ratio, then power the machine again.</li>
+        <li>Perform Return to Origin.</li>
+        <li>After homing, jog the carriage forward until it reaches the front limit switch.</li>
+        <li>Read the current saw-carriage position on the main screen. Reduce that value slightly and enter it as maximum travel.</li>
+      </ol>
+
+      <h2 id="manual-op">1.2.7 Manual operation screen</h2>
+      <figure>
+        <img src="../assets/img/fig-1-7-manual-op.png" alt="Figure 1-7. Manual operation screen of the KK-5S cold-cut flying saw">
+        <figcaption>Figure 1-7. Manual operation screen of the KK-5S cold-cut flying saw</figcaption>
+      </figure>
+      <p>This page duplicates the control-panel actions for drive, feed, cutting, clamp, hydraulic, lubrication, and reset. Status lamps next to each button show enable/home/run state. Use it together with the physical knobs; mode still comes from the panel selector.</p>
+
+      <footer class="page-foot">
+        KK-5S Cold-Cut Flying Saw User Manual · Shijiazhuang Aogang Machinery Co., Ltd. · May 2019 V1.36. Control system: KaiKong KK-5S. This web edition is a structured conversion of the original instruction manual.
+      </footer>
+    </article>
+  </div>
+  <script src="../assets/js/manual.js"></script>
+</body>
+</html>

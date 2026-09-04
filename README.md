@@ -1,28 +1,29 @@
-# KK-5S Cold-Cut Flying Saw User Manual
+# Manual KK-5S — Sierra volante de corte en frío
 
-Web edition of the **KK-5S Cold-Cut Flying Saw** operator manual (Shijiazhuang Aogang Machinery Co., Ltd., May 2019 V1.36). The control system is KaiKong KK-5S.
+Edición web del manual de operación **KK-5S Cold-Cut Flying Saw** (Shijiazhuang Aogang Machinery Co., Ltd., mayo 2019 V1.36). Sistema de control KaiKong KK-5S.
 
-## Open the manual
-
-Open [`index.html`](index.html) in a browser, or serve the repository root:
+**Español (principal):** abra [`index.html`](index.html).  
+**English:** [`en/index.html`](en/index.html).
 
 ```bash
 python3 -m http.server 8080
 ```
 
-Then visit `http://localhost:8080`.
+Luego visite `http://localhost:8080` (español) o `http://localhost:8080/en/` (inglés).
 
-| Page | Contents |
+| Página | Contenido |
 |---|---|
-| [index.html](index.html) | Cover, quick-start sequence, chapter index |
-| [safety.html](safety.html) | Mechanical and electrical safety |
-| [parameters.html](parameters.html) | HMI map and every production / servo parameter |
-| [functions.html](functions.html) | Modes, power, jog, homing, clamp/cut, memory |
-| [operation.html](operation.html) | Power-on through automatic production and encoder sync |
+| [index.html](index.html) | Portada, inicio rápido, vocabulario del HMI |
+| [safety.html](safety.html) | Seguridad mecánica y eléctrica |
+| [parameters.html](parameters.html) | Mapa de pantalla y parámetros de producción / servo |
+| [functions.html](functions.html) | Modos, energía, jog, origen, amarre/corte, memoria |
+| [operation.html](operation.html) | Encendido, automático, programas, sincronismo del encoder |
 
-HMI screenshots and diagrams are in [`assets/img/`](assets/img/). The original Word file is in [`original/Cold_Cutting_Flying_Saw_Instruction_Manual.docx`](original/Cold_Cutting_Flying_Saw_Instruction_Manual.docx).
+Las capturas del HMI están en inglés, como en la máquina. Los nombres de botones se citan tal cual (`Manual Cut`, `Calculate`, `Continue`).
 
-Regenerate the HTML from [`tools/build_manual.py`](tools/build_manual.py) after content edits:
+Imágenes: [`assets/img/`](assets/img/). Word original: [`original/Cold_Cutting_Flying_Saw_Instruction_Manual.docx`](original/Cold_Cutting_Flying_Saw_Instruction_Manual.docx).
+
+Regenerar HTML:
 
 ```bash
 python3 tools/build_manual.py

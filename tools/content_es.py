@@ -1,0 +1,688 @@
+"""Spanish operator-manual copy for the KK-5S site."""
+
+
+def nav():
+    return """
+      <div class="group">Manual</div>
+      <a href="index.html">Portada e inicio rápido</a>
+      <a href="safety.html">Precauciones de seguridad</a>
+      <div class="group">Capítulo 1</div>
+      <a href="parameters.html">Descripción de parámetros</a>
+      <a class="sub" href="parameters.html#screen-overview">1.1 Vista de pantallas</a>
+      <a class="sub" href="parameters.html#main-page">1.2.1 Pantalla principal</a>
+      <a class="sub" href="parameters.html#length">1.2.2 Longitudes</a>
+      <a class="sub" href="parameters.html#tube">1.2.3 Tipo de tubo</a>
+      <a class="sub" href="parameters.html#system">1.2.4 Parámetros de sistema</a>
+      <a class="sub" href="parameters.html#manual-params">1.2.5 Parámetros manuales</a>
+      <a class="sub" href="parameters.html#motor">1.2.6 Parámetros de motor</a>
+      <div class="group">Capítulo 2</div>
+      <a href="functions.html">Funciones del sistema</a>
+      <a class="sub" href="functions.html#modes">2.1 Modos de operación</a>
+      <a class="sub" href="functions.html#power">2.2 Energía</a>
+      <a class="sub" href="functions.html#home">2.4 Retorno al origen</a>
+      <div class="group">Capítulo 3</div>
+      <a href="operation.html">Instrucciones de operación</a>
+      <a class="sub" href="operation.html#power-on">3.1 Encendido</a>
+      <a class="sub" href="operation.html#cut">3.6 Corte manual</a>
+      <a class="sub" href="operation.html#auto">3.8 Modo automático</a>
+      <a class="sub" href="operation.html#sync">3.12 Sincronismo</a>
+"""
+
+
+def pages(fig, table, param, prefix="assets/img/"):
+    index = None
+    _discard = """
+      <div class="hero">
+        <div class="kicker" style="color:#f0b8b0">Manual de operación</div>
+        <h1>KK-5S Sierra volante de corte en frío</h1>
+        <p class="lede">Manual del sistema de control para la sierra volante AOGANG en línea de tubos. Cubre parámetros de la pantalla, retorno al origen, simulación, corte automático y sincronismo.</p>
+        <div class="hero-logos">
+          <img src="ASSETSlogo-aogang-header.jpeg" alt="AOGANG">
+          <img src="ASSETSlogo-kaikong.jpeg" alt="KaiKong">
+        </div>
+        <div class="badges">
+          <span class="badge">Aogang Machinery</span>
+          <span class="badge">KaiKong KK-5S</span>
+          <span class="badge">Mayo 2019 V1.36</span>
+        </div>
+      </div>
+      <div class="callout danger">
+        <strong>Lea primero la seguridad</strong>
+        El carro de sierra, el disco en rotación y la tensión en el gabinete pueden causar lesiones graves. Complete las <a href="safety.html">precauciones de seguridad</a> antes de encender, buscar origen o producir.
+      </div>
+      <h2>Inicio rápido</h2>
+      <p>Use esta secuencia tras un arranque en frío. Los detalles y las condiciones de aborto están en el <a href="operation.html">capítulo 3</a>.</p>
+      <ol class="steps">
+        <li>Cierre el breaker del gabinete principal y pulse el botón de potencia del tablero. Espere a que las lámparas Drive, Feed y Sawing queden fijas (~60 s). No opere durante la inicialización.</li>
+        <li>Confirme que el selector de modo está en <strong>Manual</strong>. Si el amarre es hidráulico, arranque la central hidráulica.</li>
+        <li>Lleve al origen el eje de arrastre (carro) y luego el eje de avance, con material amarrado en el utillaje. Reset cancela cualquiera de los dos movimientos.</li>
+        <li>Introduzca longitud y parámetros de tubo/disco. Pulse <strong>Calculate</strong> y compruebe que la velocidad máxima de línea es aceptable.</li>
+        <li>Pruebe el corte con un corte estático manual. El tren formador debe estar parado.</li>
+        <li>Ejecute <strong>Simulation</strong> con el utillaje vacío para verificar el movimiento del carro; pase a <strong>Automatic</strong> solo cuando haya material amarrado y ambos ejes estén en origen.</li>
+      </ol>
+      <h2>Contenido</h2>
+      <div class="cards">
+        <a class="card" href="safety.html">
+          <div class="num">00</div>
+          <h3>Precauciones de seguridad</h3>
+          <p>Reglas mecánicas y eléctricas que aplican a todos los procedimientos de este manual.</p>
+        </a>
+        <a class="card" href="parameters.html">
+          <div class="num">01</div>
+          <h3>Descripción de parámetros</h3>
+          <p>Mapa de la pantalla, valores de fábrica y el significado de cada ajuste de producción y servo.</p>
+        </a>
+        <a class="card" href="functions.html">
+          <div class="num">02</div>
+          <h3>Funciones del sistema</h3>
+          <p>Modos, energía, jog, origen, amarre/corte, pieza corta/larga y memoria de longitud.</p>
+        </a>
+        <a class="card" href="operation.html">
+          <div class="num">03</div>
+          <h3>Instrucciones de operación</h3>
+          <p>Desde el encendido hasta la producción automática, programas, puntos de memoria y sincronismo del encoder.</p>
+        </a>
+      </div>
+      <h2>Vocabulario de la pantalla (HMI)</h2>
+      <p>Las capturas y los nombres de botones se dejan en inglés, tal como aparecen en la máquina. Equivalencias usadas en este manual:</p>
+""" + table(
+        ["En la pantalla", "En este manual"],
+        [
+            ["Manual / Simulation / Automatic", "Manual / Simulación / Automático", "", "", ""],
+            ["Carriage / Drive", "Carro de sierra / eje de arrastre", "", "", ""],
+            ["Feeding / Feed", "Eje de avance", "", "", ""],
+            ["Home", "Origen", "", "", ""],
+            ["Clamp", "Amarre", "", "", ""],
+            ["Manual Cut", "Corte manual (en automático: pieza corta)", "", "", ""],
+            ["Line Speed", "Velocidad de línea", "", "", ""],
+            ["STFL", "Avance por diente", "", "", ""],
+        ],
+    ) + """
+      <h2>Acerca de esta edición</h2>
+      <p>Documento de origen: <em>76 Cold-Cut Flying Saw User Manual</em>, Shijiazhuang Aogang Machinery Co., Ltd., mayo 2019 V1.36. Traducción técnica al español a partir de esa edición. El archivo Word original está en <a href="original/Cold_Cutting_Flying_Saw_Instruction_Manual.docx">original/Cold_Cutting_Flying_Saw_Instruction_Manual.docx</a>. Versión en inglés: <a href="en/index.html">en/index.html</a>.</p>
+      <p>En las tablas, <span class="dot-set">●</span> indica que el operador puede ajustar el valor; <span class="dot-ro">○</span> es solo visualización. Donde la traducción inglesa original usaba unidades inconsistentes, manda la descripción detallada.</p>
+"""
+
+    # The glossary table has 5 columns because table() always treats col 3 as set/readonly.
+    # That's ugly for a 2-col glossary. I'll use a custom 2-col table in the string instead.
+    safety = """
+      <div class="kicker">Lectura obligatoria</div>
+      <h1>Precauciones de seguridad</h1>
+      <p class="lede">Estas instrucciones son el mínimo para la seguridad de las personas. Todas las operaciones de los capítulos siguientes también deben cumplirlas.</p>
+      <div class="callout danger">
+        <strong>Consecuencia de un error de operación</strong>
+        Si ocurre un error de operación con la sierra volante conectada al tren, puede dañar la máquina y causar lesiones personales.
+      </div>
+      <h2>Mecánica</h2>
+      <ul>
+        <li>El personal no calificado no debe montar, desmontar ni reparar el equipo sin supervisión.</li>
+        <li>No toque ninguna parte en movimiento mientras el equipo está en marcha.</li>
+        <li>Al hacer mantenimiento mecánico o diagnóstico de fallas, asegúrese de que el carro de sierra está en posición <strong>desembragada</strong>.</li>
+        <li>Siga los pasos e instrucciones de este manual.</li>
+      </ul>
+      <h2>Eléctrica</h2>
+      <ul>
+        <li>La inspección, el mantenimiento y la reparación del sistema eléctrico deben hacerlos personas calificadas para operar sistemas eléctricos.</li>
+        <li>Antes de abrir el gabinete de control principal, confirme que la alimentación se cortó por completo.</li>
+        <li>No toque componentes internos ni borneras con la alimentación puesta (cuando está encendida la lámpara verde del panel del gabinete).</li>
+        <li>No toque las borneras del gabinete durante los <strong>5 minutos</strong> posteriores al corte de energía.</li>
+        <li>Ponga a tierra el borne de tierra del gabinete.</li>
+        <li>No modifique este producto (añadir componentes eléctricos, usar la fuente interna del gabinete o añadir cableado).</li>
+      </ul>
+      <div class="callout warn">
+        <strong>Energía del gabinete</strong>
+        Una vez cerrado el breaker principal, el indicador rojo de la puerta permanece encendido y el interior del gabinete está energizado. El personal no calificado debe mantenerse alejado.
+      </div>
+      <h2>Riesgos de proceso que se detallan más adelante</h2>
+      <ul>
+        <li><a href="operation.html#cut">Corte manual</a> — si el tren formador se mueve durante un corte estático, se puede destruir el disco.</li>
+        <li><a href="operation.html#sim">Simulación</a> — material en el utillaje, o movimiento del tren durante la simulación, puede volcar el carro de sierra.</li>
+        <li><a href="operation.html#torque">Origen de avance en pared delgada</a> — un espesor menor de unos 1 mm puede abollarse y registrar un origen falso.</li>
+        <li><a href="operation.html#memory">Reanudación desde punto de memoria</a> — si se mueve el fleje tras una parada, la longitud guardada queda mal y la siguiente pieza puede salir larga.</li>
+      </ul>
+"""
+
+    params = f"""
+      <div class="kicker">Capítulo 1</div>
+      <h1>Descripción de parámetros</h1>
+      <p class="lede">La pantalla táctil KK-5S es el puesto principal de ajustes de producción y de estado. Este capítulo recorre cada página y documenta cada parámetro.</p>
+
+      <h2 id="screen-overview">1.1 Vista de pantallas</h2>
+      <p>En cada pantalla hay dos filas de botones en la parte inferior. La fila de abajo es la navegación principal y aparece en todas las páginas. La fila de arriba es secundaria y solo se muestra en la página principal activa.</p>
+{fig("fig-1-1-topology.png", "Figura 1-1. Topología de la pantalla táctil del sistema KK-5S (etiquetas en inglés, como en la máquina)")}
+{fig("fig-1-2-main.png", "Figura 1-2. Pantalla principal del sistema KK-5S")}
+      <ul>
+        <li><strong>Production Status (Estado de producción)</strong> — Status, Length, Tube Parameter y Simulation. Aquí viven la longitud diaria, la cantidad y los parámetros de material.</li>
+        <li><strong>Parameters (Ajustes de sistema)</strong> — System, Manual, Motor y Sync en el HMI.</li>
+        <li><strong>Manual (Operación manual)</strong> — jog, origen, amarre, corte y potencia de ejes.</li>
+        <li><strong>Diagnosis (Diagnóstico)</strong> — entradas, salidas y corriente.</li>
+        <li><strong>Fault Info (Alarmas)</strong> — alarmas actuales e históricas.</li>
+        <li><strong>Company (Empresa)</strong> — datos de contacto del fabricante.</li>
+        <li><strong>Language (Idioma)</strong> — chino / inglés.</li>
+      </ul>
+
+      <h2 id="main-page">1.2.1 Pantalla principal</h2>
+      <p>La pantalla principal es la vista de estado de la figura 1-2. Los valores por encima de la línea divisoria también se ven en otras ventanas.</p>
+{table(
+    ["Parámetro", "Descripción", "Unidad", "Aj.", "Fábrica"],
+    [
+        ["Velocidad de línea (Line Speed)", "Velocidad actual del tren en automático; visualización en vivo", "m/min", "○", "—"],
+        ["Velocidad máxima de línea", "Máxima permitida con los parámetros actuales", "m/min", "○", "—"],
+        ["Longitud actual de material", "Distancia que ya avanzó esta pieza", "mm", "○", "—"],
+        ["Longitud de corte actual", "Longitud de corte de la orden activa (véase §3.9)", "mm", "○", "—"],
+        ["Posición actual del carro", "Posición del carro respecto al origen", "mm", "○", "—"],
+        ["Posición actual de avance", "Posición del avance respecto al origen", "mm", "○", "—"],
+        ["Cantidad producida", "Piezas ya hechas de la orden actual; ±1 para el conteo", "piezas", "○", "—"],
+        ["Cantidad programada", "Cantidad objetivo del programa actual", "piezas", "○", "—"],
+    ],
+)}
+      <p>En automático, mantenga la velocidad del tren igual o por debajo de la velocidad máxima de línea mostrada.</p>
+
+      <h2 id="length">1.2.2 Página de programación de longitudes</h2>
+{fig("fig-1-3-length.png", "Figura 1-3. Página de programación de longitudes KK-5S")}
+{table(
+    ["Parámetro", "Descripción", "Unidad", "Aj.", "Fábrica"],
+    [
+        ["Longitud órdenes 1–10", "Longitud de corte de cada orden. Rango 0–104 857,5. La longitud de la orden seleccionada no puede ser 0", "mm", "●", "6000"],
+        ["Cantidad órdenes 1–10", "Piezas de cada orden. Cantidad 0 = ilimitada", "piezas", "●", "6666"],
+        ["Número de orden en producción", "Orden actualmente seleccionada", "—", "○", "—"],
+        ["Longitud de producción actual", "Longitud de la orden seleccionada", "mm", "○", "—"],
+        ["Cantidad actual", "Piezas ya producidas de la orden seleccionada", "piezas", "○", "—"],
+    ],
+)}
+      <div class="callout note">
+        <strong>Programación</strong>
+        Si no necesita varias órdenes, use una sola orden habilitada para la longitud de producción. El estado <em>Select / ENB</em> de esa orden debe estar activo; si no, esa longitud no se ejecuta.
+      </div>
+
+      <h2 id="tube">1.2.3 Parámetros de tipo de tubo</h2>
+{fig("fig-1-4-tube.png", "Figura 1-4. Página de parámetros de tubo KK-5S")}
+{table(
+    ["Parámetro", "Descripción", "Unidad", "Aj.", "Fábrica"],
+    [
+        ["Distancia de avance (Feed Distance)", "Recorrido del eje de avance durante el corte. Tubo redondo: diámetro. Cuadrado / especial: avance equivalente para corte completo", "mm", "●", "32"],
+        ["Espesor de pared", "Se muestra con Round Tube; define las zonas lentas en ambas paredes", "mm", "●", "2"],
+        ["% lento primer tramo", "Solo cuadrado / especial: zona lenta al inicio del corte (típico 5–10 %)", "%", "●", "10"],
+        ["% lento tramo final", "Solo cuadrado / especial: zona lenta al final del corte (típico 20–45 %)", "%", "●", "20"],
+        ["Tipo de tubo", "Redondo, cuadrado o especial", "—", "●", "—"],
+        ["Avance por diente, inicial", "Avance por diente a baja velocidad al inicio", "mm", "●", "0.04"],
+        ["Avance por diente, alta velocidad", "Avance por diente en la parte rápida del corte", "mm", "●", "0.08"],
+        ["Avance por diente, final", "Avance por diente a baja velocidad al final", "mm", "●", "0.04"],
+        ["Velocidad lineal del disco", "Velocidad periférica en la punta del diente. Debe cumplirse: vel. lineal × 1000 × reducción / (diámetro × π) &lt; velocidad máx. del motor de sierra", "m/min", "●", "200"],
+        ["Número de dientes del disco", "Cantidad real de dientes. Un valor erróneo acorta la vida del disco o bloquea el ciclo", "dientes", "●", "200"],
+        ["Diámetro del disco", "Diámetro real. Vuelva a medirlo después de refilar", "mm", "●", "350"],
+        ["Tiempo de corte recomendado", "Calculado con tubo y disco actuales; referencia conservadora de protección del disco", "s", "○", "—"],
+        ["Velocidad máxima de producción", "Velocidad máxima de línea con los parámetros actuales", "m/min", "○", "—"],
+    ],
+)}
+{param("Espesor de pared frente a porcentajes de baja velocidad",
+       ["Redondo: espesor de pared", "Cuadrado / especial: primer y último %"],
+       "Durante el avance, las zonas que exigen más fuerza de corte (paredes del tubo) corren con el avance por diente lento para proteger el disco; después el eje vuelve al avance rápido. Una zona lenta demasiado grande pierde ciclo; demasiado pequeña puede romper el disco. En tubo cuadrado, el espesor y el ángulo de salida cambian los porcentajes: revise la curva de corte tras identificar el material y ajuste.")}
+{param("Avance por diente (STFL)",
+       ["Redondo típico: 0,03–0,05 mm lento / 0,08–0,12 mm rápido", "Cuadrado típico: 0,01–0,07 mm lento / 0,1–0,14 mm rápido"],
+       "STFL es el movimiento del eje de avance por cada diente de giro del disco. Parta de la carta del fabricante del disco y ajuste al corte. Demasiado alto daña el disco; demasiado bajo solo frena la línea.")}
+
+      <h2 id="system">1.2.4 Parámetros de sistema</h2>
+{fig("fig-1-12-system.png", "Figura 1-12. Página de parámetros de sistema KK-5S")}
+{table(
+    ["Parámetro", "Descripción", "Unidad", "Aj.", "Fábrica"],
+    [
+        ["Aceleración del carro hacia adelante", "Aceleración en el tramo de seguimiento", "m/s²", "●", "3"],
+        ["Desaceleración del carro hacia adelante", "Desaceleración en el tramo de ida", "m/s²", "●", "4"],
+        ["Aceleración del carro en retorno", "Aceleración en el tramo de retorno", "m/s²", "●", "4"],
+        ["Desaceleración del carro en retorno", "Desaceleración en el tramo de retorno", "m/s²", "●", "3"],
+        ["Jerk del carro", "Sobreaceleración (jerk) del servo de arrastre en ida y retorno", "m/s³", "●", "50"],
+        ["Retardo de amarre", "Tras llegar a la zona de sincronismo, espera antes de dar la señal de amarre", "s", "●", "0.05"],
+        ["Retardo de corte", "Tiempo para que actúe el amarre después de la orden de clamp", "s", "●", "0.01"],
+        ["Retardo de retorno", "Con el disco en origen y el desamarre dado, espera antes de desacelerar el carro", "s", "●", "0.01"],
+        ["Holgura lenta (exterior)", "Holgura fuera de la zona lenta del espesor (cubre error mecánico)", "mm", "●", "1 (HMI ej. 0.05)"],
+        ["Holgura lenta (interior)", "Holgura dentro de la zona lenta del espesor", "mm", "●", "1 (HMI ej. 0.10)"],
+        ["Distancia al origen de avance", "Tras el contacto de origen de avance, el disco retrocede esta distancia", "mm", "●", "5"],
+        ["Aceleración de avance", "Aceleración del servo de avance", "m/s²", "●", "2"],
+        ["Reloj en tiempo real", "Ajuste / lectura del reloj del controlador", "—", "●", "—"],
+    ],
+)}
+      <div class="callout warn">
+        <strong>Movimiento del carro en lazo cerrado</strong>
+        El carro es de lazo cerrado: las curvas de aceleración/desaceleración se arman con estos valores mientras el eje de arrastre sigue la velocidad del fleje. Demasiado altos → carga del motor y overshoot al entrar a sincronismo o a velocidad cero, lo que empeora posición y asentamiento. Demasiado bajos → menor velocidad de línea. Ajústelos según la masa mecánica real.
+      </div>
+      <p>El retardo de amarre existe porque el carro se pasa un poco al entrar en la zona de sincronismo. Amarrar durante ese overshoot puede desincronizar el corte. No ponga un retardo mayor del necesario: reduce la velocidad máxima de línea.</p>
+
+      <h2 id="manual-params">1.2.5 Parámetros manuales</h2>
+{fig("fig-1-12-manual-params.png", "Figura 1-12 (cont.). Página de parámetros manuales KK-5S")}
+{table(
+    ["Parámetro", "Descripción", "Unidad", "Aj.", "Fábrica"],
+    [
+        ["Velocidad jog del servo de arrastre", "Velocidad del carro en adelante/atrás manual", "mm/s", "●", "100"],
+        ["Velocidad origen arrastre 1", "Velocidad buscando el límite posterior en origen de arrastre", "mm/s", "●", "100 (tabla 50)"],
+        ["Velocidad origen arrastre 2", "Velocidad del avance tras encontrar el límite posterior", "mm/s", "●", "100"],
+        ["Distancia de origen de arrastre", "Distancia que el carro avanza después del límite posterior", "mm", "●", "50"],
+        ["Tiempo de marcha de lubricación", "Tiempo de encendido de cada ciclo de grasa", "s", "●", "15"],
+        ["Tiempo de paro de lubricación", "Intervalo entre ciclos de grasa", "s", "●", "1200"],
+        ["Límite de presión hidráulica (máx.)", "Límite alto con amarre hidráulico", "MPa", "●", "12"],
+        ["Límite de presión hidráulica (mín.)", "Límite bajo hidráulico", "MPa", "●", "15"],
+        ["Velocidad jog del servo de avance", "Velocidad del eje de avance en jog manual", "mm/s", "●", "10"],
+        ["Velocidad origen avance 1", "Velocidad replegando al límite posterior de avance", "mm/s", "●", "10"],
+        ["Velocidad origen avance 2", "Velocidad avanzando a buscar el material tras el límite", "mm/s", "●", "5"],
+        ["Distancia de origen de avance", "Retroceso después de que el disco toca el material", "mm", "●", "5"],
+        ["Límite de par de origen de avance", "Par usado para entrar al material en origen de avance. Típico 5–15 %", "%", "●", "5"],
+    ],
+)}
+      <p>Si el par de origen es alto y el motor igual no mueve la carga, el husillo de avance puede estar seco. Verifique que las líneas de lubricación estén abiertas antes de subir más el par: un par excesivo daña el fleje y el disco.</p>
+{fig("fig-3-2-torque.png", "Controles de prueba de par de avance en parámetros manuales (véase §3.4)")}
+
+      <h2 id="motor">1.2.6 Parámetros de motor</h2>
+{fig("fig-1-13-motor.png", "Figura 1-13. Página de parámetros de motor KK-5S")}
+{table(
+    ["Parámetro", "Descripción", "Unidad", "Aj.", "Fábrica"],
+    [
+        ["Velocidad nominal del motor de arrastre", "Según la placa del servo de arrastre", "rpm", "●", "2000"],
+        ["Diámetro del engranaje de arrastre", "Diámetro del círculo primitivo del engranaje en el lado de carga", "mm", "●", "127.32"],
+        ["Relación de reducción de arrastre", "Relación del reductor del eje de arrastre según su placa", "—", "●", "6"],
+        ["Carrera máxima del carro", "Carrera efectiva máxima del carro sobre la cremallera", "mm", "●", "2700"],
+        ["Velocidad nominal del servo de avance", "Según la placa del servo de avance", "rpm", "●", "2000"],
+        ["Paso del husillo de avance", "Avance de la tuerca por revolución del husillo", "mm", "●", "10"],
+        ["Relación de reducción de avance", "Relación del reductor de avance; ponga 1 si no hay reductor", "—", "●", "1"],
+        ["Distancia de origen de avance", "Retroceso tras el contacto de origen (igual idea que §1.2.4 / §1.2.5)", "mm", "●", "5"],
+        ["Velocidad del motor de sierra", "Velocidad nominal según la placa del motor de corte", "rpm", "●", "1465"],
+        ["Relación de reducción de sierra", "Relación del reductor del eje de sierra según su placa", "—", "●", "9.3"],
+        ["Frecuencia máxima del variador de sierra", "Límite superior del variador de la sierra", "Hz", "●", "60"],
+    ],
+)}
+{fig("fig-gear-pitch.png", "Figura 1-3. Esquema del círculo primitivo del engranaje (diámetro d, paso circular P)")}
+      <h3>Medición de la carrera máxima del carro</h3>
+      <ol class="steps">
+        <li>Introduzca el diámetro de engranaje y la relación de reducción correctos y vuelva a energizar la máquina.</li>
+        <li>Ejecute el retorno al origen.</li>
+        <li>Tras el origen, desplace el carro hacia adelante hasta el final de carrera delantero.</li>
+        <li>Lea la posición actual del carro en la pantalla principal. Reduzca un poco ese valor y cárguelo como carrera máxima.</li>
+      </ol>
+
+      <h2 id="manual-op">1.2.7 Pantalla de operación manual</h2>
+{fig("fig-1-7-manual-op.png", "Figura 1-7. Pantalla de operación manual de la sierra volante KK-5S")}
+      <p>Esta página duplica las acciones del tablero para arrastre, avance, corte, amarre, hidráulico, lubricación y reset. Las lámparas junto a cada botón muestran enable/origen/marcha. Úsela junto con los selectores físicos; el modo sigue saliendo del selector del tablero.</p>
+"""
+
+    functions = f"""
+      <div class="kicker">Capítulo 2</div>
+      <h1>Descripción de funciones del sistema</h1>
+      <p class="lede">Modos, energía, jog, origen, amarre/corte, pieza corta y larga, memoria de longitud y programación de órdenes.</p>
+
+      <h2 id="modes">2.1 Modos de operación</h2>
+      <p>El sistema tiene tres modos. Gire el selector <strong>Operating Mode</strong> del tablero: izquierda = Simulation, centro = Manual, derecha = Automatic.</p>
+      <h3>2.1.1 Modo Manual</h3>
+      <p>Modo por defecto. Al encender, deje el selector en Manual. Todas las operaciones de puesto se hacen a mano: jog del eje de arrastre, origen de avance, amarre y corte. Termine la preparación de la sierra volante en Manual antes de entrar a Simulación o Automático.</p>
+      <h3>2.1.2 Modo Simulation</h3>
+      <p>Supervisión fuera de línea. El encoder de material está deshabilitado. Un eje virtual en el controlador genera un movimiento similar a producción. Puede variar la velocidad del eje virtual para ver el comportamiento del carro y aislar fallas eléctricas o mecánicas.</p>
+      <h3>2.1.3 Modo Automatic</h3>
+      <p>Producción en línea. La sierra sigue longitud y velocidad del encoder de material y corta a longitud fija según el valor del operador, vigilando el estado del carro.</p>
+{fig("fig-startup-flow.png", "Flujo de encendido, parámetros, origen y entrada a modo (origen arrastre → origen avance → verificar orígenes → automático o simulación)")}
+
+      <h2 id="power">2.2 Gestión de energía</h2>
+      <h3>2.2.1 Sistema de alimentación</h3>
+      <div class="callout danger">
+        <strong>Breaker principal</strong>
+        Tras cerrar el breaker del gabinete, la lámpara roja de la puerta permanece encendida y el gabinete está vivo. El personal no calificado debe mantenerse alejado.
+      </div>
+      <h3>2.2.2 Sistema de potencia</h3>
+      <p>Pulse el botón de potencia del tablero para conectar o cortar la alimentación principal. Al conectar arranca la inicialización; se encienden la lámpara del botón y la lámpara <strong>RUN</strong> de la puerta. Pulse de nuevo para cortar la potencia principal.</p>
+      <h3>2.2.3 Sistema de accionamiento</h3>
+      <p>La potencia de los servos arranca sola tras el encendido. Mantenga Drive, Feed o Sawing power <strong>10 segundos</strong> para cortar ese servo. Tras la protección de 20 s, mantenga el mismo botón 10 s para restaurarlo. En el arranque las lámparas parpadean y luego quedan fijas (~15 s) cuando el eje entra en modo de operación.</p>
+      <h3>2.2.4 Enable / disable</h3>
+      <p>El enable se aplica solo al encender. Una pulsación corta (~1 s) en Drive, Feed o Sawing power deshabilita ese servo; otra lo vuelve a habilitar. En modo de operación la lámpara está fija. Parpadeo significa alimentado pero no en modo de operación: el motor está desenergizado y se puede girar a mano. Tras una falla de servo, pulse el botón de potencia para resetear y otra vez para volver al modo de operación.</p>
+      <div class="callout note">
+        <strong>Carro fuera de engrane</strong>
+        Si el carro está fuera de engrane, el servo de arrastre no puede engranar piñón y cremallera con enable. Deshabilite el servo de arrastre, empuje el carro a engrane a mano y vuelva a habilitar.
+      </div>
+      <h3>2.2.5 Protección de apagado de servo</h3>
+      <p>Mantener Drive, Feed o Cutting power más de 5 s en Manual abre el contactor de ese servo. El eje no se puede volver a energizar hasta que pasen 20 s, para no dañarlo con arranques y paros rápidos. Los botones se ignoran en esa ventana.</p>
+
+      <h2 id="jog">2.3 Función jog</h2>
+      <h3>2.3.1 Jog de arrastre</h3>
+      <p>En Manual, gire el selector de jog para mover el carro adelante o atrás. En el límite delantero o posterior el carro para y la pantalla indica el límite. Solo queda disponible el sentido contrario.</p>
+      <div class="callout warn">
+        <strong>Origen perdido</strong>
+        Tras un jog de arrastre se pierde el origen del carro. Vuelva a hacer Drag to Home antes del modo de marcha.
+      </div>
+      <h3>2.3.2 Jog de avance</h3>
+      <p>En Manual, gire el selector de jog de avance para sacar o replegar el eje de avance. Los límites de avance paran el eje y solo queda el sentido contrario. El origen de avance se pierde tras el jog: haga Feed Return to Origin antes del modo de marcha.</p>
+
+      <h2 id="home">2.4 Retorno al origen de arrastre y de avance</h2>
+      <p>Tras cada encendido, el KK-5S debe completar origen de arrastre y origen de avance antes de Simulación o Automático.</p>
+      <h3>2.4.1 Origen de arrastre (Drag to Home)</h3>
+      <p>En Manual, pulse <strong>Drag to Home</strong> en el tablero. El servo de arrastre debe estar alimentado y en enable, y el carro entre los finales de carrera.</p>
+      <div class="seq">
+        <strong>Secuencia</strong>
+        <ol>
+          <li>El carro se mueve hacia origen y desacelera hasta parar en el límite posterior.</li>
+          <li>Cuando la velocidad es cero avanza 50 mm (la distancia de origen de arrastre configurada).</li>
+          <li>Esa posición queda como origen de arrastre.</li>
+        </ol>
+      </div>
+      <p>Pulse Reset en el tablero para cancelar el movimiento. El origen también se pierde tras mover el carro a mano, paro de emergencia o alarmas: vuelva a originar antes del modo de marcha.</p>
+      <h3>2.4.2 Origen manual de arrastre</h3>
+      <p>En la página de simulación (o manual) de la pantalla, <strong>Drag Manual Home</strong> registra la posición actual del carro como origen sin usar el final de carrera. Úselo si falló el límite posterior, o para diagnóstico. Coloque el carro cerca de la parada normal de origen de arrastre. No lo trate como origen estándar.</p>
+      <h3>2.4.3 Origen de avance (Feed Home)</h3>
+      <p>En Manual, pulse <strong>Feed Home</strong>. El servo de avance empuja hacia adelante con un porcentaje de par hasta que las puntas de diente tocan el material; ese contacto se registra. Afecta la calidad de corte y la vida del disco. Mecánica, neumática/hidráulica y amarre deben estar sanos, y la pieza sujeta.</p>
+      <div class="seq">
+        <strong>Secuencia</strong>
+        <ol>
+          <li>El utillaje amarra el material.</li>
+          <li>El carro de avance se repliega a baja velocidad hasta el límite posterior y para.</li>
+          <li>El avance sale a baja velocidad hasta que el disco toca el material y para.</li>
+          <li>El motor de avance retrocede una distancia fija y para: origen de avance listo.</li>
+        </ol>
+      </div>
+      <div class="callout warn">
+        <strong>Pared delgada y utillaje vacío</strong>
+        Un espesor menor de 1 mm puede registrar un origen sobre pared abollada: origine con un tubo más grueso o una barra maciza del mismo diámetro. Sin material, el paso 3 no termina; pulse Reset. Si el carro llega al límite delantero, el sistema alarma y vuelve al límite posterior. Si el disco nunca toca, suba el par de origen (véase §3.4).
+      </div>
+      <h3>2.4.4 Origen manual de avance</h3>
+      <p><strong>Manual Feed Home</strong> en la página de simulación guarda la posición actual de avance como origen, sin material ni límites. Acerque primero el disco al material. No es un origen estándar; sirve si fallan los límites o no hay fleje.</p>
+
+      <h2 id="clamp-cut">2.5 Amarre y 2.6 corte</h2>
+      <p><strong>Amarre:</strong> en Manual, gire el selector de amarre. Sirve para probar el mecanismo y buscar fallas mecánicas.</p>
+      <p><strong>Corte:</strong> en Manual, con el eje de avance en origen, pulse el botón de corte manual. Es un solo corte estático para ver el proceso y la cara de corte.</p>
+      <div class="seq">
+        <strong>Secuencia de corte manual</strong>
+        <ol>
+          <li>El utillaje amarra.</li>
+          <li>Arranca el motor de sierra; gira el disco.</li>
+          <li>Tras un retardo de dos segundos, el motor de avance alimenta.</li>
+          <li>Corte terminado; el avance vuelve al inicio.</li>
+          <li>El utillaje suelta.</li>
+          <li>Para el motor de sierra.</li>
+        </ol>
+      </div>
+
+      <h2 id="short-long">2.7 Pieza corta y pieza larga</h2>
+      <p>Estas funciones cortan una longitud distinta de la consigna en Simulación o Automático para sacar chatarra o zona de costura sin parar el tren.</p>
+      <h3>2.7.1 Pieza corta (Short-length)</h3>
+      <p>El botón de corte manual pasa a pieza corta en Simulación/Automático cuando la velocidad simulada o de línea es ≤ 60 % de la máxima. Tras terminar el aserrado (la función no actúa durante el corte ni por encima del 60 %):</p>
+      <ol>
+        <li>El sistema lee el sentido del carro.</li>
+        <li>Si va hacia adelante: desacelera hasta parar, vuelve a origen a alta velocidad y retoma producción.</li>
+        <li>Si va de retorno: acelera a la velocidad máxima de retorno, origina y retoma producción.</li>
+      </ol>
+      <h3>2.7.2 Pieza larga (Long-length)</h3>
+      <p>El selector de amarre pasa a pieza larga en Simulación/Automático. Gírelo a amarrado para retener y a desamarrado para retomar el seguimiento:</p>
+      <ol>
+        <li>El sistema lee el sentido del carro.</li>
+        <li>Adelante: desacelera, retorno rápido a origen, espera.</li>
+        <li>Retorno: acelera al máximo de retorno, origina, espera.</li>
+        <li>Gire el selector de amarre a desamarrado.</li>
+        <li>El carro retoma el seguimiento y la producción normal.</li>
+      </ol>
+
+      <h2 id="memory">2.7 Función de memoria de longitud</h2>
+      <p>En Automático, el controlador registra la longitud de la pieza actual. Tras una salida normal, un corte de energía o una parada por falla, la siguiente entrada a Automático ofrece volver a la última longitud guardada.</p>
+      <p>Pulse <strong>Yes / Continue</strong> y el carro se mueve a la posición guardada. Durante ese movimiento se ignoran los pulsos del encoder: no mueva el fleje hasta que llegue el carro; luego continúa la producción. Pulse <strong>No / Restart</strong> (o arranque el tren) para omitirlo; la ventana también se cierra si cambia la longitud de material.</p>
+      <div class="callout warn">
+        <strong>Límites</strong>
+        Si se mueve el fleje al salir de Automático o tras un apagón, no se capturan los cambios posteriores del encoder. La memoria guarda solo la pieza actual; una longitud muy corta al salir no se guarda y el siguiente arranque automático va directo a producir.
+      </div>
+
+      <h2 id="scheduling">2.8 Programación de órdenes</h2>
+      <p>Diez programas de longitud más recetas de tipo de tubo cubren producción de longitudes mixtas. La configuración está en <a href="operation.html#schedule">§3.9</a>.</p>
+"""
+
+    operation = f"""
+      <div class="kicker">Capítulo 3</div>
+      <h1>Instrucciones de operación</h1>
+      <p class="lede">Procedimientos de campo desde el encendido hasta la producción automática, incluida la prueba de par, programas, puntos de memoria y sincronismo del encoder.</p>
+
+      <h2 id="power-on">3.1 Procedimiento de encendido</h2>
+      <ol class="steps">
+        <li>Con la alimentación externa conectada, cierre el breaker del gabinete principal. Se enciende la lámpara de potencia del frente. Pulse el botón de potencia del tablero para arrancar el sistema. La lámpara del gabinete permanece encendida mientras el gabinete está alimentado.</li>
+        <li>Pulse el mismo botón de potencia otra vez para apagar el sistema mientras está energizado.</li>
+        <li>La inicialización tarda unos <strong>60 segundos</strong>. Las lámparas Drive, Feed y Sawing parpadean y luego quedan fijas cuando está listo. No opere antes: el comportamiento posterior puede ser anómalo.</li>
+        <li>Si el amarre es hidráulico, arranque la central hidráulica después de la inicialización.</li>
+      </ol>
+
+      <h2 id="jog">3.2 Avance y retroceso manual</h2>
+      <p>En Manual, el KK-5S permite jog del carro y del eje de avance desde los selectores del tablero o la página Manual Operation.</p>
+      <ul>
+        <li><strong>Carro:</strong> mantenga el selector de arrastre o Manual Feed Forward / Reverse en el HMI. Suelte para parar. Arranques y paros van en rampa para proteger el motor.</li>
+        <li><strong>Eje de avance:</strong> mantenga el selector de avance o Feed Forward / Feed Back en el HMI. Suelte para parar.</li>
+      </ul>
+
+      <h2 id="home">3.3 Llevar al origen el arrastre y el avance</h2>
+      <p>El eje de arrastre y el de avance deben estar en origen antes de Simulación o Automático.</p>
+      <h3>3.3.1 Origen de arrastre</h3>
+      <p>El origen es la posición tras encontrar el límite posterior. Si ese interruptor está fallado, use el origen manual de arrastre.</p>
+      <p><strong>Drive Home:</strong> pulse Drive Home en el tablero o en la página Manual Operation.</p>
+      <div class="seq">
+        <strong>Secuencia</strong>
+        <ol>
+          <li>El carro se mueve hacia origen y desacelera hasta parar en el límite posterior.</li>
+          <li>Cuando la velocidad es cero avanza la distancia de origen de arrastre configurada.</li>
+          <li>La posición actual queda como origen de arrastre.</li>
+        </ol>
+      </div>
+      <p><strong>Origen manual:</strong> pulse Drag Manual Home en la página Manual Operation. La posición actual se usa como origen en ciclos posteriores de simulación/automático. Deje espacio suficiente de carrera.</p>
+      <p>Reset detiene un origen en curso; el carro se queda donde está.</p>
+      <h3>3.3.2 Origen de avance</h3>
+      <p>El origen de avance es el punto de contacto disco–material. Debe haber material en el utillaje; si no, use Feed Manual Home.</p>
+      <p>Pulse Feed Home en el tablero o en el HMI.</p>
+      <div class="seq">
+        <strong>Secuencia</strong>
+        <ol>
+          <li>El utillaje amarra.</li>
+          <li>El avance se repliega al límite posterior de avance y para.</li>
+          <li>El avance sale hasta que el disco toca la pieza y para.</li>
+          <li>El avance vuelve al offset de origen; esa posición es el origen de avance.</li>
+        </ol>
+      </div>
+      <div class="callout warn">
+        <strong>Pared delgada</strong>
+        Una pared delgada puede abollarse en el origen de avance y registrar un origen falso. Origine con el mismo diámetro y pared más gruesa, o con barra maciza.
+      </div>
+
+      <h2 id="torque">3.4 Prueba de par de avance</h2>
+      <p>Tras mucho tiempo en marcha, el origen de avance puede necesitar más par. Haga la prueba de par en la página Machine Learning / Manual Parameters para que el origen siga funcionando.</p>
+{fig("fig-3-2-torque.png", "Figura 3-2. Función de prueba de par de avance")}
+      <ol class="steps">
+        <li>Pulse <strong>Feed Torque Test</strong>. Cuando <em>Feed Torque Limit Enabled</em> se ponga verde, pulse Manual Feed Forward.</li>
+        <li>El eje de avance se mueve al límite de par de origen. Si encuentra resistencia excesiva (circuito de grasa seco, o disco contra material) para y <em>Feed Torque Limit Reached</em> se pone verde.</li>
+        <li>Pulse Feed Torque Test otra vez para que la lámpara de enable pase a rojo, saque el disco del utillaje con jog, cargue material y haga un origen normal.</li>
+      </ol>
+      <p>El par de origen de avance es típico <strong>1–15 %</strong>. Si un valor alto aún no mueve el eje, revise la lubricación antes de subirlo otra vez.</p>
+
+      <h2 id="clamp">3.5 Amarre manual</h2>
+      <p>Use el amarre manual para probar el utillaje. Abra el aire si es neumático, o arranque la central si es hidráulico. En Manual, gire el selector a Clamp o Release.</p>
+      <ul>
+        <li>Tras amarrar, vea si el material aún se mueve.</li>
+        <li>Tras un corte manual, empuje la pieza cortada hacia adentro desde ambos extremos del utillaje y ajústela. Un escalón en la junta indica error angular del utillaje.</li>
+      </ul>
+
+      <h2 id="cut">3.6 Corte manual</h2>
+      <p>El modo Manual hace un corte estático. Úselo para longitudes sueltas y para juzgar la calidad de corte.</p>
+      <p><strong>Antes del corte:</strong></p>
+      <ol class="steps">
+        <li>El sistema está en Manual.</li>
+        <li>El amarre hidráulico (si hay) está en marcha y a presión.</li>
+        <li>El eje de avance fue originado y está en origen.</li>
+        <li>El tren formador no se moverá de ninguna forma. Un movimiento adelante o atrás durante un corte estático puede destruir el disco.</li>
+        <li>Los parámetros de tubo están correctos.</li>
+        <li>Hay material en el utillaje.</li>
+      </ol>
+      <p>Pulse Manual Cut en el tablero o en el HMI. Secuencia: amarre → motor de sierra on → retardo 2 s → avance → retorno → desamarre → motor de sierra off. Si el utillaje no sujeta, el corte suena mal o arranca el tren, pulse paro de emergencia para proteger el disco.</p>
+
+      <h2 id="sim">3.7 Activar simulación</h2>
+      <p>La simulación mueve la sierra volante con un eje virtual y el encoder de material desconectado. Varíe la velocidad virtual para ver el carro y aislar fallas eléctricas o mecánicas.</p>
+      <p><strong>Preparar:</strong></p>
+      <ol class="steps">
+        <li>Encendido terminado; selector en Manual.</li>
+        <li>Absolutamente sin material en el utillaje (incluido fleje que venga del tren).</li>
+        <li>Eje de arrastre originado y en origen.</li>
+        <li>Eje de avance originado o con origen manual, en posición segura.</li>
+        <li>El tren formador no se moverá. Un movimiento del tren en simulación puede volcar el carro de sierra.</li>
+        <li>Longitud y parámetros de tubo correctos.</li>
+        <li>Fije la velocidad de simulación.</li>
+      </ol>
+      <p>Gire el selector a Simulation. Gira el disco, el eje virtual avanza a la velocidad fijada, el carro sigue, el avance corta, el carro termina la carrera de ida y vuelve a origen para el siguiente ciclo. Gire el selector a Manual para salir; el carro termina el corte en curso y origina antes de dejar la simulación.</p>
+
+      <h2 id="auto">3.8 Activar el modo automático</h2>
+      <p>Automático es producción en línea: longitud y velocidad salen del encoder de material.</p>
+      <p><strong>Preparar:</strong></p>
+      <ol class="steps">
+        <li>Encendido terminado; selector en Manual.</li>
+        <li>El fleje del tren está en el utillaje de amarre.</li>
+        <li>Aire o hidráulico del amarre está en marcha y funciona.</li>
+        <li>Eje de arrastre originado y en origen.</li>
+        <li>Eje de avance originado y en origen.</li>
+        <li>Longitud y parámetros de tubo correctos.</li>
+      </ol>
+      <p>Gire el selector a Automatic. Arranca el disco, el encoder registra la posición del fleje y, al arrancar el tren, el carro sigue, el avance corta, el carro termina la carrera de ida y vuelve a origen para la pieza siguiente.</p>
+      <div class="callout note">
+        <strong>Salida</strong>
+        Primero desacelere y pare el tren de aguas arriba. Con el tren quieto, gire el selector a Manual. El sistema guarda las posiciones de carro y material (véase §3.10) y se acerca al origen. Automático termina al llegar al origen.
+      </div>
+
+      <h2 id="schedule">3.9 Configurar programas de producción</h2>
+      <p>La longitud se fija con diez programas internos. Cada uno tiene longitud, cantidad y habilitación.</p>
+{fig("fig-3-3-schedule.png", "Figura 3-3. Ajustes de órdenes de longitud (orden 1 seleccionada y en proceso)")}
+      <p>En producción automática el sistema recorre las órdenes habilitadas en número ascendente. Una lámpara <em>In Production</em> encendida marca la orden activa; el fondo verde claro marca órdenes terminadas. Botones encima de la lista:</p>
+      <ul>
+        <li><strong>Calculate</strong> — calcula la velocidad máxima viable del tren a partir del tiempo de corte y la longitud de la orden seleccionada. El resultado aparece en las páginas principal, de tubo y de simulación. En marcha también permite recortar la longitud actual sin parar.</li>
+        <li><strong>Next Order</strong> — en Automático o Simulación, salta a la siguiente orden habilitada sin parar ni cambiar la cantidad consignada.</li>
+        <li><strong>Clear Production Quantity / Reset Quantity</strong> — pone a cero las piezas ya hechas.</li>
+        <li><strong>Clear Completed Orders / Reset Complete</strong> — solo en Manual; borra las órdenes terminadas.</li>
+      </ul>
+      <div class="callout warn">
+        <strong>Longitud cero / cantidad cero</strong>
+        La longitud de la orden seleccionada no puede ser 0: Calculate lanza el aviso <em>[38] Warning: The set length of the selected order is 0</em>. Cantidad 0 significa producción ilimitada de esa orden; el controlador no comprueba un conteo objetivo.
+      </div>
+
+      <h2 id="memory">3.10 Puntos de memoria</h2>
+      <p>En Automático el controlador registra la longitud de la pieza actual. Tras una salida normal, un apagón o una falla, al volver a Automático ofrece reanudar desde la última parada o desde origen.</p>
+{fig("fig-3-4-memory.png", "Figura 3-4. Volver al punto de memoria — Continue desde MEMORY o Restart desde HOME")}
+      <div class="callout danger">
+        <strong>No mueva el fleje</strong>
+        Si se mueve el material al salir de Automático o tras un corte de energía, el punto de memoria queda mal y la siguiente pieza puede salir larga.
+      </div>
+      <p>Pulse <strong>Continue</strong>: el carro se acerca a la posición guardada en la última salida de Automático. Se ignoran los pulsos del encoder hasta que llega: no cambie la posición del fleje. Luego arranque el tren. Pulse <strong>Restart</strong> (o arranque el tren) para omitirlo; el recuadro se cierra cuando cambia la longitud de material.</p>
+
+      <h2 id="short-long">3.11 Piezas cortas y largas</h2>
+      <p>Corte una longitud distinta de la consigna en Simulación o Automático para sacar chatarra o zona de costura.</p>
+      <h3>3.11.1 Pieza corta</h3>
+      <p>Requisitos: Simulación o Automático; velocidad ≤ 60 % de la máxima de línea; pulse Manual Cut. Luego:</p>
+      <ol>
+        <li>El controlador lee el sentido del carro.</li>
+        <li>Adelante: desacelera, origen a alta velocidad, retoma producción.</li>
+        <li>Retorno: acelera al máximo de retorno, origina, retoma producción.</li>
+      </ol>
+      <h3>3.11.2 Pieza larga</h3>
+      <p>Gire el selector de amarre a amarrado en Simulación o Automático. Luego:</p>
+      <ol>
+        <li>El controlador lee el sentido del carro.</li>
+        <li>Adelante: desacelera, origen rápido, espera.</li>
+        <li>Retorno: acelera al máximo de retorno, origina, espera.</li>
+        <li>Gire el selector a suelto.</li>
+        <li>El carro retoma el seguimiento.</li>
+      </ol>
+
+      <h2 id="sync">3.12 Medición de sincronismo</h2>
+      <p>El sincronismo carro–fleje es necesario para la precisión de longitud y la vida del disco. El desgaste tras la puesta en marcha puede desincronizarlos. Revise periódicamente y corrija con <strong>Material Speed Sensor Wheel Diameter</strong> (diámetro de la rueda del encoder de material).</p>
+{fig("fig-3-5-sync.png", "Figura 3-5. Parámetros de sincronismo (diámetro de rueda del encoder y campos relacionados)")}
+      <ol class="steps">
+        <li>Mida el diámetro de la rueda de velocidad con calibre y cárguelo como Material Speed Measurement Wheel Diameter (referencia inicial).</li>
+        <li>Pase un tramo corto de material por el amarre, pare y haga Feed to Home.</li>
+        <li>Pulse Manual Cut. Tras el corte, la longitud actual de material se pone a cero.</li>
+        <li>Arranque el tren y deje pasar unos 2 m de fleje.</li>
+        <li>Pulse <strong>Material Cut</strong> en el HMI hasta que se ponga verde: la longitud actual no se pondrá a cero tras el siguiente corte.</li>
+        <li>Pulse Manual Cut otra vez.</li>
+        <li>Mida con cinta la longitud real cortada. Cárguela como Actual Material Length y el espesor actual del disco.</li>
+        <li>Pulse <strong>Data Calculation</strong>. El diámetro de rueda se recalcula con el ensayo.</li>
+        <li>Repita los pasos 4 a 7 hasta que longitud real más espesor de disco iguale la longitud de material mostrada.</li>
+      </ol>
+"""
+
+    # Fix glossary: don't use 5-col table. Replace the placeholder in index.
+    glossary = """
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>En la pantalla (inglés)</th><th>En este manual</th></tr></thead>
+          <tbody>
+            <tr><td>Manual / Simulation / Automatic</td><td>Manual / Simulación / Automático</td></tr>
+            <tr><td>Carriage / Drive</td><td>Carro de sierra / eje de arrastre</td></tr>
+            <tr><td>Feeding / Feed</td><td>Eje de avance</td></tr>
+            <tr><td>Home</td><td>Origen</td></tr>
+            <tr><td>Clamp</td><td>Amarre</td></tr>
+            <tr><td>Manual Cut</td><td>Corte manual (en automático: pieza corta)</td></tr>
+            <tr><td>Line Speed</td><td>Velocidad de línea</td></tr>
+            <tr><td>STFL</td><td>Avance por diente</td></tr>
+            <tr><td>Continue / Restart</td><td>Continuar desde memoria / Reiniciar desde origen</td></tr>
+          </tbody>
+        </table>
+      </div>
+"""
+    # The index currently has a broken 5-col table inserted. Rebuild index without that call.
+    index = """
+      <div class="hero">
+        <div class="kicker" style="color:#f0b8b0">Manual de operación</div>
+        <h1>KK-5S Sierra volante de corte en frío</h1>
+        <p class="lede">Manual del sistema de control para la sierra volante AOGANG en línea de tubos. Cubre parámetros de la pantalla, retorno al origen, simulación, corte automático y sincronismo.</p>
+        <div class="hero-logos">
+          <img src="ASSETSlogo-aogang-header.jpeg" alt="AOGANG">
+          <img src="ASSETSlogo-kaikong.jpeg" alt="KaiKong">
+        </div>
+        <div class="badges">
+          <span class="badge">Aogang Machinery</span>
+          <span class="badge">KaiKong KK-5S</span>
+          <span class="badge">Mayo 2019 V1.36</span>
+        </div>
+      </div>
+      <div class="callout danger">
+        <strong>Lea primero la seguridad</strong>
+        El carro de sierra, el disco en rotación y la tensión en el gabinete pueden causar lesiones graves. Complete las <a href="safety.html">precauciones de seguridad</a> antes de encender, buscar origen o producir.
+      </div>
+      <h2>Inicio rápido</h2>
+      <p>Use esta secuencia tras un arranque en frío. Los detalles y las condiciones de aborto están en el <a href="operation.html">capítulo 3</a>.</p>
+      <ol class="steps">
+        <li>Cierre el breaker del gabinete principal y pulse el botón de potencia del tablero. Espere a que las lámparas Drive, Feed y Sawing queden fijas (~60 s). No opere durante la inicialización.</li>
+        <li>Confirme que el selector de modo está en <strong>Manual</strong>. Si el amarre es hidráulico, arranque la central hidráulica.</li>
+        <li>Lleve al origen el eje de arrastre (carro) y luego el eje de avance, con material amarrado en el utillaje. Reset cancela cualquiera de los dos movimientos.</li>
+        <li>Introduzca longitud y parámetros de tubo/disco. Pulse <strong>Calculate</strong> y compruebe que la velocidad máxima de línea es aceptable.</li>
+        <li>Pruebe el corte con un corte estático manual. El tren formador debe estar parado.</li>
+        <li>Ejecute <strong>Simulation</strong> con el utillaje vacío para verificar el movimiento del carro; pase a <strong>Automatic</strong> solo cuando haya material amarrado y ambos ejes estén en origen.</li>
+      </ol>
+      <h2>Contenido</h2>
+      <div class="cards">
+        <a class="card" href="safety.html">
+          <div class="num">00</div>
+          <h3>Precauciones de seguridad</h3>
+          <p>Reglas mecánicas y eléctricas que aplican a todos los procedimientos de este manual.</p>
+        </a>
+        <a class="card" href="parameters.html">
+          <div class="num">01</div>
+          <h3>Descripción de parámetros</h3>
+          <p>Mapa de la pantalla, valores de fábrica y el significado de cada ajuste de producción y servo.</p>
+        </a>
+        <a class="card" href="functions.html">
+          <div class="num">02</div>
+          <h3>Funciones del sistema</h3>
+          <p>Modos, energía, jog, origen, amarre/corte, pieza corta/larga y memoria de longitud.</p>
+        </a>
+        <a class="card" href="operation.html">
+          <div class="num">03</div>
+          <h3>Instrucciones de operación</h3>
+          <p>Desde el encendido hasta la producción automática, programas, puntos de memoria y sincronismo del encoder.</p>
+        </a>
+      </div>
+      <h2>Vocabulario de la pantalla (HMI)</h2>
+      <p>Las capturas y los nombres de botones se dejan en inglés, tal como aparecen en la máquina. Equivalencias usadas en este manual:</p>
+""" + glossary + """
+      <h2>Acerca de esta edición</h2>
+      <p>Documento de origen: <em>76 Cold-Cut Flying Saw User Manual</em>, Shijiazhuang Aogang Machinery Co., Ltd., mayo 2019 V1.36. Traducción técnica al español a partir de esa edición. El archivo Word original está en <a href="original/Cold_Cutting_Flying_Saw_Instruction_Manual.docx">original/Cold_Cutting_Flying_Saw_Instruction_Manual.docx</a>. Versión en inglés: <a href="en/index.html">en/index.html</a>.</p>
+      <p>En las tablas, <span class="dot-set">●</span> indica que el operador puede ajustar el valor; <span class="dot-ro">○</span> es solo visualización. Donde la traducción inglesa original usaba unidades inconsistentes, manda la descripción detallada.</p>
+"""
+
+    index = index.replace("ASSETS", prefix)
+    return [
+        ("index.html", "KK-5S Sierra volante de corte en frío", "Aogang Machinery / KK-5S / Portada", index),
+        ("safety.html", "Precauciones de seguridad", "Manual / Precauciones de seguridad", safety),
+        ("parameters.html", "Capítulo 1 · Parámetros", "Manual / Capítulo 1 · Parámetros", params),
+        ("functions.html", "Capítulo 2 · Funciones", "Manual / Capítulo 2 · Funciones", functions),
+        ("operation.html", "Capítulo 3 · Operación", "Manual / Capítulo 3 · Operación", operation),
+    ]

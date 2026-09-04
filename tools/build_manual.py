@@ -32,57 +32,70 @@ NAV = """
 """
 
 
-def page(filename, title, crumb, body, extra_class=""):
+def page(filename, title, crumb, body, *, lang="en", asset_prefix="assets/", brand_sub="Cold-cut flying saw",
+         skip="Skip to content", menu="Open menu", search_ph="Search the manual…",
+         foot="KK-5S Cold-Cut Flying Saw User Manual · Shijiazhuang Aogang Machinery Co., Ltd. · May 2019 V1.36. Control system: KaiKong KK-5S. This web edition is a structured conversion of the original instruction manual.",
+         meta="KK-5S · User manual V1.36", nav="", es_href="index.html", en_href="en/index.html"):
+    es_cls = "active" if lang == "es" else ""
+    en_cls = "active" if lang == "en" else ""
+    title_suffix = "KK-5S Sierra volante de corte en frío" if lang == "es" else "KK-5S Cold-Cut Flying Saw"
     return f"""<!DOCTYPE html>
-<html lang="en">
+<html lang="{lang}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{title} — KK-5S Cold-Cut Flying Saw</title>
+  <title>{title} — {title_suffix}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/manual.css">
+  <link rel="stylesheet" href="{asset_prefix}css/manual.css">
 </head>
 <body>
-  <a class="skip" href="#content">Skip to content</a>
-  <button class="menu-btn" type="button" aria-label="Open menu">☰</button>
+  <a class="skip" href="#content">{skip}</a>
+  <button class="menu-btn" type="button" aria-label="{menu}">☰</button>
   <aside class="sidebar">
     <div class="brand">
-      <img src="assets/img/logo-aogang-header.jpeg" alt="AOGANG">
+      <img src="{asset_prefix}img/logo-aogang-header.jpeg" alt="AOGANG">
       <div class="model">KK-5S</div>
-      <div class="sub">Cold-cut flying saw</div>
+      <div class="sub">{brand_sub}</div>
+      <div class="lang-switch">
+        <a class="{es_cls}" href="{es_href}" hreflang="es">ES</a>
+        <a class="{en_cls}" href="{en_href}" hreflang="en">EN</a>
+      </div>
     </div>
     <div class="search-wrap">
-      <input id="manual-search" type="search" placeholder="Search the manual…" autocomplete="off">
+      <input id="manual-search" type="search" placeholder="{search_ph}" autocomplete="off">
       <div id="search-results" class="search-results"></div>
     </div>
-    <nav class="nav">{NAV}
+    <nav class="nav">{nav}
     </nav>
-    <div class="sidebar-foot">Shijiazhuang Aogang Machinery<br>May 2019 · V1.36</div>
+    <div class="sidebar-foot">Shijiazhuang Aogang Machinery<br>Mayo 2019 · V1.36</div>
   </aside>
   <div class="main">
     <div class="topbar">
       <div class="crumb">{crumb}</div>
-      <div class="meta">KK-5S · User manual V1.36</div>
+      <div class="lang-inline">
+        <a class="{es_cls}" href="{es_href}">ES</a>
+        <a class="{en_cls}" href="{en_href}">EN</a>
+        <span class="meta">{meta}</span>
+      </div>
     </div>
-    <article id="content" class="content {extra_class}">
+    <article id="content" class="content">
 {body}
       <footer class="page-foot">
-        KK-5S Cold-Cut Flying Saw User Manual · Shijiazhuang Aogang Machinery Co., Ltd. · May 2019 V1.36.
-        Control system: KaiKong KK-5S. This web edition is a structured conversion of the original instruction manual.
+        {foot}
       </footer>
     </article>
   </div>
-  <script src="assets/js/manual.js"></script>
+  <script src="{asset_prefix}js/manual.js"></script>
 </body>
 </html>
 """
 
 
-def fig(src, cap):
+def fig(src, cap, img_prefix="assets/img/"):
     return f"""      <figure>
-        <img src="assets/img/{src}" alt="{cap}">
+        <img src="{img_prefix}{src}" alt="{cap}">
         <figcaption>{cap}</figcaption>
       </figure>"""
 
@@ -171,7 +184,7 @@ INDEX = """
         </a>
       </div>
       <h2>About this edition</h2>
-      <p>Source document: <em>76 Cold-Cut Flying Saw User Manual</em>, Shijiazhuang Aogang Machinery Co., Ltd., May 2019 V1.36. The HMI screenshots and diagrams are taken from that file. The original Word file is stored at <a href="original/Cold_Cutting_Flying_Saw_Instruction_Manual.docx">original/Cold_Cutting_Flying_Saw_Instruction_Manual.docx</a>.</p>
+      <p>Source document: <em>76 Cold-Cut Flying Saw User Manual</em>, Shijiazhuang Aogang Machinery Co., Ltd., May 2019 V1.36. The HMI screenshots and diagrams are taken from that file. The original Word file is stored at <a href="original/Cold_Cutting_Flying_Saw_Instruction_Manual.docx">original/Cold_Cutting_Flying_Saw_Instruction_Manual.docx</a>. Spanish edition: <a href="../index.html">../index.html</a>.</p>
       <p>On HMI tables, <span class="dot-set">●</span> means the operator can set the value; <span class="dot-ro">○</span> means display-only. Where the original English translation used inconsistent units, the detailed description is treated as the authority and the table unit is noted.</p>
 """
 
@@ -678,9 +691,56 @@ PAGES = [
 
 
 def main():
-    for name, title, crumb, body in PAGES:
-        (OUT / name).write_text(page(name, title, crumb, body), encoding="utf-8")
+    from content_es import nav as nav_es, pages as pages_es
+
+    es_fig = lambda src, cap: fig(src, cap, "assets/img/")
+    for name, title, crumb, body in pages_es(es_fig, table, param, "assets/img/"):
+        html = page(
+            name, title, crumb, body,
+            lang="es",
+            asset_prefix="assets/",
+            brand_sub="Sierra volante de corte en frío",
+            skip="Saltar al contenido",
+            menu="Abrir menú",
+            search_ph="Buscar en el manual…",
+            foot="Manual de usuario KK-5S sierra volante de corte en frío · Shijiazhuang Aogang Machinery Co., Ltd. · Mayo 2019 V1.36. Sistema de control: KaiKong KK-5S. Edición web traducida del manual original.",
+            meta="KK-5S · Manual V1.36",
+            nav=nav_es(),
+            es_href=name,
+            en_href=f"en/{name}",
+        )
+        (OUT / name).write_text(html, encoding="utf-8")
         print("wrote", name)
+
+    en_dir = OUT / "en"
+    en_dir.mkdir(exist_ok=True)
+    pair = {
+        "index.html": "../index.html",
+        "safety.html": "../safety.html",
+        "parameters.html": "../parameters.html",
+        "functions.html": "../functions.html",
+        "operation.html": "../operation.html",
+    }
+    for name, title, crumb, body in PAGES:
+        body = body.replace("assets/img/", "../assets/img/").replace(
+            'href="original/', 'href="../original/'
+        )
+        html = page(
+            name, title, crumb, body,
+            lang="en",
+            asset_prefix="../assets/",
+            brand_sub="Cold-cut flying saw",
+            skip="Skip to content",
+            menu="Open menu",
+            search_ph="Search the manual…",
+            foot="KK-5S Cold-Cut Flying Saw User Manual · Shijiazhuang Aogang Machinery Co., Ltd. · May 2019 V1.36. Control system: KaiKong KK-5S. This web edition is a structured conversion of the original instruction manual.",
+            meta="KK-5S · User manual V1.36",
+            nav=NAV,
+            es_href=pair[name],
+            en_href=name,
+        )
+        (en_dir / name).write_text(html, encoding="utf-8")
+        print("wrote en/" + name)
 
 
 if __name__ == "__main__":
