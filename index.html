@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KK-5S Sierra volante de corte en frío — KK-5S Sierra volante de corte en frío</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/manual.css">
+</head>
+<body>
+  <a class="skip" href="#content">Saltar al contenido</a>
+  <button class="menu-btn" type="button" aria-label="Abrir menú">☰</button>
+  <aside class="sidebar">
+    <div class="brand">
+      <img src="assets/img/logo-aogang-header.jpeg" alt="AOGANG">
+      <div class="model">KK-5S</div>
+      <div class="sub">Sierra volante de corte en frío</div>
+      <div class="lang-switch">
+        <a class="active" href="index.html" hreflang="es">ES</a>
+        <a class="" href="en/index.html" hreflang="en">EN</a>
+      </div>
+    </div>
+    <div class="search-wrap">
+      <input id="manual-search" type="search" placeholder="Buscar en el manual…" autocomplete="off">
+      <div id="search-results" class="search-results"></div>
+    </div>
+    <nav class="nav">
+      <div class="group">Manual</div>
+      <a href="index.html">Portada e inicio rápido</a>
+      <a href="safety.html">Precauciones de seguridad</a>
+      <a href="descargas/KK-5S-Manual-Operacion-ES.pdf">Descargar PDF</a>
+      <div class="group">Capítulo 1</div>
+      <a href="parameters.html">Descripción de parámetros</a>
+      <a class="sub" href="parameters.html#screen-overview">1.1 Vista de pantallas</a>
+      <a class="sub" href="parameters.html#main-page">1.2.1 Pantalla principal</a>
+      <a class="sub" href="parameters.html#length">1.2.2 Longitudes</a>
+      <a class="sub" href="parameters.html#tube">1.2.3 Tipo de tubo</a>
+      <a class="sub" href="parameters.html#system">1.2.4 Parámetros de sistema</a>
+      <a class="sub" href="parameters.html#manual-params">1.2.5 Parámetros manuales</a>
+      <a class="sub" href="parameters.html#motor">1.2.6 Parámetros de motor</a>
+      <div class="group">Capítulo 2</div>
+      <a href="functions.html">Funciones del sistema</a>
+      <a class="sub" href="functions.html#modes">2.1 Modos de operación</a>
+      <a class="sub" href="functions.html#power">2.2 Energía</a>
+      <a class="sub" href="functions.html#home">2.4 Retorno al origen</a>
+      <div class="group">Capítulo 3</div>
+      <a href="operation.html">Instrucciones de operación</a>
+      <a class="sub" href="operation.html#power-on">3.1 Encendido</a>
+      <a class="sub" href="operation.html#cut">3.6 Corte manual</a>
+      <a class="sub" href="operation.html#auto">3.8 Modo automático</a>
+      <a class="sub" href="operation.html#sync">3.12 Sincronismo</a>
+
+    </nav>
+    <div class="sidebar-foot">Shijiazhuang Aogang Machinery<br>Mayo 2019 · V1.36</div>
+  </aside>
+  <div class="main">
+    <div class="topbar">
+      <div class="crumb">Aogang Machinery / KK-5S / Portada</div>
+      <div class="lang-inline">
+        <a class="active" href="index.html">ES</a>
+        <a class="" href="en/index.html">EN</a>
+        <span class="meta">KK-5S · Manual V1.36</span>
+      </div>
+    </div>
+    <article id="content" class="content">
+
+      <div class="hero">
+        <div class="kicker" style="color:#f0b8b0">Manual de operación</div>
+        <h1>KK-5S Sierra volante de corte en frío</h1>
+        <p class="lede">Manual del sistema de control para la sierra volante AOGANG en línea de tubos. Cubre parámetros de la pantalla, retorno al origen, simulación, corte automático y sincronismo.</p>
+        <div class="hero-logos">
+          <img src="assets/img/logo-aogang-header.jpeg" alt="AOGANG">
+          <img src="assets/img/logo-kaikong.jpeg" alt="KaiKong">
+        </div>
+        <div class="badges">
+          <span class="badge">Aogang Machinery</span>
+          <span class="badge">KaiKong KK-5S</span>
+          <span class="badge">Mayo 2019 V1.36</span>
+        </div>
+      </div>
+      <div class="callout danger">
+        <strong>Lea primero la seguridad</strong>
+        El carro de sierra, el disco en rotación y la tensión en el gabinete pueden causar lesiones graves. Complete las <a href="safety.html">precauciones de seguridad</a> antes de encender, buscar origen o producir.
+      </div>
+      <h2>Inicio rápido</h2>
+      <p>Use esta secuencia tras un arranque en frío. Los detalles y las condiciones de aborto están en el <a href="operation.html">capítulo 3</a>.</p>
+      <ol class="steps">
+        <li>Cierre el breaker del gabinete principal y pulse el botón de potencia del tablero. Espere a que las lámparas Drive, Feed y Sawing queden fijas (~60 s). No opere durante la inicialización.</li>
+        <li>Confirme que el selector de modo está en <strong>Manual</strong>. Si el amarre es hidráulico, arranque la central hidráulica.</li>
+        <li>Lleve al origen el eje de arrastre (carro) y luego el eje de avance, con material amarrado en el utillaje. Reset cancela cualquiera de los dos movimientos.</li>
+        <li>Introduzca longitud y parámetros de tubo/disco. Pulse <strong>Calculate</strong> y compruebe que la velocidad máxima de línea es aceptable.</li>
+        <li>Pruebe el corte con un corte estático manual. El tren formador debe estar parado.</li>
+        <li>Ejecute <strong>Simulation</strong> con el utillaje vacío para verificar el movimiento del carro; pase a <strong>Automatic</strong> solo cuando haya material amarrado y ambos ejes estén en origen.</li>
+      </ol>
+      <h2>Contenido</h2>
+      <div class="cards">
+        <a class="card" href="safety.html">
+          <div class="num">00</div>
+          <h3>Precauciones de seguridad</h3>
+          <p>Reglas mecánicas y eléctricas que aplican a todos los procedimientos de este manual.</p>
+        </a>
+        <a class="card" href="parameters.html">
+          <div class="num">01</div>
+          <h3>Descripción de parámetros</h3>
+          <p>Mapa de la pantalla, valores de fábrica y el significado de cada ajuste de producción y servo.</p>
+        </a>
+        <a class="card" href="functions.html">
+          <div class="num">02</div>
+          <h3>Funciones del sistema</h3>
+          <p>Modos, energía, jog, origen, amarre/corte, pieza corta/larga y memoria de longitud.</p>
+        </a>
+        <a class="card" href="operation.html">
+          <div class="num">03</div>
+          <h3>Instrucciones de operación</h3>
+          <p>Desde el encendido hasta la producción automática, programas, puntos de memoria y sincronismo del encoder.</p>
+        </a>
+      </div>
+      <h2>Descargas</h2>
+      <p>Copias para llevar sin servidor. El PDF incluye el manual completo con capturas de pantalla.</p>
+      <div class="cards">
+        <a class="card" href="descargas/KK-5S-Manual-Operacion-ES.pdf" download>
+          <div class="num">PDF</div>
+          <h3>Manual en español</h3>
+          <p>Archivo único para imprimir, WhatsApp o USB de taller.</p>
+        </a>
+        <a class="card" href="descargas/KK-5S-User-Manual-EN.pdf" download>
+          <div class="num">PDF</div>
+          <h3>Manual in English</h3>
+          <p>Full English operator manual, same figures and tables.</p>
+        </a>
+        <a class="card" href="descargas/KK-5S-manual-offline.zip" download>
+          <div class="num">ZIP</div>
+          <h3>Sitio web offline</h3>
+          <p>HTML + imágenes. Abra <code>index.html</code> en cualquier navegador.</p>
+        </a>
+        <a class="card" href="original/Cold_Cutting_Flying_Saw_Instruction_Manual.docx" download>
+          <div class="num">DOCX</div>
+          <h3>Word original</h3>
+          <p>Manual de fábrica (inglés), mayo 2019 V1.36.</p>
+        </a>
+      </div>
+      <h2>Vocabulario de la pantalla (HMI)</h2>
+      <p>Las capturas y los nombres de botones se dejan en inglés, tal como aparecen en la máquina. Equivalencias usadas en este manual:</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>En la pantalla (inglés)</th><th>En este manual</th></tr></thead>
+          <tbody>
+            <tr><td>Manual / Simulation / Automatic</td><td>Manual / Simulación / Automático</td></tr>
+            <tr><td>Carriage / Drive</td><td>Carro de sierra / eje de arrastre</td></tr>
+            <tr><td>Feeding / Feed</td><td>Eje de avance</td></tr>
+            <tr><td>Home</td><td>Origen</td></tr>
+            <tr><td>Clamp</td><td>Amarre</td></tr>
+            <tr><td>Manual Cut</td><td>Corte manual (en automático: pieza corta)</td></tr>
+            <tr><td>Line Speed</td><td>Velocidad de línea</td></tr>
+            <tr><td>STFL</td><td>Avance por diente</td></tr>
+            <tr><td>Continue / Restart</td><td>Continuar desde memoria / Reiniciar desde origen</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Acerca de esta edición</h2>
+      <p>Documento de origen: <em>76 Cold-Cut Flying Saw User Manual</em>, Shijiazhuang Aogang Machinery Co., Ltd., mayo 2019 V1.36. Traducción técnica al español a partir de esa edición. El archivo Word original está en <a href="original/Cold_Cutting_Flying_Saw_Instruction_Manual.docx">original/Cold_Cutting_Flying_Saw_Instruction_Manual.docx</a>. Versión en inglés: <a href="en/index.html">en/index.html</a>.</p>
+      <p>En las tablas, <span class="dot-set">●</span> indica que el operador puede ajustar el valor; <span class="dot-ro">○</span> es solo visualización. Donde la traducción inglesa original usaba unidades inconsistentes, manda la descripción detallada.</p>
+
+      <footer class="page-foot">
+        Manual de usuario KK-5S sierra volante de corte en frío · Shijiazhuang Aogang Machinery Co., Ltd. · Mayo 2019 V1.36. Sistema de control: KaiKong KK-5S. Edición web traducida del manual original.
+      </footer>
+    </article>
+  </div>
+  <script src="assets/js/manual.js"></script>
+</body>
+</html>
