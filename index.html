@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KK-5S Cold-Cut Flying Saw — KK-5S Cold-Cut Flying Saw</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/manual.css">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <button class="menu-btn" type="button" aria-label="Open menu">☰</button>
+  <aside class="sidebar">
+    <div class="brand">
+      <img src="assets/img/logo-aogang-header.jpeg" alt="AOGANG">
+      <div class="model">KK-5S</div>
+      <div class="sub">Cold-cut flying saw</div>
+    </div>
+    <div class="search-wrap">
+      <input id="manual-search" type="search" placeholder="Search the manual…" autocomplete="off">
+      <div id="search-results" class="search-results"></div>
+    </div>
+    <nav class="nav">
+      <div class="group">Manual</div>
+      <a href="index.html">Cover &amp; quick start</a>
+      <a href="safety.html">Safety precautions</a>
+      <div class="group">Chapter 1</div>
+      <a href="parameters.html">Parameter description</a>
+      <a class="sub" href="parameters.html#screen-overview">1.1 Screen overview</a>
+      <a class="sub" href="parameters.html#main-page">1.2.1 Main page</a>
+      <a class="sub" href="parameters.html#length">1.2.2 Length scheduling</a>
+      <a class="sub" href="parameters.html#tube">1.2.3 Tube type</a>
+      <a class="sub" href="parameters.html#system">1.2.4 System parameters</a>
+      <a class="sub" href="parameters.html#manual-params">1.2.5 Manual parameters</a>
+      <a class="sub" href="parameters.html#motor">1.2.6 Motor parameters</a>
+      <div class="group">Chapter 2</div>
+      <a href="functions.html">System functions</a>
+      <a class="sub" href="functions.html#modes">2.1 Operating modes</a>
+      <a class="sub" href="functions.html#power">2.2 Power management</a>
+      <a class="sub" href="functions.html#home">2.4 Homing</a>
+      <div class="group">Chapter 3</div>
+      <a href="operation.html">Operating instructions</a>
+      <a class="sub" href="operation.html#power-on">3.1 Power-on</a>
+      <a class="sub" href="operation.html#cut">3.6 Manual cutting</a>
+      <a class="sub" href="operation.html#auto">3.8 Automatic mode</a>
+      <a class="sub" href="operation.html#sync">3.12 Synchronization</a>
+
+    </nav>
+    <div class="sidebar-foot">Shijiazhuang Aogang Machinery<br>May 2019 · V1.36</div>
+  </aside>
+  <div class="main">
+    <div class="topbar">
+      <div class="crumb">Aogang Machinery / KK-5S / Cover</div>
+      <div class="meta">KK-5S · User manual V1.36</div>
+    </div>
+    <article id="content" class="content ">
+
+      <div class="hero">
+        <div class="kicker" style="color:#f0b8b0">Operator manual</div>
+        <h1>KK-5S Cold-Cut Flying Saw</h1>
+        <p class="lede">Control-system user manual for the AOGANG mill-line flying saw. Covers HMI parameters, homing, simulation, automatic cutting, and synchronization.</p>
+        <div class="hero-logos">
+          <img src="assets/img/logo-aogang-header.jpeg" alt="AOGANG">
+          <img src="assets/img/logo-kaikong.jpeg" alt="KaiKong">
+        </div>
+        <div class="badges">
+          <span class="badge">Aogang Machinery</span>
+          <span class="badge">KaiKong KK-5S</span>
+          <span class="badge">May 2019 V1.36</span>
+        </div>
+      </div>
+      <div class="callout danger">
+        <strong>Read safety first</strong>
+        Moving saw carriages, rotating blades, and live cabinet voltage can cause severe injury. Complete <a href="safety.html">Safety precautions</a> before power-up, homing, or production.
+      </div>
+      <h2>Quick start</h2>
+      <p>Use this sequence after a cold start. Details and abort conditions are in <a href="operation.html">Chapter 3</a>.</p>
+      <ol class="steps">
+        <li>Close the main cabinet breaker, then press the control-panel power button. Wait until Drive, Feed, and Sawing power lamps are steady (~60 s). Do not operate during initialization.</li>
+        <li>Confirm the mode selector is in <strong>Manual</strong>. If the clamp is hydraulic, start the hydraulic unit.</li>
+        <li>Home the drag (saw-carriage) axis, then home the feed axis with material clamped in the fixture. Reset cancels either move.</li>
+        <li>Enter length and tube/saw-blade parameters. Press <strong>Calculate</strong> and confirm maximum line speed is acceptable.</li>
+        <li>Prove the cut with a manual static cut. The forming mill must be stationary.</li>
+        <li>Run <strong>Simulation</strong> with an empty fixture to verify carriage motion, then switch to <strong>Automatic</strong> only after material is in the clamp and both axes are at home.</li>
+      </ol>
+      <h2>Contents</h2>
+      <div class="cards">
+        <a class="card" href="safety.html">
+          <div class="num">00</div>
+          <h3>Safety precautions</h3>
+          <p>Mechanical and electrical rules that apply to every procedure in this manual.</p>
+        </a>
+        <a class="card" href="parameters.html">
+          <div class="num">01</div>
+          <h3>Parameter description</h3>
+          <p>HMI map, factory defaults, and the meaning of every production and servo setting.</p>
+        </a>
+        <a class="card" href="functions.html">
+          <div class="num">02</div>
+          <h3>System functions</h3>
+          <p>Modes, power, jog, homing, clamp/cut, short/long length, and length memory.</p>
+        </a>
+        <a class="card" href="operation.html">
+          <div class="num">03</div>
+          <h3>Operating instructions</h3>
+          <p>Power-on through automatic production, schedules, memory points, and encoder sync.</p>
+        </a>
+      </div>
+      <h2>About this edition</h2>
+      <p>Source document: <em>76 Cold-Cut Flying Saw User Manual</em>, Shijiazhuang Aogang Machinery Co., Ltd., May 2019 V1.36. The HMI screenshots and diagrams are taken from that file. The original Word file is stored at <a href="original/Cold_Cutting_Flying_Saw_Instruction_Manual.docx">original/Cold_Cutting_Flying_Saw_Instruction_Manual.docx</a>.</p>
+      <p>On HMI tables, <span class="dot-set">●</span> means the operator can set the value; <span class="dot-ro">○</span> means display-only. Where the original English translation used inconsistent units, the detailed description is treated as the authority and the table unit is noted.</p>
+
+      <footer class="page-foot">
+        KK-5S Cold-Cut Flying Saw User Manual · Shijiazhuang Aogang Machinery Co., Ltd. · May 2019 V1.36.
+        Control system: KaiKong KK-5S. This web edition is a structured conversion of the original instruction manual.
+      </footer>
+    </article>
+  </div>
+  <script src="assets/js/manual.js"></script>
+</body>
+</html>
