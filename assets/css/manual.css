@@ -486,11 +486,24 @@ footer.page-foot {
 }
 
 @media print {
-  .sidebar, .menu-btn, .topbar, .search-wrap { display: none !important; }
+  @page { size: A4; margin: 12mm 14mm; }
+  .sidebar, .menu-btn, .topbar, .search-wrap, .lang-switch, .lang-inline, .skip {
+    display: none !important;
+  }
   .main { margin: 0; }
   .content { max-width: none; padding: 0; }
-  .hero { background: #fff; color: #000; margin: 0 0 16px; padding: 0; }
+  .hero {
+    background: #fff !important;
+    color: #000;
+    margin: 0 0 16px;
+    padding: 0;
+    break-after: avoid;
+  }
   .hero h1, .hero .lede { color: #000; }
+  .hero .badge { border-color: #000; color: #000; }
   a { color: inherit; text-decoration: none; }
-  .callout, figure, table { break-inside: avoid; }
+  .callout, figure, table, .param, .steps > li, .card { break-inside: avoid; }
+  .print-chapter { break-before: page; }
+  .print-chapter:first-of-type { break-before: auto; }
+  img { max-height: 170mm; object-fit: contain; }
 }

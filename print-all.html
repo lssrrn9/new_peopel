@@ -1,12 +1,35 @@
-"""Spanish operator-manual copy for the KK-5S site."""
-
-
-def nav():
-    return """
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Manual completo KK-5S — KK-5S Sierra volante de corte en frío</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/manual.css">
+</head>
+<body>
+  <a class="skip" href="#content">Saltar al contenido</a>
+  <button class="menu-btn" type="button" aria-label="Abrir menú">☰</button>
+  <aside class="sidebar">
+    <div class="brand">
+      <img src="assets/img/logo-aogang-header.jpeg" alt="AOGANG">
+      <div class="model">KK-5S</div>
+      <div class="sub">Sierra volante de corte en frío</div>
+      <div class="lang-switch">
+        <a class="active" href="print-all.html" hreflang="es">ES</a>
+        <a class="" href="en/print-all.html" hreflang="en">EN</a>
+      </div>
+    </div>
+    <div class="search-wrap">
+      <input id="manual-search" type="search" placeholder="Buscar en el manual…" autocomplete="off">
+      <div id="search-results" class="search-results"></div>
+    </div>
+    <nav class="nav">
       <div class="group">Manual</div>
       <a href="index.html">Portada e inicio rápido</a>
       <a href="safety.html">Precauciones de seguridad</a>
-      <a href="descargas/KK-5S-Manual-Operacion-ES.pdf">Descargar PDF</a>
       <div class="group">Capítulo 1</div>
       <a href="parameters.html">Descripción de parámetros</a>
       <a class="sub" href="parameters.html#screen-overview">1.1 Vista de pantallas</a>
@@ -27,19 +50,29 @@ def nav():
       <a class="sub" href="operation.html#cut">3.6 Corte manual</a>
       <a class="sub" href="operation.html#auto">3.8 Modo automático</a>
       <a class="sub" href="operation.html#sync">3.12 Sincronismo</a>
-"""
 
+    </nav>
+    <div class="sidebar-foot">Shijiazhuang Aogang Machinery<br>Mayo 2019 · V1.36</div>
+  </aside>
+  <div class="main">
+    <div class="topbar">
+      <div class="crumb">Print</div>
+      <div class="lang-inline">
+        <a class="active" href="print-all.html">ES</a>
+        <a class="" href="en/print-all.html">EN</a>
+        <span class="meta">KK-5S · Manual V1.36</span>
+      </div>
+    </div>
+    <article id="content" class="content">
+<section class="print-chapter">
 
-def pages(fig, table, param, prefix="assets/img/"):
-    index = None
-    _discard = """
       <div class="hero">
         <div class="kicker" style="color:#f0b8b0">Manual de operación</div>
         <h1>KK-5S Sierra volante de corte en frío</h1>
         <p class="lede">Manual del sistema de control para la sierra volante AOGANG en línea de tubos. Cubre parámetros de la pantalla, retorno al origen, simulación, corte automático y sincronismo.</p>
         <div class="hero-logos">
-          <img src="ASSETSlogo-aogang-header.jpeg" alt="AOGANG">
-          <img src="ASSETSlogo-kaikong.jpeg" alt="KaiKong">
+          <img src="assets/img/logo-aogang-header.jpeg" alt="AOGANG">
+          <img src="assets/img/logo-kaikong.jpeg" alt="KaiKong">
         </div>
         <div class="badges">
           <span class="badge">Aogang Machinery</span>
@@ -84,29 +117,57 @@ def pages(fig, table, param, prefix="assets/img/"):
           <p>Desde el encendido hasta la producción automática, programas, puntos de memoria y sincronismo del encoder.</p>
         </a>
       </div>
+      <h2>Descargas</h2>
+      <p>Copias para llevar sin servidor. El PDF incluye el manual completo con capturas de pantalla.</p>
+      <div class="cards">
+        <a class="card" href="descargas/KK-5S-Manual-Operacion-ES.pdf" download>
+          <div class="num">PDF</div>
+          <h3>Manual en español</h3>
+          <p>Archivo único para imprimir, WhatsApp o USB de taller.</p>
+        </a>
+        <a class="card" href="descargas/KK-5S-User-Manual-EN.pdf" download>
+          <div class="num">PDF</div>
+          <h3>Manual in English</h3>
+          <p>Full English operator manual, same figures and tables.</p>
+        </a>
+        <a class="card" href="descargas/KK-5S-manual-offline.zip" download>
+          <div class="num">ZIP</div>
+          <h3>Sitio web offline</h3>
+          <p>HTML + imágenes. Abra <code>index.html</code> en cualquier navegador.</p>
+        </a>
+        <a class="card" href="original/Cold_Cutting_Flying_Saw_Instruction_Manual.docx" download>
+          <div class="num">DOCX</div>
+          <h3>Word original</h3>
+          <p>Manual de fábrica (inglés), mayo 2019 V1.36.</p>
+        </a>
+      </div>
       <h2>Vocabulario de la pantalla (HMI)</h2>
       <p>Las capturas y los nombres de botones se dejan en inglés, tal como aparecen en la máquina. Equivalencias usadas en este manual:</p>
-""" + table(
-        ["En la pantalla", "En este manual"],
-        [
-            ["Manual / Simulation / Automatic", "Manual / Simulación / Automático", "", "", ""],
-            ["Carriage / Drive", "Carro de sierra / eje de arrastre", "", "", ""],
-            ["Feeding / Feed", "Eje de avance", "", "", ""],
-            ["Home", "Origen", "", "", ""],
-            ["Clamp", "Amarre", "", "", ""],
-            ["Manual Cut", "Corte manual (en automático: pieza corta)", "", "", ""],
-            ["Line Speed", "Velocidad de línea", "", "", ""],
-            ["STFL", "Avance por diente", "", "", ""],
-        ],
-    ) + """
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>En la pantalla (inglés)</th><th>En este manual</th></tr></thead>
+          <tbody>
+            <tr><td>Manual / Simulation / Automatic</td><td>Manual / Simulación / Automático</td></tr>
+            <tr><td>Carriage / Drive</td><td>Carro de sierra / eje de arrastre</td></tr>
+            <tr><td>Feeding / Feed</td><td>Eje de avance</td></tr>
+            <tr><td>Home</td><td>Origen</td></tr>
+            <tr><td>Clamp</td><td>Amarre</td></tr>
+            <tr><td>Manual Cut</td><td>Corte manual (en automático: pieza corta)</td></tr>
+            <tr><td>Line Speed</td><td>Velocidad de línea</td></tr>
+            <tr><td>STFL</td><td>Avance por diente</td></tr>
+            <tr><td>Continue / Restart</td><td>Continuar desde memoria / Reiniciar desde origen</td></tr>
+          </tbody>
+        </table>
+      </div>
+
       <h2>Acerca de esta edición</h2>
       <p>Documento de origen: <em>76 Cold-Cut Flying Saw User Manual</em>, Shijiazhuang Aogang Machinery Co., Ltd., mayo 2019 V1.36. Traducción técnica al español a partir de esa edición. El archivo Word original está en <a href="original/Cold_Cutting_Flying_Saw_Instruction_Manual.docx">original/Cold_Cutting_Flying_Saw_Instruction_Manual.docx</a>. Versión en inglés: <a href="en/index.html">en/index.html</a>.</p>
       <p>En las tablas, <span class="dot-set">●</span> indica que el operador puede ajustar el valor; <span class="dot-ro">○</span> es solo visualización. Donde la traducción inglesa original usaba unidades inconsistentes, manda la descripción detallada.</p>
-"""
 
-    # The glossary table has 5 columns because table() always treats col 3 as set/readonly.
-    # That's ugly for a 2-col glossary. I'll use a custom 2-col table in the string instead.
-    safety = """
+</section>
+<section class="print-chapter">
+
       <div class="kicker">Lectura obligatoria</div>
       <h1>Precauciones de seguridad</h1>
       <p class="lede">Estas instrucciones son el mínimo para la seguridad de las personas. Todas las operaciones de los capítulos siguientes también deben cumplirlas.</p>
@@ -141,17 +202,24 @@ def pages(fig, table, param, prefix="assets/img/"):
         <li><a href="operation.html#torque">Origen de avance en pared delgada</a> — un espesor menor de unos 1 mm puede abollarse y registrar un origen falso.</li>
         <li><a href="operation.html#memory">Reanudación desde punto de memoria</a> — si se mueve el fleje tras una parada, la longitud guardada queda mal y la siguiente pieza puede salir larga.</li>
       </ul>
-"""
 
-    params = f"""
+</section>
+<section class="print-chapter">
+
       <div class="kicker">Capítulo 1</div>
       <h1>Descripción de parámetros</h1>
       <p class="lede">La pantalla táctil KK-5S es el puesto principal de ajustes de producción y de estado. Este capítulo recorre cada página y documenta cada parámetro.</p>
 
       <h2 id="screen-overview">1.1 Vista de pantallas</h2>
       <p>En cada pantalla hay dos filas de botones en la parte inferior. La fila de abajo es la navegación principal y aparece en todas las páginas. La fila de arriba es secundaria y solo se muestra en la página principal activa.</p>
-{fig("fig-1-1-topology.png", "Figura 1-1. Topología de la pantalla táctil del sistema KK-5S (etiquetas en inglés, como en la máquina)")}
-{fig("fig-1-2-main.png", "Figura 1-2. Pantalla principal del sistema KK-5S")}
+      <figure>
+        <img src="assets/img/fig-1-1-topology.png" alt="Figura 1-1. Topología de la pantalla táctil del sistema KK-5S (etiquetas en inglés, como en la máquina)">
+        <figcaption>Figura 1-1. Topología de la pantalla táctil del sistema KK-5S (etiquetas en inglés, como en la máquina)</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/img/fig-1-2-main.png" alt="Figura 1-2. Pantalla principal del sistema KK-5S">
+        <figcaption>Figura 1-2. Pantalla principal del sistema KK-5S</figcaption>
+      </figure>
       <ul>
         <li><strong>Production Status (Estado de producción)</strong> — Status, Length, Tube Parameter y Simulation. Aquí viven la longitud diaria, la cantidad y los parámetros de material.</li>
         <li><strong>Parameters (Ajustes de sistema)</strong> — System, Manual, Motor y Sync en el HMI.</li>
@@ -164,85 +232,71 @@ def pages(fig, table, param, prefix="assets/img/"):
 
       <h2 id="main-page">1.2.1 Pantalla principal</h2>
       <p>La pantalla principal es la vista de estado de la figura 1-2. Los valores por encima de la línea divisoria también se ven en otras ventanas.</p>
-{table(
-    ["Parámetro", "Descripción", "Unidad", "Aj.", "Fábrica"],
-    [
-        ["Velocidad de línea (Line Speed)", "Velocidad actual del tren en automático; visualización en vivo", "m/min", "○", "—"],
-        ["Velocidad máxima de línea", "Máxima permitida con los parámetros actuales", "m/min", "○", "—"],
-        ["Longitud actual de material", "Distancia que ya avanzó esta pieza", "mm", "○", "—"],
-        ["Longitud de corte actual", "Longitud de corte de la orden activa (véase §3.9)", "mm", "○", "—"],
-        ["Posición actual del carro", "Posición del carro respecto al origen", "mm", "○", "—"],
-        ["Posición actual de avance", "Posición del avance respecto al origen", "mm", "○", "—"],
-        ["Cantidad producida", "Piezas ya hechas de la orden actual; ±1 para el conteo", "piezas", "○", "—"],
-        ["Cantidad programada", "Cantidad objetivo del programa actual", "piezas", "○", "—"],
-    ],
-)}
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Parámetro</th><th>Descripción</th><th>Unidad</th><th>Aj.</th><th>Fábrica</th></tr></thead>
+          <tbody>
+            <tr><td>Velocidad de línea (Line Speed)</td><td>Velocidad actual del tren en automático; visualización en vivo</td><td>m/min</td><td class="dot-ro">○</td><td>—</td></tr><tr><td>Velocidad máxima de línea</td><td>Máxima permitida con los parámetros actuales</td><td>m/min</td><td class="dot-ro">○</td><td>—</td></tr><tr><td>Longitud actual de material</td><td>Distancia que ya avanzó esta pieza</td><td>mm</td><td class="dot-ro">○</td><td>—</td></tr><tr><td>Longitud de corte actual</td><td>Longitud de corte de la orden activa (véase §3.9)</td><td>mm</td><td class="dot-ro">○</td><td>—</td></tr><tr><td>Posición actual del carro</td><td>Posición del carro respecto al origen</td><td>mm</td><td class="dot-ro">○</td><td>—</td></tr><tr><td>Posición actual de avance</td><td>Posición del avance respecto al origen</td><td>mm</td><td class="dot-ro">○</td><td>—</td></tr><tr><td>Cantidad producida</td><td>Piezas ya hechas de la orden actual; ±1 para el conteo</td><td>piezas</td><td class="dot-ro">○</td><td>—</td></tr><tr><td>Cantidad programada</td><td>Cantidad objetivo del programa actual</td><td>piezas</td><td class="dot-ro">○</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
       <p>En automático, mantenga la velocidad del tren igual o por debajo de la velocidad máxima de línea mostrada.</p>
 
       <h2 id="length">1.2.2 Página de programación de longitudes</h2>
-{fig("fig-1-3-length.png", "Figura 1-3. Página de programación de longitudes KK-5S")}
-{table(
-    ["Parámetro", "Descripción", "Unidad", "Aj.", "Fábrica"],
-    [
-        ["Longitud órdenes 1–10", "Longitud de corte de cada orden. Rango 0–104 857,5. La longitud de la orden seleccionada no puede ser 0", "mm", "●", "6000"],
-        ["Cantidad órdenes 1–10", "Piezas de cada orden. Cantidad 0 = ilimitada", "piezas", "●", "6666"],
-        ["Número de orden en producción", "Orden actualmente seleccionada", "—", "○", "—"],
-        ["Longitud de producción actual", "Longitud de la orden seleccionada", "mm", "○", "—"],
-        ["Cantidad actual", "Piezas ya producidas de la orden seleccionada", "piezas", "○", "—"],
-    ],
-)}
+      <figure>
+        <img src="assets/img/fig-1-3-length.png" alt="Figura 1-3. Página de programación de longitudes KK-5S">
+        <figcaption>Figura 1-3. Página de programación de longitudes KK-5S</figcaption>
+      </figure>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Parámetro</th><th>Descripción</th><th>Unidad</th><th>Aj.</th><th>Fábrica</th></tr></thead>
+          <tbody>
+            <tr><td>Longitud órdenes 1–10</td><td>Longitud de corte de cada orden. Rango 0–104 857,5. La longitud de la orden seleccionada no puede ser 0</td><td>mm</td><td class="dot-set">●</td><td>6000</td></tr><tr><td>Cantidad órdenes 1–10</td><td>Piezas de cada orden. Cantidad 0 = ilimitada</td><td>piezas</td><td class="dot-set">●</td><td>6666</td></tr><tr><td>Número de orden en producción</td><td>Orden actualmente seleccionada</td><td>—</td><td class="dot-ro">○</td><td>—</td></tr><tr><td>Longitud de producción actual</td><td>Longitud de la orden seleccionada</td><td>mm</td><td class="dot-ro">○</td><td>—</td></tr><tr><td>Cantidad actual</td><td>Piezas ya producidas de la orden seleccionada</td><td>piezas</td><td class="dot-ro">○</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
       <div class="callout note">
         <strong>Programación</strong>
         Si no necesita varias órdenes, use una sola orden habilitada para la longitud de producción. El estado <em>Select / ENB</em> de esa orden debe estar activo; si no, esa longitud no se ejecuta.
       </div>
 
       <h2 id="tube">1.2.3 Parámetros de tipo de tubo</h2>
-{fig("fig-1-4-tube.png", "Figura 1-4. Página de parámetros de tubo KK-5S")}
-{table(
-    ["Parámetro", "Descripción", "Unidad", "Aj.", "Fábrica"],
-    [
-        ["Distancia de avance (Feed Distance)", "Recorrido del eje de avance durante el corte. Tubo redondo: diámetro. Cuadrado / especial: avance equivalente para corte completo", "mm", "●", "32"],
-        ["Espesor de pared", "Se muestra con Round Tube; define las zonas lentas en ambas paredes", "mm", "●", "2"],
-        ["% lento primer tramo", "Solo cuadrado / especial: zona lenta al inicio del corte (típico 5–10 %)", "%", "●", "10"],
-        ["% lento tramo final", "Solo cuadrado / especial: zona lenta al final del corte (típico 20–45 %)", "%", "●", "20"],
-        ["Tipo de tubo", "Redondo, cuadrado o especial", "—", "●", "—"],
-        ["Avance por diente, inicial", "Avance por diente a baja velocidad al inicio", "mm", "●", "0.04"],
-        ["Avance por diente, alta velocidad", "Avance por diente en la parte rápida del corte", "mm", "●", "0.08"],
-        ["Avance por diente, final", "Avance por diente a baja velocidad al final", "mm", "●", "0.04"],
-        ["Velocidad lineal del disco", "Velocidad periférica en la punta del diente. Debe cumplirse: vel. lineal × 1000 × reducción / (diámetro × π) &lt; velocidad máx. del motor de sierra", "m/min", "●", "200"],
-        ["Número de dientes del disco", "Cantidad real de dientes. Un valor erróneo acorta la vida del disco o bloquea el ciclo", "dientes", "●", "200"],
-        ["Diámetro del disco", "Diámetro real. Vuelva a medirlo después de refilar", "mm", "●", "350"],
-        ["Tiempo de corte recomendado", "Calculado con tubo y disco actuales; referencia conservadora de protección del disco", "s", "○", "—"],
-        ["Velocidad máxima de producción", "Velocidad máxima de línea con los parámetros actuales", "m/min", "○", "—"],
-    ],
-)}
-{param("Espesor de pared frente a porcentajes de baja velocidad",
-       ["Redondo: espesor de pared", "Cuadrado / especial: primer y último %"],
-       "Durante el avance, las zonas que exigen más fuerza de corte (paredes del tubo) corren con el avance por diente lento para proteger el disco; después el eje vuelve al avance rápido. Una zona lenta demasiado grande pierde ciclo; demasiado pequeña puede romper el disco. En tubo cuadrado, el espesor y el ángulo de salida cambian los porcentajes: revise la curva de corte tras identificar el material y ajuste.")}
-{param("Avance por diente (STFL)",
-       ["Redondo típico: 0,03–0,05 mm lento / 0,08–0,12 mm rápido", "Cuadrado típico: 0,01–0,07 mm lento / 0,1–0,14 mm rápido"],
-       "STFL es el movimiento del eje de avance por cada diente de giro del disco. Parta de la carta del fabricante del disco y ajuste al corte. Demasiado alto daña el disco; demasiado bajo solo frena la línea.")}
+      <figure>
+        <img src="assets/img/fig-1-4-tube.png" alt="Figura 1-4. Página de parámetros de tubo KK-5S">
+        <figcaption>Figura 1-4. Página de parámetros de tubo KK-5S</figcaption>
+      </figure>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Parámetro</th><th>Descripción</th><th>Unidad</th><th>Aj.</th><th>Fábrica</th></tr></thead>
+          <tbody>
+            <tr><td>Distancia de avance (Feed Distance)</td><td>Recorrido del eje de avance durante el corte. Tubo redondo: diámetro. Cuadrado / especial: avance equivalente para corte completo</td><td>mm</td><td class="dot-set">●</td><td>32</td></tr><tr><td>Espesor de pared</td><td>Se muestra con Round Tube; define las zonas lentas en ambas paredes</td><td>mm</td><td class="dot-set">●</td><td>2</td></tr><tr><td>% lento primer tramo</td><td>Solo cuadrado / especial: zona lenta al inicio del corte (típico 5–10 %)</td><td>%</td><td class="dot-set">●</td><td>10</td></tr><tr><td>% lento tramo final</td><td>Solo cuadrado / especial: zona lenta al final del corte (típico 20–45 %)</td><td>%</td><td class="dot-set">●</td><td>20</td></tr><tr><td>Tipo de tubo</td><td>Redondo, cuadrado o especial</td><td>—</td><td class="dot-set">●</td><td>—</td></tr><tr><td>Avance por diente, inicial</td><td>Avance por diente a baja velocidad al inicio</td><td>mm</td><td class="dot-set">●</td><td>0.04</td></tr><tr><td>Avance por diente, alta velocidad</td><td>Avance por diente en la parte rápida del corte</td><td>mm</td><td class="dot-set">●</td><td>0.08</td></tr><tr><td>Avance por diente, final</td><td>Avance por diente a baja velocidad al final</td><td>mm</td><td class="dot-set">●</td><td>0.04</td></tr><tr><td>Velocidad lineal del disco</td><td>Velocidad periférica en la punta del diente. Debe cumplirse: vel. lineal × 1000 × reducción / (diámetro × π) &lt; velocidad máx. del motor de sierra</td><td>m/min</td><td class="dot-set">●</td><td>200</td></tr><tr><td>Número de dientes del disco</td><td>Cantidad real de dientes. Un valor erróneo acorta la vida del disco o bloquea el ciclo</td><td>dientes</td><td class="dot-set">●</td><td>200</td></tr><tr><td>Diámetro del disco</td><td>Diámetro real. Vuelva a medirlo después de refilar</td><td>mm</td><td class="dot-set">●</td><td>350</td></tr><tr><td>Tiempo de corte recomendado</td><td>Calculado con tubo y disco actuales; referencia conservadora de protección del disco</td><td>s</td><td class="dot-ro">○</td><td>—</td></tr><tr><td>Velocidad máxima de producción</td><td>Velocidad máxima de línea con los parámetros actuales</td><td>m/min</td><td class="dot-ro">○</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="param">
+        <h4>Espesor de pared frente a porcentajes de baja velocidad</h4>
+        <div class="meta-row"><span>Redondo: espesor de pared</span><span>Cuadrado / especial: primer y último %</span></div>
+        <p>Durante el avance, las zonas que exigen más fuerza de corte (paredes del tubo) corren con el avance por diente lento para proteger el disco; después el eje vuelve al avance rápido. Una zona lenta demasiado grande pierde ciclo; demasiado pequeña puede romper el disco. En tubo cuadrado, el espesor y el ángulo de salida cambian los porcentajes: revise la curva de corte tras identificar el material y ajuste.</p>
+      </div>
+      <div class="param">
+        <h4>Avance por diente (STFL)</h4>
+        <div class="meta-row"><span>Redondo típico: 0,03–0,05 mm lento / 0,08–0,12 mm rápido</span><span>Cuadrado típico: 0,01–0,07 mm lento / 0,1–0,14 mm rápido</span></div>
+        <p>STFL es el movimiento del eje de avance por cada diente de giro del disco. Parta de la carta del fabricante del disco y ajuste al corte. Demasiado alto daña el disco; demasiado bajo solo frena la línea.</p>
+      </div>
 
       <h2 id="system">1.2.4 Parámetros de sistema</h2>
-{fig("fig-1-12-system.png", "Figura 1-12. Página de parámetros de sistema KK-5S")}
-{table(
-    ["Parámetro", "Descripción", "Unidad", "Aj.", "Fábrica"],
-    [
-        ["Aceleración del carro hacia adelante", "Aceleración en el tramo de seguimiento", "m/s²", "●", "3"],
-        ["Desaceleración del carro hacia adelante", "Desaceleración en el tramo de ida", "m/s²", "●", "4"],
-        ["Aceleración del carro en retorno", "Aceleración en el tramo de retorno", "m/s²", "●", "4"],
-        ["Desaceleración del carro en retorno", "Desaceleración en el tramo de retorno", "m/s²", "●", "3"],
-        ["Jerk del carro", "Sobreaceleración (jerk) del servo de arrastre en ida y retorno", "m/s³", "●", "50"],
-        ["Retardo de amarre", "Tras llegar a la zona de sincronismo, espera antes de dar la señal de amarre", "s", "●", "0.05"],
-        ["Retardo de corte", "Tiempo para que actúe el amarre después de la orden de clamp", "s", "●", "0.01"],
-        ["Retardo de retorno", "Con el disco en origen y el desamarre dado, espera antes de desacelerar el carro", "s", "●", "0.01"],
-        ["Holgura lenta (exterior)", "Holgura fuera de la zona lenta del espesor (cubre error mecánico)", "mm", "●", "1 (HMI ej. 0.05)"],
-        ["Holgura lenta (interior)", "Holgura dentro de la zona lenta del espesor", "mm", "●", "1 (HMI ej. 0.10)"],
-        ["Distancia al origen de avance", "Tras el contacto de origen de avance, el disco retrocede esta distancia", "mm", "●", "5"],
-        ["Aceleración de avance", "Aceleración del servo de avance", "m/s²", "●", "2"],
-        ["Reloj en tiempo real", "Ajuste / lectura del reloj del controlador", "—", "●", "—"],
-    ],
-)}
+      <figure>
+        <img src="assets/img/fig-1-12-system.png" alt="Figura 1-12. Página de parámetros de sistema KK-5S">
+        <figcaption>Figura 1-12. Página de parámetros de sistema KK-5S</figcaption>
+      </figure>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Parámetro</th><th>Descripción</th><th>Unidad</th><th>Aj.</th><th>Fábrica</th></tr></thead>
+          <tbody>
+            <tr><td>Aceleración del carro hacia adelante</td><td>Aceleración en el tramo de seguimiento</td><td>m/s²</td><td class="dot-set">●</td><td>3</td></tr><tr><td>Desaceleración del carro hacia adelante</td><td>Desaceleración en el tramo de ida</td><td>m/s²</td><td class="dot-set">●</td><td>4</td></tr><tr><td>Aceleración del carro en retorno</td><td>Aceleración en el tramo de retorno</td><td>m/s²</td><td class="dot-set">●</td><td>4</td></tr><tr><td>Desaceleración del carro en retorno</td><td>Desaceleración en el tramo de retorno</td><td>m/s²</td><td class="dot-set">●</td><td>3</td></tr><tr><td>Jerk del carro</td><td>Sobreaceleración (jerk) del servo de arrastre en ida y retorno</td><td>m/s³</td><td class="dot-set">●</td><td>50</td></tr><tr><td>Retardo de amarre</td><td>Tras llegar a la zona de sincronismo, espera antes de dar la señal de amarre</td><td>s</td><td class="dot-set">●</td><td>0.05</td></tr><tr><td>Retardo de corte</td><td>Tiempo para que actúe el amarre después de la orden de clamp</td><td>s</td><td class="dot-set">●</td><td>0.01</td></tr><tr><td>Retardo de retorno</td><td>Con el disco en origen y el desamarre dado, espera antes de desacelerar el carro</td><td>s</td><td class="dot-set">●</td><td>0.01</td></tr><tr><td>Holgura lenta (exterior)</td><td>Holgura fuera de la zona lenta del espesor (cubre error mecánico)</td><td>mm</td><td class="dot-set">●</td><td>1 (HMI ej. 0.05)</td></tr><tr><td>Holgura lenta (interior)</td><td>Holgura dentro de la zona lenta del espesor</td><td>mm</td><td class="dot-set">●</td><td>1 (HMI ej. 0.10)</td></tr><tr><td>Distancia al origen de avance</td><td>Tras el contacto de origen de avance, el disco retrocede esta distancia</td><td>mm</td><td class="dot-set">●</td><td>5</td></tr><tr><td>Aceleración de avance</td><td>Aceleración del servo de avance</td><td>m/s²</td><td class="dot-set">●</td><td>2</td></tr><tr><td>Reloj en tiempo real</td><td>Ajuste / lectura del reloj del controlador</td><td>—</td><td class="dot-set">●</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
       <div class="callout warn">
         <strong>Movimiento del carro en lazo cerrado</strong>
         El carro es de lazo cerrado: las curvas de aceleración/desaceleración se arman con estos valores mientras el eje de arrastre sigue la velocidad del fleje. Demasiado altos → carga del motor y overshoot al entrar a sincronismo o a velocidad cero, lo que empeora posición y asentamiento. Demasiado bajos → menor velocidad de línea. Ajústelos según la masa mecánica real.
@@ -250,47 +304,41 @@ def pages(fig, table, param, prefix="assets/img/"):
       <p>El retardo de amarre existe porque el carro se pasa un poco al entrar en la zona de sincronismo. Amarrar durante ese overshoot puede desincronizar el corte. No ponga un retardo mayor del necesario: reduce la velocidad máxima de línea.</p>
 
       <h2 id="manual-params">1.2.5 Parámetros manuales</h2>
-{fig("fig-1-12-manual-params.png", "Figura 1-12 (cont.). Página de parámetros manuales KK-5S")}
-{table(
-    ["Parámetro", "Descripción", "Unidad", "Aj.", "Fábrica"],
-    [
-        ["Velocidad jog del servo de arrastre", "Velocidad del carro en adelante/atrás manual", "mm/s", "●", "100"],
-        ["Velocidad origen arrastre 1", "Velocidad buscando el límite posterior en origen de arrastre", "mm/s", "●", "100 (tabla 50)"],
-        ["Velocidad origen arrastre 2", "Velocidad del avance tras encontrar el límite posterior", "mm/s", "●", "100"],
-        ["Distancia de origen de arrastre", "Distancia que el carro avanza después del límite posterior", "mm", "●", "50"],
-        ["Tiempo de marcha de lubricación", "Tiempo de encendido de cada ciclo de grasa", "s", "●", "15"],
-        ["Tiempo de paro de lubricación", "Intervalo entre ciclos de grasa", "s", "●", "1200"],
-        ["Límite de presión hidráulica (máx.)", "Límite alto con amarre hidráulico", "MPa", "●", "12"],
-        ["Límite de presión hidráulica (mín.)", "Límite bajo hidráulico", "MPa", "●", "15"],
-        ["Velocidad jog del servo de avance", "Velocidad del eje de avance en jog manual", "mm/s", "●", "10"],
-        ["Velocidad origen avance 1", "Velocidad replegando al límite posterior de avance", "mm/s", "●", "10"],
-        ["Velocidad origen avance 2", "Velocidad avanzando a buscar el material tras el límite", "mm/s", "●", "5"],
-        ["Distancia de origen de avance", "Retroceso después de que el disco toca el material", "mm", "●", "5"],
-        ["Límite de par de origen de avance", "Par usado para entrar al material en origen de avance. Típico 5–15 %", "%", "●", "5"],
-    ],
-)}
+      <figure>
+        <img src="assets/img/fig-1-12-manual-params.png" alt="Figura 1-12 (cont.). Página de parámetros manuales KK-5S">
+        <figcaption>Figura 1-12 (cont.). Página de parámetros manuales KK-5S</figcaption>
+      </figure>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Parámetro</th><th>Descripción</th><th>Unidad</th><th>Aj.</th><th>Fábrica</th></tr></thead>
+          <tbody>
+            <tr><td>Velocidad jog del servo de arrastre</td><td>Velocidad del carro en adelante/atrás manual</td><td>mm/s</td><td class="dot-set">●</td><td>100</td></tr><tr><td>Velocidad origen arrastre 1</td><td>Velocidad buscando el límite posterior en origen de arrastre</td><td>mm/s</td><td class="dot-set">●</td><td>100 (tabla 50)</td></tr><tr><td>Velocidad origen arrastre 2</td><td>Velocidad del avance tras encontrar el límite posterior</td><td>mm/s</td><td class="dot-set">●</td><td>100</td></tr><tr><td>Distancia de origen de arrastre</td><td>Distancia que el carro avanza después del límite posterior</td><td>mm</td><td class="dot-set">●</td><td>50</td></tr><tr><td>Tiempo de marcha de lubricación</td><td>Tiempo de encendido de cada ciclo de grasa</td><td>s</td><td class="dot-set">●</td><td>15</td></tr><tr><td>Tiempo de paro de lubricación</td><td>Intervalo entre ciclos de grasa</td><td>s</td><td class="dot-set">●</td><td>1200</td></tr><tr><td>Límite de presión hidráulica (máx.)</td><td>Límite alto con amarre hidráulico</td><td>MPa</td><td class="dot-set">●</td><td>12</td></tr><tr><td>Límite de presión hidráulica (mín.)</td><td>Límite bajo hidráulico</td><td>MPa</td><td class="dot-set">●</td><td>15</td></tr><tr><td>Velocidad jog del servo de avance</td><td>Velocidad del eje de avance en jog manual</td><td>mm/s</td><td class="dot-set">●</td><td>10</td></tr><tr><td>Velocidad origen avance 1</td><td>Velocidad replegando al límite posterior de avance</td><td>mm/s</td><td class="dot-set">●</td><td>10</td></tr><tr><td>Velocidad origen avance 2</td><td>Velocidad avanzando a buscar el material tras el límite</td><td>mm/s</td><td class="dot-set">●</td><td>5</td></tr><tr><td>Distancia de origen de avance</td><td>Retroceso después de que el disco toca el material</td><td>mm</td><td class="dot-set">●</td><td>5</td></tr><tr><td>Límite de par de origen de avance</td><td>Par usado para entrar al material en origen de avance. Típico 5–15 %</td><td>%</td><td class="dot-set">●</td><td>5</td></tr>
+          </tbody>
+        </table>
+      </div>
       <p>Si el par de origen es alto y el motor igual no mueve la carga, el husillo de avance puede estar seco. Verifique que las líneas de lubricación estén abiertas antes de subir más el par: un par excesivo daña el fleje y el disco.</p>
-{fig("fig-3-2-torque.png", "Controles de prueba de par de avance en parámetros manuales (véase §3.4)")}
+      <figure>
+        <img src="assets/img/fig-3-2-torque.png" alt="Controles de prueba de par de avance en parámetros manuales (véase §3.4)">
+        <figcaption>Controles de prueba de par de avance en parámetros manuales (véase §3.4)</figcaption>
+      </figure>
 
       <h2 id="motor">1.2.6 Parámetros de motor</h2>
-{fig("fig-1-13-motor.png", "Figura 1-13. Página de parámetros de motor KK-5S")}
-{table(
-    ["Parámetro", "Descripción", "Unidad", "Aj.", "Fábrica"],
-    [
-        ["Velocidad nominal del motor de arrastre", "Según la placa del servo de arrastre", "rpm", "●", "2000"],
-        ["Diámetro del engranaje de arrastre", "Diámetro del círculo primitivo del engranaje en el lado de carga", "mm", "●", "127.32"],
-        ["Relación de reducción de arrastre", "Relación del reductor del eje de arrastre según su placa", "—", "●", "6"],
-        ["Carrera máxima del carro", "Carrera efectiva máxima del carro sobre la cremallera", "mm", "●", "2700"],
-        ["Velocidad nominal del servo de avance", "Según la placa del servo de avance", "rpm", "●", "2000"],
-        ["Paso del husillo de avance", "Avance de la tuerca por revolución del husillo", "mm", "●", "10"],
-        ["Relación de reducción de avance", "Relación del reductor de avance; ponga 1 si no hay reductor", "—", "●", "1"],
-        ["Distancia de origen de avance", "Retroceso tras el contacto de origen (igual idea que §1.2.4 / §1.2.5)", "mm", "●", "5"],
-        ["Velocidad del motor de sierra", "Velocidad nominal según la placa del motor de corte", "rpm", "●", "1465"],
-        ["Relación de reducción de sierra", "Relación del reductor del eje de sierra según su placa", "—", "●", "9.3"],
-        ["Frecuencia máxima del variador de sierra", "Límite superior del variador de la sierra", "Hz", "●", "60"],
-    ],
-)}
-{fig("fig-gear-pitch.png", "Figura 1-3. Esquema del círculo primitivo del engranaje (diámetro d, paso circular P)")}
+      <figure>
+        <img src="assets/img/fig-1-13-motor.png" alt="Figura 1-13. Página de parámetros de motor KK-5S">
+        <figcaption>Figura 1-13. Página de parámetros de motor KK-5S</figcaption>
+      </figure>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Parámetro</th><th>Descripción</th><th>Unidad</th><th>Aj.</th><th>Fábrica</th></tr></thead>
+          <tbody>
+            <tr><td>Velocidad nominal del motor de arrastre</td><td>Según la placa del servo de arrastre</td><td>rpm</td><td class="dot-set">●</td><td>2000</td></tr><tr><td>Diámetro del engranaje de arrastre</td><td>Diámetro del círculo primitivo del engranaje en el lado de carga</td><td>mm</td><td class="dot-set">●</td><td>127.32</td></tr><tr><td>Relación de reducción de arrastre</td><td>Relación del reductor del eje de arrastre según su placa</td><td>—</td><td class="dot-set">●</td><td>6</td></tr><tr><td>Carrera máxima del carro</td><td>Carrera efectiva máxima del carro sobre la cremallera</td><td>mm</td><td class="dot-set">●</td><td>2700</td></tr><tr><td>Velocidad nominal del servo de avance</td><td>Según la placa del servo de avance</td><td>rpm</td><td class="dot-set">●</td><td>2000</td></tr><tr><td>Paso del husillo de avance</td><td>Avance de la tuerca por revolución del husillo</td><td>mm</td><td class="dot-set">●</td><td>10</td></tr><tr><td>Relación de reducción de avance</td><td>Relación del reductor de avance; ponga 1 si no hay reductor</td><td>—</td><td class="dot-set">●</td><td>1</td></tr><tr><td>Distancia de origen de avance</td><td>Retroceso tras el contacto de origen (igual idea que §1.2.4 / §1.2.5)</td><td>mm</td><td class="dot-set">●</td><td>5</td></tr><tr><td>Velocidad del motor de sierra</td><td>Velocidad nominal según la placa del motor de corte</td><td>rpm</td><td class="dot-set">●</td><td>1465</td></tr><tr><td>Relación de reducción de sierra</td><td>Relación del reductor del eje de sierra según su placa</td><td>—</td><td class="dot-set">●</td><td>9.3</td></tr><tr><td>Frecuencia máxima del variador de sierra</td><td>Límite superior del variador de la sierra</td><td>Hz</td><td class="dot-set">●</td><td>60</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <figure>
+        <img src="assets/img/fig-gear-pitch.png" alt="Figura 1-3. Esquema del círculo primitivo del engranaje (diámetro d, paso circular P)">
+        <figcaption>Figura 1-3. Esquema del círculo primitivo del engranaje (diámetro d, paso circular P)</figcaption>
+      </figure>
       <h3>Medición de la carrera máxima del carro</h3>
       <ol class="steps">
         <li>Introduzca el diámetro de engranaje y la relación de reducción correctos y vuelva a energizar la máquina.</li>
@@ -300,11 +348,15 @@ def pages(fig, table, param, prefix="assets/img/"):
       </ol>
 
       <h2 id="manual-op">1.2.7 Pantalla de operación manual</h2>
-{fig("fig-1-7-manual-op.png", "Figura 1-7. Pantalla de operación manual de la sierra volante KK-5S")}
+      <figure>
+        <img src="assets/img/fig-1-7-manual-op.png" alt="Figura 1-7. Pantalla de operación manual de la sierra volante KK-5S">
+        <figcaption>Figura 1-7. Pantalla de operación manual de la sierra volante KK-5S</figcaption>
+      </figure>
       <p>Esta página duplica las acciones del tablero para arrastre, avance, corte, amarre, hidráulico, lubricación y reset. Las lámparas junto a cada botón muestran enable/origen/marcha. Úsela junto con los selectores físicos; el modo sigue saliendo del selector del tablero.</p>
-"""
 
-    functions = f"""
+</section>
+<section class="print-chapter">
+
       <div class="kicker">Capítulo 2</div>
       <h1>Descripción de funciones del sistema</h1>
       <p class="lede">Modos, energía, jog, origen, amarre/corte, pieza corta y larga, memoria de longitud y programación de órdenes.</p>
@@ -317,7 +369,10 @@ def pages(fig, table, param, prefix="assets/img/"):
       <p>Supervisión fuera de línea. El encoder de material está deshabilitado. Un eje virtual en el controlador genera un movimiento similar a producción. Puede variar la velocidad del eje virtual para ver el comportamiento del carro y aislar fallas eléctricas o mecánicas.</p>
       <h3>2.1.3 Modo Automatic</h3>
       <p>Producción en línea. La sierra sigue longitud y velocidad del encoder de material y corta a longitud fija según el valor del operador, vigilando el estado del carro.</p>
-{fig("fig-startup-flow.png", "Flujo de encendido, parámetros, origen y entrada a modo (origen arrastre → origen avance → verificar orígenes → automático o simulación)")}
+      <figure>
+        <img src="assets/img/fig-startup-flow.png" alt="Flujo de encendido, parámetros, origen y entrada a modo (origen arrastre → origen avance → verificar orígenes → automático o simulación)">
+        <figcaption>Flujo de encendido, parámetros, origen y entrada a modo (origen arrastre → origen avance → verificar orígenes → automático o simulación)</figcaption>
+      </figure>
 
       <h2 id="power">2.2 Gestión de energía</h2>
       <h3>2.2.1 Sistema de alimentación</h3>
@@ -425,9 +480,10 @@ def pages(fig, table, param, prefix="assets/img/"):
 
       <h2 id="scheduling">2.8 Programación de órdenes</h2>
       <p>Diez programas de longitud más recetas de tipo de tubo cubren producción de longitudes mixtas. La configuración está en <a href="operation.html#schedule">§3.9</a>.</p>
-"""
 
-    operation = f"""
+</section>
+<section class="print-chapter">
+
       <div class="kicker">Capítulo 3</div>
       <h1>Instrucciones de operación</h1>
       <p class="lede">Procedimientos de campo desde el encendido hasta la producción automática, incluida la prueba de par, programas, puntos de memoria y sincronismo del encoder.</p>
@@ -481,7 +537,10 @@ def pages(fig, table, param, prefix="assets/img/"):
 
       <h2 id="torque">3.4 Prueba de par de avance</h2>
       <p>Tras mucho tiempo en marcha, el origen de avance puede necesitar más par. Haga la prueba de par en la página Machine Learning / Manual Parameters para que el origen siga funcionando.</p>
-{fig("fig-3-2-torque.png", "Figura 3-2. Función de prueba de par de avance")}
+      <figure>
+        <img src="assets/img/fig-3-2-torque.png" alt="Figura 3-2. Función de prueba de par de avance">
+        <figcaption>Figura 3-2. Función de prueba de par de avance</figcaption>
+      </figure>
       <ol class="steps">
         <li>Pulse <strong>Feed Torque Test</strong>. Cuando <em>Feed Torque Limit Enabled</em> se ponga verde, pulse Manual Feed Forward.</li>
         <li>El eje de avance se mueve al límite de par de origen. Si encuentra resistencia excesiva (circuito de grasa seco, o disco contra material) para y <em>Feed Torque Limit Reached</em> se pone verde.</li>
@@ -542,7 +601,10 @@ def pages(fig, table, param, prefix="assets/img/"):
 
       <h2 id="schedule">3.9 Configurar programas de producción</h2>
       <p>La longitud se fija con diez programas internos. Cada uno tiene longitud, cantidad y habilitación.</p>
-{fig("fig-3-3-schedule.png", "Figura 3-3. Ajustes de órdenes de longitud (orden 1 seleccionada y en proceso)")}
+      <figure>
+        <img src="assets/img/fig-3-3-schedule.png" alt="Figura 3-3. Ajustes de órdenes de longitud (orden 1 seleccionada y en proceso)">
+        <figcaption>Figura 3-3. Ajustes de órdenes de longitud (orden 1 seleccionada y en proceso)</figcaption>
+      </figure>
       <p>En producción automática el sistema recorre las órdenes habilitadas en número ascendente. Una lámpara <em>In Production</em> encendida marca la orden activa; el fondo verde claro marca órdenes terminadas. Botones encima de la lista:</p>
       <ul>
         <li><strong>Calculate</strong> — calcula la velocidad máxima viable del tren a partir del tiempo de corte y la longitud de la orden seleccionada. El resultado aparece en las páginas principal, de tubo y de simulación. En marcha también permite recortar la longitud actual sin parar.</li>
@@ -557,7 +619,10 @@ def pages(fig, table, param, prefix="assets/img/"):
 
       <h2 id="memory">3.10 Puntos de memoria</h2>
       <p>En Automático el controlador registra la longitud de la pieza actual. Tras una salida normal, un apagón o una falla, al volver a Automático ofrece reanudar desde la última parada o desde origen.</p>
-{fig("fig-3-4-memory.png", "Figura 3-4. Volver al punto de memoria — Continue desde MEMORY o Restart desde HOME")}
+      <figure>
+        <img src="assets/img/fig-3-4-memory.png" alt="Figura 3-4. Volver al punto de memoria — Continue desde MEMORY o Restart desde HOME">
+        <figcaption>Figura 3-4. Volver al punto de memoria — Continue desde MEMORY o Restart desde HOME</figcaption>
+      </figure>
       <div class="callout danger">
         <strong>No mueva el fleje</strong>
         Si se mueve el material al salir de Automático o tras un corte de energía, el punto de memoria queda mal y la siguiente pieza puede salir larga.
@@ -585,7 +650,10 @@ def pages(fig, table, param, prefix="assets/img/"):
 
       <h2 id="sync">3.12 Medición de sincronismo</h2>
       <p>El sincronismo carro–fleje es necesario para la precisión de longitud y la vida del disco. El desgaste tras la puesta en marcha puede desincronizarlos. Revise periódicamente y corrija con <strong>Material Speed Sensor Wheel Diameter</strong> (diámetro de la rueda del encoder de material).</p>
-{fig("fig-3-5-sync.png", "Figura 3-5. Parámetros de sincronismo (diámetro de rueda del encoder y campos relacionados)")}
+      <figure>
+        <img src="assets/img/fig-3-5-sync.png" alt="Figura 3-5. Parámetros de sincronismo (diámetro de rueda del encoder y campos relacionados)">
+        <figcaption>Figura 3-5. Parámetros de sincronismo (diámetro de rueda del encoder y campos relacionados)</figcaption>
+      </figure>
       <ol class="steps">
         <li>Mida el diámetro de la rueda de velocidad con calibre y cárguelo como Material Speed Measurement Wheel Diameter (referencia inicial).</li>
         <li>Pase un tramo corto de material por el amarre, pare y haga Feed to Home.</li>
@@ -597,117 +665,13 @@ def pages(fig, table, param, prefix="assets/img/"):
         <li>Pulse <strong>Data Calculation</strong>. El diámetro de rueda se recalcula con el ensayo.</li>
         <li>Repita los pasos 4 a 7 hasta que longitud real más espesor de disco iguale la longitud de material mostrada.</li>
       </ol>
-"""
 
-    # Fix glossary: don't use 5-col table. Replace the placeholder in index.
-    glossary = """
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>En la pantalla (inglés)</th><th>En este manual</th></tr></thead>
-          <tbody>
-            <tr><td>Manual / Simulation / Automatic</td><td>Manual / Simulación / Automático</td></tr>
-            <tr><td>Carriage / Drive</td><td>Carro de sierra / eje de arrastre</td></tr>
-            <tr><td>Feeding / Feed</td><td>Eje de avance</td></tr>
-            <tr><td>Home</td><td>Origen</td></tr>
-            <tr><td>Clamp</td><td>Amarre</td></tr>
-            <tr><td>Manual Cut</td><td>Corte manual (en automático: pieza corta)</td></tr>
-            <tr><td>Line Speed</td><td>Velocidad de línea</td></tr>
-            <tr><td>STFL</td><td>Avance por diente</td></tr>
-            <tr><td>Continue / Restart</td><td>Continuar desde memoria / Reiniciar desde origen</td></tr>
-          </tbody>
-        </table>
-      </div>
-"""
-    # The index currently has a broken 5-col table inserted. Rebuild index without that call.
-    index = """
-      <div class="hero">
-        <div class="kicker" style="color:#f0b8b0">Manual de operación</div>
-        <h1>KK-5S Sierra volante de corte en frío</h1>
-        <p class="lede">Manual del sistema de control para la sierra volante AOGANG en línea de tubos. Cubre parámetros de la pantalla, retorno al origen, simulación, corte automático y sincronismo.</p>
-        <div class="hero-logos">
-          <img src="ASSETSlogo-aogang-header.jpeg" alt="AOGANG">
-          <img src="ASSETSlogo-kaikong.jpeg" alt="KaiKong">
-        </div>
-        <div class="badges">
-          <span class="badge">Aogang Machinery</span>
-          <span class="badge">KaiKong KK-5S</span>
-          <span class="badge">Mayo 2019 V1.36</span>
-        </div>
-      </div>
-      <div class="callout danger">
-        <strong>Lea primero la seguridad</strong>
-        El carro de sierra, el disco en rotación y la tensión en el gabinete pueden causar lesiones graves. Complete las <a href="safety.html">precauciones de seguridad</a> antes de encender, buscar origen o producir.
-      </div>
-      <h2>Inicio rápido</h2>
-      <p>Use esta secuencia tras un arranque en frío. Los detalles y las condiciones de aborto están en el <a href="operation.html">capítulo 3</a>.</p>
-      <ol class="steps">
-        <li>Cierre el breaker del gabinete principal y pulse el botón de potencia del tablero. Espere a que las lámparas Drive, Feed y Sawing queden fijas (~60 s). No opere durante la inicialización.</li>
-        <li>Confirme que el selector de modo está en <strong>Manual</strong>. Si el amarre es hidráulico, arranque la central hidráulica.</li>
-        <li>Lleve al origen el eje de arrastre (carro) y luego el eje de avance, con material amarrado en el utillaje. Reset cancela cualquiera de los dos movimientos.</li>
-        <li>Introduzca longitud y parámetros de tubo/disco. Pulse <strong>Calculate</strong> y compruebe que la velocidad máxima de línea es aceptable.</li>
-        <li>Pruebe el corte con un corte estático manual. El tren formador debe estar parado.</li>
-        <li>Ejecute <strong>Simulation</strong> con el utillaje vacío para verificar el movimiento del carro; pase a <strong>Automatic</strong> solo cuando haya material amarrado y ambos ejes estén en origen.</li>
-      </ol>
-      <h2>Contenido</h2>
-      <div class="cards">
-        <a class="card" href="safety.html">
-          <div class="num">00</div>
-          <h3>Precauciones de seguridad</h3>
-          <p>Reglas mecánicas y eléctricas que aplican a todos los procedimientos de este manual.</p>
-        </a>
-        <a class="card" href="parameters.html">
-          <div class="num">01</div>
-          <h3>Descripción de parámetros</h3>
-          <p>Mapa de la pantalla, valores de fábrica y el significado de cada ajuste de producción y servo.</p>
-        </a>
-        <a class="card" href="functions.html">
-          <div class="num">02</div>
-          <h3>Funciones del sistema</h3>
-          <p>Modos, energía, jog, origen, amarre/corte, pieza corta/larga y memoria de longitud.</p>
-        </a>
-        <a class="card" href="operation.html">
-          <div class="num">03</div>
-          <h3>Instrucciones de operación</h3>
-          <p>Desde el encendido hasta la producción automática, programas, puntos de memoria y sincronismo del encoder.</p>
-        </a>
-      </div>
-      <h2>Descargas</h2>
-      <p>Copias para llevar sin servidor. El PDF incluye el manual completo con capturas de pantalla.</p>
-      <div class="cards">
-        <a class="card" href="descargas/KK-5S-Manual-Operacion-ES.pdf" download>
-          <div class="num">PDF</div>
-          <h3>Manual en español</h3>
-          <p>Archivo único para imprimir, WhatsApp o USB de taller.</p>
-        </a>
-        <a class="card" href="descargas/KK-5S-User-Manual-EN.pdf" download>
-          <div class="num">PDF</div>
-          <h3>Manual in English</h3>
-          <p>Full English operator manual, same figures and tables.</p>
-        </a>
-        <a class="card" href="descargas/KK-5S-manual-offline.zip" download>
-          <div class="num">ZIP</div>
-          <h3>Sitio web offline</h3>
-          <p>HTML + imágenes. Abra <code>index.html</code> en cualquier navegador.</p>
-        </a>
-        <a class="card" href="original/Cold_Cutting_Flying_Saw_Instruction_Manual.docx" download>
-          <div class="num">DOCX</div>
-          <h3>Word original</h3>
-          <p>Manual de fábrica (inglés), mayo 2019 V1.36.</p>
-        </a>
-      </div>
-      <h2>Vocabulario de la pantalla (HMI)</h2>
-      <p>Las capturas y los nombres de botones se dejan en inglés, tal como aparecen en la máquina. Equivalencias usadas en este manual:</p>
-""" + glossary + """
-      <h2>Acerca de esta edición</h2>
-      <p>Documento de origen: <em>76 Cold-Cut Flying Saw User Manual</em>, Shijiazhuang Aogang Machinery Co., Ltd., mayo 2019 V1.36. Traducción técnica al español a partir de esa edición. El archivo Word original está en <a href="original/Cold_Cutting_Flying_Saw_Instruction_Manual.docx">original/Cold_Cutting_Flying_Saw_Instruction_Manual.docx</a>. Versión en inglés: <a href="en/index.html">en/index.html</a>.</p>
-      <p>En las tablas, <span class="dot-set">●</span> indica que el operador puede ajustar el valor; <span class="dot-ro">○</span> es solo visualización. Donde la traducción inglesa original usaba unidades inconsistentes, manda la descripción detallada.</p>
-"""
-
-    index = index.replace("ASSETS", prefix)
-    return [
-        ("index.html", "KK-5S Sierra volante de corte en frío", "Aogang Machinery / KK-5S / Portada", index),
-        ("safety.html", "Precauciones de seguridad", "Manual / Precauciones de seguridad", safety),
-        ("parameters.html", "Capítulo 1 · Parámetros", "Manual / Capítulo 1 · Parámetros", params),
-        ("functions.html", "Capítulo 2 · Funciones", "Manual / Capítulo 2 · Funciones", functions),
-        ("operation.html", "Capítulo 3 · Operación", "Manual / Capítulo 3 · Operación", operation),
-    ]
+</section>
+      <footer class="page-foot">
+        Manual KK-5S · Mayo 2019 V1.36
+      </footer>
+    </article>
+  </div>
+  <script src="assets/js/manual.js"></script>
+</body>
+</html>
