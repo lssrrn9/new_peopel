@@ -2,8 +2,17 @@
 
 Edición web del manual de operación **KK-5S Cold-Cut Flying Saw** (Shijiazhuang Aogang Machinery Co., Ltd., mayo 2019 V1.36). Sistema de control KaiKong KK-5S.
 
-**Español (principal):** abra [`index.html`](index.html).  
-**English:** [`en/index.html`](en/index.html).
+## Descargas
+
+| Archivo | Qué es |
+|---|---|
+| [descargas/KK-5S-Manual-Operacion-ES.pdf](descargas/KK-5S-Manual-Operacion-ES.pdf) | Manual completo en español (PDF, ~36 páginas) |
+| [descargas/KK-5S-User-Manual-EN.pdf](descargas/KK-5S-User-Manual-EN.pdf) | Full English manual (PDF) |
+| [descargas/KK-5S-manual-offline.zip](descargas/KK-5S-manual-offline.zip) | Sitio web para abrir sin internet |
+| [original/Cold_Cutting_Flying_Saw_Instruction_Manual.docx](original/Cold_Cutting_Flying_Saw_Instruction_Manual.docx) | Word original de fábrica |
+
+**Español (web):** [`index.html`](index.html).  
+**English (web):** [`en/index.html`](en/index.html).
 
 ```bash
 python3 -m http.server 8080
