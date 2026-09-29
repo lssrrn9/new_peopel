@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "author": "casa",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-slide-switch",
+      "id": "sw1",
+      "top": 40,
+      "left": -160,
+      "attrs": { "bounce": "0" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -80,
+      "left": 150,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 10,
+      "left": 145,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    ["esp:TX0", "$serialMonitor:RX", "", []],
+    ["esp:RX0", "$serialMonitor:TX", "", []],
+    ["sw1:1", "esp:GND.2", "black", ["*"]],
+    ["sw1:2", "esp:D13", "green", ["*"]],
+    ["sw1:3", "esp:3V3", "red", ["*"]],
+    ["led1:A", "r1:1", "green", ["*"]],
+    ["r1:2", "esp:D4", "green", ["*"]],
+    ["led1:C", "esp:GND.1", "black", ["*"]]
+  ]
+}

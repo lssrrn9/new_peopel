@@ -1,0 +1,22 @@
+name: Retardo ON a los 10 s
+version: 1
+author: casa
+
+steps:
+  - wait-serial: 'Listo'
+  - set-control:
+      part-id: btn1
+      control: pressed
+      value: 1
+  - wait-serial: 'Entrada ON. Retardo 10 s'
+  - delay: 9000ms
+  - expect-pin:
+      part-id: esp
+      pin: D4
+      expected: 0
+  - wait-serial: 'Faltan 1 s'
+  - wait-serial: 'Salida ON'
+  - expect-pin:
+      part-id: esp
+      pin: D4
+      expected: 1
