@@ -7,6 +7,7 @@ Abre `index.html` en el navegador para verlas juntas.
 | Figura | Qué muestra |
 | --- | --- |
 | `figuras/00-pulsadores-reles.png` | Pulsadores y relés en Nucleo y Blue Pill |
+| `figuras/07-fuente-3v3.png` | Fuente de 3,3 V con AMS1117-3.3 |
 | `figuras/01-mapa-pines.png` | Headers de 20 pines y header SWD |
 | `figuras/02-alimentacion.png` | USB o pin 5 V, tierra y salida de 3,3 V |
 | `figuras/03-stlink-swd.png` | ST-Link V2: SWDIO, SWCLK y GND |
@@ -21,6 +22,7 @@ Para regenerar los PNG:
 ```bash
 python3 generar_figuras.py
 python3 generar_poster.py
+python3 generar_fuente_33.py
 ```
 
 Hace falta Pillow (`pip install pillow`).
