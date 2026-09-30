@@ -19,7 +19,7 @@
     }
     header h1 { margin: 0 0 8px; font-size: 1.7rem; }
     header p { margin: 0; max-width: 46rem; color: #bad6f2; line-height: 1.45; }
-    main { max-width: 1100px; margin: 0 auto; padding: 20px 16px 48px; }
+    main { max-width: 1200px; margin: 0 auto; padding: 20px 16px 48px; }
     figure {
       margin: 0 0 28px;
       background: #fff;
@@ -44,10 +44,15 @@
 </head>
 <body>
   <header>
-    <h1>Conexiones de la Blue Pill STM32F103C8T6</h1>
-    <p>Figuras de cableado para alimentación, ST-Link, puerto serie, I2C y SPI. El orden de los headers es el de stm32-base.org. Antes de contar pines, mira la serigrafía de tu placa: algunos clones la invierten.</p>
+    <h1>Pulsadores y relés en Nucleo y Blue Pill</h1>
+    <p>El póster muestra las dos placas, los pulsadores con resistencia a GND y los relés con transistor y diodo. La bobina usa 5 V de otra fuente. Debajo quedan otros cableados de la Blue Pill.</p>
   </header>
   <main>
+    <figure>
+      <figcaption>Póster: pulsadores A B C D y relés</figcaption>
+      <p>Nucleo: D2 y D4 entran, D7 y D8 salen. Blue Pill: A0 y A1 entran, A2 y A3 salen. En la Blue Pill, A0 es el pin 10 del chip.</p>
+      <img src="figuras/00-pulsadores-reles.png" alt="Esquema de pulsadores y relés para Nucleo y Blue Pill">
+    </figure>
     <figure>
       <figcaption>1. Mapa de pines</figcaption>
       <p>Los dos headers de 20 pines y el header SWD de 4 pines.</p>
