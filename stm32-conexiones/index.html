@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conexiones STM32 Blue Pill</title>
+  <style>
+    :root { color-scheme: light; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "DejaVu Sans", sans-serif;
+      background: #f4f7fb;
+      color: #16202e;
+    }
+    header {
+      background: #0a306c;
+      color: #fff;
+      padding: 28px 24px 22px;
+    }
+    header h1 { margin: 0 0 8px; font-size: 1.7rem; }
+    header p { margin: 0; max-width: 46rem; color: #bad6f2; line-height: 1.45; }
+    main { max-width: 1100px; margin: 0 auto; padding: 20px 16px 48px; }
+    figure {
+      margin: 0 0 28px;
+      background: #fff;
+      border: 1px solid #d2dce8;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    figcaption {
+      padding: 14px 16px 4px;
+      font-weight: 700;
+    }
+    figure p { margin: 0; padding: 0 16px 14px; color: #546274; }
+    img { display: block; width: 100%; height: auto; }
+    .nota {
+      background: #fff;
+      border: 1px solid #d2dce8;
+      border-radius: 14px;
+      padding: 16px 18px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Conexiones de la Blue Pill STM32F103C8T6</h1>
+    <p>Figuras de cableado para alimentación, ST-Link, puerto serie, I2C y SPI. El orden de los headers es el de stm32-base.org. Antes de contar pines, mira la serigrafía de tu placa: algunos clones la invierten.</p>
+  </header>
+  <main>
+    <figure>
+      <figcaption>1. Mapa de pines</figcaption>
+      <p>Los dos headers de 20 pines y el header SWD de 4 pines.</p>
+      <img src="figuras/01-mapa-pines.png" alt="Mapa de pines de la Blue Pill STM32F103C8T6">
+    </figure>
+    <figure>
+      <figcaption>2. Alimentación</figcaption>
+      <p>USB o pin de 5 V, nunca los dos. El pin 3,3 V es una salida.</p>
+      <img src="figuras/02-alimentacion.png" alt="Cómo alimentar la Blue Pill por USB o por el pin de 5 V">
+    </figure>
+    <figure id="stlink">
+      <figcaption>3. ST-Link por SWD</figcaption>
+      <p>SWDIO a PA13, SWCLK a PA14 y GND. El cable de 3,3 V solo si la placa no tiene otra fuente.</p>
+      <img src="figuras/03-stlink-swd.png" alt="Conexión del ST-Link V2 al header SWD de la Blue Pill">
+    </figure>
+    <figure>
+      <figcaption>4. Bootloader por USART1</figcaption>
+      <p>TX del adaptador a PA10. RX del adaptador a PA9. BOOT0 en 1 y BOOT1 en 0 para grabar.</p>
+      <img src="figuras/04-uart-bootloader.png" alt="Conexión de un adaptador USB serie al USART1 para el bootloader">
+    </figure>
+    <figure>
+      <figcaption>5. Sensor I2C</figcaption>
+      <p>I2C1 por defecto: SCL en PB6 y SDA en PB7.</p>
+      <img src="figuras/05-sensor-i2c.png" alt="Conexión de un módulo I2C a PB6 y PB7">
+    </figure>
+    <figure id="spi">
+      <figcaption>6. Periférico SPI</figcaption>
+      <p>SPI1: SCK en PA5, MISO en PA6, MOSI en PA7 y CS en PA4.</p>
+      <img src="figuras/06-periferico-spi.png" alt="Conexión de un módulo SPI a los pines PA4, PA5, PA6 y PA7">
+    </figure>
+    <section class="nota">
+      <p>Estas figuras son de la placa Blue Pill con el micro STM32F103C8T6. Una placa Nucleo ya trae el ST-Link en la misma tarjeta: ahí se programa por el USB marcado ST-LINK y estos cables no hacen falta. Si tu placa es otra referencia, los números de pin cambian.</p>
+    </section>
+  </main>
+</body>
+</html>
