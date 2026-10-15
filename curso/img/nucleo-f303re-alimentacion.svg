@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="820" viewBox="0 0 1180 820" role="img">
+<title>Caminos de alimentación NUCLEO-F303RE</title>
+<rect width="100%" height="100%" fill="#f6f3ee"/>
+<style>
+  text { font-family: Liberation Sans, Segoe UI, sans-serif; fill: #1c1917; }
+  .h { font-size: 22px; font-weight: 700; }
+  .sub { font-size: 12px; fill: #57534e; }
+  .sm { font-size: 11px; }
+  .xs { font-size: 10px; }
+  .tiny { font-size: 9px; }
+  .w { fill: #fff; }
+  .pin { font-size: 9px; font-family: Liberation Sans, Segoe UI, sans-serif; }
+</style>
+<defs>
+  <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 1.2 L 9 5 L 0 8.8 z" fill="#44403c"/>
+  </marker>
+  <marker id="arrw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 1.2 L 9 5 L 0 8.8 z" fill="#1d4ed8"/>
+  </marker>
+</defs>
+<text x="24" y="32" class="h" text-anchor="start">Caminos de alimentación y jumpers</text>
+<text x="24" y="54" class="sub" text-anchor="start">UM1724 Rev 17, §7.5, Tablas 6 a 9. Esquema MB1136 C05, hoja Top and Power.</text>
+<rect x="20" y="80" width="200" height="150" rx="6" fill="#ede9fe" stroke="#6d28d9" stroke-width="1.4"/>
+<text x="120" y="108" class="sm" text-anchor="middle">CN1 USB</text>
+<text x="120" y="132" class="xs" text-anchor="middle">5 V (VBUS)</text>
+<text x="120" y="152" class="xs" text-anchor="middle">100 mA al conectar</text>
+<text x="120" y="172" class="xs" text-anchor="middle">300 mA si JP1 OFF</text>
+<text x="120" y="200" class="tiny" text-anchor="middle">Solo el ST-LINK</text>
+<rect x="20" y="250" width="200" height="130" rx="6" fill="#fef9c3" stroke="#a16207" stroke-width="1.4"/>
+<text x="120" y="278" class="sm" text-anchor="middle">VIN</text>
+<text x="120" y="302" class="xs" text-anchor="middle">7 V a 12 V</text>
+<text x="120" y="322" class="xs" text-anchor="middle">CN6-8 o CN7-24</text>
+<text x="120" y="348" class="tiny" text-anchor="middle">800 mA a 7 V</text>
+<text x="120" y="364" class="tiny" text-anchor="middle">250 mA entre 9 y 12 V</text>
+<rect x="20" y="400" width="200" height="110" rx="6" fill="#ffedd5" stroke="#c2410c" stroke-width="1.4"/>
+<text x="120" y="428" class="sm" text-anchor="middle">E5V</text>
+<text x="120" y="452" class="xs" text-anchor="middle">4,75 V a 5,25 V</text>
+<text x="120" y="472" class="xs" text-anchor="middle">CN7 pin 6</text>
+<text x="120" y="492" class="xs" text-anchor="middle">500 mA máximo</text>
+<rect x="20" y="530" width="200" height="110" rx="6" fill="#fee2e2" stroke="#991b1b" stroke-width="1.4"/>
+<text x="120" y="558" class="sm" text-anchor="middle">+3,3 V externo</text>
+<text x="120" y="582" class="xs" text-anchor="middle">CN6 pin 4</text>
+<text x="120" y="602" class="xs" text-anchor="middle">3,0 V a 3,6 V</text>
+<text x="120" y="622" class="tiny" text-anchor="middle">ST-LINK no arranca</text>
+<rect x="280" y="80" width="250" height="150" rx="6" fill="#ccfbf1" stroke="#0f766e" stroke-width="1.4"/>
+<text x="405" y="108" class="sm" text-anchor="middle">Parte ST-LINK</text>
+<text x="405" y="132" class="xs" text-anchor="middle">Siempre que hay USB</text>
+<text x="405" y="156" class="xs" text-anchor="middle">T2, P-MOS, deja pasar</text>
+<text x="405" y="176" class="xs" text-anchor="middle">U5V hacia el MCU tras</text>
+<text x="405" y="196" class="xs" text-anchor="middle">la enumeración</text>
+<rect x="280" y="260" width="250" height="140" rx="6" fill="#fff" stroke="#a16207" stroke-width="1.4"/>
+<text x="405" y="288" class="sm" text-anchor="middle">U3 LD1117S50TR</text>
+<text x="405" y="314" class="xs" text-anchor="middle">De VIN hace 5 V</text>
+<text x="405" y="338" class="xs" text-anchor="middle">Ese 5 V entra a JP5</text>
+<text x="405" y="358" class="xs" text-anchor="middle">por el lado E5V</text>
+<text x="405" y="378" class="xs" text-anchor="middle">(pin 3)</text>
+<rect x="600" y="150" width="220" height="180" rx="8" fill="#fef9c3" stroke="#a16207" stroke-width="2"/>
+<text x="710" y="180" class="h" text-anchor="middle">JP5</text>
+<text x="710" y="210" class="sm" text-anchor="middle">pin 1-2 = U5V</text>
+<text x="710" y="232" class="xs" text-anchor="middle">defecto, USB</text>
+<text x="710" y="262" class="sm" text-anchor="middle">pin 2-3 = E5V</text>
+<text x="710" y="284" class="xs" text-anchor="middle">VIN o 5 V externo</text>
+<text x="710" y="310" class="tiny" text-anchor="middle" fill="#991b1b">Míralo antes de alimentar</text>
+<rect x="600" y="360" width="220" height="100" rx="6" fill="#fff7ed" stroke="#c2410c" stroke-width="1.4"/>
+<text x="710" y="390" class="sm" text-anchor="middle">JP1</text>
+<text x="710" y="414" class="xs" text-anchor="middle">OFF: pide 300 mA</text>
+<text x="710" y="434" class="xs" text-anchor="middle">ON: se limita a 100 mA</text>
+<rect x="880" y="90" width="270" height="120" rx="6" fill="#fef3c7" stroke="#a16207" stroke-width="1.4"/>
+<text x="1015" y="118" class="h" text-anchor="middle">+5 V</text>
+<text x="1015" y="146" class="xs" text-anchor="middle">CN6 pin 5 · CN7 pin 18</text>
+<text x="1015" y="168" class="xs" text-anchor="middle">LD3 rojo encendido</text>
+<text x="1015" y="188" class="tiny" text-anchor="middle">Sale hacia un shield</text>
+<rect x="880" y="240" width="270" height="130" rx="6" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.4"/>
+<text x="1015" y="268" class="sm" text-anchor="middle">U4 LD39050PU33R</text>
+<text x="1015" y="292" class="xs" text-anchor="middle">LDO 3,3 V</text>
+<text x="1015" y="312" class="xs" text-anchor="middle">500 mA máximo</text>
+<text x="1015" y="332" class="xs" text-anchor="middle">SB2 ON = esta salida</text>
+<text x="1015" y="352" class="xs" text-anchor="middle">llega a +3,3 V</text>
+<rect x="880" y="400" width="270" height="110" rx="6" fill="#dcfce7" stroke="#166534" stroke-width="1.6"/>
+<text x="1015" y="428" class="sm" text-anchor="middle">+3,3 V  VDD del MCU</text>
+<text x="1015" y="452" class="xs" text-anchor="middle">CN6 pin 4</text>
+<text x="1015" y="472" class="xs" text-anchor="middle">CN7 pines 12 y 16</text>
+<text x="1015" y="492" class="xs" text-anchor="middle" fill="#991b1b">No inyectes 5 V aquí</text>
+<rect x="880" y="540" width="270" height="110" rx="6" fill="#1e3a5f" stroke="#1e3a5f" stroke-width="1.4"/>
+<text x="1015" y="570" class="sm" text-anchor="middle" fill="#fff">JP6 en serie con VDD</text>
+<text x="1015" y="594" class="xs" text-anchor="middle" fill="#dbeafe">ON: el MCU recibe 3,3 V</text>
+<text x="1015" y="614" class="xs" text-anchor="middle" fill="#dbeafe">OFF: solo con amperímetro</text>
+<text x="1015" y="634" class="xs" text-anchor="middle" fill="#fecaca">Si no, U5 está apagado</text>
+<line x1="220" y1="150" x2="280" y2="150" stroke="#0f766e" stroke-width="1.6" marker-end="url(#arr)"/>
+<path d="M 530 145 H 545 V 185 H 600" fill="none" stroke="#0f766e" stroke-width="1.6" marker-end="url(#arr)"/>
+<line x1="220" y1="310" x2="280" y2="320" stroke="#a16207" stroke-width="1.6" marker-end="url(#arr)"/>
+<path d="M 530 330 H 548 V 230 H 600" fill="none" stroke="#a16207" stroke-width="1.6" marker-end="url(#arr)"/>
+<path d="M 220 455 H 250 V 520 H 575 V 305 H 600" fill="none" stroke="#c2410c" stroke-width="1.5" marker-end="url(#arr)"/>
+<text x="250" y="548" class="tiny" text-anchor="start" fill="#c2410c">E5V no pasa por U3</text>
+<line x1="820" y1="210" x2="880" y2="150" stroke="#a16207" stroke-width="1.6" marker-end="url(#arr)"/>
+<line x1="1015" y1="210" x2="1015" y2="240" stroke="#1d4ed8" stroke-width="1.6" marker-end="url(#arrw)"/>
+<line x1="1015" y1="370" x2="1015" y2="400" stroke="#166534" stroke-width="1.6" marker-end="url(#arr)"/>
+<line x1="1015" y1="510" x2="1015" y2="540" stroke="#1e3a5f" stroke-width="1.6" marker-end="url(#arr)"/>
+<rect x="20" y="670" width="1130" height="125" rx="6" fill="#fff" stroke="#a8a29e" stroke-width="1"/>
+<text x="36" y="696" class="sm" text-anchor="start">Orden si usas fuente externa (UM1724 §7.5.2)</text>
+<text x="36" y="720" class="xs" text-anchor="start">1) JP5 en pines 2-3.  2) JP1 quitado.  3) Conectar VIN o E5V.  4) Encender la fuente.</text>
+<text x="36" y="740" class="xs" text-anchor="start">5) Comprobar que LD3 enciende.  6) Después conectar el USB. La fuente debe ser SELV (EN 62368-1).</text>
+<text x="36" y="764" class="xs" text-anchor="start">Un cargador USB no enumera: LD3 se queda apagado y el MCU no recibe 5 V, salvo que pongas JP1 en ON.</text>
+<text x="36" y="784" class="xs" text-anchor="start">Nunca pongas 5 V en el pin de +3,3 V, ni 12 V en VIN por encima del límite de la Tabla 7.</text>
+</svg>

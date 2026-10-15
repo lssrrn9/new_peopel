@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="980" viewBox="0 0 1180 980" role="img">
+<title>Conectores ST Morpho NUCLEO-F303RE</title>
+<rect width="100%" height="100%" fill="#f6f3ee"/>
+<style>
+  text { font-family: Liberation Sans, Segoe UI, sans-serif; fill: #1c1917; }
+  .h { font-size: 22px; font-weight: 700; }
+  .sub { font-size: 12px; fill: #57534e; }
+  .sm { font-size: 11px; }
+  .xs { font-size: 10px; }
+  .tiny { font-size: 9px; }
+  .w { fill: #fff; }
+  .pin { font-size: 9px; font-family: Liberation Sans, Segoe UI, sans-serif; }
+</style>
+<text x="24" y="32" class="h" text-anchor="start">ST Morpho — CN7 izquierda y CN10 derecha</text>
+<text x="24" y="54" class="sub" text-anchor="start">UM1724 Rev 17, Tabla 26 (NUCLEO-F303RE). 19×2 cada conector. Pin 1 arriba, con el USB hacia arriba.</text>
+<text x="24" y="90" class="sm" text-anchor="start" fill="#1d4ed8">CN7 — Morpho izquierdo</text>
+<rect x="24" y="100" width="540" height="24" rx="0" fill="#1d4ed8" stroke="#1d4ed8" stroke-width="0"/>
+<text x="32" y="116" class="xs" text-anchor="start" fill="#fff">Impar</text>
+<text x="94" y="116" class="xs" text-anchor="start" fill="#fff">Señal</text>
+<text x="294" y="116" class="xs" text-anchor="start" fill="#fff">Par</text>
+<text x="354" y="116" class="xs" text-anchor="start" fill="#fff">Señal</text>
+<rect x="24" y="124" width="540" height="22" rx="0" fill="#fff" stroke="#e7e5e4" stroke-width="0.4"/>
+<text x="32" y="139" class="xs" text-anchor="start">1</text>
+<text x="94" y="139" class="xs" text-anchor="start">PC10</text>
+<text x="294" y="139" class="xs" text-anchor="start">2</text>
+<text x="354" y="139" class="xs" text-anchor="start">PC11</text>
+<rect x="24" y="146" width="540" height="22" rx="0" fill="#f5f5f4" stroke="#e7e5e4" stroke-width="0.4"/>
+<text x="32" y="161" class="xs" text-anchor="start">3</text>
+<text x="94" y="161" class="xs" text-anchor="start">PC12</text>
+<text x="294" y="161" class="xs" text-anchor="start">4</text>
+<text x="354" y="161" class="xs" text-anchor="start">PD2</text>
+<rect x="24" y="168" width="540" height="22" rx="0" fill="#fff" stroke="#e7e5e4" stroke-width="0.4"/>
+<text x="32" y="183" class="xs" text-anchor="start">5</text>
+<text x="94" y="183" class="xs" text-anchor="start">VDD</text>
+<text x="294" y="183" class="xs" text-anchor="start">6</text>
+<text x="354" y="183" class="xs" text-anchor="start">E5V</text>
+<rect x="24" y="190" width="540" height="22" rx="0" fill="#f5f5f4" stroke="#e7e5e4" stroke-width="0.4"/>
+<text x="32" y="205" class="xs" text-anchor="start">7</text>
+<text x="94" y="205" class="xs" text-anchor="start">BOOT0</text>
+<text x="294" y="205" class="xs" text-anchor="start">8</text>
+<text x="354" y="205" class="xs" text-anchor="start">GND</text>
+<rect x="24" y="212" width="540" height="22" rx="0" fill="#fff" stroke="#e7e5e4" stroke-width="0.4"/>
+<text x="32" y="227" class="xs" text-anchor="start">9</text>
+<text x="94" y="227" class="xs" text-anchor="start">—</text>
+<text x="294" y="227" class="xs" text-anchor="start">10</text>
+<text x="354" y="227" class="xs" text-anchor="start">—</text>
+<rect x="24" y="234" width="540" height="22" rx="0" fill="#f5f5f4" stroke="#e7e5e4" stroke-width="0.4"/>
+<text x="32" y="249" class="xs" text-anchor="start">11</text>
+<text x="94" y="249" class="xs" text-anchor="start">—</text>
+<text x="294" y="249" class="xs" text-anchor="start">12</text>
+<text x="354" y="249" class="xs" text-anchor="start">IOREF</text>
+<rect x="24" y="256" width="540" height="22" rx="0" fill="#fee2e2" stroke="#e7e5e4" stroke-width="0.4"/>
+<text x="32" y="271" class="xs" text-anchor="start">13</text>
+<text x="94" y="271" class="xs" text-anchor="start">PA13 SWD</text>
+<text x="294" y="271" class="xs" text-anchor="start">14</text>
+<text x="354" y="271" class="xs" text-anchor="start">NRST</text>
+<rect x="24" y="278" width="540" height="22" rx="0" fill="#fee2e2" stroke="#e7e5e4" stroke-width="0.4"/>
+<text x="32" y="293" class="xs" text-anchor="start">15</text>
+<text x="94" y="293" class="xs" text-anchor="start">PA14 SWD</text>
+<text x="294" y="293" class="xs" text-anchor="start">16</text>
+<text x="354" y="293" class="xs" text-anchor="start">+3.3V</text>
+<rect x="24" y="300" width="540" height="22" rx="0" fill="#fff" stroke="#e7e5e4" stroke-width="0.4"/>
+<text x="32" y="315" class="xs" text-anchor="start">17</text>
+<text x="94" y="315" class="xs" text-anchor="start">PA15</text>
+<text x="294" y="315" class="xs" text-anchor="start">18</text>
+<text x="354" y="315" class="xs" text-anchor="start">+5V</text>
+<rect x="24" y="322" width="540" height="22" rx="0" fill="#f5f5f4" stroke="#e7e5e4" stroke-width="0.4"/>
+<text x="32" y="337" class="xs" text-anchor="start">19</text>
+<text x="94" y="337" class="xs" text-anchor="start">GND</text>
+<text x="294" y="337" class="xs" text-anchor="start">20</text>
+<text x="354" y="337" class="xs" text-anchor="start">GND</text>
+<rect x="24" y="344" width="540" height="22" rx="0" fill="#fff" stroke="#e7e5e4" stroke-width="0.4"/>
+<text x="32" y="359" class="xs" text-anchor="start">21</text>
+<text x="94" y="359" class="xs" text-anchor="start">PB7</text>
+<text x="294" y="359" class="xs" text-anchor="start">22</text>
+<text x="354" y="359" class="xs" text-anchor="start">GND</text>
+<rect x="24" y="366" width="540" height="22" rx="0" fill="#f5f5f4" stroke="#e7e5e4" stroke-width="0.4"/>
+<text x="32" y="381" class="xs" text-anchor="start">23</text>
+<text x="94" y="381" class="xs" text-anchor="start">PC13 B1</text>
+<text x="294" y="381" class="xs" text-anchor="start">24</text>
+<text x="354" y="381" class="xs" text-anchor="start">VIN</text>
+<rect x="24" y="388" width="540" height="22" rx="0" fill="#fff" stroke="#e7e5e4" stroke-width="0.4"/>
+<text x="32" y="403" class="xs" text-anchor="start">25</text>
+<text x="94" y="403" class="xs" text-anchor="start">PC14 LSE</text>
+<text x="294" y="403" class="xs" text-anchor="start">26</text>
+<text x="354" y="403" class="xs" text-anchor="start">—</text>
+<rect x="24" y="410" width="540" height="22" rx="0" fill="#f5f5f4" stroke="#e7e5e4" stroke-width="0.4"/>
+<text x="32" y="425" class="xs" text-anchor="start">27</text>
+<text x="94" y="425" class="xs" text-anchor="start">PC15 LSE</text>
+<text x="294" y="425" class="xs" text-anchor="start">28</text>
+<text x="354" y="425" class="xs" text-anchor="start">PA0</text>
+<rect x="24" y="432" width="540" height="22" rx="0" fill="#fff" stroke="#e7e5e4" stroke-width="0.4"/>
+<text x="32" y="447" class="xs" text-anchor="start">29</text>
+<text x="94" y="447" class="xs" text-anchor="start">PF0 MCO</text>
+<text x="294" y="447" class="xs" text-anchor="start">30</text>
+<text x="354" y="447" class="xs" text-anchor="start">PA1</text>
+<rect x="24" y="454" width="540" height="22" rx="0" fill="#f5f5f4" stroke="#e7e5e4" stroke-width="0.4"/>
+<text x="32" y="469" class="xs" text-anchor="start">31</text>
+<text x="94" y="469" class="xs" text-anchor="start">PF1</text>
+<text x="294" y="469" class="xs" text-anchor="start">32</text>
+<text x="354" y="469" class="xs" text-anchor="start">PA4</text>
+<rect x="24" y="476" width="540" height="22" rx="0" fill="#fff" stroke="#e7e5e4" stroke-width="0.4"/>
+<text x="32" y="491" class="xs" text-anchor="start">33</text>
+<text x="94" y="491" class="xs" text-anchor="start">VBAT</text>
+<text x="294" y="491" class="xs" text-anchor="start">34</text>
+<text x="354" y="491" class="xs" text-anchor="start">PB0</text>
+<rect x="24" y="498" width="540" height="22" rx="0" fill="#f5f5f4" stroke="#e7e5e4" stroke-width="0.4"/>
+<text x="32" y="513" class="xs" text-anchor="start">35</text>
+<text x="94" y="513" class="xs" text-anchor="start">PC2</text>
+<text x="294" y="513" class="xs" text-anchor="start">36</text>
+<text x="354" y="513" class="xs" text-anchor="start">PC1 / PB9</text>
+<rect x="24" y="520" width="540" height="22" rx="0" fill="#fff" stroke="#e7e5e4" stroke-width="0.4"/>
+<text x="32" y="535" class="xs" text-anchor="start">37</text>
+<text x="94" y="535" class="xs" text-anchor="start">PC3</text>
+<text x="294" y="535" class="xs" text-anchor="start">38</text>
+<text x="354" y="535" class="xs" text-anchor="start">PC0 / PB8</text>
+<text x="600" y="90" class="sm" text-anchor="start" fill="#c2410c">CN10 — Morpho derecho</text>
+<rect x="600" y="100" width="540" height="24" rx="0" fill="#c2410c" stroke="#c2410c" stroke-width="0"/>
+<text x="608" y="116" class="xs" text-anchor="start" fill="#fff">Impar</text>
+<text x="670" y="116" class="xs" text-anchor="start" fill="#fff">Señal</text>
+<text x="870" y="116" class="xs" text-anchor="start" fill="#fff">Par</text>
+<text x="930" y="116" class="xs" text-anchor="start" fill="#fff">Señal</text>
+<rect x="600" y="124" width="540" height="22" rx="0" fill="#fff" stroke="#e7e5e4" stroke-width="0.4"/>
+<text x="608" y="139" class="xs" text-anchor="start">1</text>
+<text x="670" y="139" class="xs" text-anchor="start">PC9</text>
+<text x="870" y="139" class="xs" text-anchor="start">2</text>
+<text x="930" y="139" class="xs" text-anchor="start">PC8</text>
+<rect x="600" y="146" width="540" height="22" rx="0" fill="#f5f5f4" stroke="#e7e5e4" stroke-width="0.4"/>
+<text x="608" y="161" class="xs" text-anchor="start">3</text>
+<text x="670" y="161" class="xs" text-anchor="start">PB8</text>
+<text x="870" y="161" class="xs" text-anchor="start">4</text>
+<text x="930" y="161" class="xs" text-anchor="start">PC6</text>
+<rect x="600" y="168" width="540" height="22" rx="0" fill="#fff" stroke="#e7e5e4" stroke-width="0.4"/>
+<text x="608" y="183" class="xs" text-anchor="start">5</text>
+<text x="670" y="183" class="xs" text-anchor="start">PB9</text>
+<text x="870" y="183" class="xs" text-anchor="start">6</text>
+<text x="930" y="183" class="xs" text-anchor="start">PC5</text>
+<rect x="600" y="190" width="540" height="22" rx="0" fill="#f5f5f4" stroke="#e7e5e4" stroke-width="0.4"/>
+<text x="608" y="205" class="xs" text-anchor="start">7</text>
+<text x="670" y="205" class="xs" text-anchor="start">AVDD</text>
+<text x="870" y="205" class="xs" text-anchor="start">8</text>
+<text x="930" y="205" class="xs" text-anchor="start">U5V</text>
+<rect x="600" y="212" width="540" height="22" rx="0" fill="#fff" stroke="#e7e5e4" stroke-width="0.4"/>
+<text x="608" y="227" class="xs" text-anchor="start">9</text>
+<text x="670" y="227" class="xs" text-anchor="start">GND</text>
+<text x="870" y="227" class="xs" text-anchor="start">10</text>
+<text x="930" y="227" class="xs" text-anchor="start">—</text>
+<rect x="600" y="234" width="540" height="22" rx="0" fill="#f5f5f4" stroke="#e7e5e4" stroke-width="0.4"/>
+<text x="608" y="249" class="xs" text-anchor="start">11</text>
+<text x="670" y="249" class="xs" text-anchor="start">PA5 LD2</text>
+<text x="870" y="249" class="xs" text-anchor="start">12</text>
+<text x="930" y="249" class="xs" text-anchor="start">PA12</text>
+<rect x="600" y="256" width="540" height="22" rx="0" fill="#fff" stroke="#e7e5e4" stroke-width="0.4"/>
+<text x="608" y="271" class="xs" text-anchor="start">13</text>
+<text x="670" y="271" class="xs" text-anchor="start">PA6</text>
+<text x="870" y="271" class="xs" text-anchor="start">14</text>
+<text x="930" y="271" class="xs" text-anchor="start">PA11</text>
+<rect x="600" y="278" width="540" height="22" rx="0" fill="#f5f5f4" stroke="#e7e5e4" stroke-width="0.4"/>
+<text x="608" y="293" class="xs" text-anchor="start">15</text>
+<text x="670" y="293" class="xs" text-anchor="start">PA7</text>
+<text x="870" y="293" class="xs" text-anchor="start">16</text>
+<text x="930" y="293" class="xs" text-anchor="start">PB12</text>
+<rect x="600" y="300" width="540" height="22" rx="0" fill="#fff" stroke="#e7e5e4" stroke-width="0.4"/>
+<text x="608" y="315" class="xs" text-anchor="start">17</text>
+<text x="670" y="315" class="xs" text-anchor="start">PB6</text>
+<text x="870" y="315" class="xs" text-anchor="start">18</text>
+<text x="930" y="315" class="xs" text-anchor="start">PB11</text>
+<rect x="600" y="322" width="540" height="22" rx="0" fill="#f5f5f4" stroke="#e7e5e4" stroke-width="0.4"/>
+<text x="608" y="337" class="xs" text-anchor="start">19</text>
+<text x="670" y="337" class="xs" text-anchor="start">PC7</text>
+<text x="870" y="337" class="xs" text-anchor="start">20</text>
+<text x="930" y="337" class="xs" text-anchor="start">GND</text>
+<rect x="600" y="344" width="540" height="22" rx="0" fill="#fff" stroke="#e7e5e4" stroke-width="0.4"/>
+<text x="608" y="359" class="xs" text-anchor="start">21</text>
+<text x="670" y="359" class="xs" text-anchor="start">PA9</text>
+<text x="870" y="359" class="xs" text-anchor="start">22</text>
+<text x="930" y="359" class="xs" text-anchor="start">PB2</text>
+<rect x="600" y="366" width="540" height="22" rx="0" fill="#f5f5f4" stroke="#e7e5e4" stroke-width="0.4"/>
+<text x="608" y="381" class="xs" text-anchor="start">23</text>
+<text x="670" y="381" class="xs" text-anchor="start">PA8</text>
+<text x="870" y="381" class="xs" text-anchor="start">24</text>
+<text x="930" y="381" class="xs" text-anchor="start">PB1</text>
+<rect x="600" y="388" width="540" height="22" rx="0" fill="#fff" stroke="#e7e5e4" stroke-width="0.4"/>
+<text x="608" y="403" class="xs" text-anchor="start">25</text>
+<text x="670" y="403" class="xs" text-anchor="start">PB10</text>
+<text x="870" y="403" class="xs" text-anchor="start">26</text>
+<text x="930" y="403" class="xs" text-anchor="start">PB15</text>
+<rect x="600" y="410" width="540" height="22" rx="0" fill="#f5f5f4" stroke="#e7e5e4" stroke-width="0.4"/>
+<text x="608" y="425" class="xs" text-anchor="start">27</text>
+<text x="670" y="425" class="xs" text-anchor="start">PB4</text>
+<text x="870" y="425" class="xs" text-anchor="start">28</text>
+<text x="930" y="425" class="xs" text-anchor="start">PB14</text>
+<rect x="600" y="432" width="540" height="22" rx="0" fill="#fff" stroke="#e7e5e4" stroke-width="0.4"/>
+<text x="608" y="447" class="xs" text-anchor="start">29</text>
+<text x="670" y="447" class="xs" text-anchor="start">PB5</text>
+<text x="870" y="447" class="xs" text-anchor="start">30</text>
+<text x="930" y="447" class="xs" text-anchor="start">PB13</text>
+<rect x="600" y="454" width="540" height="22" rx="0" fill="#f5f5f4" stroke="#e7e5e4" stroke-width="0.4"/>
+<text x="608" y="469" class="xs" text-anchor="start">31</text>
+<text x="670" y="469" class="xs" text-anchor="start">PB3</text>
+<text x="870" y="469" class="xs" text-anchor="start">32</text>
+<text x="930" y="469" class="xs" text-anchor="start">AGND</text>
+<rect x="600" y="476" width="540" height="22" rx="0" fill="#fff" stroke="#e7e5e4" stroke-width="0.4"/>
+<text x="608" y="491" class="xs" text-anchor="start">33</text>
+<text x="670" y="491" class="xs" text-anchor="start">PA10</text>
+<text x="870" y="491" class="xs" text-anchor="start">34</text>
+<text x="930" y="491" class="xs" text-anchor="start">PC4</text>
+<rect x="600" y="498" width="540" height="22" rx="0" fill="#fee2e2" stroke="#e7e5e4" stroke-width="0.4"/>
+<text x="608" y="513" class="xs" text-anchor="start">35</text>
+<text x="670" y="513" class="xs" text-anchor="start">PA2 abierto</text>
+<text x="870" y="513" class="xs" text-anchor="start">36</text>
+<text x="930" y="513" class="xs" text-anchor="start">—</text>
+<rect x="600" y="520" width="540" height="22" rx="0" fill="#fee2e2" stroke="#e7e5e4" stroke-width="0.4"/>
+<text x="608" y="535" class="xs" text-anchor="start">37</text>
+<text x="670" y="535" class="xs" text-anchor="start">PA3 abierto</text>
+<text x="870" y="535" class="xs" text-anchor="start">38</text>
+<text x="930" y="535" class="xs" text-anchor="start">—</text>
+<text x="24" y="940" class="xs" text-anchor="start">Filas en rojo: PA13/PA14 son el depurador. PA2 y PA3 figuran en la tabla pero el puente de fábrica los deja abiertos (SB62, SB63).</text>
+<text x="24" y="960" class="xs" text-anchor="start">CN7 pin 36 es PC1 por defecto (A4). CN7 pin 38 es PC0 por defecto (A5). Cambian a PB9/PB8 solo si se modifican SB46, SB52, SB56 y SB51.</text>
+</svg>

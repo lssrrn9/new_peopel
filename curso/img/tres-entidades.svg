@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="620" viewBox="0 0 1100 620" role="img">
+<title>Tres entidades: MCU, tarjeta y ST-LINK</title>
+<rect width="100%" height="100%" fill="#f6f3ee"/>
+<style>
+  text { font-family: Liberation Sans, Segoe UI, sans-serif; fill: #1c1917; }
+  .h { font-size: 22px; font-weight: 700; }
+  .sub { font-size: 12px; fill: #57534e; }
+  .sm { font-size: 11px; }
+  .xs { font-size: 10px; }
+  .tiny { font-size: 9px; }
+  .w { fill: #fff; }
+  .pin { font-size: 9px; font-family: Liberation Sans, Segoe UI, sans-serif; }
+</style>
+<defs>
+  <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 1.2 L 9 5 L 0 8.8 z" fill="#44403c"/>
+  </marker>
+  <marker id="arrw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 1.2 L 9 5 L 0 8.8 z" fill="#1d4ed8"/>
+  </marker>
+</defs>
+<text x="40" y="36" class="h" text-anchor="start">Tres piezas distintas que viajan juntas</text>
+<text x="40" y="58" class="sub" text-anchor="start">NUCLEO-F303RE no es el microcontrolador. El ST-LINK no es el programa. Los conectores no son el chip.</text>
+<rect x="40" y="90" width="300" height="250" rx="8" fill="#fff" stroke="#1e3a5f" stroke-width="2.5"/>
+<rect x="40" y="90" width="300" height="8" rx="0" fill="#1e3a5f" stroke="#1e3a5f" stroke-width="0"/>
+<text x="56" y="126" class="xs" text-anchor="start" fill="#1e3a5f">1. Microcontrolador</text>
+<text x="56" y="152" class="h" text-anchor="start">STM32F303RET6</text>
+<text x="56" y="186" class="sm" text-anchor="start">• Pastilla LQFP64 soldada en U5</text>
+<text x="56" y="208" class="sm" text-anchor="start">• Cortex-M4F, 72 MHz</text>
+<text x="56" y="230" class="sm" text-anchor="start">• 512 KB Flash, 64+16 KB SRAM</text>
+<text x="56" y="252" class="sm" text-anchor="start">• Aquí vive el programa</text>
+<text x="56" y="274" class="sm" text-anchor="start">• Pines: PA5, PC13, PA2…</text>
+<rect x="400" y="90" width="300" height="250" rx="8" fill="#fff" stroke="#0f766e" stroke-width="2.5"/>
+<rect x="400" y="90" width="300" height="8" rx="0" fill="#0f766e" stroke="#0f766e" stroke-width="0"/>
+<text x="416" y="126" class="xs" text-anchor="start" fill="#0f766e">2. Tarjeta</text>
+<text x="416" y="152" class="h" text-anchor="start">NUCLEO-F303RE</text>
+<text x="416" y="186" class="sm" text-anchor="start">• PCB de referencia MB1136</text>
+<text x="416" y="208" class="sm" text-anchor="start">• Reguladores, LED, pulsadores</text>
+<text x="416" y="230" class="sm" text-anchor="start">• Conectores Arduino y Morpho</text>
+<text x="416" y="252" class="sm" text-anchor="start">• Jumpers JP1, JP5, JP6</text>
+<text x="416" y="274" class="sm" text-anchor="start">• Puentes de soldadura SB</text>
+<rect x="760" y="90" width="300" height="250" rx="8" fill="#fff" stroke="#9a3412" stroke-width="2.5"/>
+<rect x="760" y="90" width="300" height="8" rx="0" fill="#9a3412" stroke="#9a3412" stroke-width="0"/>
+<text x="776" y="126" class="xs" text-anchor="start" fill="#9a3412">3. Depurador</text>
+<text x="776" y="152" class="h" text-anchor="start">ST-LINK/V2-1</text>
+<text x="776" y="186" class="sm" text-anchor="start">• Otro MCU: STM32F103CBT6</text>
+<text x="776" y="208" class="sm" text-anchor="start">• Va en el extremo del USB</text>
+<text x="776" y="230" class="sm" text-anchor="start">• Graba, depura y puerto serie</text>
+<text x="776" y="252" class="sm" text-anchor="start">• No ejecuta tu aplicación</text>
+<text x="776" y="274" class="sm" text-anchor="start">• Se aísla quitando CN2</text>
+<rect x="40" y="370" width="1020" height="210" rx="8" fill="#fff" stroke="#a8a29e" stroke-width="1"/>
+<text x="60" y="400" class="h" text-anchor="start">Y además, dos familias de conectores sobre la misma tarjeta</text>
+<rect x="60" y="420" width="470" height="130" rx="6" fill="#fff7ed" stroke="#c2410c" stroke-width="1.5"/>
+<text x="76" y="446" class="sm" text-anchor="start">Arduino Uno Rev. 3</text>
+<text x="76" y="470" class="sm" text-anchor="start">CN6 potencia, CN8 analógico, CN5 y CN9 digitales.</text>
+<text x="76" y="492" class="sm" text-anchor="start">Sirve para shields y para el banco de pruebas.</text>
+<text x="76" y="514" class="sm" text-anchor="start">No da acceso a todos los pines del LQFP64.</text>
+<rect x="560" y="420" width="470" height="130" rx="6" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.5"/>
+<text x="576" y="446" class="sm" text-anchor="start">ST Morpho</text>
+<text x="576" y="470" class="sm" text-anchor="start">CN7 (izquierda, 38 pines) y CN10 (derecha, 38 pines).</text>
+<text x="576" y="492" class="sm" text-anchor="start">Misma pista de cobre que el conector Arduino cuando</text>
+<text x="576" y="514" class="sm" text-anchor="start">la señal está cableada. No son pines extra del MCU.</text>
+</svg>

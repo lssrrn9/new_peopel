@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="520" viewBox="0 0 1100 520">
+<title>Encoder incremental en TIM4</title>
+<rect width="100%" height="100%" fill="#f6f3ee"/>
+<style>text { font-family: Liberation Sans, Segoe UI, sans-serif; fill: #1c1917; }</style>
+<text x="24" y="32" font-size="20" font-weight="700">Encoder incremental en TIM4</text>
+<text x="24" y="54" font-size="12" fill="#57534e">PB6 = TIM4_CH1 (D10). PB7 = TIM4_CH2 está en CN7 pin 21, no en el Arduino.</text>
+<rect x="24" y="88" width="460" height="124" rx="8" fill="#dbeafe" stroke="#1e3a5f" stroke-width="1.6"/><text x="40" y="112" font-size="14" font-weight="700" fill="#1e3a5f">NUCLEO-F303RE · USB arriba</text><text x="40" y="136" font-size="13">CN5 pin 3 · PB6 / D10 → canal A</text><text x="40" y="158" font-size="13">CN7 pin 21 · PB7 → canal B</text><text x="40" y="180" font-size="13">CN6 pin 4 · +3,3 V → pull-up si la salida es en colector abierto</text><text x="40" y="202" font-size="13">CN6 pin 6 · GND → GND del encoder</text><rect x="560" y="88" width="500" height="96" rx="8" fill="#fff" stroke="#c2410c" stroke-width="1.5"/><text x="576" y="112" font-size="14" font-weight="700" fill="#c2410c">Encoder de 3,3 V</text><text x="576" y="134" font-size="13">No conectes un encoder de 24 V.</text><text x="576" y="154" font-size="13">Si es colector abierto: 4,7 kΩ a 3,3 V en cada canal.</text><text x="576" y="174" font-size="13">Cuenta los pulsos por vuelta en la hoja para pasar a RPM.</text><text x="24" y="240" font-size="13">TIM3 queda libre para el PWM de PC7.</text><text x="24" y="262" font-size="13">GND común con la placa.</text></svg>
