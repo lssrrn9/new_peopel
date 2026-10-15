@@ -261,4 +261,4 @@ Respuesta. No pongas 20 mA. O buscas la curva y lees Vf a 5 mA, o declaras que u
 
 ## Módulo siguiente
 
-El módulo 3 instala el proyecto en VS Code y graba el primer parpadeo de PA5. El procedimiento de herramientas está en [Fuentes y entorno](00-fuentes-y-entorno.md). La lección, con los tres ejemplos y el código, se publica en la siguiente entrega. La ficha ya dice qué contiene.
+El [módulo 3](04-modulo-03-primer-proyecto.md) instala el proyecto en VS Code y graba el primer parpadeo de PA5. El procedimiento de herramientas está en [Fuentes y entorno](00-fuentes-y-entorno.md).

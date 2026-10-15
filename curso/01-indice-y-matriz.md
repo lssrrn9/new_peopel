@@ -1,6 +1,6 @@
 # Índice, mapa de pines y matriz de materiales
 
-Esta página es el contrato del curso. Los módulos que todavía no están escritos respetarán este mapa. Si una práctica futura necesita mover un pin, se actualizará aquí antes de publicar el módulo.
+Esta página es el contrato del curso. Las lecciones escritas usan este mapa. Si una práctica necesita mover un pin, se actualiza aquí en la misma entrega.
 
 Nada de esta página se ha ejecutado en una tarjeta. Las columnas de pin salen de UM1724 Rev 17 y del datasheet DocID026415 Rev 5. La columna «por qué este pin» es una **convención de este curso**.
 
@@ -17,7 +17,7 @@ Cada módulo, cuando se publique, traerá objetivos, prerrequisitos, teoría en 
 
 Los módulos prácticos traen al menos tres ejemplos de dificultad creciente. Los conceptuales traen ejercicios guiados sobre la placa. El formato de cada ejemplo con hardware es el de quince puntos pedido para el curso: problema, objetivo, materiales, explicación, dibujo, tabla de cableado, cálculos, CubeMX, código completo, sitio del código, prueba en VS Code, resultado esperado, diagnóstico, variaciones y criterios de aceptación.
 
-Cada módulo tiene ahora una ficha con el problema que resuelve, lo que se sabe al terminar, las tres prácticas, los pines y el límite que no se cruza. Las fichas están en [Fichas de los módulos](01b-fichas-modulos.md). El texto completo, con procedimientos, está escrito para el módulo 1 y para el módulo 2. Del 3 al 28 la ficha fija el contenido; el desarrollo línea a línea llega en la entrega de ese módulo.
+Cada módulo tiene una ficha con el problema que resuelve, lo que se sabe al terminar, las tres prácticas, los pines y el límite que no se cruza. Las fichas están en [Fichas de los módulos](01b-fichas-modulos.md). El texto completo, con procedimientos, está escrito del módulo 1 al 28 y en los cuatro proyectos.
 
 ## Índice
 
@@ -27,42 +27,42 @@ Cada módulo tiene ahora una ficha con el problema que resuelve, lo que se sabe 
 | --- | --- | --- |
 | 1 | Arquitectura de la tarjeta y función de cada parte | Escrito |
 | 2 | Alimentación, niveles de tensión y límites eléctricos | Escrito |
-| 3 | Instalación y primer proyecto | Planificado |
-| 4 | Fundamentos de C aplicados a STM32 | Planificado |
-| 5 | GPIO: salidas, entradas, pull-up, pull-down y antirrebote | Planificado |
-| 6 | Depuración y diagnóstico | Planificado |
-| 7 | UART y terminal serie | Planificado |
+| 3 | Instalación y primer proyecto | Escrito |
+| 4 | Fundamentos de C aplicados a STM32 | Escrito |
+| 5 | GPIO: salidas, entradas, pull-up, pull-down y antirrebote | Escrito |
+| 6 | Depuración y diagnóstico | Escrito |
+| 7 | UART y terminal serie | Escrito |
 
 ### Nivel intermedio
 
 | Módulo | Título | Estado |
 | --- | --- | --- |
-| 8 | Temporizadores, medida de tiempo y programas que no se quedan bloqueados | Planificado |
-| 9 | Interrupciones y prioridades | Planificado |
-| 10 | PWM y mando de cargas con una etapa externa | Planificado |
-| 11 | ADC: lectura, resolución, muestreo y calibración | Planificado |
-| 12 | DAC. Está en el chip y sale a un conector | Planificado |
-| 13 | I2C, sensores y una pantalla compatible | Planificado |
-| 14 | SPI y un dispositivo externo | Planificado |
-| 15 | DMA y adquisición que no ocupa al núcleo a cada muestra | Planificado |
-| 16 | Encoder, cuenta de pulsos y velocidad | Planificado |
+| 8 | Temporizadores, medida de tiempo y programas que no se quedan bloqueados | Escrito |
+| 9 | Interrupciones y prioridades | Escrito |
+| 10 | PWM y mando de cargas con una etapa externa | Escrito |
+| 11 | ADC: lectura, resolución, muestreo y calibración | Escrito |
+| 12 | DAC. Está en el chip y sale a un conector | Escrito |
+| 13 | I2C, sensores y una pantalla compatible | Escrito |
+| 14 | SPI y un dispositivo externo | Escrito |
+| 15 | DMA y adquisición que no ocupa al núcleo a cada muestra | Escrito |
+| 16 | Encoder, cuenta de pulsos y velocidad | Escrito |
 
 ### Nivel avanzado
 
 | Módulo | Título | Estado |
 | --- | --- | --- |
-| 17 | Máquinas de estados y programa partido en módulos | Planificado |
-| 18 | FreeRTOS: tareas, colas, semáforos y sincronización | Planificado |
-| 19 | Filtrado digital | Planificado |
-| 20 | PID sobre una planta de baja tensión o un modelo en el propio programa | Planificado |
-| 21 | Modbus RTU con un transceptor RS-485 externo | Planificado |
-| 22 | CAN con transceptor externo y una segunda estación | Planificado |
-| 23 | Watchdog, fallos y recuperación | Planificado |
-| 24 | Memoria no volátil y parámetros que sobreviven al apagado | Planificado |
-| 25 | Bajo consumo | Planificado |
-| 26 | HAL, LL y registros: cuándo vale cada uno | Planificado |
-| 27 | Interfaces para señales industriales | Planificado |
-| 28 | Pruebas, documentación y preparación de un prototipo | Planificado |
+| 17 | Máquinas de estados y programa partido en módulos | Escrito |
+| 18 | FreeRTOS: tareas, colas, semáforos y sincronización | Escrito |
+| 19 | Filtrado digital | Escrito |
+| 20 | PID sobre una planta de baja tensión o un modelo en el propio programa | Escrito |
+| 21 | Modbus RTU con un transceptor RS-485 externo | Escrito |
+| 22 | CAN con transceptor externo y una segunda estación | Escrito |
+| 23 | Watchdog, fallos y recuperación | Escrito |
+| 24 | Memoria no volátil y parámetros que sobreviven al apagado | Escrito |
+| 25 | Bajo consumo | Escrito |
+| 26 | HAL, LL y registros: cuándo vale cada uno | Escrito |
+| 27 | Interfaces para señales industriales | Escrito |
+| 28 | Pruebas, documentación y preparación de un prototipo | Escrito |
 
 ### Proyectos integradores
 
@@ -86,7 +86,7 @@ Cada módulo tiene ahora una ficha con el problema que resuelve, lo que se sabe 
 | DAC, dos canales | Sí. PA4 es DAC1_OUT1 y PA5 es DAC1_OUT2 | PA4 está en A2. PA5 está ocupado por LD2 | 12 |
 | Comparadores y operacionales | Sí, 7 y 4 | Varios pines analógicos los comparten. Se usarán solo si el módulo lo necesita y el pin sigue libre | 11, 27 |
 | I2C1 en PB8 y PB9 | Sí | D15 y D14, siempre | 13 |
-| SPI2 en PB13, PB14, PB15 y PB12 | Sí, función alternativa AF5 del datasheet, tabla 14 | Morpho CN10, pines 30, 28, 26 y 16 | 14 |
+| SPI2 en PB13, PB14, PB15 y PB12 | Sí, función alternativa AF5 del datasheet, tabla 14 | Morpho CN10, pines 30, 28, 26 y 16. El segundo NSS, si hace falta, es PA6 (D12), no PB6 | 14 |
 | DMA, 12 canales | Sí | No es un conector | 15 |
 | USART2 hacia el PC | Sí | Por el USB del ST-LINK, no por D0/D1 | 7 |
 | USART1 en PA9 y PA10 | Sí | D8 y D2 | 7, enlace con ESP32 |
@@ -117,13 +117,16 @@ La posición de fábrica de los puentes es la de UM1724, tabla 10: el estado por
 | PC0 | CN8 pin 6, A5, con SB51 cerrado | Entrada analógica | I2C. PB8 no está aquí de fábrica |
 | PB8 | CN5 pin 10, D15. También CN10 pin 3 | I2C1_SCL | CAN en este mismo pin |
 | PB9 | CN5 pin 9, D14. También CN10 pin 5 | I2C1_SDA | CAN en este mismo pin |
-| PB6 | CN5 pin 3, D10 | Chip select de SPI2 si hace falta un NSS por software, o GPIO | No es el SCK |
+| PB6 | CN5 pin 3, D10. Tipo FTf | TIM4_CH1, canal A del encoder | NSS de SPI, I2C o USART1 en este pin |
 | PC7 | CN5 pin 2, D9 | TIM3_CH2, PWM de un LED externo | — |
 | PB4 | CN9 pin 6, D5 | TIM3_CH1, PWM de reserva. También es SWO si se depura por traza | Traza SWO y PWM a la vez |
 | PB10 | CN9 pin 7, D6 | TIM2_CH3, servo educativo | — |
 | PB3 | CN9 pin 4, D3 | Libre como GPIO. Es el SWO del conector CN4 | No cortar SB15 sin motivo |
-| PA8 | CN9 pin 8, D7 | GPIO de propósito general | — |
-| PB5 | CN9 pin 5, D4 | GPIO de propósito general | — |
+| PA6 | CN5 pin 5, D12 | Segundo NSS de SPI, solo GPIO, si hay dos dispositivos | El encoder y cualquier otra función a la vez |
+| PA8 | CN9 pin 8, D7. Tipo FTf | Salida del semáforo rojo, o entrada del pulsador externo, o entrada del optoacoplador. Uno cada vez | Las tres funciones a la vez |
+| PB5 | CN9 pin 5, D4. Tipo FTf | LED ámbar del semáforo, o base del transistor. Uno cada vez | El semáforo y el relé a la vez |
+| PB7 | CN7 pin 21. Tipo FTf | TIM4_CH2, canal B del encoder | I2C1 en este pin. El I2C del curso sigue en PB8/PB9 |
+| PC6 | CN10 pin 4. Tipo FT | DE y /RE del transceptor RS-485 | — |
 | PB13 | CN10 pin 30 | SPI2_SCK | — |
 | PB14 | CN10 pin 28 | SPI2_MISO | — |
 | PB15 | CN10 pin 26 | SPI2_MOSI | — |
@@ -193,8 +196,17 @@ El relé, cuando aparezca en el módulo 10 y en los proyectos, se activa con tra
 - Transistor NPN de pequeña señal y diodo 1N4007, o un módulo de relé pensado para entrada de 3,3 V.
 - Destornillador pequeño, para no apoyarte en los pulsadores cuando pongas un shield. El manual avisa de que la caperuza de B1 o B2 puede dejar el reset pulsado.
 
-## Lo que no está en la primera entrega
+## Qué hay escrito
 
-Están escritos el entorno, este índice, las fichas de los 28 módulos y los módulos 1 y 2. Del módulo 3 en adelante la ficha ya dice qué se practica y con qué pines; el procedimiento, el código y el dibujo de cada ejemplo se publican con ese módulo.
+Están escritos el entorno, este índice, las fichas y las lecciones de los módulos 1 a 28 y de los proyectos P1 a P4. El código de cada ejemplo está en la lección, dentro de las zonas USER CODE. No hay un árbol de proyectos de CubeMX generado en `proyectos/`: CubeMX lo crea el estudiante en su PC a partir de los pasos de cada módulo. Este repositorio no dice que ese código se haya compilado ni grabado.
 
-Cuando se publique un módulo, su carpeta de proyecto vivirá en `proyectos/` y el HTML se regenerará con `tools/build_html.py`.
+Usos alternativos del mismo pin, que las lecciones no montan a la vez:
+
+- PA8: LED rojo del semáforo, pulsador externo o entrada del optoacoplador.
+- PB5: LED ámbar o base del transistor.
+- PA9 y PA10: ESP32 en el módulo 7, o Modbus en el módulo 21 y en P4.
+- PB6: canal A del encoder. El segundo selector SPI es PA6, no PB6.
+- PA0: potenciómetro, o la resistencia del lazo de 4–20 mA.
+- PA1: segunda tensión, divisor 0–10 V, o la fotorresistencia del PID.
+
+El HTML se regenera con `tools/build_html.py`. Los dibujos de las prácticas salen de `tools/gen_svg_practicas.py`.

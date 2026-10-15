@@ -18,15 +18,6 @@ CURSO = ROOT / "curso"
 DOCS = ROOT / "docs"
 IMG_OUT = DOCS / "img"
 
-PAGES = [
-    ("00-fuentes-y-entorno.md", "fuentes", "Fuentes y entorno"),
-    ("01-indice-y-matriz.md", "indice", "Índice y matriz"),
-    ("01b-fichas-modulos.md", "fichas", "Fichas de los módulos"),
-    ("02-modulo-01-arquitectura.md", "modulo-01", "Módulo 1"),
-    ("03-modulo-02-alimentacion.md", "modulo-02", "Módulo 2"),
-]
-
-
 def slug(text: str) -> str:
     text = text.lower()
     text = (
@@ -42,15 +33,21 @@ def slug(text: str) -> str:
     return text or "seccion"
 
 
+def discover_pages() -> list[tuple[str, str, str]]:
+    pages = []
+    for path in sorted(CURSO.glob("*.md")):
+        pages.append((path.name, slug(path.stem), path.stem))
+    return pages
+
+
+PAGES = discover_pages()
+
+
 def build_page(md_name: str, page_id: str) -> tuple[str, list[tuple[str, str, int]]]:
     raw = (CURSO / md_name).read_text(encoding="utf-8")
     raw = raw.replace("](img/", "](img/")
-    # Enlaces entre páginas: apuntan a anclas de esta misma página HTML.
-    raw = raw.replace("(00-fuentes-y-entorno.md)", "(#fuentes)")
-    raw = raw.replace("(01-indice-y-matriz.md)", "(#indice)")
-    raw = raw.replace("(01b-fichas-modulos.md)", "(#fichas)")
-    raw = raw.replace("(02-modulo-01-arquitectura.md)", "(#modulo-01)")
-    raw = raw.replace("(03-modulo-02-alimentacion.md)", "(#modulo-02)")
+    for name, pid, _stem in PAGES:
+        raw = raw.replace(f"({name})", f"(#{pid})")
 
     headings: list[tuple[str, str, int]] = []
 

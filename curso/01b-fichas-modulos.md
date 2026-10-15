@@ -1,8 +1,8 @@
 # Fichas de los módulos
 
-Esta página dice, módulo por módulo, qué problema se resuelve, qué se sabe al terminar, cuáles son las tres prácticas y qué pin se usa. No sustituye la lección. La lección escrita, con el procedimiento reproducible, está en el módulo 1 y en el módulo 2. Del 3 al 28 la ficha es el contrato: el código y el dibujo de cableado llegan con la entrega de ese módulo.
+Esta página dice, módulo por módulo, qué problema se resuelve, qué se sabe al terminar, cuáles son las tres prácticas y qué pin se usa. La lección, con el procedimiento, el código y el dibujo, está escrita del módulo 1 al 28 y en los cuatro proyectos. La ficha es el resumen; el procedimiento reproducible está en el archivo enlazado.
 
-Nada de lo planificado se ha compilado ni se ha probado en una placa. Donde un número eléctrico importa, la ficha remite al datasheet o a UM1724.
+Nada de ese código se ha compilado ni se ha probado en una placa al redactarlo. Donde un número eléctrico importa, la ficha remite al datasheet o a UM1724.
 
 El mapa de pines común está en el [índice](01-indice-y-matriz.md). Estas fichas no lo cambian.
 
@@ -36,7 +36,7 @@ El mapa de pines común está en el [índice](01-indice-y-matriz.md). Estas fich
 
 ### Módulo 3. Instalación y primer proyecto
 
-**Estado.** Planificado. El procedimiento de instalación ya está en [Fuentes y entorno](00-fuentes-y-entorno.md). Este módulo lo recorre con la placa delante y deja el primer programa mínimo.
+**Estado.** Escrito en [Módulo 3](04-modulo-03-primer-proyecto.md). El procedimiento de instalación también está en [Fuentes y entorno](00-fuentes-y-entorno.md).
 
 **Para qué sirve.** Pasar de «la placa enciende» a «yo he generado, compilado y grabado un proyecto».
 
@@ -50,11 +50,11 @@ El mapa de pines común está en el [índice](01-indice-y-matriz.md). Estas fich
 
 **Pines.** PA5 como GPIO de salida, que es lo que CubeMX propone al elegir la placa. No se cablea nada fuera.
 
-**Qué no se afirma.** Hasta que se redacte el módulo, este repositorio no incluye ese proyecto ni dice que haya compilado.
+**Qué no se afirma.** La lección trae el código. Este repositorio no incluye un proyecto de CubeMX ya generado ni dice que ese código se haya compilado.
 
 ### Módulo 4. Fundamentos de C aplicados a STM32
 
-**Estado.** Planificado. No supone que ya sepas C.
+**Estado.** Escrito en [Módulo 4](05-modulo-04-lenguaje-c.md). No supone que ya sepas C.
 
 **Para qué sirve.** Leer el `main.c` que genera CubeMX sin tratarlo como un conjuro. Un `uint8_t`, un `while` y una función son las herramientas de los módulos siguientes.
 
@@ -70,7 +70,7 @@ El mapa de pines común está en el [índice](01-indice-y-matriz.md). Estas fich
 
 ### Módulo 5. GPIO
 
-**Estado.** Planificado. Es el primer módulo con piezas fuera de la placa.
+**Estado.** Escrito en [Módulo 5](06-modulo-05-gpio.md). Es el primer módulo con piezas fuera de la placa.
 
 **Para qué sirve.** Encender una lámpara de señal y leer un mando. En un cuadro industrial eso es un piloto y un pulsador de marcha, aquí a 3,3 V.
 
@@ -86,7 +86,7 @@ El mapa de pines común está en el [índice](01-indice-y-matriz.md). Estas fich
 
 ### Módulo 6. Depuración y diagnóstico
 
-**Estado.** Planificado.
+**Estado.** Escrito en [Módulo 6](07-modulo-06-depuracion.md).
 
 **Para qué sirve.** Cuando el LED no hace lo que crees, distinguir un pin mal elegido, un programa que no llegó a grabarse y una variable que no vale lo que imaginas.
 
@@ -102,7 +102,7 @@ El mapa de pines común está en el [índice](01-indice-y-matriz.md). Estas fich
 
 ### Módulo 7. UART y terminal serie
 
-**Estado.** Planificado.
+**Estado.** Escrito en [Módulo 7](08-modulo-07-uart.md).
 
 **Para qué sirve.** Ver números en el PC sin un depurador, que es como un panel de operador mínimo. También hablar con otra placa de 3,3 V.
 
@@ -120,7 +120,7 @@ El mapa de pines común está en el [índice](01-indice-y-matriz.md). Estas fich
 
 ### Módulo 8. Temporizadores y programas que no se bloquean
 
-**Estado.** Planificado.
+**Estado.** Escrito en [Módulo 8](09-modulo-08-temporizadores.md).
 
 **Para qué sirve.** Un semáforo no puede quedarse dormido dentro de `HAL_Delay` si además tiene que leer un pulsador. El tiempo pasa en un temporizador y el programa solo mira si ya toca cambiar.
 
@@ -136,7 +136,7 @@ El mapa de pines común está en el [índice](01-indice-y-matriz.md). Estas fich
 
 ### Módulo 9. Interrupciones y prioridades
 
-**Estado.** Planificado. La palabra «interrupción» se define aquí, con la analogía del teléfono que suena mientras estás midiendo, antes de hablar de prioridades del NVIC.
+**Estado.** Escrito en [Módulo 9](10-modulo-09-interrupciones.md). La palabra «interrupción» se define aquí, con la analogía del teléfono que suena mientras estás midiendo, antes de hablar de prioridades del NVIC.
 
 **Para qué sirve.** Atender un flanco en el momento en que ocurre, sin preguntar todo el tiempo si el pulsador está pulsado.
 
@@ -154,7 +154,7 @@ El mapa de pines común está en el [índice](01-indice-y-matriz.md). Estas fich
 
 ### Módulo 10. PWM y cargas con etapa externa
 
-**Estado.** Planificado.
+**Estado.** Escrito en [Módulo 10](11-modulo-10-pwm.md).
 
 **Para qué sirve.** Variar la luz de un LED y mandar un relé o un motor pequeño sin pedir la corriente al pin. Un servo de aeromodelismo se manda con un pulso; no es un servo industrial.
 
@@ -170,7 +170,7 @@ El mapa de pines común está en el [índice](01-indice-y-matriz.md). Estas fich
 
 ### Módulo 11. ADC
 
-**Estado.** Planificado.
+**Estado.** Escrito en [Módulo 11](12-modulo-11-adc.md).
 
 **Para qué sirve.** Leer una posición, un nivel o una temperatura que llegan como tensión, dentro de 0 a 3,3 V.
 
@@ -188,7 +188,7 @@ El mapa de pines común está en el [índice](01-indice-y-matriz.md). Estas fich
 
 ### Módulo 12. DAC
 
-**Estado.** Planificado. El chip tiene dos canales. Los dos salen a un conector, pero uno está ocupado.
+**Estado.** Escrito en [Módulo 12](13-modulo-12-dac.md). El chip tiene dos canales. Los dos salen a un conector, pero uno está ocupado.
 
 **Para qué sirve.** Generar una tensión de referencia o una rampa lenta sin un potenciómetro.
 
@@ -204,7 +204,7 @@ El mapa de pines común está en el [índice](01-indice-y-matriz.md). Estas fich
 
 ### Módulo 13. I2C
 
-**Estado.** Planificado.
+**Estado.** Escrito en [Módulo 13](14-modulo-13-i2c.md).
 
 **Para qué sirve.** Leer un sensor o escribir en una pantalla con dos hilos compartidos por varias piezas.
 
@@ -222,7 +222,7 @@ El mapa de pines común está en el [índice](01-indice-y-matriz.md). Estas fich
 
 ### Módulo 14. SPI
 
-**Estado.** Planificado.
+**Estado.** Escrito en [Módulo 14](15-modulo-14-spi.md).
 
 **Para qué sirve.** Hablar con un dispositivo que tiene reloj, dato de ida y dato de vuelta, más rápido que I2C y con un hilo de selección por dispositivo.
 
@@ -234,13 +234,13 @@ El mapa de pines común está en el [índice](01-indice-y-matriz.md). Estas fich
 2. Leer el identificador o un registro de un sensor SPI de 3,3 V. El modelo se fija con su hoja.
 3. Dos dispositivos en el mismo bus, cada uno con su NSS, y el programa demuestra que no se pisan.
 
-**Pines.** SPI2, para no usar PA5: PB13 SCK (CN10 pin 30), PB14 MISO (CN10 pin 28), PB15 MOSI (CN10 pin 26), PB12 NSS (CN10 pin 16). Es la función alternativa AF5 de la tabla 14 del datasheet. Un segundo NSS puede ir por PB6 (D10) si hace falta.
+**Pines.** SPI2, para no usar PA5: PB13 SCK (CN10 pin 30), PB14 MISO (CN10 pin 28), PB15 MOSI (CN10 pin 26), PB12 NSS (CN10 pin 16). Es la función alternativa AF5 de la tabla 14 del datasheet. El segundo NSS es PA6 (D12, CN5 pin 5). PB6 queda para el encoder.
 
 **Errata.** ES0261 describe casos del CRC del SPI y del bit BSY. La lección los mira antes de activar CRC o el modo esclavo. Estas prácticas son maestro, sin CRC.
 
 ### Módulo 15. DMA
 
-**Estado.** Planificado.
+**Estado.** Escrito en [Módulo 15](16-modulo-15-dma.md).
 
 **Para qué sirve.** Llenar una tabla de medidas sin que el núcleo copie cada muestra a mano. Es la diferencia entre mirar un instrumento a cada instante y dejar que un registrador llene la hoja.
 
@@ -258,7 +258,7 @@ El mapa de pines común está en el [índice](01-indice-y-matriz.md). Estas fich
 
 ### Módulo 16. Encoder, pulsos y velocidad
 
-**Estado.** Planificado.
+**Estado.** Escrito en [Módulo 16](17-modulo-16-encoder.md).
 
 **Para qué sirve.** Contar piezas en una cinta o vueltas de un eje pequeño, y pasar de pulsos a RPM con la cantidad de pulsos por vuelta.
 
@@ -270,13 +270,13 @@ El mapa de pines común está en el [índice](01-indice-y-matriz.md). Estas fich
 2. RPM de una rueda de prueba de la que se conoce el número de marcas. La fórmula se desarrolla en la lección.
 3. Un encoder incremental de 3,3 V, con sus dos canales en cuadratura. Si la salida es en colector abierto, pull-up a 3,3 V. No se conecta un encoder industrial de 24 V.
 
-**Pines.** Se elegirán en TIM2 o TIM3 entre los que el mapa deja libres al llegar aquí: la lección publicará la tabla y no reutilizará PB8/PB9 ni PA2/PA3. Hasta entonces no se inventa el número de pin en un dibujo.
+**Pines.** TIM4, no TIM3: PB6 es TIM4_CH1 (CN5 pin 3, D10) y PB7 es TIM4_CH2 (CN7 pin 21). TIM3 canal 2 sigue siendo el PWM de PC7. No se usan PB8/PB9 ni PA2/PA3.
 
 ## Nivel avanzado
 
 ### Módulo 17. Máquinas de estados
 
-**Estado.** Planificado.
+**Estado.** Escrito en [Módulo 17](18-modulo-17-estados.md).
 
 **Para qué sirve.** Que un semáforo o una alarma no sean una cadena de retardos imposible de ampliar. Cada situación tiene un nombre y unas transiciones.
 
@@ -292,7 +292,7 @@ El mapa de pines común está en el [índice](01-indice-y-matriz.md). Estas fich
 
 ### Módulo 18. FreeRTOS
 
-**Estado.** Planificado. El núcleo del curso no usa un sistema operativo hasta aquí. Se define qué es una tarea antes de crear la primera.
+**Estado.** Escrito en [Módulo 18](19-modulo-18-freertos.md). El núcleo del curso no usa un sistema operativo hasta aquí. Se define qué es una tarea antes de crear la primera.
 
 **Para qué sirve.** Tener a la vez la lectura, el puerto serie y el parpadeo sin convertir el lazo principal en un embudo.
 
@@ -308,7 +308,7 @@ El mapa de pines común está en el [índice](01-indice-y-matriz.md). Estas fich
 
 ### Módulo 19. Filtrado digital
 
-**Estado.** Planificado.
+**Estado.** Escrito en [Módulo 19](20-modulo-19-filtrado.md).
 
 **Para qué sirve.** Que un umbral no dispare una alarma por un pico de ruido de una sola muestra.
 
@@ -324,7 +324,7 @@ El mapa de pines común está en el [índice](01-indice-y-matriz.md). Estas fich
 
 ### Módulo 20. PID
 
-**Estado.** Planificado.
+**Estado.** Escrito en [Módulo 20](21-modulo-20-pid.md).
 
 **Para qué sirve.** Acercar una medida a una consigna. Primero en un modelo que vive en el programa, para ver el efecto de cada término sin quemar un motor. Después en una planta de juguete de baja tensión.
 
@@ -340,7 +340,7 @@ El mapa de pines común está en el [índice](01-indice-y-matriz.md). Estas fich
 
 ### Módulo 21. Modbus RTU
 
-**Estado.** Planificado.
+**Estado.** Escrito en [Módulo 21](22-modulo-21-modbus.md).
 
 **Para qué sirve.** Publicar una medida a un maestro, que es el papel de muchos instrumentos de campo. La placa no trae RS-485.
 
@@ -354,11 +354,11 @@ El mapa de pines común está en el [índice](01-indice-y-matriz.md). Estas fich
 
 **Material.** Transceptor RS-485 con alimentación y niveles de 3,3 V, por ejemplo un MAX3485 o equivalente. No un MAX485 a 5 V pegado al pin. Par trenzado y resistencia de 120 Ω en los dos extremos del bus de prueba.
 
-**Pines.** USART1 en PA9 y PA10, más un GPIO libre para el sentido de transmisión del transceptor. La lección fijará ese GPIO entre los que sigan libres y lo dibujará. USART2 se queda para el mensaje de diagnóstico hacia el PC.
+**Pines.** USART1 en PA9 y PA10. El sentido del transceptor es PC6 (CN10 pin 4), con DE y /RE unidos. USART2 se queda para el mensaje de diagnóstico hacia el PC.
 
 ### Módulo 22. CAN
 
-**Estado.** Planificado. El STM32F303RET6 tiene un controlador CAN. La placa no tiene transceptor ni conector CAN.
+**Estado.** Escrito en [Módulo 22](23-modulo-22-can.md). El STM32F303RET6 tiene un controlador CAN. La placa no tiene transceptor ni conector CAN.
 
 **Para qué sirve.** Intercambiar un identificador y unos datos con otra estación, como en un vehículo o una máquina, sin que cada nodo espere su turno por un maestro único.
 
@@ -376,7 +376,7 @@ El mapa de pines común está en el [índice](01-indice-y-matriz.md). Estas fich
 
 ### Módulo 23. Watchdog y fallos
 
-**Estado.** Planificado.
+**Estado.** Escrito en [Módulo 23](24-modulo-23-watchdog.md).
 
 **Para qué sirve.** Que un programa bloqueado vuelva a arrancar solo, y que al volver se sepa que hubo un fallo y no un encendido normal.
 
@@ -392,7 +392,7 @@ El mapa de pines común está en el [índice](01-indice-y-matriz.md). Estas fich
 
 ### Módulo 24. Memoria no volátil
 
-**Estado.** Planificado.
+**Estado.** Escrito en [Módulo 24](25-modulo-24-flash.md).
 
 **Para qué sirve.** Que un umbral de alarma siga ahí después de quitar el USB. En este chip eso se hace en la Flash, no hay una EEPROM aparte que el datasheet describa como tal.
 
@@ -408,7 +408,7 @@ El mapa de pines común está en el [índice](01-indice-y-matriz.md). Estas fich
 
 ### Módulo 25. Bajo consumo
 
-**Estado.** Planificado.
+**Estado.** Escrito en [Módulo 25](26-modulo-25-bajo-consumo.md).
 
 **Para qué sirve.** Medir cuánto gasta el chip y bajar ese gasto cuando no hay nada que hacer. Sigue siendo un prototipo de mesa, no un diseño de pila certificado.
 
@@ -424,7 +424,7 @@ El mapa de pines común está en el [índice](01-indice-y-matriz.md). Estas fich
 
 ### Módulo 26. HAL, LL y registros
 
-**Estado.** Planificado.
+**Estado.** Escrito en [Módulo 26](27-modulo-26-hal-ll-registros.md).
 
 **Para qué sirve.** Elegir el nivel de acceso con un motivo, no por costumbre. HAL es la capa que ha usado el curso. LL y el registro se ven cuando hace falta ver el bit.
 
@@ -440,7 +440,7 @@ El mapa de pines común está en el [índice](01-indice-y-matriz.md). Estas fich
 
 ### Módulo 27. Interfaces industriales
 
-**Estado.** Planificado. Aquí se separa el prototipo de mesa de un equipo de cuadro.
+**Estado.** Escrito en [Módulo 27](28-modulo-27-interfaces.md). Aquí se separa el prototipo de mesa de un equipo de cuadro.
 
 **Para qué sirve.** Entrar 24 V, 0–10 V o 4–20 mA sin tocar el pin con esa señal. La placa no tiene esas interfaces.
 
@@ -456,7 +456,7 @@ El mapa de pines común está en el [índice](01-indice-y-matriz.md). Estas fich
 
 ### Módulo 28. Pruebas y prototipo
 
-**Estado.** Planificado.
+**Estado.** Escrito en [Módulo 28](29-modulo-28-pruebas.md).
 
 **Para qué sirve.** Dejar el montaje en un estado en el que otra persona pueda repetirlo y sepa qué no está demostrado.
 
@@ -470,21 +470,29 @@ El mapa de pines común está en el [índice](01-indice-y-matriz.md). Estas fich
 
 ## Proyectos integradores
 
-Estos cuatro montajes no añaden pines fuera del mapa. Cada uno se escribe cuando estén publicados los módulos de los que depende.
+Estos cuatro montajes no añaden pines fuera del mapa. Las lecciones están escritas.
 
 ### P1. Estación de temperatura
+
+**Estado.** Escrito en [Proyecto P1](30-proyecto-01-temperatura.md).
 
 Lectura de un sensor de 3,3 V, valor en la pantalla I2C y alarma por umbral en un LED o en el transistor del módulo 10. Depende de los módulos 5, 11, 13 y 17. El umbral se puede guardar cuando exista el módulo 24. No es un registro de temperatura de un proceso industrial: el sensor y la exactitud son los de la hoja del componente que se elija.
 
 ### P2. Control de tanque
 
+**Estado.** Escrito en [Proyecto P2](31-proyecto-02-tanque.md).
+
 El nivel es una tensión de 0 a 3,3 V, no un depósito real con agua junto a la placa. La bomba es un LED o un relé de baja tensión que representa el contactor. Hay estados de marcha, paro y fallo, y el watchdog del módulo 23 si ya está dado. Depende de 11, 17, 20 y 23. No se bombea líquido en esta práctica.
 
 ### P3. Monitor de motor
 
+**Estado.** Escrito en [Proyecto P3](32-proyecto-03-motor.md).
+
 Cuenta de pulsos o encoder a RPM, una entrada analógica de 0 a 3,3 V que representa una corriente mediante un sensor de laboratorio, y alarmas por el puerto serie. Depende de 7, 11 y 16. El motor, si se usa el del módulo 10, es pequeño y con driver externo. No se supervisa un motor de red.
 
 ### P4. Nodo de adquisición
+
+**Estado.** Escrito en [Proyecto P4](33-proyecto-04-nodo-modbus.md).
 
 Varias medidas por ADC, con DMA cuando el módulo 15 esté escrito, parámetros guardados en Flash y publicación por Modbus RTU. Depende de 15, 21 y 24. La segunda estación es el maestro Modbus. El nodo no incluye Ethernet ni Wi-Fi.
 
@@ -494,4 +502,33 @@ Varias medidas por ADC, con DMA cuando el módulo 15 esté escrito, parámetros 
 | --- | --- |
 | 1 | [02-modulo-01-arquitectura.md](02-modulo-01-arquitectura.md) |
 | 2 | [03-modulo-02-alimentacion.md](03-modulo-02-alimentacion.md) |
-| 3 a 28 y P1 a P4 | Ficha en esta página. La lección completa se añade al publicar ese módulo |
+| 3 | [04-modulo-03-primer-proyecto.md](04-modulo-03-primer-proyecto.md) |
+| 4 | [05-modulo-04-lenguaje-c.md](05-modulo-04-lenguaje-c.md) |
+| 5 | [06-modulo-05-gpio.md](06-modulo-05-gpio.md) |
+| 6 | [07-modulo-06-depuracion.md](07-modulo-06-depuracion.md) |
+| 7 | [08-modulo-07-uart.md](08-modulo-07-uart.md) |
+| 8 | [09-modulo-08-temporizadores.md](09-modulo-08-temporizadores.md) |
+| 9 | [10-modulo-09-interrupciones.md](10-modulo-09-interrupciones.md) |
+| 10 | [11-modulo-10-pwm.md](11-modulo-10-pwm.md) |
+| 11 | [12-modulo-11-adc.md](12-modulo-11-adc.md) |
+| 12 | [13-modulo-12-dac.md](13-modulo-12-dac.md) |
+| 13 | [14-modulo-13-i2c.md](14-modulo-13-i2c.md) |
+| 14 | [15-modulo-14-spi.md](15-modulo-14-spi.md) |
+| 15 | [16-modulo-15-dma.md](16-modulo-15-dma.md) |
+| 16 | [17-modulo-16-encoder.md](17-modulo-16-encoder.md) |
+| 17 | [18-modulo-17-estados.md](18-modulo-17-estados.md) |
+| 18 | [19-modulo-18-freertos.md](19-modulo-18-freertos.md) |
+| 19 | [20-modulo-19-filtrado.md](20-modulo-19-filtrado.md) |
+| 20 | [21-modulo-20-pid.md](21-modulo-20-pid.md) |
+| 21 | [22-modulo-21-modbus.md](22-modulo-21-modbus.md) |
+| 22 | [23-modulo-22-can.md](23-modulo-22-can.md) |
+| 23 | [24-modulo-23-watchdog.md](24-modulo-23-watchdog.md) |
+| 24 | [25-modulo-24-flash.md](25-modulo-24-flash.md) |
+| 25 | [26-modulo-25-bajo-consumo.md](26-modulo-25-bajo-consumo.md) |
+| 26 | [27-modulo-26-hal-ll-registros.md](27-modulo-26-hal-ll-registros.md) |
+| 27 | [28-modulo-27-interfaces.md](28-modulo-27-interfaces.md) |
+| 28 | [29-modulo-28-pruebas.md](29-modulo-28-pruebas.md) |
+| P1 | [30-proyecto-01-temperatura.md](30-proyecto-01-temperatura.md) |
+| P2 | [31-proyecto-02-tanque.md](31-proyecto-02-tanque.md) |
+| P3 | [32-proyecto-03-motor.md](32-proyecto-03-motor.md) |
+| P4 | [33-proyecto-04-nodo-modbus.md](33-proyecto-04-nodo-modbus.md) |

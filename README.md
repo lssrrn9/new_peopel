@@ -2,17 +2,17 @@
 
 Curso práctico, en español, sobre la tarjeta **NUCLEO-F303RE** y el microcontrolador **STM32F303RET6**. El entorno de trabajo es Visual Studio Code con la extensión oficial STM32CubeIDE for Visual Studio Code 3.x, STM32CubeMX y CMake. El ST-LINK integrado graba y depura.
 
-Esta rama contiene la primera entrega y las fichas de todos los módulos:
+Esta rama contiene el curso completo:
 
 1. Fuentes oficiales consultadas y procedimiento de instalación.
-2. Índice completo de 28 módulos y 4 proyectos integradores.
-3. Matriz de prácticas y materiales, con el mapa de pines que el resto del curso va a respetar.
-4. Módulo 1 desarrollado: arquitectura de la tarjeta, diagramas SVG y tres prácticas guiadas.
-5. Módulo 2 desarrollado: alimentación, tipos de pin y límites de corriente, con el cálculo del LED.
-6. Una ficha de cada módulo del 1 al 28 y de los cuatro proyectos: problema, prácticas, pines y límites.
+2. Índice de 28 módulos y 4 proyectos, con el mapa de pines.
+3. Matriz de prácticas y materiales.
+4. Módulos 1 a 28 escritos: analogía, explicación técnica, y al menos tres ejemplos con cableado, CubeMX y código.
+5. Proyectos P1 a P4 escritos, reutilizando ese mapa de pines.
+6. Una ficha de cada módulo, enlazada a su lección.
 7. Versión HTML con menú lateral, filtro, imágenes ampliables y bloques de código copiables.
 
-Del módulo 3 en adelante la ficha fija el contenido. El código y el cableado de cada ejemplo se publican con ese módulo.
+El código de los ejemplos no se ha compilado ni se ha grabado en una placa al escribir el curso. Cada lección lo dice.
 
 ## Cómo leerlo
 
@@ -23,6 +23,7 @@ Los dibujos son SVG generados por [`tools/gen_svg_modulo01.py`](tools/gen_svg_mo
 
 ```bash
 python3 tools/gen_svg_modulo01.py
+python3 tools/gen_svg_practicas.py
 python3 tools/build_html.py
 ```
 
