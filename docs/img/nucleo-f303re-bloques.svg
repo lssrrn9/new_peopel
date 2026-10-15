@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="760" viewBox="0 0 1180 760" role="img">
+<title>Diagrama de bloques NUCLEO-F303RE</title>
+<rect width="100%" height="100%" fill="#f6f3ee"/>
+<style>
+  text { font-family: Liberation Sans, Segoe UI, sans-serif; fill: #1c1917; }
+  .h { font-size: 22px; font-weight: 700; }
+  .sub { font-size: 12px; fill: #57534e; }
+  .sm { font-size: 11px; }
+  .xs { font-size: 10px; }
+  .tiny { font-size: 9px; }
+  .w { fill: #fff; }
+  .pin { font-size: 9px; font-family: Liberation Sans, Segoe UI, sans-serif; }
+</style>
+<defs>
+  <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 1.2 L 9 5 L 0 8.8 z" fill="#44403c"/>
+  </marker>
+  <marker id="arrw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 1.2 L 9 5 L 0 8.8 z" fill="#1d4ed8"/>
+  </marker>
+</defs>
+<text x="28" y="34" class="h" text-anchor="start">NUCLEO-F303RE — bloques y quién habla con quién</text>
+<text x="28" y="56" class="sub" text-anchor="start">UM1724 Rev 17, secciones 7.4 a 7.10, y esquema MB1136 C05.</text>
+<rect x="28" y="90" width="200" height="160" rx="8" fill="#ede9fe" stroke="#6d28d9" stroke-width="1.6"/>
+<text x="128" y="130" class="h" text-anchor="middle">PC</text>
+<text x="128" y="158" class="sm" text-anchor="middle">VS Code</text>
+<text x="128" y="178" class="sm" text-anchor="middle">CubeMX</text>
+<text x="128" y="198" class="sm" text-anchor="middle">terminal serie</text>
+<text x="128" y="228" class="xs" text-anchor="middle">USB con datos</text>
+<rect x="300" y="80" width="280" height="200" rx="8" fill="#ccfbf1" stroke="#0f766e" stroke-width="1.8"/>
+<text x="440" y="110" class="h" text-anchor="middle" fill="#0f766e">ST-LINK/V2-1</text>
+<text x="440" y="136" class="sm" text-anchor="middle">U2 STM32F103CBT6</text>
+<text x="440" y="160" class="xs" text-anchor="middle">1. Depuración SWD</text>
+<text x="440" y="178" class="xs" text-anchor="middle">2. Disco y programación</text>
+<text x="440" y="196" class="xs" text-anchor="middle">3. Puerto COM virtual</text>
+<text x="440" y="214" class="xs" text-anchor="middle">4. MCO 8 MHz hacia PF0</text>
+<text x="440" y="240" class="xs" text-anchor="middle">CN1 pide hasta 300 mA</text>
+<text x="440" y="258" class="xs" text-anchor="middle">si JP1 está abierto</text>
+<rect x="760" y="70" width="390" height="250" rx="8" fill="#dbeafe" stroke="#1e3a5f" stroke-width="1.8"/>
+<text x="955" y="100" class="h" text-anchor="middle" fill="#1e3a5f">STM32F303RET6</text>
+<text x="955" y="124" class="sm" text-anchor="middle">U5 · Cortex-M4F a 72 MHz</text>
+<text x="778" y="156" class="xs" text-anchor="start">512 KB Flash · 64 KB SRAM + 16 KB CCM</text>
+<text x="778" y="176" class="xs" text-anchor="start">4 ADC · 2 DAC · 7 comp. · 4 op-amp</text>
+<text x="778" y="196" class="xs" text-anchor="start">TIM1 y TIM8 · TIM2 de 32 bits</text>
+<text x="778" y="216" class="xs" text-anchor="start">3 USART · 2 UART · 3 I2C · CAN · USB</text>
+<text x="778" y="236" class="xs" text-anchor="start">51 E/S: 26 TC/TTa y 25 FT/FTf</text>
+<text x="778" y="256" class="xs" text-anchor="start">VDD = 3,3 V del regulador U4</text>
+<text x="778" y="290" class="xs" text-anchor="start">El programa corre solo aquí.</text>
+<line x1="228" y1="160" x2="300" y2="160" stroke="#44403c" stroke-width="1.8" marker-end="url(#arr)"/>
+<text x="264" y="150" class="tiny" text-anchor="middle">USB</text>
+<line x1="580" y1="120" x2="760" y2="120" stroke="#1d4ed8" stroke-width="1.4" marker-end="url(#arrw)"/>
+<text x="670" y="112" class="tiny" text-anchor="middle">1  SWD   PA13 / PA14</text>
+<line x1="580" y1="165" x2="760" y2="165" stroke="#1d4ed8" stroke-width="1.4" marker-end="url(#arrw)"/>
+<text x="670" y="157" class="tiny" text-anchor="middle">2  NRST</text>
+<line x1="580" y1="210" x2="760" y2="210" stroke="#1d4ed8" stroke-width="1.4" marker-end="url(#arrw)"/>
+<text x="670" y="202" class="tiny" text-anchor="middle">3  USART2   PA2 / PA3</text>
+<line x1="580" y1="255" x2="760" y2="255" stroke="#1d4ed8" stroke-width="1.4" marker-end="url(#arrw)"/>
+<text x="670" y="247" class="tiny" text-anchor="middle">4  MCO 8 MHz a PF0</text>
+<rect x="28" y="360" width="552" height="160" rx="8" fill="#ffedd5" stroke="#c2410c" stroke-width="1.5"/>
+<text x="48" y="388" class="sm" text-anchor="start">Alimentación (hoja Top and Power)</text>
+<text x="48" y="414" class="xs" text-anchor="start">USB 5 V → U5V. JP5 en 1-2 selecciona U5V (defecto).</text>
+<text x="48" y="434" class="xs" text-anchor="start">VIN 7–12 V entra por U3 LD1117S50TR y sale 5 V.</text>
+<text x="48" y="454" class="xs" text-anchor="start">E5V es 5 V directo, por CN7 pin 6, con JP5 en 2-3.</text>
+<text x="48" y="474" class="xs" text-anchor="start">+5 V → U4 LD39050PU33R → +3,3 V (VDD). JP6 en serie.</text>
+<text x="48" y="494" class="xs" text-anchor="start">LD3 rojo se enciende cuando hay +5 V en la parte del MCU.</text>
+<rect x="600" y="360" width="550" height="160" rx="8" fill="#ecfccb" stroke="#3f6212" stroke-width="1.5"/>
+<text x="620" y="388" class="sm" text-anchor="start">Lo que sale hacia el protoboard</text>
+<text x="620" y="414" class="xs" text-anchor="start">Arduino Uno Rev. 3: CN5, CN6, CN8, CN9.</text>
+<text x="620" y="434" class="xs" text-anchor="start">Morpho: CN7 y CN10, 38 pines cada uno.</text>
+<text x="620" y="454" class="xs" text-anchor="start">PA13 y PA14 están en CN7, pero son el SWD.</text>
+<text x="620" y="474" class="xs" text-anchor="start">No los uses como E/S con el ST-LINK conectado.</text>
+<text x="620" y="494" class="xs" text-anchor="start">PA2 y PA3 no llegan a D1/D0: SB62 y SB63 abiertos.</text>
+<rect x="28" y="545" width="1122" height="185" rx="8" fill="#fff" stroke="#a8a29e" stroke-width="1"/>
+<text x="48" y="574" class="sm" text-anchor="start">Señales que comparten pista y por eso se reservan en este curso</text>
+<text x="48" y="600" class="xs" text-anchor="start">PA5 — LD2, D13, SPI1_SCK y DAC1_OUT2. El curso lo deja para el LED de la tarjeta.</text>
+<text x="48" y="622" class="xs" text-anchor="start">PC13 — pulsador B1, activo a nivel bajo, con R30 = 4,7 kΩ y C15 = 100 nF.</text>
+<text x="48" y="644" class="xs" text-anchor="start">PA2 / PA3 — USART2 hacia el puerto COM virtual. No están en el conector Arduino.</text>
+<text x="48" y="666" class="xs" text-anchor="start">PF0 — entrada de reloj de 8 MHz desde el ST-LINK en placas C-02 o posteriores.</text>
+<text x="48" y="688" class="xs" text-anchor="start">PB8 / PB9 — I2C1 en D15/D14. También pueden ser CAN; este curso los deja para I2C.</text>
+</svg>

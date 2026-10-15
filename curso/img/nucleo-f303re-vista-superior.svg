@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="1280" viewBox="0 0 980 1280" role="img">
+<title>Vista superior esquemática NUCLEO-F303RE</title>
+<rect width="100%" height="100%" fill="#f6f3ee"/>
+<style>
+  text { font-family: Liberation Sans, Segoe UI, sans-serif; fill: #1c1917; }
+  .h { font-size: 22px; font-weight: 700; }
+  .sub { font-size: 12px; fill: #57534e; }
+  .sm { font-size: 11px; }
+  .xs { font-size: 10px; }
+  .tiny { font-size: 9px; }
+  .w { fill: #fff; }
+  .pin { font-size: 9px; font-family: Liberation Sans, Segoe UI, sans-serif; }
+</style>
+<text x="24" y="32" class="h" text-anchor="start">NUCLEO-F303RE — vista superior esquemática</text>
+<text x="24" y="54" class="sub" text-anchor="start">Orientación: conector USB arriba. No es un plano a escala. Pines según UM1724 Rev 17, Figura 15.</text>
+<rect x="250" y="80" width="420" height="1120" rx="12" fill="#d6e2ee" stroke="#1e3a5f" stroke-width="2.5"/>
+<rect x="270" y="100" width="380" height="250" rx="8" fill="#ccfbf1" stroke="#0f766e" stroke-width="1.5"/>
+<text x="460" y="124" class="sm" text-anchor="middle" fill="#0f766e">Zona ST-LINK/V2-1</text>
+<rect x="390" y="140" width="140" height="36" rx="4" fill="#fff" stroke="#0f766e" stroke-width="1.5"/>
+<text x="460" y="163" class="sm" text-anchor="middle">CN1  USB Mini-B</text>
+<text x="460" y="198" class="xs" text-anchor="middle">U2  STM32F103CBT6</text>
+<text x="460" y="216" class="xs" text-anchor="middle">LD1  COM (tricolor)</text>
+<rect x="300" y="240" width="90" height="36" rx="3" fill="#fef9c3" stroke="#a16207" stroke-width="1.2"/>
+<text x="345" y="262" class="xs" text-anchor="middle">CN2 ON</text>
+<rect x="410" y="240" width="100" height="36" rx="3" fill="#fef9c3" stroke="#a16207" stroke-width="1.2"/>
+<text x="460" y="262" class="xs" text-anchor="middle">JP5  1-2</text>
+<rect x="530" y="240" width="90" height="36" rx="3" fill="#fef9c3" stroke="#a16207" stroke-width="1.2"/>
+<text x="575" y="262" class="xs" text-anchor="middle">JP1 OFF</text>
+<text x="460" y="300" class="tiny" text-anchor="middle">CN4 SWD (para otra tarjeta, con CN2 quitado)</text>
+<text x="460" y="328" class="tiny" text-anchor="middle" fill="#57534e">Corte posible entre ST-LINK y el MCU</text>
+<rect x="340" y="560" width="240" height="160" rx="8" fill="#1e3a5f" stroke="#1e3a5f" stroke-width="1"/>
+<text x="460" y="610" class="sm" text-anchor="middle" fill="#fff">U5</text>
+<text x="460" y="636" class="sm" text-anchor="middle" fill="#fff">STM32F303RET6</text>
+<text x="460" y="658" class="xs" text-anchor="middle" fill="#dbeafe">LQFP64</text>
+<text x="460" y="690" class="xs" text-anchor="middle" fill="#dbeafe">El programa corre aquí</text>
+<rect x="300" y="780" width="120" height="70" rx="6" fill="#dcfce7" stroke="#166534" stroke-width="1.4"/>
+<text x="360" y="808" class="sm" text-anchor="middle">LD2 verde</text>
+<text x="360" y="828" class="xs" text-anchor="middle">PA5  SB21 ON</text>
+<rect x="440" y="780" width="130" height="70" rx="6" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.4"/>
+<text x="505" y="808" class="sm" text-anchor="middle">B1 USER</text>
+<text x="505" y="828" class="xs" text-anchor="middle">PC13  SB17 ON</text>
+<rect x="300" y="870" width="120" height="56" rx="6" fill="#fee2e2" stroke="#991b1b" stroke-width="1.4"/>
+<text x="360" y="894" class="sm" text-anchor="middle">LD3 PWR</text>
+<text x="360" y="912" class="xs" text-anchor="middle">hay +5 V</text>
+<rect x="440" y="870" width="130" height="56" rx="6" fill="#f5f5f4" stroke="#44403c" stroke-width="1.4"/>
+<text x="505" y="894" class="sm" text-anchor="middle">B2 RESET</text>
+<text x="505" y="912" class="xs" text-anchor="middle">NRST a masa</text>
+<rect x="360" y="950" width="200" height="48" rx="4" fill="#fef9c3" stroke="#a16207" stroke-width="1.2"/>
+<text x="460" y="978" class="xs" text-anchor="middle">JP6 IDD  cerrado = VDD</text>
+<text x="460" y="1040" class="xs" text-anchor="middle">X2  32,768 kHz en C-02 o posterior</text>
+<text x="460" y="1080" class="xs" text-anchor="middle" fill="#1e3a5f">Serigrafía: NUCLEO-F303RE</text>
+<text x="460" y="1110" class="tiny" text-anchor="middle" fill="#57534e">Abajo: lado opuesto al USB</text>
+<rect x="70" y="380" width="150" height="640" rx="6" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.2"/>
+<text x="145" y="404" class="sm" text-anchor="middle" fill="#1d4ed8">Izquierda</text>
+<text x="145" y="424" class="xs" text-anchor="middle">CN7 Morpho</text>
+<text x="145" y="442" class="xs" text-anchor="middle">38 pines</text>
+<text x="145" y="470" class="xs" text-anchor="middle">Dentro, más</text>
+<text x="145" y="488" class="xs" text-anchor="middle">cerca del MCU:</text>
+<text x="145" y="516" class="xs" text-anchor="middle" fill="#c2410c">CN6 potencia</text>
+<text x="145" y="534" class="xs" text-anchor="middle" fill="#c2410c">CN8 A0–A5</text>
+<text x="145" y="570" class="tiny" text-anchor="middle">El mapa pin a pin</text>
+<text x="145" y="586" class="tiny" text-anchor="middle">está en los</text>
+<text x="145" y="602" class="tiny" text-anchor="middle">diagramas de</text>
+<text x="145" y="618" class="tiny" text-anchor="middle">conectores.</text>
+<rect x="700" y="380" width="150" height="640" rx="6" fill="#fff7ed" stroke="#c2410c" stroke-width="1.2"/>
+<text x="775" y="404" class="sm" text-anchor="middle" fill="#c2410c">Derecha</text>
+<text x="775" y="424" class="xs" text-anchor="middle">CN10 Morpho</text>
+<text x="775" y="442" class="xs" text-anchor="middle">38 pines</text>
+<text x="775" y="470" class="xs" text-anchor="middle">Dentro:</text>
+<text x="775" y="496" class="xs" text-anchor="middle" fill="#1d4ed8">CN5  D8–D15</text>
+<text x="775" y="514" class="xs" text-anchor="middle" fill="#1d4ed8">CN9  D0–D7</text>
+<text x="775" y="550" class="xs" text-anchor="middle" fill="#991b1b">D0 y D1 no</text>
+<text x="775" y="568" class="xs" text-anchor="middle" fill="#991b1b">llegan al MCU</text>
+<text x="775" y="586" class="xs" text-anchor="middle" fill="#991b1b">con SB62/SB63</text>
+<text x="775" y="604" class="xs" text-anchor="middle" fill="#991b1b">abiertos.</text>
+<text x="24" y="1240" class="tiny" text-anchor="start">Leyenda de color: verde azulado = ST-LINK, azul oscuro = MCU, ámbar = jumpers, naranja = Arduino, azul = Morpho.</text>
+</svg>
