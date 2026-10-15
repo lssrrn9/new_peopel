@@ -2,15 +2,17 @@
 
 Curso práctico, en español, sobre la tarjeta **NUCLEO-F303RE** y el microcontrolador **STM32F303RET6**. El entorno de trabajo es Visual Studio Code con la extensión oficial STM32CubeIDE for Visual Studio Code 3.x, STM32CubeMX y CMake. El ST-LINK integrado graba y depura.
 
-Esta rama contiene la **primera entrega**:
+Esta rama contiene la primera entrega y las fichas de todos los módulos:
 
 1. Fuentes oficiales consultadas y procedimiento de instalación.
 2. Índice completo de 28 módulos y 4 proyectos integradores.
 3. Matriz de prácticas y materiales, con el mapa de pines que el resto del curso va a respetar.
 4. Módulo 1 desarrollado: arquitectura de la tarjeta, diagramas SVG y tres prácticas guiadas.
-5. Versión HTML con menú lateral, filtro, imágenes ampliables y bloques de código copiables.
+5. Módulo 2 desarrollado: alimentación, tipos de pin y límites de corriente, con el cálculo del LED.
+6. Una ficha de cada módulo del 1 al 28 y de los cuatro proyectos: problema, prácticas, pines y límites.
+7. Versión HTML con menú lateral, filtro, imágenes ampliables y bloques de código copiables.
 
-El módulo siguiente es el 2, alimentación y límites eléctricos. Los módulos 3 a 28 están planificados en el índice y todavía no están escritos.
+Del módulo 3 en adelante la ficha fija el contenido. El código y el cableado de cada ejemplo se publican con ese módulo.
 
 ## Cómo leerlo
 

@@ -424,4 +424,4 @@ Sigue al módulo 2 solo si puedes marcar todo esto.
 
 ## Módulo siguiente
 
-El módulo 2, **Alimentación, niveles de tensión y límites eléctricos**, parte de la medida que acabas de hacer. Ahí se calculan la corriente de un LED externo, la diferencia entre un pin TTa y un pin FT, el tope de 25 mA y de 80 mA, y la secuencia correcta si algún día alimentas la placa por VIN. Todavía no se instala el compilador: eso es el módulo 3, para no mezclar un fallo de jumpers con un fallo de software.
+El módulo 2, **Alimentación, niveles de tensión y límites eléctricos**, ya está escrito en [ese capítulo](03-modulo-02-alimentacion.md). Parte de la medida que acabas de hacer. Ahí se calculan la corriente de un LED externo, la diferencia entre un pin TTa y un pin FT, el tope de 25 mA y de 80 mA, y la secuencia correcta si algún día alimentas la placa por VIN. Todavía no se instala el compilador: eso es el módulo 3, para no mezclar un fallo de jumpers con un fallo de software.

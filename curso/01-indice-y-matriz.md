@@ -17,6 +17,8 @@ Cada módulo, cuando se publique, traerá objetivos, prerrequisitos, teoría en 
 
 Los módulos prácticos traen al menos tres ejemplos de dificultad creciente. Los conceptuales traen ejercicios guiados sobre la placa. El formato de cada ejemplo con hardware es el de quince puntos pedido para el curso: problema, objetivo, materiales, explicación, dibujo, tabla de cableado, cálculos, CubeMX, código completo, sitio del código, prueba en VS Code, resultado esperado, diagnóstico, variaciones y criterios de aceptación.
 
+Cada módulo tiene ahora una ficha con el problema que resuelve, lo que se sabe al terminar, las tres prácticas, los pines y el límite que no se cruza. Las fichas están en [Fichas de los módulos](01b-fichas-modulos.md). El texto completo, con procedimientos, está escrito para el módulo 1 y para el módulo 2. Del 3 al 28 la ficha fija el contenido; el desarrollo línea a línea llega en la entrega de ese módulo.
+
 ## Índice
 
 ### Nivel básico
@@ -24,7 +26,7 @@ Los módulos prácticos traen al menos tres ejemplos de dificultad creciente. Lo
 | Módulo | Título | Estado de esta entrega |
 | --- | --- | --- |
 | 1 | Arquitectura de la tarjeta y función de cada parte | Escrito |
-| 2 | Alimentación, niveles de tensión y límites eléctricos | Siguiente |
+| 2 | Alimentación, niveles de tensión y límites eléctricos | Escrito |
 | 3 | Instalación y primer proyecto | Planificado |
 | 4 | Fundamentos de C aplicados a STM32 | Planificado |
 | 5 | GPIO: salidas, entradas, pull-up, pull-down y antirrebote | Planificado |
@@ -193,6 +195,6 @@ El relé, cuando aparezca en el módulo 10 y en los proyectos, se activa con tra
 
 ## Lo que no está en la primera entrega
 
-Están escritos el entorno, este índice y el módulo 1. El módulo 2 es el siguiente: alimentación, niveles y límites, con los cálculos que en el módulo 1 solo se nombran.
+Están escritos el entorno, este índice, las fichas de los 28 módulos y los módulos 1 y 2. Del módulo 3 en adelante la ficha ya dice qué se practica y con qué pines; el procedimiento, el código y el dibujo de cada ejemplo se publican con ese módulo.
 
 Cuando se publique un módulo, su carpeta de proyecto vivirá en `proyectos/` y el HTML se regenerará con `tools/build_html.py`.
